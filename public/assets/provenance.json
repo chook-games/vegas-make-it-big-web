@@ -1,0 +1,101 @@
+{
+  "description": "Original files used for the first web prototype. Paths relative to the game installation.",
+  "files": [
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/Slot_Type_1.lua",
+      "sha256": "632b11130edf8eb71fe2afeb54e9f9676d4486acf9f964ec3cdb5ce95b480d5b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/slot_thumb.tga",
+      "sha256": "cd6cb2f68b7c1b407a5a0bd8eb672830597882f0ed91664cc0eaa31d7e7b3c4f"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/BlackJack.lua",
+      "sha256": "651828d9e760f6120b979cc247b3530c690eeea0d570a29facd3016bf628c44d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/BLACKJACK_thumb.tga",
+      "sha256": "b9cab613a9069b9921a77ffe694f8bba28d95fef8e735b65330e6a4a9ceb186a"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/Roulette.lua",
+      "sha256": "0424ba1fd7845f87994737233ec8b815b431d31f4e3878cbcfbc3923026f5363"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/ROLT_thumb.tga",
+      "sha256": "a928b8ab203ab8445fbe30cda9347fa816f35472e6dbaa51391093ea9f90ba55"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/VideoPoker.lua",
+      "sha256": "a488f724347f38fba46560569be7c56fadd664c29c05bef0b56f62446e3a3ad2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/video_poker_thumb.tga",
+      "sha256": "da510229d6a4cb9486cb6e4383c2a7392c0ff071fccf59a926bfa1c848733a3b"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/CashiersDesk.lua",
+      "sha256": "342f24067e10e3169f6f3435a27f5509753c730c1aa8289390ee67a35f8649cd"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_cash_int_thumb.tga",
+      "sha256": "6479b070df715e8159d2ab90afa6377600a8ecf528b601cdd15c2b63284362ef"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/InteriorBar.lua",
+      "sha256": "5aed78381e005c03af1ae338963b1d668cf0fc4ff7bbb8391d79276b23607561"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_bar_int_thumb.tga",
+      "sha256": "fd2d5344a71aadb42f0aca9c5f3300b4942e2b86266d51431191ae76af11c688"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Interior MaleToilet.lua",
+      "sha256": "7b0044d42e3157c23f27fef48b46f69ad53ce65382f2103f7dee5b5e8b8a370f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_loo_m_int_thumb.tga",
+      "sha256": "9cb8fbb14bc1f322a910a059bb6960d7a367a275ab98cf2758a077831e7938e6"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/SecurityINT.lua",
+      "sha256": "8b9c4604972ff81ec747c09f620f9a5e3ce5235e188c8f1fe8df0c3f523ccf28"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_sec_int_thumb.tga",
+      "sha256": "69f255169d8fc59605fa1fd923711e06e61ad682243340c5e3e8abc493e1fa67"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/JanitorINT.lua",
+      "sha256": "49113095c4b1cd165f2d3e12812b766e12cfe71d3449317080a2bf9e1fea2362"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_jan_closet_int_thumb.tga",
+      "sha256": "d205b6458594edcce6866f53e367f8b74cb0bb99bbf1abf18187cf8bf893a9d8"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/IntMechanic.lua",
+      "sha256": "96ed0edadd9fbdda8227aab374e6963f31b15297b3f32b71d535db77ca4ae0f0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_mechanic_closet_int_thumb.tga",
+      "sha256": "598d1aa6dea183d690e8fd7cd0bb9ad468390989d1b178e64a2d05c937a9f739"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotTree1x1_INT.lua",
+      "sha256": "37581765932c35cfe522f97b131c405dcd7ee1dd0881c2d894572fe0fbeefba9"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/pottree1x1_dc_int_thumb.tga",
+      "sha256": "57c294cda87a6abd8477ffd336e6b61f4d389386b7b91cde33fbb1f1840df72c"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Sofa.lua",
+      "sha256": "8fc55ec908083d617dbf960679d37daf976649d7fafec30187348152679cb621"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/sofa_dc_int_thumb.tga",
+      "sha256": "03d96f9327015d9acd73c050585d226480be8ffc080eb4f752b26e4e974c5e35"
+    }
+  ]
+}

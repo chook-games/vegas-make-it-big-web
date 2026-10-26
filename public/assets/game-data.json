@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "catalog": [
+    {
+      "id": "slot",
+      "name": "Slot machine",
+      "category": "gaming",
+      "width": 1,
+      "depth": 3,
+      "cost": 120,
+      "resale": 60,
+      "capacity": 1,
+      "runningCost": 2,
+      "power": 5,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "slot.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/Slot_Type_1.lua"
+    },
+    {
+      "id": "blackjack",
+      "name": "Blackjack",
+      "category": "gaming",
+      "width": 7,
+      "depth": 6,
+      "cost": 400,
+      "resale": 200,
+      "capacity": 7,
+      "runningCost": 25,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "blackjack.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/BlackJack.lua"
+    },
+    {
+      "id": "roulette",
+      "name": "Roulette",
+      "category": "gaming",
+      "width": 8,
+      "depth": 5,
+      "cost": 700,
+      "resale": 350,
+      "capacity": 6,
+      "runningCost": 40,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "roulette.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/Roulette.lua"
+    },
+    {
+      "id": "poker",
+      "name": "Video poker",
+      "category": "gaming",
+      "width": 1,
+      "depth": 3,
+      "cost": 150,
+      "resale": 75,
+      "capacity": 1,
+      "runningCost": 2,
+      "power": 10,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "poker.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/VideoPoker.lua"
+    },
+    {
+      "id": "cashier",
+      "name": "Cashier’s desk",
+      "category": "service",
+      "width": 5,
+      "depth": 5,
+      "cost": 500,
+      "resale": 250,
+      "capacity": 10,
+      "runningCost": 105,
+      "power": 35,
+      "water": 0,
+      "duration": 15,
+      "thumbnail": "cashier.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/CashiersDesk.lua"
+    },
+    {
+      "id": "bar",
+      "name": "Casino bar",
+      "category": "service",
+      "width": 11,
+      "depth": 9,
+      "cost": 1200,
+      "resale": 600,
+      "capacity": 9,
+      "runningCost": 120,
+      "power": 30,
+      "water": 30,
+      "duration": 20,
+      "thumbnail": "bar.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/InteriorBar.lua"
+    },
+    {
+      "id": "restroom",
+      "name": "Restroom",
+      "category": "service",
+      "width": 8,
+      "depth": 5,
+      "cost": 250,
+      "resale": 125,
+      "capacity": 9,
+      "runningCost": 30,
+      "power": 10,
+      "water": 40,
+      "duration": 10,
+      "thumbnail": "restroom.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Interior MaleToilet.lua"
+    },
+    {
+      "id": "security",
+      "name": "Security office",
+      "category": "staff",
+      "width": 5,
+      "depth": 3,
+      "cost": 500,
+      "resale": 250,
+      "capacity": 0,
+      "runningCost": 250,
+      "power": 50,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "security.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/SecurityINT.lua"
+    },
+    {
+      "id": "cleaner",
+      "name": "Cleaner’s closet",
+      "category": "staff",
+      "width": 5,
+      "depth": 4,
+      "cost": 300,
+      "resale": 150,
+      "capacity": 3,
+      "runningCost": 40,
+      "power": 40,
+      "water": 50,
+      "duration": 10,
+      "thumbnail": "cleaner.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/JanitorINT.lua"
+    },
+    {
+      "id": "mechanic",
+      "name": "Mechanic’s closet",
+      "category": "staff",
+      "width": 5,
+      "depth": 4,
+      "cost": 300,
+      "resale": 150,
+      "capacity": 3,
+      "runningCost": 60,
+      "power": 70,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "mechanic.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/IntMechanic.lua"
+    },
+    {
+      "id": "plant",
+      "name": "Potted tree",
+      "category": "decor",
+      "width": 1,
+      "depth": 1,
+      "cost": 120,
+      "resale": 60,
+      "capacity": 1,
+      "runningCost": 0,
+      "power": 0,
+      "water": 5,
+      "duration": 10,
+      "thumbnail": "plant.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotTree1x1_INT.lua"
+    },
+    {
+      "id": "sofa",
+      "name": "Sofa",
+      "category": "decor",
+      "width": 2,
+      "depth": 3,
+      "cost": 150,
+      "resale": 75,
+      "capacity": 2,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 30,
+      "thumbnail": "sofa.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Sofa.lua"
+    }
+  ],
+  "campaign": [
+    "Welcome to The Strip",
+    "King of the Hill",
+    "Top of the Heap",
+    "Big Spenders",
+    "Convention Season",
+    "High Hopes",
+    "All Shook Up",
+    "Shop til you Drop",
+    "The Ace of Clubs",
+    "Viva Las Vegas"
+  ],
+  "formats": {
+    ".cur": {
+      "count": 22,
+      "bytes": 28204
+    },
+    ".ddt": {
+      "count": 1339,
+      "bytes": 91761192
+    },
+    ".tga": {
+      "count": 1067,
+      "bytes": 52927994
+    },
+    ".ttb": {
+      "count": 2,
+      "bytes": 6224
+    },
+    ".tm": {
+      "count": 883,
+      "bytes": 40862228
+    },
+    ".pss": {
+      "count": 2,
+      "bytes": 75231
+    },
+    ".bmp": {
+      "count": 1,
+      "bytes": 2406
+    },
+    ".dds": {
+      "count": 1,
+      "bytes": 16512
+    },
+    ".lua": {
+      "count": 1329,
+      "bytes": 77642362
+    },
+    ".cmb": {
+      "count": 24,
+      "bytes": 18616192
+    },
+    ".cmf": {
+      "count": 24,
+      "bytes": 20733817
+    },
+    ".cmf_": {
+      "count": 1,
+      "bytes": 48209
+    },
+    ".ogg": {
+      "count": 89,
+      "bytes": 102522448
+    },
+    ".uni": {
+      "count": 6,
+      "bytes": 5002058
+    }
+  }
+}
