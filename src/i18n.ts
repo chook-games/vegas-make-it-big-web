@@ -32,6 +32,15 @@ const customEnglish: Record<string, string> = {
   ID_WEB_NEW_CASINO_CONFIRM_TEXT: 'Your current progress and saved game will be replaced.',
   ID_FRONTEND_OBJECTIVES: 'Objectives', ID_INGAME_SAVEGAME_TITLE: 'Save Game', ID_IG_QUIT_TO_MAINMENU: 'Return to Main Menu',
   ID_WEB_CAMPAIGN_PENDING: 'The original scenario objectives and maps are not playable yet. Use Sandbox to play the current prototype.',
+  ID_WEB_SELECT_LOT_FIRST: 'Select Lot 1 before buying it.', ID_WEB_SELECT_THEME: 'Select a Theme',
+  ID_WEB_NOT_ENOUGH_CASH: 'Not enough money.', ID_WEB_BUY_LOT_FIRST: 'Buy your first Lot before building.',
+  ID_WEB_BUILD_SMALL_HOTEL_FIRST: 'Build a Small Hotel for your first guests.',
+  ID_WEB_PATHS_NEXT: 'Next objective: connect the hotel to the lot edge with paving.',
+  ID_WEB_PROGRESS: 'Progress', ID_WEB_STATUS: 'Status', ID_WEB_LOT_COST: 'Lot price',
+  ID_WEB_LOT_ONE: 'Lot 1', ID_WEB_SELECT_LOT: 'Select Lot 1', ID_WEB_BUY_LOT: 'Buy',
+  ID_WEB_LOT_FOR_SALE: 'This lot is available to buy for', ID_WEB_BUILD_OBJECTS: 'Build Objects',
+  ID_WEB_HOTEL_REQUIRED: 'This hotel is required for the tutorial.',
+  ID_WEB_TUTORIAL_SLICE_END: 'Your Small Hotel has been built. The next original objective is Build Path: connect the hotel to the outer edge of the lot.\n\nPaving, original entrance plates and the following tutorial tasks are still being ported. This is the end of the currently playable opening sequence, not completion of the original scenario. You can inspect the hotel, save progress or return to the main menu.',
 };
 let active: Locale = 'en';
 try { active = localStorage.getItem('vegas-language') === 'el' ? 'el' : 'en'; } catch { /* English remains the default. */ }

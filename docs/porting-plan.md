@@ -12,9 +12,31 @@ configuration text and notifications; untranslated entries fall back to English.
 Greek coverage is partial, not a complete translation of the original game.
 
 The main menu contains Campaign, Sandbox, Load Game, Configuration, Credits and
-Quit. Campaign selection displays original mission names but does not start
-unimplemented scenarios. Sandbox starts the existing casino prototype. Returning
-to the menu pauses simulation; opening the menu alone never overwrites a save.
+Quit. Welcome to the Strip starts the opening tutorial slice described below;
+other campaign entries still preview original names. Sandbox starts the existing
+casino prototype. Returning to the menu pauses simulation; opening the menu alone
+never overwrites a save.
+
+### Welcome to the Strip: opening sequence
+
+- Starts at 09:00 / Day 1 with $250,000, verified against scenario setup/default Lua.
+- Objectives table exposes the original Buy your first Lot / Build a Hotel / Build
+  Path descriptions and completion statuses.
+- Lot 1 can be selected on the ground or through its context panel. Purchase opens
+  theme selection. Generic and Greece match the initial campaign theme unlocks.
+- Lot price is $16,000, as shown in user references Untitled7/8. Accepting a theme
+  debits this once. Cancelling or trying to buy twice cannot charge again.
+- The construction sequence exposes only Small Hotel ($3,000, 13×11 footprint).
+  Rotation, collision checks and cash deductions work in the minimal exterior.
+- Ownership, theme and placed hotel persist in saves; the required hotel cannot
+  be sold during this tutorial slice. Existing sandbox saves still load.
+- Original tutorial messages render embedded GUI icons. New Greek translations
+  cover the opening messages, objectives, theme selection and lot actions.
+- After the hotel, Build Path is pending. Paving, original entrance plates, guests
+  entering the hotel and later tasks are not implemented. No scenario win or
+  campaign unlock is awarded for this opening slice.
+- The 48×40 lot, roads and surrounding boxes are newly generated minimal geometry;
+  the original CMF/CMB map, exact lot dimensions and city simulation remain unported.
 
 Reviewed user references `Untitled1.jpg` through `Untitled10.jpg`: green frontend
 and tutorial dialogs, bronze world HUD, lavender lot panels, original objective
@@ -103,8 +125,9 @@ resolver and this directory alias. Web URLs themselves must remain case-correct.
 - The first goal (50 arrivals + $1,000 net play/service income) is a new prototype
   goal, not the original training mission. Net play/service income excludes daily
   overhead and construction costs; it is not total business profit.
-- Casino-interior and exterior object categories are selectable, but there is
-  not yet a separate exterior map/lot scene or hotel/lot ownership workflow.
+- Casino-interior and exterior object categories are selectable in sandbox.
+  The tutorial now has a separate minimal exterior/lot-ownership workflow; it is
+  not a full world-map/casino-interior implementation.
 - No original terrain levels, playable campaigns, opponents, progression, full
   soundscape or original savegame compatibility yet.
 

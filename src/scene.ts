@@ -21,6 +21,8 @@ export class CasinoScene {
   private floor = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
   private thumbnailTextures = new Map<string, THREE.Texture>();
   private observer: ResizeObserver;
+  private room = new THREE.Group();
+  private exterior = new THREE.Group();
 
   constructor(public host: HTMLElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
@@ -49,6 +51,8 @@ export class CasinoScene {
     sun.target.position.set(24, 0, 20);
     this.scene.add(sun, sun.target);
     this.makeRoom();
+    this.makeExterior(); this.exterior.visible = false;
+    this.scene.add(this.room, this.exterior);
     this.selection.visible = false;
     this.scene.add(this.ghost, this.selection);
     this.observer = new ResizeObserver(() => this.resize());
@@ -75,19 +79,43 @@ export class CasinoScene {
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping; texture.repeat.set(24, 20);
     texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
     const floor = new THREE.Mesh(new THREE.PlaneGeometry(WIDTH, DEPTH), new THREE.MeshStandardMaterial({ map: texture, roughness: .95 }));
-    floor.rotation.x = -Math.PI / 2; floor.position.set(24, .01, 20); floor.receiveShadow = true; this.scene.add(floor);
-    this.box(this.scene, WIDTH + 1, .7, DEPTH + 1, 24, -.4, 20, 0x121921);
-    this.box(this.scene, WIDTH, 1.3, .4, 24, .65, 0, 0x283746);
-    this.box(this.scene, .4, 1.3, DEPTH, 0, .65, 20, 0x283746);
-    this.box(this.scene, WIDTH, .12, .5, 24, 1.35, 0, 0xf4c76e, true);
-    this.box(this.scene, .5, .12, DEPTH, 0, 1.35, 20, 0xf4c76e, true);
+    floor.rotation.x = -Math.PI / 2; floor.position.set(24, .01, 20); floor.receiveShadow = true; this.room.add(floor);
+    this.box(this.room, WIDTH + 1, .7, DEPTH + 1, 24, -.4, 20, 0x121921);
+    this.box(this.room, WIDTH, 1.3, .4, 24, .65, 0, 0x283746);
+    this.box(this.room, .4, 1.3, DEPTH, 0, .65, 20, 0x283746);
+    this.box(this.room, WIDTH, .12, .5, 24, 1.35, 0, 0xf4c76e, true);
+    this.box(this.room, .5, .12, DEPTH, 0, 1.35, 20, 0xf4c76e, true);
     for (let x = 3; x < 48; x += 7) {
-      this.box(this.scene, .6, 3.5, .6, x, 1.75, .7, 0xc6ae80);
-      this.box(this.scene, .9, .15, .9, x, 3.5, .7, 0xf6d38c);
+      this.box(this.room, .6, 3.5, .6, x, 1.75, .7, 0xc6ae80);
+      this.box(this.room, .9, .15, .9, x, 3.5, .7, 0xf6d38c);
     }
-    this.box(this.scene, 4, .04, 2, 24.5, .04, 39, 0x9d7647);
-    this.label(this.scene, 'VEGA$  /  MAKE IT BIG!', 24, 2.3, .8, 16, 1.5);
-    this.label(this.scene, 'ENTRANCE', 24.5, .08, 38.8, 4, .6, true);
+    this.box(this.room, 4, .04, 2, 24.5, .04, 39, 0x9d7647);
+    this.label(this.room, 'VEGA$  /  MAKE IT BIG!', 24, 2.3, .8, 16, 1.5);
+    this.label(this.room, 'ENTRANCE', 24.5, .08, 38.8, 4, .6, true);
+  }
+  private makeExterior() {
+    this.box(this.exterior, 160, .5, 150, 24, -.4, 20, 0xa49a83);
+    this.box(this.exterior, WIDTH, .1, DEPTH, 24, -.04, 20, 0xc1ad89);
+    for (const x of [-5, 53]) {
+      this.box(this.exterior, 6, .08, 150, x, -.05, 20, 0x545c62);
+      for (let z = -50; z < 90; z += 5) this.box(this.exterior, .13, .03, 2, x, .01, z, 0xd4cbb1);
+    }
+    for (const z of [-5, 45]) {
+      this.box(this.exterior, 160, .08, 6, 24, -.04, z, 0x545c62);
+      for (let x = -50; x < 100; x += 5) this.box(this.exterior, 2, .03, .13, x, .01, z, 0xd4cbb1);
+    }
+    for (const x of [-24, 73]) for (const z of [-25, 12, 65]) {
+      this.box(this.exterior, 15, 9, 16, x, 4.4, z, 0x8b979d);
+      this.box(this.exterior, 16, .4, 17, x, 9, z, 0x536375);
+    }
+    for (let x = 1; x < WIDTH; x += 3) {
+      this.box(this.exterior, .1, 1, .1, x, .5, 0, 0x999182);
+      this.box(this.exterior, .1, 1, .1, x, .5, DEPTH, 0x999182);
+    }
+  }
+  setExterior(enabled: boolean) {
+    this.exterior.visible = enabled; this.room.visible = !enabled;
+    this.renderer.setClearColor(enabled ? 0x969a9c : 0x101a26);
   }
   private label(parent: THREE.Object3D, text: string, x: number, y: number, z: number, w: number, h: number, flat = false) {
     const canvas = document.createElement('canvas'); canvas.width = 1024; canvas.height = 128;
@@ -122,7 +150,14 @@ export class CasinoScene {
     const group = new THREE.Group(), w = item.width, d = item.depth;
     const color = palette[item.id] ?? 0xb99254;
     this.box(group, w * .92, .12, d * .92, 0, .09, 0, 0x9a804d);
-    if (item.id === 'plant') {
+    if (item.id === 'smallhotel') {
+      this.box(group, w * .83, 5, d * .7, 0, 2.6, 0, 0xd5c49c);
+      this.box(group, w * .88, .35, d * .76, 0, 5.25, 0, 0x768998);
+      for (let x = -4; x <= 4; x += 2) for (let y = 1.4; y < 5; y += 1.4) {
+        this.box(group, .9, .8, .08, x, y, d * .355, 0x526f80);
+      }
+      this.box(group, 1.8, 1.8, .12, 0, 1, d * .36, 0x3b424b);
+    } else if (item.id === 'plant') {
       this.box(group, .7, .6, .7, 0, .4, 0, 0xb49b70);
       this.box(group, .16, 1.5, .16, 0, 1.2, 0, 0x795a36);
       const leaves = new THREE.Mesh(new THREE.IcosahedronGeometry(.8, 1), new THREE.MeshStandardMaterial({ color }));

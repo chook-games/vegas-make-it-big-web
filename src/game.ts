@@ -1,3 +1,5 @@
+import { tutorialBuildError, validateTutorial, type TutorialState } from './tutorial.ts';
+
 export interface CatalogItem {
   id: string;
   name: string;
@@ -55,6 +57,7 @@ export interface GameState {
   totalVisitors: number;
   completed: boolean;
   open: boolean;
+  tutorial?: TutorialState;
 }
 export const WIDTH = 48;
 export const DEPTH = 40;
@@ -111,6 +114,8 @@ export function accessCell(b: Building, item: CatalogItem, blocked: Set<number>)
 }
 export function canPlace(state: GameState, item: CatalogItem, x: number, z: number,
   rotation: number, catalog: CatalogItem[]): string | null {
+  const tutorialError = tutorialBuildError(state, item);
+  if (tutorialError) return tutorialError;
   if (!Number.isInteger(x) || !Number.isInteger(z)) return 'Choose a position on the floor.';
   if (state.cash < item.cost) return 'Not enough money.';
   const { w, d } = dimensions(item, rotation);
@@ -142,6 +147,7 @@ export function place(state: GameState, item: CatalogItem, x: number, z: number,
 export function sell(state: GameState, uid: number, catalog: CatalogItem[]) {
   const b = state.buildings.find(b => b.uid === uid);
   if (!b) return;
+  if (state.tutorial && b.type === 'smallhotel') return;
   state.cash += catalog.find(c => c.id === b.type)!.resale;
   state.buildings = state.buildings.filter(b => b.uid !== uid);
   for (const g of state.guests) if (g.target === uid) { g.target = null; g.timer = 0; g.path = []; }
@@ -216,7 +222,7 @@ export class Simulation {
       g.target = target.uid; g.path = route; g.activity = 'walking';
     }
     s.guests = s.guests.filter(g => g.activity !== 'gone');
-    s.completed ||= s.totalVisitors >= 50 && s.income >= 1000;
+    if (!s.tutorial) s.completed ||= s.totalVisitors >= 50 && s.income >= 1000;
   }
   private item(b: Building) { return this.catalog.find(c => c.id === b.type)!; }
   private visit(g: Guest, b: Building) {
@@ -253,6 +259,7 @@ export function restore(raw: string, catalog: CatalogItem[]): GameState {
     throw new Error('Invalid save data.');
   }
   const seen = new Set<number>();
+  validateTutorial(s);
   const check = createGame(); check.cash = Number.MAX_SAFE_INTEGER;
   for (const b of s.buildings) {
     const item = catalog.find(c => c.id === b.type);

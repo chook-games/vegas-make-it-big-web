@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { Simulation, createGame, canPlace, place, sell, pathTo, serialize, restore,
   DAY_SECONDS, WIDTH, DEPTH, type CatalogItem } from '../src/game.ts';
+import { beginTutorial, purchaseLot, tutorialStage } from '../src/tutorial.ts';
 
 const { catalog } = JSON.parse(readFileSync(new URL('../public/assets/game-data.json', import.meta.url), 'utf8')) as { catalog: CatalogItem[] };
 const item = (id: string) => catalog.find(c => c.id === id)!;
@@ -73,4 +74,30 @@ test('saves roundtrip economy, reject corrupt data and overlapping footprints', 
   assert.throws(() => restore(JSON.stringify({ ...s, cash: 'NaN' }), catalog));
   assert.throws(() => restore(JSON.stringify({ ...s, buildings: [{ ...s.buildings[0], type: 'missing' }] }), catalog));
   assert.throws(() => restore(JSON.stringify({ ...s, nextId: 10, buildings: [s.buildings[0], { ...s.buildings[0], uid: 9 }] }), catalog));
+});
+test('opening tutorial enforces ownership, theme, single hotel and saved progression', () => {
+  const s = beginTutorial(createGame());
+  assert.equal(s.cash, 250000);
+  assert.equal(tutorialStage(s), 'lot');
+  assert.ok(place(s, item('smallhotel'), 10, 10, 0, catalog));
+  assert.ok(purchaseLot(s, 'Generic'));
+  s.tutorial!.lotSelected = true;
+  assert.ok(purchaseLot(s, 'unknown'));
+  assert.equal(s.cash, 250000);
+  assert.equal(purchaseLot(s, 'Greece'), null);
+  assert.equal(s.cash, 234000);
+  assert.ok(purchaseLot(s, 'Generic'));
+  assert.equal(tutorialStage(s), 'hotel');
+  assert.ok(place(s, item('slot'), 4, 4, 0, catalog));
+  assert.equal(place(s, item('smallhotel'), 10, 10, 1, catalog), null);
+  assert.equal(s.cash, 231000);
+  assert.equal(tutorialStage(s), 'paths');
+  assert.ok(place(s, item('smallhotel'), 26, 10, 0, catalog));
+  sell(s, s.buildings[0].uid, catalog);
+  assert.equal(s.buildings.length, 1, 'Required hotel cannot be sold');
+  const loaded = restore(serialize(s), catalog);
+  assert.equal(tutorialStage(loaded), 'paths');
+  assert.equal(loaded.tutorial!.theme, 'Greece');
+  assert.equal(loaded.cash, 231000);
+  assert.throws(() => restore(JSON.stringify({ ...s, tutorial: { ...s.tutorial, lotOwned: false } }), catalog));
 });

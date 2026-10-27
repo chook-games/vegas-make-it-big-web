@@ -38,6 +38,35 @@ button:focus-visible { outline: 2px solid #fff2a8; outline-offset: 1px; }
 .campaign-actions button:disabled { opacity: .45; }
 .credits-panel { width: 275px; padding: 1px 12px 12px; text-align: center; font-size: 12px; }
 .credits-panel p { line-height: 1.7; }
+.tutorial-mode .classic-build { display: none; }
+.tutorial-mode.tutorial-building .classic-build { display: block; left: 8px; transform: none; bottom: 8px; }
+.tutorial-mode.tutorial-building .lot-control { display: none; }
+.lot-control { position: absolute; left: 0; bottom: 0; width: min(635px,80vw); border: 3px ridge #a6a3c0; padding: 4px 10px 8px 115px; background: linear-gradient(120deg,#6b697fae,#79748ddf); box-shadow: 0 2px 8px #0008; color: #fff; font: bold 11px 'Courier New',monospace; min-height: 115px; }
+.lot-heading { padding: 3px 7px; border: 1px solid #b9b6c9; background: #56556f; }
+.lot-content { padding: 4px 8px; background: #38384d7a; }
+.lot-content p { margin: 6px 0; }
+.lot-content button { padding: 5px 12px; margin: 2px 6px 0 0; background: linear-gradient(#9391aa,#55546e); border: 2px ridge #b9b6c9; color: #fff; font: bold 11px 'Courier New',monospace; }
+.lot-content button:disabled { opacity: .5; cursor: default; }
+.original-dialog { background: linear-gradient(115deg,#7f9e78ed,#4a7c51e8 80%,#91a284); border: 3px ridge #bfbea0; padding: 10px; width: min(430px,90vw); font: bold 12px 'Courier New',monospace; color: white; }
+.original-dialog h2 { margin: 0 0 10px; padding: 5px; text-align: center; font: bold 14px 'Courier New',monospace; border: 1px solid #b1c299; background: #275433a8; }
+.original-dialog .original-text { white-space: pre-wrap; max-height: 260px; min-height: 145px; overflow: auto; padding: 10px; background: #25492db3; border: 2px inset #9db28d; font-size: 12px; line-height: 1.4; }
+.inline-game-icon { width: 22px; height: 22px; object-fit: contain; vertical-align: middle; }
+.theme-grid span img { width: 64px; height: 64px; object-fit: contain; }
+.original-dialog footer { display: flex; justify-content: space-between; border-top: 1px solid #bdc5a6; padding-top: 10px; margin-top: 10px; }
+.original-dialog footer button { font-size: 16px; border-radius: 50%; color: #d9e2a3; }
+.original-dialog footer button:only-child { margin-left: auto; }
+#objectives-dialog { width: min(600px,92vw); }
+.objective-table { width: 100%; border: 2px inset #a6b499; border-collapse: collapse; min-height: 120px; background: #315f3fbc; }
+.objective-table th { font-size: 12px; padding: 5px 3px; background: #3f7849; }
+.objective-table td { padding: 6px; font-size: 11px; }
+.objective-table td:nth-child(3) { color: #f0d45c; text-align: center; }
+.objective-table meter { width: 65px; height: 10px; }
+.objective-table button { padding: 0 4px; }
+#theme-dialog { background: linear-gradient(#9b98b9da,#74718ee8); }
+.theme-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; padding: 12px; background: #4f4c66a3; border: 2px inset #aca9bf; }
+.theme-grid button { min-height: 90px; padding: 7px; background: #68657f; border: 2px outset #aca9bf; font-size: 11px; }
+.theme-grid button span { display: block; font-size: 34px; padding: 5px; }
+.theme-grid button.selected { background: #4c7e3e; border-color: #edebba; }
 .language-picker, .frontend-panel { text-shadow: 1px 1px #253426; }
 .classic-top-left, .classic-top-right, .classic-build, .classic-left-tools, .classic-actions, .inspector, .classic-objectives, .placement { background: linear-gradient(180deg, #777c7a, #444a4e 20%, #555b5d 80%, #292f33); border: 1px solid #999c9b; box-shadow: inset 1px 1px #c3c2b6, inset -1px -1px #242a30, 0 2px 5px #0007; color: #fff; }
 .classic-top-left { position: absolute; left: 0; top: 0; height: 43px; display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 0 0 3px 0; }

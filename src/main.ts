@@ -1,6 +1,8 @@
 import './style.css';
 import { CasinoScene } from './scene';
 import { language, localizeDocument, setLanguage, translate as t } from './i18n';
+import { beginTutorial, tutorialStage } from './tutorial';
+import { TutorialUI } from './tutorial-ui';
 import { Simulation, createGame, canPlace, place, sell, restore, serialize, SAVE_KEY,
   DAY_SECONDS, type CatalogItem, type GameState } from './game';
 
@@ -75,6 +77,13 @@ async function start() {
     <dialog id="confirm-dialog"><h2 data-i18n="ID_WEB_NEW_CASINO_CONFIRM">Start a new casino?</h2><p data-i18n="ID_WEB_NEW_CASINO_CONFIRM_TEXT">Your current progress and saved game will be replaced.</p><div class="dialog-actions"><button id="cancel-new" data-i18n="ID_GENERAL_CANCEL">Cancel</button><button id="confirm-new" class="primary" data-i18n="ID_WEB_NEW_GAME">New Game</button></div></dialog>`;
   const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
   const world = new CasinoScene($('viewport'));
+  const tutorialUI = new TutorialUI(() => state, () => {
+    major = 0; minor = 'BUILDING_MINOR_GROUP_EXT_HOTELS'; choose(null); renderGroups(); renderMinors(); renderCatalog();
+  }, () => { renderCatalog(); updateHud(); }, message => toast(message), async file => {
+    const key = `ui:${file}`;
+    if (!images.has(key)) images.set(key, await world.sprite(file));
+    return images.get(key)!;
+  });
   document.querySelector('.classic-ui')!.classList.add('game-hidden');
   $<HTMLSelectElement>('language-select').value = language();
   localizeDocument(app);
@@ -158,23 +167,20 @@ async function start() {
     });
   }
   function showMainMenu() {
+    tutorialUI.close();
     $('main-menu').hidden = false; $('campaign-menu').hidden = true; $('credits-panel').hidden = true;
     $('frontend').hidden = false; document.querySelector('.classic-ui')!.classList.add('game-hidden');
     inGame = false; speed = 0;
     try { $('menu-load').toggleAttribute('disabled', !localStorage.getItem(SAVE_KEY)); } catch { $('menu-load').setAttribute('disabled', ''); }
   }
   function startGame(scenario: string | null, restored?: GameState) {
-    state = restored ?? createGame(); sim = new Simulation(state, catalog); inGame = true; speed = 1;
+    state = restored ?? (scenario === data.campaign[0] ? beginTutorial(createGame()) : createGame());
+    sim = new Simulation(state, catalog); inGame = true; speed = 1;
     $('frontend').hidden = true; document.querySelector('.classic-ui')!.classList.remove('game-hidden');
-    major = 4; minor = ''; choose(null); world.sync(state.buildings, state.guests, catalog, null);
+    major = state.tutorial ? 0 : 4; minor = ''; choose(null); world.sync(state.buildings, state.guests, catalog, null);
+    world.setExterior(!!state.tutorial); tutorialUI.start();
     document.querySelectorAll<HTMLButtonElement>('[data-speed]').forEach(button => button.classList.toggle('active', Number(button.dataset.speed) === speed));
     updateHud();
-    if (scenario === data.campaign[0]) {
-      $('tutorial-title').textContent = t('ID_SCENARIO_NWS_WELCOME_NAME', 'Welcome to the Strip!');
-      $('tutorial-text').textContent = t('ID_SCENARIO_NWS_WELCOME_DESC', 'Welcome to Vegas: Make It Big! Use the objectives panel to review your first task.')
-        .replace(/<[^>]*>/g, '').replaceAll('  ', ' ');
-      $<HTMLDialogElement>('tutorial-dialog').showModal();
-    }
   }
   localizeDocument(app);
   renderCampaigns();
@@ -183,7 +189,8 @@ async function start() {
     return t(`ID_BUILDING_MINOR_GROUP_${suffix}`, minorNames[key] ?? key);
   }
   function renderCatalog() {
-    const visible = catalog.filter(c => c.major === major && (minor === '' || (c.minor ?? c.category) === minor));
+    const visible = catalog.filter(c => c.major === major && (minor === '' || (c.minor ?? c.category) === minor) &&
+      (!state.tutorial || c.id === 'smallhotel'));
     $('object-count').textContent = `${visible.length} objects`;
     const missing = visible.filter(item => item.thumbnail && !images.has(item.id) && !pendingImages.has(item.id));
     for (const item of missing) pendingImages.add(item.id);
@@ -205,7 +212,7 @@ async function start() {
     $('placement').hidden = !build;
     if (build) {
       $('placement').classList.toggle('invalid', !!error && hasPointer);
-      $('placement').innerHTML = `<span>${t(build.nameKey, build.name)} <b>${money(build.cost)}</b></span><small>${hasPointer && error ? error : t('ID_WEB_PLACE_HINT')}</small>`;
+      $('placement').innerHTML = `<span>${t(build.nameKey, build.name)} <b>${money(build.cost)}</b></span><small>${hasPointer && error ? t(error, error) : t('ID_WEB_PLACE_HINT')}</small>`;
     }
   }
   function updateInspector() {
@@ -215,6 +222,7 @@ async function start() {
     const item = catalog.find(c => c.id === b.type)!;
     $('inspector').innerHTML = `<div class="section-heading"><span class="eyebrow">${t('ID_WEB_SELECTED_OBJECT')}</span><button id="deselect" class="text-button" aria-label="${t('ID_GENERAL_CLOSE')}">×</button></div><h2>${t(item.nameKey, item.name)}</h2><div class="inspector-grid"><span>${t('ID_BUILDING_TYPE_HEALTH', 'Health')} <b>${Math.round(b.health)}%</b></span><span>${t('ID_BUILDING_TYPE_TOTALVISITS', 'Visits')} <b>${b.visits}</b></span><span>${t('ID_GENERAL_INCOME', 'Income')} <b>${money(b.income)}</b></span><span>${t('ID_GENERAL_RUNNINGCOSTS', 'Daily Costs')} <b>${money(item.runningCost + item.power + item.water)}</b></span></div><small class="muted">${t('ID_WEB_FOOTPRINT')}: ${item.width} × ${item.depth} · ${t('ID_BUILDING_TYPE_CAPACITY', 'Capacity')} ${item.capacity}</small><button id="sell" class="sell-button">${t('ID_BUILDING_TYPE_SELL', 'Sell')} · +${money(item.resale)}</button>`;
     $('sell').onclick = () => { sell(state, b.uid, catalog); selected = null; updateInspector(); toast(t('ID_WEB_OBJECT_SOLD')); };
+    if (state.tutorial) { ($('sell') as HTMLButtonElement).disabled = true; $('sell').title = t('ID_WEB_HOTEL_REQUIRED'); }
     $('deselect').onclick = () => { selected = null; updateInspector(); };
   }
   function updateHud() {
@@ -223,16 +231,23 @@ async function start() {
     $('income').textContent = money(state.income);
     $('day').textContent = String(Math.floor(state.elapsed / DAY_SECONDS) + 1).padStart(2, '0');
     $('daily-cost').textContent = `${t('ID_GENERAL_DAILY_COST', 'Daily Costs')} ${money(sim.dailyCost())}`;
-    $('empty-hint').hidden = state.buildings.length > 0 || !!build;
+    $('empty-hint').hidden = !!state.tutorial || state.buildings.length > 0 || !!build;
     $('objective-count').textContent = `${state.totalVisitors} / 50 ${t('ID_GENERAL_VISITORS', 'visitors')} · ${money(state.income)} / $1,000`;
     $('progress').style.width = `${Math.min(100, Math.max(0, Math.min(state.totalVisitors / 50, state.income / 1000)) * 100)}%`;
     $('objective-title').textContent = state.completed ? t('ID_WEB_GOAL_COMPLETE') : t('ID_SCENARIO_NWS_WELCOME_NAME', 'Welcome to the Strip!');
+    if (state.tutorial) {
+      const stage = tutorialStage(state);
+      $('objective-count').textContent = t(stage === 'lot' ? 'ID_SCENARIO_NWS_OBJ_OBJECTIVE_NAME' : stage === 'hotel' ? 'ID_SCENARIO_NWS_OBJ_BUILD_NAME' : 'ID_SCENARIO_NWS_OBJ_PATHS_NAME');
+      $('progress').style.width = `${['lot','hotel','paths'].indexOf(stage) / 3 * 100}%`;
+    }
     $('toggle-open').textContent = state.open ? 'CASINO OPEN' : 'CASINO CLOSED';
     $('game-clock').textContent = `${String(Math.floor((state.elapsed % DAY_SECONDS) / DAY_SECONDS * 24)).padStart(2, '0')}:00`;
     updateInspector();
+    tutorialUI.render();
   }
   function changeState(next: GameState) {
     state = next; sim = new Simulation(state, catalog); choose(null); world.sync(state.buildings, [], catalog, null); updateHud();
+    world.setExterior(!!state.tutorial); tutorialUI.start();
   }
   function save(automatic = false) {
     try { localStorage.setItem(SAVE_KEY, serialize(state)); if (!automatic) toast(t('ID_WEB_GAME_SAVED')); }
@@ -264,7 +279,8 @@ async function start() {
   $('credits-close').onclick = () => { $('credits-panel').hidden = true; $('main-menu').hidden = false; };
   $('campaign-cancel').onclick = () => { $('campaign-menu').hidden = true; $('main-menu').hidden = false; };
   $('campaign-accept').onclick = () => {
-    if (selectedScenario) $('campaign-description').textContent = t('ID_WEB_CAMPAIGN_PENDING');
+    if (selectedScenario === data.campaign[0]) startGame(selectedScenario);
+    else if (selectedScenario) $('campaign-description').textContent = t('ID_WEB_CAMPAIGN_PENDING');
   };
   $('menu-quit').onclick = () => toast(t('ID_WEB_CLOSE_TAB_TO_QUIT'));
   $('language-select').onchange = event => {
@@ -314,7 +330,7 @@ async function start() {
   $('build-confirm').onclick = () => { if (build) toast(`${t('ID_WEB_PLACE_OBJECT')}: ${t(build.nameKey, build.name)}.`); else toast(t('ID_WEB_SELECT_BUILD_OBJECT')); };
   $('multi-build').onclick = () => { multiBuild = !multiBuild; $('multi-build').classList.toggle('active', multiBuild); toast(multiBuild ? t('ID_WEB_MULTI_BUILD_ON') : t('ID_WEB_MULTI_BUILD_OFF')); };
   $('wander').onclick = () => { wandering = !wandering; $('wander').classList.toggle('active', wandering); toast(wandering ? t('ID_WEB_WANDER_CAMERA') : t('ID_WEB_ORBIT_CAMERA')); };
-  $('objective-button').onclick = () => toast(`${state.totalVisitors} / 50 ${t('ID_GENERAL_VISITORS', 'visitors')} · ${money(state.income)} / $1,000`);
+  $('objective-button').onclick = () => state.tutorial ? tutorialUI.objectives() : toast(`${state.totalVisitors} / 50 ${t('ID_GENERAL_VISITORS', 'visitors')} · ${money(state.income)} / $1,000`);
   $('players-button').onclick = () => toast(`${state.guests.length} ${t('ID_GENERAL_VISITORS', 'visitors')} ${t('ID_WEB_IN_CASINO')}`);
   $('filter-button').onclick = () => toast(t('ID_WEB_FILTERS_NOT_READY'));
   $('world-button').onclick = () => toast(t('ID_WEB_WORLD_VIEW_NOT_READY'));
@@ -362,13 +378,19 @@ async function start() {
     if (build) {
       const p = world.point(e); if (!p) return;
       const error = place(state, build, Math.floor(p.x), Math.floor(p.z), rotation, catalog);
-      if (error) toast(error);
+      if (error) toast(t(error, error));
       else { toast(`${t(build.nameKey, build.name)}: ${t('ID_WEB_OBJECT_PLACED')}.`); if (!(e.shiftKey || multiBuild)) choose(null); }
       updatePreview(); updateHud();
-    } else { selected = world.pick(e); updateInspector(); }
+    } else {
+      selected = world.pick(e); updateInspector();
+      if (state.tutorial && selected === null) {
+        const point = world.point(e);
+        if (point && point.x >= 0 && point.x < 48 && point.z >= 0 && point.z < 40) tutorialUI.selectLot();
+      }
+    }
   });
   window.addEventListener('keydown', e => {
-    if (helpDialog.open || confirmDialog.open || (e.target as HTMLElement).matches('input, textarea')) return;
+    if (!inGame || tutorialUI.paused || helpDialog.open || confirmDialog.open || (e.target as HTMLElement).matches('input, textarea, select')) return;
     if (e.code === 'Escape') choose(null);
     if ((e.code === 'Space' || e.code === 'KeyR') && build) { e.preventDefault(); rotation = (rotation + 1) % 4; updatePreview(); }
   });
@@ -397,7 +419,7 @@ async function start() {
   let last = performance.now(), accumulator = 0, hudTime = 0, saveTime = 0;
   function frame(now: number) {
     const dt = Math.min((now - last) / 1000, .1); last = now;
-    const activeSpeed = !inGame || document.hidden || helpDialog.open || confirmDialog.open || $<HTMLDialogElement>('tutorial-dialog').open ? 0 : speed;
+    const activeSpeed = !inGame || document.hidden || helpDialog.open || confirmDialog.open || tutorialUI.paused || $<HTMLDialogElement>('tutorial-dialog').open ? 0 : speed;
     accumulator += dt * activeSpeed;
     while (accumulator >= .05) { sim.step(.05); accumulator -= .05; }
     for (const result of sim.events.splice(0)) {
