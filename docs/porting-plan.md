@@ -2,6 +2,29 @@
 
 ## Current milestone: UI fidelity / playable browser prototype
 
+### English-first frontend and localization milestone
+
+English is the default, independent of browser language. A persisted English /
+Greek selector is available on the main menu. Original English tokens are
+imported from UTF-16LE `english.uni` into generated `src/locales/en.json`.
+Greek currently translates the frontend, major categories, selected object names,
+configuration text and notifications; untranslated entries fall back to English.
+Greek coverage is partial, not a complete translation of the original game.
+
+The main menu contains Campaign, Sandbox, Load Game, Configuration, Credits and
+Quit. Campaign selection displays original mission names but does not start
+unimplemented scenarios. Sandbox starts the existing casino prototype. Returning
+to the menu pauses simulation; opening the menu alone never overwrites a save.
+
+Reviewed user references `Untitled1.jpg` through `Untitled10.jpg`: green frontend
+and tutorial dialogs, bronze world HUD, lavender lot panels, original objective
+table, lot purchase and theme selection. These screenshots are reference material,
+not shipped as game backgrounds. Current CSS panels approximate those references;
+pixel-accurate panels and complete campaign gameplay remain outstanding.
+
+Priority: complete UI flows, localization, original gameplay and audio before
+original 3D mesh conversion. Minimal geometry remains acceptable.
+
 Desktop-first TypeScript + Three.js + Vite. Static deployment on GitHub Pages.
 The Windows executable is not run or emulated. The browser simulation is a new
 implementation; the original engine source is not present in the installation.

@@ -12,6 +12,12 @@ templates. 3D models and simulation rules remain simplified replacements. See th
 
 https://chook-games.github.io/vegas-make-it-big-web/
 
+The game starts at the main menu in **English**. Select **Ελληνικά** to try the
+initial Greek translation; the selection is saved in this browser. Greek coverage
+is partial and untranslated content falls back to English. Select **Sandbox** to
+play. The Campaign menu currently previews mission names; original scenario
+maps/objectives are still being ported.
+
 Build a casino floor, attract visitors, manage expenses and save your layout.
 The example layout provides a quick way to try the simulation. The bottom build
 panel follows the original major-group → minor-tab → thumbnail workflow.

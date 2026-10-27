@@ -2,6 +2,30 @@
   "description": "Original files used for the first web prototype. Paths relative to the game installation.",
   "files": [
     {
+      "file": "GAMEDATA/Strings/english.uni",
+      "sha256": "987ef6c3e7dfbeadec2691942a68bd3f0dd24009af2d12931088228e1d0b17e7"
+    },
+    {
+      "file": "GAMEDATA/Strings/french.uni",
+      "sha256": "e352db0a7f964ed47aea45d6637431e96a11cf411adbd61b55f462297500832d"
+    },
+    {
+      "file": "GAMEDATA/Strings/German.uni",
+      "sha256": "ee2099c40156c07c72e4707dbe19269022cdbfe43768d659d62c27f0bf0e0647"
+    },
+    {
+      "file": "GAMEDATA/Strings/Italian.uni",
+      "sha256": "88266d3525b7d0fd9a2c4762d3702645e645ed241a8a1aa1736e37c258d2f9a6"
+    },
+    {
+      "file": "GAMEDATA/Strings/Spanish.uni",
+      "sha256": "45046dcb7ea63487f4c3a04f9ec3fde4b8e89028ec0020dace1cd88a88b74476"
+    },
+    {
+      "file": "GAMEDATA/Strings/usa.uni",
+      "sha256": "08571da514d170928e4f39c6d56c91c6d88be2f07d6c2893e311bceca267bb27"
+    },
+    {
       "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/Slot_Type_1.lua",
       "sha256": "632b11130edf8eb71fe2afeb54e9f9676d4486acf9f964ec3cdb5ce95b480d5b"
     },

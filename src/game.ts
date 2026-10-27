@@ -16,6 +16,8 @@ export interface CatalogItem {
   context?: string;
   major?: number;
   minor?: string;
+  nameKey?: string;
+  descriptionKey?: string;
 }
 export interface Building {
   uid: number;
@@ -109,21 +111,21 @@ export function accessCell(b: Building, item: CatalogItem, blocked: Set<number>)
 }
 export function canPlace(state: GameState, item: CatalogItem, x: number, z: number,
   rotation: number, catalog: CatalogItem[]): string | null {
-  if (!Number.isInteger(x) || !Number.isInteger(z)) return 'Επίλεξε θέση στο δάπεδο.';
-  if (state.cash < item.cost) return 'Δεν υπάρχουν αρκετά χρήματα.';
+  if (!Number.isInteger(x) || !Number.isInteger(z)) return 'Choose a position on the floor.';
+  if (state.cash < item.cost) return 'Not enough money.';
   const { w, d } = dimensions(item, rotation);
-  if (x < 0 || z < 0 || x + w > WIDTH || z + d > DEPTH) return 'Το αντικείμενο βγαίνει έξω από το καζίνο.';
+  if (x < 0 || z < 0 || x + w > WIDTH || z + d > DEPTH) return 'The object does not fit inside the casino.';
   const blocked = occupied(state.buildings, catalog);
   for (let zz = z; zz < z + d; zz++) for (let xx = x; xx < x + w; xx++) {
-    if (blocked.has(zz * WIDTH + xx)) return 'Υπάρχει ήδη αντικείμενο σε αυτή τη θέση.';
-    if (zz >= DEPTH - 2 && Math.abs(xx - ENTRY.x) < 2) return 'Κράτησε ελεύθερη την είσοδο.';
-    if (state.guests.some(g => Math.floor(g.x) === xx && Math.floor(g.z) === zz)) return 'Περίμενε να περάσει ο επισκέπτης.';
+    if (blocked.has(zz * WIDTH + xx)) return 'This space is already occupied.';
+    if (zz >= DEPTH - 2 && Math.abs(xx - ENTRY.x) < 2) return 'Keep the entrance clear.';
+    if (state.guests.some(g => Math.floor(g.x) === xx && Math.floor(g.z) === zz)) return 'Wait for the visitor to pass.';
   }
   const candidate: Building = { uid: -1, type: item.id, x, z, rotation, health: 100, income: 0, visits: 0 };
   const buildings = [...state.buildings, candidate];
   const nextBlocked = occupied(buildings, catalog);
   for (const b of buildings) {
-    if (!accessCell(b, catalog.find(c => c.id === b.type)!, nextBlocked)) return 'Χρειάζεται ελεύθερη πρόσβαση από την είσοδο.';
+    if (!accessCell(b, catalog.find(c => c.id === b.type)!, nextBlocked)) return 'The building needs clear access from the entrance.';
   }
   return null;
 }
@@ -248,7 +250,7 @@ export function restore(raw: string, catalog: CatalogItem[]): GameState {
     !finite(s.income) || !finite(s.expenses) || !Number.isInteger(s.nextId) || s.nextId < 1 ||
     !Number.isInteger(s.totalVisitors) || s.totalVisitors < 0 || typeof s.open !== 'boolean' ||
     typeof s.completed !== 'boolean' || !Array.isArray(s.buildings) || s.buildings.length > WIDTH * DEPTH) {
-    throw new Error('Μη έγκυρη αποθήκευση.');
+    throw new Error('Invalid save data.');
   }
   const seen = new Set<number>();
   const check = createGame(); check.cash = Number.MAX_SAFE_INTEGER;
@@ -257,7 +259,7 @@ export function restore(raw: string, catalog: CatalogItem[]): GameState {
     if (!item || !Number.isInteger(b.uid) || b.uid < 1 || b.uid >= s.nextId || seen.has(b.uid) ||
       !Number.isInteger(b.rotation) || b.rotation < 0 || b.rotation > 3 || !finite(b.health) ||
       b.health < 0 || b.health > 100 || !finite(b.income) || !Number.isInteger(b.visits) || b.visits < 0 ||
-      canPlace(check, item, b.x, b.z, b.rotation, catalog)) throw new Error('Μη έγκυρη διάταξη καζίνο.');
+      canPlace(check, item, b.x, b.z, b.rotation, catalog)) throw new Error('Invalid casino layout.');
     seen.add(b.uid); check.buildings.push(b);
   }
   // Visitors restart at the entrance; saves persist the economy and floorplan.

@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 // Only extracts documented scalar assignments. Never executes the original Lua.
 const root = process.argv[2] ?? 'C:/Program Files (x86)/Steam/steamapps/common/Vegas - Make It Big';
 const output = path.resolve('public/assets');
+const localeOutput = path.resolve('src/locales');
 const sourceRoot = 'GAMEDATA/Scripts/Objects/Buildings/Source/Interior/';
 let previousCatalog = [];
 try { previousCatalog = JSON.parse(await readFile(path.join(output, 'game-data.json'), 'utf8')).catalog ?? []; } catch { /* first import */ }
@@ -22,11 +23,39 @@ const selected = [
   ['plant', 'Potted tree', 'PotTree1x1_INT.lua', 'pottree1x1_dc_int_thumb.tga', 'decor'],
   ['sofa', 'Sofa', 'Sofa.lua', 'sofa_dc_int_thumb.tga', 'decor'],
 ];
+const provenance = [];
 await stat(root);
 await mkdir(output, { recursive: true });
 await mkdir(path.join(output, 'ui'), { recursive: true });
 await mkdir(path.join(output, 'sound'), { recursive: true });
-const provenance = [];
+await mkdir(localeOutput, { recursive: true });
+const englishBytes = await readFile(path.join(root, 'GAMEDATA/Strings/english.uni'));
+const englishText = englishBytes.toString('utf16le').replace(/^\uFEFF/, '');
+const englishLines = englishText.split(/\r?\n/);
+const englishStrings = {};
+for (let index = 0; index < englishLines.length; index++) {
+  const key = englishLines[index].trim();
+  if (!/^ID_[A-Za-z0-9_]+$/.test(key)) continue;
+  let cursor = index + 1;
+  while (cursor < englishLines.length && !englishLines[cursor].trim()) cursor++;
+  const rawValue = englishLines[cursor]?.trim();
+  if (!rawValue?.startsWith('"') || !rawValue.endsWith('"')) continue;
+  const quoted = rawValue;
+  let value;
+  try { value = JSON.parse(quoted); }
+  catch { value = quoted.slice(1, -1).replaceAll('\\"', '"').replaceAll('\\\\', '\\'); }
+  englishStrings[key] = value;
+  index = cursor;
+}
+if (Object.keys(englishStrings).length < 3000) throw new Error('English localization parser did not find the complete master token list.');
+await writeFile(path.join(localeOutput, 'en.json'), JSON.stringify(englishStrings) + '\n');
+const languageFiles = [['english.uni', 'English'], ['french.uni', 'French'], ['German.uni', 'German'], ['Italian.uni', 'Italian'], ['Spanish.uni', 'Spanish'], ['usa.uni', 'US English']];
+const languageManifest = [];
+for (const [file, label] of languageFiles) {
+  const bytes = await readFile(path.join(root, 'GAMEDATA/Strings', file));
+  languageManifest.push({ label, file, bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') });
+}
+provenance.push(...languageManifest.map(locale => ({ file: `GAMEDATA/Strings/${locale.file}`, sha256: locale.sha256 })));
 const catalog = [];
 for (const [id, name, script, thumbnail, category] of selected) {
   const source = sourceRoot + script;
@@ -40,7 +69,9 @@ for (const [id, name, script, thumbnail, category] of selected) {
   const image = await readFile(path.join(root, imageSource));
   await writeFile(path.join(output, id + '.tga'), image);
   const minor = text.match(/SourceTemplate\[x\]\._minorgroup\s*=\s*([A-Z0-9_]+)/)?.[1] ?? category;
-  catalog.push({ id, name, category, context: 'interior', major: category === 'gaming' ? 4 : category === 'service' || category === 'staff' ? 5 : 6, minor, width: scalar('_w', 1), depth: scalar('_l', 1),
+  const nameKey = text.match(/SourceTemplate\[x\]\._name\s*=\s*(ID_[A-Za-z0-9_]+)/)?.[1];
+  const descriptionKey = text.match(/SourceTemplate\[x\]\._description\s*=\s*(ID_[A-Z0-9_]+)/)?.[1];
+  catalog.push({ id, name: englishStrings[nameKey] ?? name, nameKey, descriptionKey, category, context: 'interior', major: category === 'gaming' ? 4 : category === 'service' || category === 'staff' ? 5 : 6, minor, width: scalar('_w', 1), depth: scalar('_l', 1),
     cost: scalar('_buildcost'), resale: scalar('_democost'), capacity: scalar('_capacity', 1),
     runningCost: scalar('_baserunningcost'), power: scalar('_basepowerconsumption'),
     water: scalar('_basewaterconsumption'), duration: scalar('_supplies\\.duration', 10),
@@ -126,7 +157,10 @@ async function walkSource(dir) {
     }
     const minor = extract('_minorgroup') || 'other';
     const selectedTemplate = selected.find(row => row[0] === id);
-    catalog.push({ id, name: selectedTemplate?.[1] ?? basename.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' '),
+    const nameKey = text.match(/SourceTemplate\[x\]\._name\s*=\s*(ID_[A-Za-z0-9_]+)/)?.[1];
+    const descriptionKey = text.match(/SourceTemplate\[x\]\._description\s*=\s*(ID_[A-Z0-9_]+)/)?.[1];
+    const name = englishStrings[nameKey] ?? selectedTemplate?.[1] ?? basename.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' ');
+    catalog.push({ id, name, nameKey, descriptionKey,
       category: selectedTemplate?.[4] ?? minor, context: mapping[0], major: originalMajor, minor,
       width: scalar('_w', 1), depth: scalar('_l', 1), cost: scalar('_buildcost'),
       resale: scalar('_democost'), capacity: scalar('_capacity'), runningCost: scalar('_baserunningcost'),
@@ -163,6 +197,9 @@ for (const [id, relative] of sounds) {
   soundManifest.push({ id, file: `sound/${id}.ogg` });
   provenance.push({ file: relative, sha256: createHash('sha256').update(bytes).digest('hex') });
 }
-await writeFile(path.join(output, 'game-data.json'), JSON.stringify({ version: 2, catalog, campaign, formats, groups, uiSprites, sounds: soundManifest }, null, 2) + '\n');
+await writeFile(path.join(output, 'game-data.json'), JSON.stringify({ version: 2, catalog, campaign, formats, groups, uiSprites, sounds: soundManifest,
+  languages: [{ code: 'en', label: 'English', source: 'game-original', complete: true }, { code: 'el', label: 'Ελληνικά', source: 'community-port', fallback: 'en' },
+    { code: 'fr', label: 'Français', source: 'game-original' }, { code: 'de', label: 'Deutsch', source: 'game-original' },
+    { code: 'it', label: 'Italiano', source: 'game-original' }, { code: 'es', label: 'Español', source: 'game-original' }] }, null, 2) + '\n');
 await writeFile(path.join(output, 'provenance.json'), JSON.stringify({ description: 'Original files used for the first web prototype. Paths relative to the game installation.', files: provenance }, null, 2) + '\n');
 console.log(`Imported ${catalog.length} object templates, ${uiSprites.length} original UI sprites, ${sounds.length} sound effects and ${campaign.length} campaign names.`);

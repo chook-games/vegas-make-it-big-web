@@ -3,7 +3,9 @@
   "catalog": [
     {
       "id": "slot",
-      "name": "Slot machine",
+      "name": "Slot Machine",
+      "nameKey": "ID_BUILDING_TYPE_SLOT_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SLOT_DESC",
       "category": "gaming",
       "context": "interior",
       "major": 4,
@@ -22,7 +24,9 @@
     },
     {
       "id": "blackjack",
-      "name": "Blackjack",
+      "name": "BlackJack",
+      "nameKey": "ID_BUILDING_TYPE_BLACKJACK_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_BLACKJACK_DESC",
       "category": "gaming",
       "context": "interior",
       "major": 4,
@@ -42,6 +46,8 @@
     {
       "id": "roulette",
       "name": "Roulette",
+      "nameKey": "ID_BUILDING_TYPE_ROULETTE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_ROULETTE_DESC",
       "category": "gaming",
       "context": "interior",
       "major": 4,
@@ -60,7 +66,9 @@
     },
     {
       "id": "poker",
-      "name": "Video poker",
+      "name": "Video Poker",
+      "nameKey": "ID_BUILDING_TYPE_VIDEOPOKER_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_VIDEOPOKER_DESC",
       "category": "gaming",
       "context": "interior",
       "major": 4,
@@ -79,7 +87,9 @@
     },
     {
       "id": "cashier",
-      "name": "Cashier’s desk",
+      "name": "Cashiers Desk",
+      "nameKey": "ID_BUILDING_TYPE_CASHIERSDESK_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_CASHIERSDESK_DESC",
       "category": "service",
       "context": "interior",
       "major": 5,
@@ -98,7 +108,9 @@
     },
     {
       "id": "bar",
-      "name": "Casino bar",
+      "name": "Bar",
+      "nameKey": "ID_BUILDING_TYPE_INTERIORBAR_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_INTERIORBAR_DESC",
       "category": "service",
       "context": "interior",
       "major": 5,
@@ -117,7 +129,9 @@
     },
     {
       "id": "restroom",
-      "name": "Restroom",
+      "name": "Male Restroom",
+      "nameKey": "ID_BUILDING_TYPE_MALERESTROOM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_MALERESTROOM_DESC",
       "category": "service",
       "context": "interior",
       "major": 5,
@@ -136,7 +150,9 @@
     },
     {
       "id": "security",
-      "name": "Security office",
+      "name": "Security Office",
+      "nameKey": "ID_BUILDING_TYPE_SECURITY_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SECURITY_DESC",
       "category": "staff",
       "context": "interior",
       "major": 5,
@@ -155,7 +171,9 @@
     },
     {
       "id": "cleaner",
-      "name": "Cleaner’s closet",
+      "name": "Cleaner Closet",
+      "nameKey": "ID_BUILDING_TYPE_JANITORCLOSET_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_JANITORCLOSET_DESC",
       "category": "staff",
       "context": "interior",
       "major": 5,
@@ -174,7 +192,9 @@
     },
     {
       "id": "mechanic",
-      "name": "Mechanic’s closet",
+      "name": "Mechanic's Workshop",
+      "nameKey": "ID_BUILDING_TYPE_INTMECHANIC_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_INTMECHANIC_DESC",
       "category": "staff",
       "context": "interior",
       "major": 5,
@@ -193,7 +213,9 @@
     },
     {
       "id": "plant",
-      "name": "Potted tree",
+      "name": "Small Potted Plant",
+      "nameKey": "ID_BUILDING_TYPE_PLANT1X1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PLANT1X1_DESC",
       "category": "decor",
       "context": "interior",
       "major": 6,
@@ -213,6 +235,8 @@
     {
       "id": "sofa",
       "name": "Sofa",
+      "nameKey": "ID_BUILDING_TYPE_SOFA_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SOFA_DESC",
       "category": "decor",
       "context": "interior",
       "major": 6,
@@ -231,7 +255,9 @@
     },
     {
       "id": "alacarterestaurant",
-      "name": "ALa Carte Restaurant",
+      "name": "A La Carte Restaurant",
+      "nameKey": "ID_BUILDING_TYPE_ALACARTERESTAURANT_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_ALACARTERESTAURANT_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
       "context": "exterior",
       "major": 2,
@@ -251,6 +277,8 @@
     {
       "id": "aquarium",
       "name": "Aquarium",
+      "nameKey": "ID_BUILDING_TYPE_AQUARIUM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_AQUARIUM_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -270,6 +298,8 @@
     {
       "id": "arcade",
       "name": "Arcade",
+      "nameKey": "ID_BUILDING_TYPE_ARCADE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_ARCADE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -289,6 +319,8 @@
     {
       "id": "arena",
       "name": "Arena",
+      "nameKey": "ID_BUILDING_TYPE_ARENA_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_ARENA_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -308,6 +340,8 @@
     {
       "id": "artgallery",
       "name": "Art Gallery",
+      "nameKey": "ID_BUILDING_TYPE_ARTGALLERY_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_ARTGALLERY_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
       "context": "exterior",
       "major": 2,
@@ -327,6 +361,8 @@
     {
       "id": "beautyparlor",
       "name": "Beauty Parlor",
+      "nameKey": "ID_BUILDING_TYPE_BEAUTYPARLOUR_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_BEAUTYPARLOUR_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
       "context": "exterior",
       "major": 2,
@@ -345,7 +381,9 @@
     },
     {
       "id": "carpark",
-      "name": "Carpark",
+      "name": "Car Park",
+      "nameKey": "ID_BUILDING_TYPE_CARPARK_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_CARPARK_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_TRANSPORT",
       "context": "exterior",
       "major": 0,
@@ -365,6 +403,8 @@
     {
       "id": "cinema",
       "name": "Cinema",
+      "nameKey": "ID_BUILDING_TYPE_CINEMA_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_CINEMA_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -384,6 +424,8 @@
     {
       "id": "circus",
       "name": "Circus",
+      "nameKey": "ID_BUILDING_TYPE_CIRCUS_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_CIRCUS_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -403,6 +445,8 @@
     {
       "id": "cocktailbar",
       "name": "Cocktail Bar",
+      "nameKey": "ID_BUILDING_TYPE_COCKTAILBAR_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_COCKTAILBAR_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
       "context": "exterior",
       "major": 2,
@@ -421,7 +465,9 @@
     },
     {
       "id": "coffeebar",
-      "name": "Coffee Bar",
+      "name": "Soda Bar",
+      "nameKey": "ID_BUILDING_TYPE_COFFEEBAR_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_COFFEEBAR_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
       "context": "exterior",
       "major": 2,
@@ -440,7 +486,9 @@
     },
     {
       "id": "conventioncentre",
-      "name": "Convention Centre",
+      "name": "Business Center",
+      "nameKey": "ID_BUILDING_TYPE_CONVENTIONCENTRE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_CONVENTIONCENTRE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
       "context": "exterior",
       "major": 2,
@@ -460,6 +508,8 @@
     {
       "id": "creche",
       "name": "Creche",
+      "nameKey": "ID_BUILDING_TYPE_CRECHE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_CRECHE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
       "context": "exterior",
       "major": 2,
@@ -478,7 +528,9 @@
     },
     {
       "id": "displaystage",
-      "name": "Display Stage",
+      "name": "Fireworks Display",
+      "nameKey": "ID_BUILDING_TYPE_DISPLAYSTAGE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_DISPLAYSTAGE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
       "context": "exterior",
       "major": 3,
@@ -498,6 +550,8 @@
     {
       "id": "dolphinpool",
       "name": "Dolphin Pool",
+      "nameKey": "ID_BUILDING_TYPE_DOLPHINPOOL_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_DOLPHINPOOL_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -516,7 +570,9 @@
     },
     {
       "id": "electricianhut",
-      "name": "Electrician Hut",
+      "name": "Electrician's Hut",
+      "nameKey": "ID_BUILDING_TYPE_ELECTRICIANHUT_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_ELECTRICIANHUT_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
       "context": "exterior",
       "major": 0,
@@ -535,7 +591,9 @@
     },
     {
       "id": "entertainerssuite",
-      "name": "Entertainers Suite",
+      "name": "Entertainers' Office",
+      "nameKey": "ID_BUILDING_TYPE_ENTERTAINERSSUITE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_ENTERTAINERSSUITE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_OFFICES",
       "context": "exterior",
       "major": 0,
@@ -554,7 +612,9 @@
     },
     {
       "id": "exteriorbench-2x1",
-      "name": "Exterior Bench 2x1",
+      "name": "Bench",
+      "nameKey": "ID_BUILDING_TYPE_BENCH2x1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_BENCH_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
       "context": "exterior",
       "major": 3,
@@ -573,7 +633,9 @@
     },
     {
       "id": "exteriorbin",
-      "name": "Exterior Bin",
+      "name": "Bin",
+      "nameKey": "ID_BUILDING_TYPE_BIN_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_BIN_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
       "context": "exterior",
       "major": 3,
@@ -592,7 +654,9 @@
     },
     {
       "id": "exteriorfountain-1x1",
-      "name": "Exterior Fountain 1x1",
+      "name": "Small Fountain",
+      "nameKey": "ID_BUILDING_TYPE_FOUNTAIN1X1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FOUNTAIN_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -611,7 +675,9 @@
     },
     {
       "id": "exteriorfountain-2x2",
-      "name": "Exterior Fountain 2x2",
+      "name": "Medium Fountain",
+      "nameKey": "ID_BUILDING_TYPE_FOUNTAIN2X2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FOUNTAIN_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -630,7 +696,9 @@
     },
     {
       "id": "exteriorfountain-3x3",
-      "name": "Exterior Fountain 3x3",
+      "name": "Large Fountain",
+      "nameKey": "ID_BUILDING_TYPE_FOUNTAIN3X3_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FOUNTAIN_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -649,7 +717,9 @@
     },
     {
       "id": "exteriorfountain-4x2",
-      "name": "Exterior Fountain 4x2",
+      "name": "Roulette Fountain",
+      "nameKey": "ID_BUILDING_TYPE_FOUNTAIN2X4_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FOUNTAIN_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -668,7 +738,9 @@
     },
     {
       "id": "exteriorlamp-1x1",
-      "name": "Exterior Lamp 1x1",
+      "name": "Standard Light",
+      "nameKey": "ID_BUILDING_TYPE_LAMP1x1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LAMP_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
       "context": "exterior",
       "major": 3,
@@ -687,7 +759,9 @@
     },
     {
       "id": "exteriorlamp-cold",
-      "name": "Exterior Lamp cold",
+      "name": "Neon Blue Light",
+      "nameKey": "ID_BUILDING_TYPE_LAMPCOLD_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LAMP_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
       "context": "exterior",
       "major": 3,
@@ -706,7 +780,9 @@
     },
     {
       "id": "exteriorlamp-green",
-      "name": "Exterior Lamp green",
+      "name": "Green Light",
+      "nameKey": "ID_BUILDING_TYPE_LAMPGREEN_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LAMP_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
       "context": "exterior",
       "major": 3,
@@ -725,7 +801,9 @@
     },
     {
       "id": "exteriorlamp-pink",
-      "name": "Exterior Lamp pink",
+      "name": "Neon Pink Light",
+      "nameKey": "ID_BUILDING_TYPE_LAMPPINK_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LAMP_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
       "context": "exterior",
       "major": 3,
@@ -744,7 +822,9 @@
     },
     {
       "id": "exteriorlamp-warm",
-      "name": "Exterior Lamp warm",
+      "name": "Warm Light",
+      "nameKey": "ID_BUILDING_TYPE_LAMPWARM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LAMP_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
       "context": "exterior",
       "major": 3,
@@ -763,7 +843,9 @@
     },
     {
       "id": "exteriorlounger",
-      "name": "Exterior Lounger",
+      "name": "Sun Lounger",
+      "nameKey": "ID_BUILDING_TYPE_LOUNGER_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LOUNGER_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
       "context": "exterior",
       "major": 3,
@@ -782,7 +864,9 @@
     },
     {
       "id": "exteriorstatue-1x1",
-      "name": "Exterior Statue 1x1",
+      "name": "Small Statue",
+      "nameKey": "ID_BUILDING_TYPE_STATUE1X1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_STATUE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
       "context": "exterior",
       "major": 3,
@@ -801,7 +885,9 @@
     },
     {
       "id": "exteriorstatue-2x2",
-      "name": "Exterior Statue 2x2",
+      "name": "Medium Statue",
+      "nameKey": "ID_BUILDING_TYPE_STATUE2X2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_STATUE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
       "context": "exterior",
       "major": 3,
@@ -820,7 +906,9 @@
     },
     {
       "id": "exteriorstatue-3x3",
-      "name": "Exterior Statue 3x3",
+      "name": "Large Statue",
+      "nameKey": "ID_BUILDING_TYPE_STATUE3X3_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_STATUE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
       "context": "exterior",
       "major": 3,
@@ -839,7 +927,9 @@
     },
     {
       "id": "exteriorstatue-5x2",
-      "name": "Exterior Statue 5x2",
+      "name": "Archway",
+      "nameKey": "ID_BUILDING_TYPE_STATUE5X2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_STATUE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
       "context": "exterior",
       "major": 3,
@@ -858,7 +948,9 @@
     },
     {
       "id": "exteriorstatue-6x2",
-      "name": "Exterior Statue 6x2",
+      "name": "Archway",
+      "nameKey": "ID_BUILDING_TYPE_STATUE6X2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_STATUE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
       "context": "exterior",
       "major": 3,
@@ -877,7 +969,9 @@
     },
     {
       "id": "fastfood",
-      "name": "Fast Food",
+      "name": "Fast Food Restaurant",
+      "nameKey": "ID_BUILDING_TYPE_FASTFOOD_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FASTFOOD_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
       "context": "exterior",
       "major": 2,
@@ -896,7 +990,9 @@
     },
     {
       "id": "femaletoilet",
-      "name": "Female Toilet",
+      "name": "Female Restroom",
+      "nameKey": "ID_BUILDING_TYPE_FEMALERESTROOM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FEMALERESTROOM_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_RESTROOMS",
       "context": "exterior",
       "major": 0,
@@ -916,6 +1012,8 @@
     {
       "id": "firstaidstation",
       "name": "First Aid Station",
+      "nameKey": "ID_BUILDING_TYPE_FIRSTAIDSTATION_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FIRSTAIDSTATION_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
       "context": "exterior",
       "major": 2,
@@ -935,6 +1033,8 @@
     {
       "id": "gym",
       "name": "Gym",
+      "nameKey": "ID_BUILDING_TYPE_GYM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_GYM_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -954,6 +1054,8 @@
     {
       "id": "hairsalon",
       "name": "Hair Salon",
+      "nameKey": "ID_BUILDING_TYPE_HAIRSALON_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_HAIRSALON_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
       "context": "exterior",
       "major": 2,
@@ -973,6 +1075,8 @@
     {
       "id": "headoffice",
       "name": "Head Office",
+      "nameKey": "ID_BUILDING_TYPE_HEADOFFICE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_HEADOFFICE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_OFFICES",
       "context": "exterior",
       "major": 0,
@@ -992,6 +1096,8 @@
     {
       "id": "healthspa",
       "name": "Health Spa",
+      "nameKey": "ID_BUILDING_TYPE_HEALTHSPA_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_HEALTHSPA_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -1011,6 +1117,8 @@
     {
       "id": "helipad",
       "name": "Helipad",
+      "nameKey": "ID_BUILDING_TYPE_HELIPAD_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_HELIPAD_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_TRANSPORT",
       "context": "exterior",
       "major": 0,
@@ -1029,7 +1137,9 @@
     },
     {
       "id": "janitorcloset",
-      "name": "Janitor Closet",
+      "name": "Cleaner Closet",
+      "nameKey": "ID_BUILDING_TYPE_JANITORCLOSET_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_JANITORCLOSET_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
       "context": "exterior",
       "major": 0,
@@ -1049,6 +1159,8 @@
     {
       "id": "jewelrystore",
       "name": "Jewelry Store",
+      "nameKey": "ID_BUILDING_TYPE_JEWELRYSTORE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_JEWELRYSTORE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
       "context": "exterior",
       "major": 2,
@@ -1068,6 +1180,8 @@
     {
       "id": "largecasino",
       "name": "Large Casino",
+      "nameKey": "ID_BUILDING_TYPE_LARGECASINO_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LARGECASINO_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_CASINOS",
       "context": "exterior",
       "major": 1,
@@ -1087,6 +1201,8 @@
     {
       "id": "largehotel",
       "name": "Large Hotel",
+      "nameKey": "ID_BUILDING_TYPE_LARGEHOTEL_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LARGEHOTEL_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_HOTELS",
       "context": "exterior",
       "major": 0,
@@ -1106,6 +1222,8 @@
     {
       "id": "livemusicvenue",
       "name": "Live Music Venue",
+      "nameKey": "ID_BUILDING_TYPE_LIVEMUSICVENUE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LIVEMUSICVENUE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -1125,6 +1243,8 @@
     {
       "id": "magicshop",
       "name": "Magic Shop",
+      "nameKey": "ID_BUILDING_TYPE_MAGICSHOP_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_MAGICSHOP_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
       "context": "exterior",
       "major": 2,
@@ -1144,6 +1264,8 @@
     {
       "id": "magicshow",
       "name": "Magic Show",
+      "nameKey": "ID_BUILDING_TYPE_MAGICSHOW_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_MAGICSHOW_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -1162,7 +1284,9 @@
     },
     {
       "id": "maletoilet",
-      "name": "Male Toilet",
+      "name": "Male Restroom",
+      "nameKey": "ID_BUILDING_TYPE_MALERESTROOM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_MALERESTROOM_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_RESTROOMS",
       "context": "exterior",
       "major": 0,
@@ -1181,7 +1305,9 @@
     },
     {
       "id": "mechanicdept",
-      "name": "Mechanic Dept",
+      "name": "Mechanics' Department",
+      "nameKey": "ID_BUILDING_TYPE_MECHANICDEPT_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_MECHANICDEPT_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
       "context": "exterior",
       "major": 0,
@@ -1200,7 +1326,9 @@
     },
     {
       "id": "mechanichut",
-      "name": "Mechanic Hut",
+      "name": "Mechanic's Hut",
+      "nameKey": "ID_BUILDING_TYPE_MECHANICHUT_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_MECHANICHUT_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
       "context": "exterior",
       "major": 0,
@@ -1220,6 +1348,8 @@
     {
       "id": "mediumcasino",
       "name": "Medium Casino",
+      "nameKey": "ID_BUILDING_TYPE_MEDIUMCASINO_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_MEDIUMCASINO_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_CASINOS",
       "context": "exterior",
       "major": 1,
@@ -1239,6 +1369,8 @@
     {
       "id": "mediumhotel",
       "name": "Medium Hotel",
+      "nameKey": "ID_BUILDING_TYPE_MEDIUMHOTEL_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_MEDIUMHOTEL_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_HOTELS",
       "context": "exterior",
       "major": 0,
@@ -1257,7 +1389,9 @@
     },
     {
       "id": "mensclothing",
-      "name": "Mens Clothing",
+      "name": "Men's Clothing",
+      "nameKey": "ID_BUILDING_TYPE_MENSCLOTHING_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_MENSCLOTHING_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
       "context": "exterior",
       "major": 2,
@@ -1277,6 +1411,8 @@
     {
       "id": "museum",
       "name": "Museum",
+      "nameKey": "ID_BUILDING_TYPE_MUSEUM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_MUSEUM_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -1295,7 +1431,9 @@
     },
     {
       "id": "nightclub",
-      "name": "Nightclub",
+      "name": "Disco",
+      "nameKey": "ID_BUILDING_TYPE_NIGHTCLUB_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_NIGHTCLUB_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -1314,7 +1452,9 @@
     },
     {
       "id": "nightclub1",
-      "name": "Nightclub1",
+      "name": "Club",
+      "nameKey": "ID_BUILDING_TYPE_NIGHTCLUB1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_NIGHTCLUB1_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -1333,7 +1473,9 @@
     },
     {
       "id": "nightclub2",
-      "name": "Nightclub2",
+      "name": "Nightclub",
+      "nameKey": "ID_BUILDING_TYPE_NIGHTCLUB2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_NIGHTCLUB2_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -1352,7 +1494,9 @@
     },
     {
       "id": "nightclub3",
-      "name": "Nightclub3",
+      "name": "Ballroom",
+      "nameKey": "ID_BUILDING_TYPE_NIGHTCLUB3_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_NIGHTCLUB3_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -1371,7 +1515,9 @@
     },
     {
       "id": "nightclub4",
-      "name": "Nightclub4",
+      "name": "Exclusive Nightclub",
+      "nameKey": "ID_BUILDING_TYPE_NIGHTCLUB4_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_NIGHTCLUB4_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -1391,6 +1537,8 @@
     {
       "id": "observationdeck",
       "name": "Observation Deck",
+      "nameKey": "ID_BUILDING_TYPE_OBSERVATIONDECK_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_OBSERVATIONDECK_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -1409,7 +1557,9 @@
     },
     {
       "id": "palm2x2-0",
-      "name": "Palm2x2 0",
+      "name": "Giant Palm Tree",
+      "nameKey": "ID_BUILDING_TYPE_PALM0_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PALM_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -1428,7 +1578,9 @@
     },
     {
       "id": "palm2x2-1",
-      "name": "Palm2x2 1",
+      "name": "Tall Palm Tree",
+      "nameKey": "ID_BUILDING_TYPE_PALM1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PALM_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -1447,7 +1599,9 @@
     },
     {
       "id": "palm2x2-2",
-      "name": "Palm2x2 2",
+      "name": "Medium Palm Tree",
+      "nameKey": "ID_BUILDING_TYPE_PALM2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PALM_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -1466,7 +1620,9 @@
     },
     {
       "id": "palm2x2-3",
-      "name": "Palm2x2 3",
+      "name": "Small Palm Tree",
+      "nameKey": "ID_BUILDING_TYPE_PALM3_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PALM_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -1485,7 +1641,9 @@
     },
     {
       "id": "palm2x2-4",
-      "name": "Palm2x2 4",
+      "name": "Palm Plant",
+      "nameKey": "ID_BUILDING_TYPE_PALM4_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PALM_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -1504,7 +1662,9 @@
     },
     {
       "id": "palmset",
-      "name": "Palmset",
+      "name": "Row of Palms",
+      "nameKey": "ID_BUILDING_TYPE_PALMROW_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PALMROW_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -1524,6 +1684,8 @@
     {
       "id": "grass",
       "name": "Grass",
+      "nameKey": "ID_BUILDING_TYPE_PATHGRASS_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PATHGRASS_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_GRASS_WATER",
       "context": "exterior",
       "major": 3,
@@ -1542,7 +1704,9 @@
     },
     {
       "id": "path-1",
-      "name": "Path 1",
+      "name": "Standard Paving",
+      "nameKey": "ID_BUILDING_TYPE_PATHSTANDARD_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PATHSTANDARD_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PATHS",
       "context": "exterior",
       "major": 3,
@@ -1562,6 +1726,8 @@
     {
       "id": "tarmac",
       "name": "Tarmac",
+      "nameKey": "ID_BUILDING_TYPE_PATHTARMAC_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PATHTARMAC_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PATHS",
       "context": "exterior",
       "major": 3,
@@ -1580,7 +1746,9 @@
     },
     {
       "id": "themed",
-      "name": "Themed",
+      "name": "Themed Paving",
+      "nameKey": "ID_BUILDING_TYPE_PATHTHEMED_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PATHTHEMED_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PATHS",
       "context": "exterior",
       "major": 3,
@@ -1600,6 +1768,8 @@
     {
       "id": "water",
       "name": "Water",
+      "nameKey": "ID_BUILDING_TYPE_PATHWATER_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PATHWATER_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_GRASS_WATER",
       "context": "exterior",
       "major": 3,
@@ -1619,6 +1789,8 @@
     {
       "id": "pawnbroker",
       "name": "Pawn Broker",
+      "nameKey": "ID_BUILDING_TYPE_PAWNBROKER_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PAWNBROKER_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
       "context": "exterior",
       "major": 2,
@@ -1637,7 +1809,9 @@
     },
     {
       "id": "potflower1x1",
-      "name": "Pot Flower1x1",
+      "name": "Small Potted Flowers",
+      "nameKey": "ID_BUILDING_TYPE_POTFLOWER1X1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_POTFLOWER1X1_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -1656,7 +1830,9 @@
     },
     {
       "id": "potflower2x2",
-      "name": "Pot Flower2x2",
+      "name": "Medium Potted Flowers",
+      "nameKey": "ID_BUILDING_TYPE_POTFLOWER2X2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_POTFLOWER2X2_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -1675,7 +1851,9 @@
     },
     {
       "id": "potflower3x3",
-      "name": "Pot Flower3x3",
+      "name": "Large Potted Flowers",
+      "nameKey": "ID_BUILDING_TYPE_POTFLOWER3X3_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_POTFLOWER3X3_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -1694,7 +1872,9 @@
     },
     {
       "id": "pottree1x1",
-      "name": "Pot Tree1x1",
+      "name": "Small Potted Plant",
+      "nameKey": "ID_BUILDING_TYPE_PLANT1X1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PLANT1X1_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -1713,7 +1893,9 @@
     },
     {
       "id": "pottree2x2",
-      "name": "Pot Tree2x2",
+      "name": "Medium Potted Plant",
+      "nameKey": "ID_BUILDING_TYPE_PLANT2X2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PLANT2X2_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -1732,7 +1914,9 @@
     },
     {
       "id": "pottree3x3",
-      "name": "Pot Tree3x3",
+      "name": "Large Potted Plant",
+      "nameKey": "ID_BUILDING_TYPE_PLANT3X3_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PLANT3X3_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
       "context": "exterior",
       "major": 3,
@@ -1751,7 +1935,9 @@
     },
     {
       "id": "powergenerator",
-      "name": "Power Generator",
+      "name": "Large Power Generator",
+      "nameKey": "ID_BUILDING_TYPE_POWERGENERATOR_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_POWERGENERATOR_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_POWER_WATER",
       "context": "exterior",
       "major": 0,
@@ -1770,7 +1956,9 @@
     },
     {
       "id": "powersubstation",
-      "name": "Power Sub Station",
+      "name": "Small Power Generator",
+      "nameKey": "ID_BUILDING_TYPE_POWERSUBSTATION_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_POWERSUBSTATION_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_POWER_WATER",
       "context": "exterior",
       "major": 0,
@@ -1789,7 +1977,9 @@
     },
     {
       "id": "recyclingcenter",
-      "name": "Recycling Center",
+      "name": "Cleaners' Department",
+      "nameKey": "ID_BUILDING_TYPE_RECYCLINGCENTER_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_RECYCLINGCENTER_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
       "context": "exterior",
       "major": 0,
@@ -1809,6 +1999,8 @@
     {
       "id": "restaurant",
       "name": "Restaurant",
+      "nameKey": "ID_BUILDING_TYPE_RESTAURANT_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_RESTAURANT_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
       "context": "exterior",
       "major": 2,
@@ -1827,7 +2019,9 @@
     },
     {
       "id": "rollercoaster",
-      "name": "Rollercoaster",
+      "name": "Roller Coaster",
+      "nameKey": "ID_BUILDING_TYPE_ROLLERCOASTER_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_ROLLERCOASTER_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -1847,6 +2041,8 @@
     {
       "id": "sharkpool",
       "name": "Shark Pool",
+      "nameKey": "ID_BUILDING_TYPE_SHARKPOOL_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SHARKPOOL_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -1866,6 +2062,8 @@
     {
       "id": "showgirls",
       "name": "Showgirls",
+      "nameKey": "ID_BUILDING_TYPE_SHOWGIRLS_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SHOWGIRLS_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -1884,7 +2082,9 @@
     },
     {
       "id": "signlarge",
-      "name": "Sign Large",
+      "name": "Large Sign",
+      "nameKey": "ID_BUILDING_TYPE_SIGNLARGE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SIGN_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
       "context": "exterior",
       "major": 3,
@@ -1903,7 +2103,9 @@
     },
     {
       "id": "signmedium",
-      "name": "Sign Medium",
+      "name": "Medium Sign",
+      "nameKey": "ID_BUILDING_TYPE_SIGNMEDIUM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SIGN_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
       "context": "exterior",
       "major": 3,
@@ -1922,7 +2124,9 @@
     },
     {
       "id": "signsmall",
-      "name": "Sign Small",
+      "name": "Small Sign",
+      "nameKey": "ID_BUILDING_TYPE_SIGNSMALL_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SIGN_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
       "context": "exterior",
       "major": 3,
@@ -1942,6 +2146,8 @@
     {
       "id": "smallcasino",
       "name": "Small Casino",
+      "nameKey": "ID_BUILDING_TYPE_SMALLCASINO_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SMALLCASINO_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_CASINOS",
       "context": "exterior",
       "major": 1,
@@ -1961,6 +2167,8 @@
     {
       "id": "smallhotel",
       "name": "Small Hotel",
+      "nameKey": "ID_BUILDING_TYPE_SMALLHOTEL_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SMALLHOTEL_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_HOTELS",
       "context": "exterior",
       "major": 0,
@@ -1980,6 +2188,8 @@
     {
       "id": "souvenirshop",
       "name": "Souvenir Shop",
+      "nameKey": "ID_BUILDING_TYPE_SOUVENIRSHOP_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SOUVENIRSHOP_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
       "context": "exterior",
       "major": 2,
@@ -1999,6 +2209,8 @@
     {
       "id": "stageshow",
       "name": "Stage Show",
+      "nameKey": "ID_BUILDING_TYPE_STAGESHOW_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_STAGESHOW_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -2018,6 +2230,8 @@
     {
       "id": "swimmingpool",
       "name": "Swimming Pool",
+      "nameKey": "ID_BUILDING_TYPE_SWIMMINGPOOL_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SWIMMINGPOOL_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -2036,7 +2250,9 @@
     },
     {
       "id": "theatre",
-      "name": "Theatre",
+      "name": "Theater",
+      "nameKey": "ID_BUILDING_TYPE_THEATRE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_THEATRE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -2056,6 +2272,8 @@
     {
       "id": "themedride",
       "name": "Themed Ride",
+      "nameKey": "ID_BUILDING_TYPE_THEMEDRIDE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_THEMEDRIDE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -2075,6 +2293,8 @@
     {
       "id": "toplessrevue",
       "name": "Topless Revue",
+      "nameKey": "ID_BUILDING_TYPE_TOPLESSREVUE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_TOPLESSREVUE_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
       "context": "exterior",
       "major": 1,
@@ -2094,6 +2314,8 @@
     {
       "id": "travelagent",
       "name": "Travel Agent",
+      "nameKey": "ID_BUILDING_TYPE_TRAVELAGENT_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_TRAVELAGENT_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
       "context": "exterior",
       "major": 2,
@@ -2112,7 +2334,9 @@
     },
     {
       "id": "waterplant",
-      "name": "Water Plant",
+      "name": "Water Treatment Plant",
+      "nameKey": "ID_BUILDING_TYPE_WATERPLANT_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_WATERPLANT_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_POWER_WATER",
       "context": "exterior",
       "major": 0,
@@ -2132,6 +2356,8 @@
     {
       "id": "wavepool",
       "name": "Wave Pool",
+      "nameKey": "ID_BUILDING_TYPE_WAVEPOOL_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_WAVEPOOL_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
       "context": "exterior",
       "major": 1,
@@ -2151,6 +2377,8 @@
     {
       "id": "weddingchapel",
       "name": "Wedding Chapel",
+      "nameKey": "ID_BUILDING_TYPE_WEDDINGCHAPEL_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_WEDDINGCHAPEL_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
       "context": "exterior",
       "major": 2,
@@ -2169,7 +2397,9 @@
     },
     {
       "id": "womensclothing",
-      "name": "Womens Clothing",
+      "name": "Women's Clothing",
+      "nameKey": "ID_BUILDING_TYPE_WOMENSCLOTHING_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_WOMENSCLOTHING_DESC",
       "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
       "context": "exterior",
       "major": 2,
@@ -2189,6 +2419,8 @@
     {
       "id": "atm",
       "name": "ATM",
+      "nameKey": "ID_BUILDING_TYPE_ATM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_ATM_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
       "context": "interior",
       "major": 5,
@@ -2207,7 +2439,9 @@
     },
     {
       "id": "basicstairs",
-      "name": "Basic Stairs",
+      "name": "Stairs",
+      "nameKey": "ID_BUILDING_TYPE_INTERIORSTAIRS_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_INTERIORSTAIRS_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_STAIRS",
       "context": "interior",
       "major": 7,
@@ -2226,7 +2460,9 @@
     },
     {
       "id": "bench-1-int",
-      "name": "Bench 1 INT",
+      "name": "Bench",
+      "nameKey": "ID_BUILDING_TYPE_BENCH2x1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_BENCH_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
       "context": "interior",
       "major": 7,
@@ -2245,7 +2481,9 @@
     },
     {
       "id": "bin-1-int",
-      "name": "Bin 1 INT",
+      "name": "Bin",
+      "nameKey": "ID_BUILDING_TYPE_BIN_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_BIN_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
       "context": "interior",
       "major": 7,
@@ -2264,7 +2502,9 @@
     },
     {
       "id": "column-int",
-      "name": "Column INT",
+      "name": "Greek Column",
+      "nameKey": "ID_BUILDING_TYPE_GREEK_INTERIORCOLUMN_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_GREEK_INTERIORCOLUMN_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_STATUES",
       "context": "interior",
       "major": 7,
@@ -2283,7 +2523,9 @@
     },
     {
       "id": "flowerbed1x1-int",
-      "name": "Flowerbed1x1 INT",
+      "name": "Small Flowerbed",
+      "nameKey": "ID_BUILDING_TYPE_FLOWERBED1X1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FLOWERBED1X1_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -2302,7 +2544,9 @@
     },
     {
       "id": "flowerbed2x1-int",
-      "name": "Flowerbed2x1 INT",
+      "name": "Medium Flowerbed.",
+      "nameKey": "ID_BUILDING_TYPE_FLOWERBED2X2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FLOWERBED2X2_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -2321,7 +2565,9 @@
     },
     {
       "id": "flowerbed2x2-int",
-      "name": "Flowerbed2x2 INT",
+      "name": "Small Flowerbed",
+      "nameKey": "ID_BUILDING_TYPE_FLOWERBED1X1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FLOWERBED1X1_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -2340,7 +2586,9 @@
     },
     {
       "id": "flowerbed3x1-int",
-      "name": "Flowerbed3x1 INT",
+      "name": "Large Flowerbed.",
+      "nameKey": "ID_BUILDING_TYPE_FLOWERBED3X3_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FLOWERBED3X3_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -2359,7 +2607,9 @@
     },
     {
       "id": "flowerbed3x3-int",
-      "name": "Flowerbed3x3 INT",
+      "name": "Small Flowerbed",
+      "nameKey": "ID_BUILDING_TYPE_FLOWERBED1X1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FLOWERBED1X1_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -2378,7 +2628,9 @@
     },
     {
       "id": "fount-1x1-int",
-      "name": "Fount 1x1 INT",
+      "name": "Small Fountain",
+      "nameKey": "ID_BUILDING_TYPE_FOUNTAIN1X1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FOUNTAIN_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -2397,7 +2649,9 @@
     },
     {
       "id": "fount-2x2-int",
-      "name": "Fount 2x2 INT",
+      "name": "Medium Fountain",
+      "nameKey": "ID_BUILDING_TYPE_FOUNTAIN2X2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FOUNTAIN_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -2416,7 +2670,9 @@
     },
     {
       "id": "fount-2x4-int",
-      "name": "Fount 2x4 INT",
+      "name": "Roulette Fountain",
+      "nameKey": "ID_BUILDING_TYPE_FOUNTAIN2X4_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FOUNTAIN_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -2435,7 +2691,9 @@
     },
     {
       "id": "fount-3x3-int",
-      "name": "Fount 3x3 INT",
+      "name": "Large Fountain",
+      "nameKey": "ID_BUILDING_TYPE_FOUNTAIN3X3_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FOUNTAIN_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -2454,7 +2712,9 @@
     },
     {
       "id": "5cardstud",
-      "name": "5Card Stud",
+      "name": "Five Card Stud",
+      "nameKey": "ID_BUILDING_TYPE_5CARDSTUD_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_5CARDSTUD_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_TABLES",
       "context": "interior",
       "major": 4,
@@ -2474,6 +2734,8 @@
     {
       "id": "baccarat",
       "name": "Baccarat",
+      "nameKey": "ID_BUILDING_TYPE_BACCARAT_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_BACCARAT_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_TABLES",
       "context": "interior",
       "major": 4,
@@ -2493,6 +2755,8 @@
     {
       "id": "caribbeanstud",
       "name": "Caribbean Stud",
+      "nameKey": "ID_BUILDING_TYPE_CARIBBEANSTUD_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_CARIBBEANSTUD_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_TABLES",
       "context": "interior",
       "major": 4,
@@ -2512,6 +2776,8 @@
     {
       "id": "carjackpotslotgroup",
       "name": "Car Jackpot Slot Group",
+      "nameKey": "ID_BUILDING_TYPE_CARJACKPOTSLOTGROUP_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_CARJACKPOTSLOTGROUP_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_SLOTS",
       "context": "interior",
       "major": 4,
@@ -2531,6 +2797,8 @@
     {
       "id": "craps",
       "name": "Craps",
+      "nameKey": "ID_BUILDING_TYPE_CRAPS_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_CRAPS_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_TABLES",
       "context": "interior",
       "major": 4,
@@ -2550,6 +2818,8 @@
     {
       "id": "keno",
       "name": "Keno",
+      "nameKey": "ID_BUILDING_TYPE_KENO_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_KENO_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_LOUNGES",
       "context": "interior",
       "major": 4,
@@ -2569,6 +2839,8 @@
     {
       "id": "letitride",
       "name": "Let It Ride",
+      "nameKey": "ID_BUILDING_TYPE_LETITRIDE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LETITRIDE_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_TABLES",
       "context": "interior",
       "major": 4,
@@ -2588,6 +2860,8 @@
     {
       "id": "paigow",
       "name": "Pai Gow",
+      "nameKey": "ID_BUILDING_TYPE_PAIGOW_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PAIGOW_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_TABLES",
       "context": "interior",
       "major": 4,
@@ -2607,6 +2881,8 @@
     {
       "id": "progressiveslots",
       "name": "Progressive Slots",
+      "nameKey": "ID_BUILDING_TYPE_PROGRESSIVESLOTS_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PROGRESSIVESLOTS_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_SLOTS",
       "context": "interior",
       "major": 4,
@@ -2625,7 +2901,9 @@
     },
     {
       "id": "sportsbookbetting",
-      "name": "Sports Book Betting",
+      "name": "Sports Book Lounge",
+      "nameKey": "ID_BUILDING_TYPE_SPORTSBOOKBETTING_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_SPORTSBOOKBETTING_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_LOUNGES",
       "context": "interior",
       "major": 4,
@@ -2644,7 +2922,9 @@
     },
     {
       "id": "texasholdem",
-      "name": "Texas Holdem",
+      "name": "Texas Hold 'Em",
+      "nameKey": "ID_BUILDING_TYPE_TEXASHOLDEM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_TEXASHOLDEM_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_TABLES",
       "context": "interior",
       "major": 4,
@@ -2664,6 +2944,8 @@
     {
       "id": "videokeno",
       "name": "Video Keno",
+      "nameKey": "ID_BUILDING_TYPE_VIDEOKENO_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_VIDEOKENO_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_SLOTS",
       "context": "interior",
       "major": 4,
@@ -2682,7 +2964,9 @@
     },
     {
       "id": "wheeloffortune",
-      "name": "Wheel Of Fortune",
+      "name": "Wheel of Fortune",
+      "nameKey": "ID_BUILDING_TYPE_WHEELOFFORTUNE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_WHEELOFFORTUNE_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_TABLES",
       "context": "interior",
       "major": 4,
@@ -2701,7 +2985,9 @@
     },
     {
       "id": "hospitalitysuitent",
-      "name": "Hospitality Suite NT",
+      "name": "Hospitality Suite",
+      "nameKey": "ID_BUILDING_TYPE_HOSPITALITYSUITE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_HOSPITALITYSUITE_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
       "context": "interior",
       "major": 5,
@@ -2720,7 +3006,9 @@
     },
     {
       "id": "interior-femaletoilet",
-      "name": "Interior Female Toilet",
+      "name": "Female Restroom",
+      "nameKey": "ID_BUILDING_TYPE_FEMALERESTROOM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_FEMALERESTROOM_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_RESTROOMS",
       "context": "interior",
       "major": 5,
@@ -2739,7 +3027,9 @@
     },
     {
       "id": "interior-maletoilet",
-      "name": "Interior Male Toilet",
+      "name": "Male Restroom",
+      "nameKey": "ID_BUILDING_TYPE_MALERESTROOM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_MALERESTROOM_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_RESTROOMS",
       "context": "interior",
       "major": 5,
@@ -2758,7 +3048,9 @@
     },
     {
       "id": "interiorbuffet",
-      "name": "Interior Buffet",
+      "name": "Buffet",
+      "nameKey": "ID_BUILDING_TYPE_BUFFET_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_BUFFET_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FOOD_DRINK",
       "context": "interior",
       "major": 6,
@@ -2777,7 +3069,9 @@
     },
     {
       "id": "kitchenint",
-      "name": "Kitchen INT",
+      "name": "Kitchen",
+      "nameKey": "ID_BUILDING_TYPE_KITCHEN_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_KITCHEN_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FOOD_DRINK",
       "context": "interior",
       "major": 6,
@@ -2796,7 +3090,9 @@
     },
     {
       "id": "lamp-1-int",
-      "name": "Lamp 1 INT",
+      "name": "Standard Light",
+      "nameKey": "ID_BUILDING_TYPE_LAMP1x1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LAMP_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
       "context": "interior",
       "major": 7,
@@ -2815,7 +3111,9 @@
     },
     {
       "id": "lamp-cold-int",
-      "name": "Lamp cold INT",
+      "name": "Neon Blue Light",
+      "nameKey": "ID_BUILDING_TYPE_LAMPCOLD_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LAMP_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
       "context": "interior",
       "major": 7,
@@ -2834,7 +3132,9 @@
     },
     {
       "id": "lamp-green-int",
-      "name": "Lamp green INT",
+      "name": "Green Light",
+      "nameKey": "ID_BUILDING_TYPE_LAMPGREEN_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LAMP_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
       "context": "interior",
       "major": 7,
@@ -2853,7 +3153,9 @@
     },
     {
       "id": "lamp-pink-int",
-      "name": "Lamp pink INT",
+      "name": "Neon Pink Light",
+      "nameKey": "ID_BUILDING_TYPE_LAMPPINK_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LAMP_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
       "context": "interior",
       "major": 7,
@@ -2872,7 +3174,9 @@
     },
     {
       "id": "lamp-warm-int",
-      "name": "Lamp warm INT",
+      "name": "Warm Light",
+      "nameKey": "ID_BUILDING_TYPE_LAMPWARM_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LAMP_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
       "context": "interior",
       "major": 7,
@@ -2891,7 +3195,9 @@
     },
     {
       "id": "landscaping",
-      "name": "Landscaping",
+      "name": "Landscaping Office",
+      "nameKey": "ID_BUILDING_TYPE_LANDSCAPING_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_LANDSCAPING_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
       "context": "interior",
       "major": 5,
@@ -2910,7 +3216,9 @@
     },
     {
       "id": "monitorstationint",
-      "name": "Monitor Station INT",
+      "name": "Monitor Station",
+      "nameKey": "ID_BUILDING_TYPE_MONITOR_STATION_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_MONITOR_STATION_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
       "context": "interior",
       "major": 5,
@@ -2929,7 +3237,9 @@
     },
     {
       "id": "pitbossint",
-      "name": "Pit Boss INT",
+      "name": "Pit Supervisor's Office",
+      "nameKey": "ID_BUILDING_TYPE_PITBOSS_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PITBOSS_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
       "context": "interior",
       "major": 5,
@@ -2948,7 +3258,9 @@
     },
     {
       "id": "potflower1x1-int",
-      "name": "Pot Flower1x1 INT",
+      "name": "Small Potted Flowers",
+      "nameKey": "ID_BUILDING_TYPE_POTFLOWER1X1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_POTFLOWER1X1_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -2967,7 +3279,9 @@
     },
     {
       "id": "potflower2x2-int",
-      "name": "Pot Flower2x2 INT",
+      "name": "Medium Potted Flowers",
+      "nameKey": "ID_BUILDING_TYPE_POTFLOWER2X2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_POTFLOWER2X2_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -2986,7 +3300,9 @@
     },
     {
       "id": "potflower3x3-int",
-      "name": "Pot Flower3x3 INT",
+      "name": "Large Potted Flowers",
+      "nameKey": "ID_BUILDING_TYPE_POTFLOWER3X3_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_POTFLOWER3X3_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -3005,7 +3321,9 @@
     },
     {
       "id": "pottree2x2-int",
-      "name": "Pot Tree2x2 INT",
+      "name": "Medium Potted Plant",
+      "nameKey": "ID_BUILDING_TYPE_PLANT2X2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PLANT2X2_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -3024,7 +3342,9 @@
     },
     {
       "id": "pottree3x3-int",
-      "name": "Pot Tree3x3 INT",
+      "name": "Large Potted Plant",
+      "nameKey": "ID_BUILDING_TYPE_PLANT3X3_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_PLANT3X3_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -3043,7 +3363,9 @@
     },
     {
       "id": "statue-1x1-int",
-      "name": "Statue 1x1 INT",
+      "name": "Small Statue",
+      "nameKey": "ID_BUILDING_TYPE_STATUE1X1_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_STATUE_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_STATUES",
       "context": "interior",
       "major": 7,
@@ -3062,7 +3384,9 @@
     },
     {
       "id": "statue-2x2-int",
-      "name": "Statue 2x2 INT",
+      "name": "Medium Statue",
+      "nameKey": "ID_BUILDING_TYPE_STATUE2X2_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_STATUE_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_STATUES",
       "context": "interior",
       "major": 7,
@@ -3081,7 +3405,9 @@
     },
     {
       "id": "statue-3x3-int",
-      "name": "Statue 3x3 INT",
+      "name": "Large Statue",
+      "nameKey": "ID_BUILDING_TYPE_STATUE3X3_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_STATUE_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_STATUES",
       "context": "interior",
       "major": 7,
@@ -3100,7 +3426,9 @@
     },
     {
       "id": "tree-int",
-      "name": "Tree INT",
+      "name": "Potted Fir Tree",
+      "nameKey": "ID_BUILDING_TYPE_GREEK_TREE_NAME",
+      "descriptionKey": "ID_BUILDING_TYPE_GREEK_TREE_DESC",
       "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "context": "interior",
       "major": 7,
@@ -4732,6 +5060,40 @@
     {
       "id": "event-negative",
       "file": "sound/event-negative.ogg"
+    }
+  ],
+  "languages": [
+    {
+      "code": "en",
+      "label": "English",
+      "source": "game-original",
+      "complete": true
+    },
+    {
+      "code": "el",
+      "label": "Ελληνικά",
+      "source": "community-port",
+      "fallback": "en"
+    },
+    {
+      "code": "fr",
+      "label": "Français",
+      "source": "game-original"
+    },
+    {
+      "code": "de",
+      "label": "Deutsch",
+      "source": "game-original"
+    },
+    {
+      "code": "it",
+      "label": "Italiano",
+      "source": "game-original"
+    },
+    {
+      "code": "es",
+      "label": "Español",
+      "source": "game-original"
     }
   ]
 }
