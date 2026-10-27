@@ -96,6 +96,2078 @@
     {
       "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/sofa_dc_int_thumb.tga",
       "sha256": "03d96f9327015d9acd73c050585d226480be8ffc080eb4f752b26e4e974c5e35"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/agent.tga",
+      "sha256": "0ecffc7f1ef18a28cd212e72dc890396ae9bb8318cbc299257131a24dc2c4914"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/big_buylot.tga",
+      "sha256": "966a104ef82683b47346234eaed7e619961541c11b4ac647c1d581534066559a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/big_info.tga",
+      "sha256": "6b6d1a6dcd32c79b9e20d01f742cfeec396a9edd06268b03c7a45bc4cd060585"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/Businessman.tga",
+      "sha256": "43933071d87dda0d8b20f551408c277c81a2df340717630b988217f9b87a095b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_closeit.tga",
+      "sha256": "34bf7d2ab2776825d74580782d24cab943615bacfb58bc8380e366d5c6d2e64f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_closeit_down.tga",
+      "sha256": "ec40345b6d0063df0eeff8afb785e78c8aa849c1c6b1f16c6640f0e9d206b707"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_closeit_down_over.tga",
+      "sha256": "54b8d43b5b953aec582a1aa2521dd56c804fd266fa26fe40e006e3069efaac0e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_closeit_glow.tga",
+      "sha256": "5ae5e52aaf763b14174562320c81397cbfc4efde5308147ff60e52adaf838732"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_closeit_over.tga",
+      "sha256": "af10d9516d7bba94bd5969c535a6d3f595081280e54c0f06463530101b41b3e4"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_down.tga",
+      "sha256": "3494d890fb5a65c2bfd7751567e6892c9a6f402c1ceae33f62907d7b2628ce6e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_down_over.tga",
+      "sha256": "3494d890fb5a65c2bfd7751567e6892c9a6f402c1ceae33f62907d7b2628ce6e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_highlight.tga",
+      "sha256": "a619816fcde24e1de1a5660f129601aa9a36d7a7998664687cd385345be21b74"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbutton.tga",
+      "sha256": "46ef8863848cc2875af324b1bfcb6c92133bd51926ea374307846377d5292f09"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbuttonw.tga",
+      "sha256": "6adfc9560b95ac91c5ab769a068901f0c6c7145bb7c829a35cbab13acdcb7cb6"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbuttonw2.tga",
+      "sha256": "27238b2a5d835e5761e24fac1e753efa6e70f680f8b18ecb01bed93aafdccf4d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbuttonw2_down.tga",
+      "sha256": "99ccf3f5b4a72889c163530ec667978bd7eed89542f3f302bb7179868ef498a8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbuttonw2_down_over.tga",
+      "sha256": "1d1c0d4f3a6073610528b6bc9c514080ced349d1c044afe7a9527cd1c17c9b89"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbuttonw2_over.tga",
+      "sha256": "31fd739fda5033f2a8181f6fd0f293773d94c2d99f36a915fc51030fd7754197"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbuttonw_down.tga",
+      "sha256": "ac3c9542f142e438f7c466b96b1c3828cf2a60c7cacde61bf3092764969bee8d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbuttonw_down_over.tga",
+      "sha256": "8c01bbdf62116adcb4b7139389f54db24ddb63a3457850f56fc9c9e18a65ee65"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbuttonw_over.tga",
+      "sha256": "b8ec3c6a411fcf5bd0dfcc57edcfa31cefbe83c6ee00c16703710d999b0ffae5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbutton_down.tga",
+      "sha256": "a6380a59ef315eba8b3d456da6ea7927e590bcaa97a816c6ef650540ef8813f0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbutton_down_over.tga",
+      "sha256": "1c16bbf0bf11c183025ca94ec222be9b969e7175a976c009eac3a83a24e8b6ad"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbutton_glow.tga",
+      "sha256": "cf1d028b4383e5df5dbb434fe41c9e359d022d1e0b3ac72e6175d7b5c742a43d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_mesbutton_over.tga",
+      "sha256": "247b83fdc7b757ba9357461a4583dea8d82130cf22f6f7d7a23055668d19ae5d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_normal.tga",
+      "sha256": "7dea821ef4217b9e294739bbb14a2e9954df660165f52860bf6f00b968682745"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_over.tga",
+      "sha256": "7dea821ef4217b9e294739bbb14a2e9954df660165f52860bf6f00b968682745"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_left.tga",
+      "sha256": "0e9a6c838b8f1293eac316d44e101489eb14f651b6ceefeca0a6d8671e635ea8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_left_down.tga",
+      "sha256": "38b2d564ccc83ff5f425c9f2a3a402dab1c58978a587c373524fc75e91c801b6"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_left_glow.tga",
+      "sha256": "93a1b53c4758e4fc1c722720848c19f1896a83c44c9e1a32470ed2350a94965f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_left_over.tga",
+      "sha256": "38b2d564ccc83ff5f425c9f2a3a402dab1c58978a587c373524fc75e91c801b6"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_left_over_down.tga",
+      "sha256": "38b2d564ccc83ff5f425c9f2a3a402dab1c58978a587c373524fc75e91c801b6"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_mid.tga",
+      "sha256": "63efba170420c37e760408377eae8b71c076d65ebfb580328ee77b919b95f9cb"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_mid_down.tga",
+      "sha256": "fea17af4c507770e4589469e96b780c7ca24b61bf3ca71c72e081dd7943f8659"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_mid_glow.tga",
+      "sha256": "c0963dfef0ab7429939e475486e57d1c08abe19880f555f6f86636996a55d09b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_mid_over.tga",
+      "sha256": "63efba170420c37e760408377eae8b71c076d65ebfb580328ee77b919b95f9cb"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_mid_over_down.tga",
+      "sha256": "fea17af4c507770e4589469e96b780c7ca24b61bf3ca71c72e081dd7943f8659"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_right.tga",
+      "sha256": "7416f863d07ae49a7df8bc3cd85f6dd4957d308e95c57fb5fc0583feeb06ad5c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_right_down.tga",
+      "sha256": "6025159e4c79aae401817c3d14d8fb6c6d35ffbe92f2493245a8503ff16925ad"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_right_glow.tga",
+      "sha256": "1411a7ca19bd17dee22a22ec19c8c270545d125d789933980823e672dc8ab0ae"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_right_over.tga",
+      "sha256": "7416f863d07ae49a7df8bc3cd85f6dd4957d308e95c57fb5fc0583feeb06ad5c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_pad_right_over_down.tga",
+      "sha256": "6025159e4c79aae401817c3d14d8fb6c6d35ffbe92f2493245a8503ff16925ad"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_scroll.tga",
+      "sha256": "f9fd930f2c7a3b359e65b2360937d229adc6716b272483078e72eba0553f3b5a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_scroll_down_over.tga",
+      "sha256": "d7c1a1c850796141fc3ffb98664c9b2fa53655ff7f531de5f812df572dcad864"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_scroll_glow.tga",
+      "sha256": "e34f5b7032bf12661c1b3f83c1490c4141ece1090a1dc5504bf620376aa90481"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_scroll_over.tga",
+      "sha256": "f006f7f72e503b782c535c35c9bc949da490845fffaa34a11c484711a053b735"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_square.tga",
+      "sha256": "5229ab5139d29e11e760abf0ad8344dd6dbce31d21e5b40ee2438f700cb5366f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_square_down.tga",
+      "sha256": "c5a51f9cdbd60d296cd97cee7c83a66b3730950bbc4bc6cbc36dc62f1a9ff5a0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_square_down_over.tga",
+      "sha256": "4c00d9004a30c63c1598ee4b22078899858c35763719f8838e35f8fd05869470"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_square_glow.tga",
+      "sha256": "42425e6127440eee1d6f897ab73d51430c395c028ac91e8018b79fabc4914a47"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_square_over.tga",
+      "sha256": "2310299d1170bcffa0e76387ce688f6517b68bb4b1e262b40128deb133b44d33"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_thumb.tga",
+      "sha256": "c47ca22ae16307586fdda9b46f1d31241cb452aadf2c3eac116c14d55107f74f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_thumb_down.tga",
+      "sha256": "dd2194c4e78b0c9ed58ed327c0828400fe5c47548663d984dc7085b9b9e97069"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_thumb_down_over.tga",
+      "sha256": "f828686d635b8754e8058362599ae9d6a3df12d63f59b381107a83ba23cccc33"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_thumb_glow.tga",
+      "sha256": "765bff4aac0be541de9a0e9d9108806c0a4f7203f495b2dc3ab0ec7b14b689b8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/b_thumb_over.tga",
+      "sha256": "811c45ac2b0338f8a1fbb15eadad44b4cd064cfb204fc79d74e9ca17c2ddd4c9"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/C_Chase_Lanyon.tga",
+      "sha256": "60f337b9793e2b812aba8fbe37634bfbc0a55c4b61e576c5f8d79071a48f8e78"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/C_city.tga",
+      "sha256": "2f1b2b98a8075ea991a40720f816c21c64a4b62b61a3a0f6c0f5ae5d25c89c7c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/C_Damien_G_West.tga",
+      "sha256": "132fafda3a3a97c2977092649765a9cdbb6c66f614e96ff96e55a0797db59afc"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/C_Derren_Languid.tga",
+      "sha256": "ae0780d43d9b471214931793114857d7b0ef26d96a373e9e8f700046dc4f569b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/C_Grace_Morley_Jones.tga",
+      "sha256": "97e32e2233a57367418369fd1037abf3ada112dba6fa59c009111778767b7706"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/C_Hal_Harding.tga",
+      "sha256": "cf6856369956501884f6ebb630474eaa2061f061a355b0b403cc5ca584cd4d1a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/C_Lucas_Graves.tga",
+      "sha256": "e4ba4f66cb4c77266c8439c2950493da93c6fdc698bc8d5f73cf35838b6817bb"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/C_Michel_Dupont.tga",
+      "sha256": "5bd514a4b98b43027689287598a8ed4cfcf6d91a580cbfba5fd55d2f1f690307"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/C_you.tga",
+      "sha256": "d94b9b16e68b93a7dd101f85f84a5db708ec3e639ff9636db36f1974bd95c976"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/demolishing.tga",
+      "sha256": "0c55a7340286be3349f9ab97345d7b580b48bbe6906bcecbe3a13391ef91c34e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/d_activity_small.tga",
+      "sha256": "3cc314dfcfb01b3347a2a35b42a649ce3be1f95eb77394dc017bd365c4fd30ca"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/d_bed_small.tga",
+      "sha256": "948b556c64cae2811db5a5a6fbb4d07fd821a252befcc7ca16162ec48325d3d3"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/d_bog_small.tga",
+      "sha256": "d91d8eb6e2badece934bfb925c0243f0112b8eb831602011b199b1a47d5df164"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/d_drink_small.tga",
+      "sha256": "9a5ef96fb359f534fa56941545561875278ebccb3bfbe92548a04c6b27f69bd9"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/d_eat_small.tga",
+      "sha256": "c391d715d53435a955d733f62f902f1835785c58692aaecd366247aaa537d614"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/d_entertainment_small.tga",
+      "sha256": "b0f31f31243d28968a71b1cfd1bce0887a77e8211920572bc5e71b0b086b9692"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/d_gamble_small.tga",
+      "sha256": "b80391de67297acc70ce84fbfa8845d0c00eb0e46fe016693055b886905072ad"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/d_money_small.tga",
+      "sha256": "6daa41680da6ba7f3cb5414d9407d9fcd34c06309f0d522279aac62a62669323"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/d_rest_small.tga",
+      "sha256": "3f8b1708700dbb62f9a8c167efbec47800189113f53b1f09959aecab221067ef"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/d_rubbish_small.tga",
+      "sha256": "b080ba4a04f1df5dd17d19cbc30f6f21c4532ecdfa63911ef0feed5e877a9a65"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/d_shopping_small.tga",
+      "sha256": "dbdfb28c2358e2be330a5dccf872b8b65a3a18571ecdb4afab027e7960792ac7"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/family.tga",
+      "sha256": "5fd7f0279aabbaccb0cb3f05cf214a9b633d9331de62fa61a68aea907f0d2b5b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/fil_betrange.tga",
+      "sha256": "cdfdf5321b08d6c5e16173b2fd09ec168fc66cc0a5bf46d27b2339cb0abb42fe"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/fil_houseedge.tga",
+      "sha256": "97fd1fd11f8c6a22066328ec634ca1ef8f70af3747b6c612b7e7e55be8d9d06f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/fil_repair.tga",
+      "sha256": "9cbd2686332191e75e4e8a6a27aa8bca6b3a4dc474e8affe56e3c967e1fba129"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/fil_reputation.tga",
+      "sha256": "1b4e557a1e1d4e11e8beb6ceef9322eaeaeed9f82fc0a2946326b135cc161b21"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/ForSale.tga",
+      "sha256": "5ab2e94d85a6f68b9412ae4a7b00ab8c539995f80041f4adbf8500e5a819c7af"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/gambler.tga",
+      "sha256": "21cc3d1ac186374673f677fd181be52e5cb7223d802168d3b6e92f835f623ec1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/inf_beauty.tga",
+      "sha256": "bf57b86b1ccaa29570518281240c58be61b6c480e2b0e1b50da8ac0dbf4dc815"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/inf_calming.tga",
+      "sha256": "46cab8ee36acc0b047d1c2c7756fea4a27a3e7906f52fadf1147ab7f6bc96326"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/inf_entertainment.tga",
+      "sha256": "e1e9ded7c820361ad7a923c94939489c6c9d185cb323ac7d6c60c30150f9c305"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/inf_host.tga",
+      "sha256": "871bfbfa771c3e3a4c4aad82fde44d7f69fcf198eec0859ce1f9d46907dc0c13"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/inf_litter.tga",
+      "sha256": "135f22dc8bc34660a1e4f884618475fef6d64bf66062b2ecdade0a8dde94dc48"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/inf_noise.tga",
+      "sha256": "4766bdc6eda94ffeecf963d72c8ad6bfdefbf30bf3239bb0be68f9c923712e93"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/inf_pitboss.tga",
+      "sha256": "905e6148f6f9e15be3926dd3034a4b93a7cd06a01658ee750f4ab7fb286e742d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/inf_security.tga",
+      "sha256": "9bf6b6364682de1a40d483dc40a67e4a10ca33e1fe9db1e7a2b675b18f3a9fec"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/inf_smell.tga",
+      "sha256": "c2564129032ad10303afe2bf56e6877c492e91a726e3b25930c29832bb729d42"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_advanced_options.tga",
+      "sha256": "3e56f5e0b45e6375cc89e9f7df6d0b068f26c794237bf344e9b35885dd0b4185"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_advertise_staff.tga",
+      "sha256": "4ed90c519d954ce0a4c9f6549d15a54ce3f0907fc902bc1a3b06722150e7f510"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_arrow_down.tga",
+      "sha256": "e5bff7ebc411294d348c855ecc33aa2a5110f4cf0ef7aaf67165c03a5c646093"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_arrow_left.tga",
+      "sha256": "5a947be4da9b3c4076138ec4b94e60c2a348d952a8bfbf40a4fbd51a99bad0cd"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_arrow_right.tga",
+      "sha256": "13b5d1166854c176007474aa13318b8eae6bec2ae7c872291fe3060339b4adbb"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_arrow_up.tga",
+      "sha256": "3d2fce52bc9143f68058e34744c19340b892b1c126bd7b360fdf3eef802ce747"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_big_costs.tga",
+      "sha256": "4536ffc2752b865f837345986b8ac15ac02384217a867174d43cdfb1c3748eac"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_big_income.tga",
+      "sha256": "1d34398b59779341e210e2a5e0edb2c44e387fb0fd621f543effb22de92a9689"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_big_profit.tga",
+      "sha256": "e30594f124b2ce045b5ed9599a933d23f06276fd523f78047f003372adddc163"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_big_todaysales.tga",
+      "sha256": "95207cdb6c1115ed54c6de487d48df447dab7ed7252b14a63a1faeccc4b1d75e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_big_totalsales.tga",
+      "sha256": "bbc6e7db38fbb799594762b1bb407644920e6faee2ffb3ffacdcc1c8595d1353"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_build.tga",
+      "sha256": "e0d42c07e4963da0d98568fbcfd1d876379b59de86f892f2bbb1b08b029b74ae"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_building_badbetrange.tga",
+      "sha256": "267acc55d137f5e058fdda4d8f5b85c7a039e36efe001cebc7ead357ec601629"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_building_badreputation.tga",
+      "sha256": "965429a2cc790172ee92b61be1b892ab98bdf13c05df9c5eeb7654f15f900d2a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_building_capacity.tga",
+      "sha256": "20ffe0882a68f93f3f8656a8dc46b2709ff1e3877712e0042d83ea91e4c1bc89"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_building_closed.tga",
+      "sha256": "afd3ab843c0efe145c1e8f83f386bd57819404fd7b2663a54dfda9d663b66d4c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_building_expensive.tga",
+      "sha256": "90185f9cfe6a96b8e900a2ee787c82d9b05da8c72fa3b25b842f849c8b7a7ffe"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_building_full.tga",
+      "sha256": "7b57b46d07e11cc38bdafb8a403225abb9c8eafca0ead4f089ccdc9ab50e1490"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_building_health.tga",
+      "sha256": "423e8ec1ce48e1577c296c83444d28db41becc66cfde234d8def7b083236f8ce"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_building_no.tga",
+      "sha256": "98f4662fba0ac69893ffe5195cd17a84daec21bb7649880c205b3fe0027d440b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_building_notsuitable.tga",
+      "sha256": "5e731f44ba3047c5cf2a0f617d23bd2f4dfa5c130ddfb7f173bbc447a360b24d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_building_viable.tga",
+      "sha256": "8709e46ac817cebfd3a04bb1a70ceb209158231223bd90e9f16bbc8a568f0697"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_building_visited.tga",
+      "sha256": "4f64e60d4f9326dcc3bfc93604fa33daa74995fa8d885caa5681ae9339505018"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_buy.tga",
+      "sha256": "71a5fe56dd43ef55983e2b454988cc2724d9f4c7bc0ebbfed55b0ec6b8ab16e2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_buy2.tga",
+      "sha256": "cc1d7e501f5e62d1f9eff95b9195ab558b830c6717dfa3629fcf5b2782c966c0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_camera.tga",
+      "sha256": "57f775fbc8e7551a1fd0c621ab190b35b4e9f0276f2d4926228980ac5ccc6052"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_cash_down.tga",
+      "sha256": "6ffa7d667ebc18d04bdd4d4ce7451ded0676b0f12b8bd724b074a9537d890f59"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_cash_up.tga",
+      "sha256": "a967c520233357d898739b29d92e8c463daa274323e6cfeafa7668e5da9dc162"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_casino_view.tga",
+      "sha256": "9ba637d3e7c63e07b9610e138d8a4ce52bbc44776eb40ec45c9d4ca29fafc688"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_charts_bar.tga",
+      "sha256": "192b6d7fb4e059f255577a06bb8ba033e837a72f8126090a3cdbf57d15548776"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_charts_pie.tga",
+      "sha256": "947a0faf8802ddc356b59fa1b2f5eb0f856cf6536f77fbf7dd5bc10ad7928c43"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_clearstats.tga",
+      "sha256": "0dfd05ff3a197e651e2c8b8d127acc40532c6bae7534062f4c01e29a4051877e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_clock.tga",
+      "sha256": "024f38cf2ef08484cdaa95b4d74e525f42c037b5634ee175e11c80c8435fa437"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_closeit.tga",
+      "sha256": "de70c8966516d892f96d270830b43f1c6d9c7686c10ebb64c78760ccb39f02a5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_comps.tga",
+      "sha256": "67e80ae967f6074a09166a376713897531c09a28b57302600576c2223d58fb8b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_comptype.tga",
+      "sha256": "96bb5d585873ced193d4ad88404baec5eee9bd507f3ce444a3ca3c1c9b48d8d9"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_comp_cost.tga",
+      "sha256": "83d123312832a7366e18a313b63b2ef430d4a37e6a9f688bd36622a49aa02aa9"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_comp_freedinner.tga",
+      "sha256": "505f6ad71cdf87d6504139e4e8e4b017f69ab37a6c29125eb56085563aa439a0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_comp_freeflights.tga",
+      "sha256": "30a7799eabc31c88be3a634f49eab2b81c7208281e9090a7a21aeac384587820"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_comp_freenights.tga",
+      "sha256": "56e4b2b4c28256219fc7aa11f038eaa5ab06670e5f8d6f5b3034d424b00c14d0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_comp_freetheatre.tga",
+      "sha256": "377cd0636642511623009f45e1b339ced804b92f0a0c72e2fb4a279c0f9afb75"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_comp_guestspend.tga",
+      "sha256": "71a5fe56dd43ef55983e2b454988cc2724d9f4c7bc0ebbfed55b0ec6b8ab16e2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_comp_happiness.tga",
+      "sha256": "532d316c5a46589c3b7a89d5f5645276ed452b23740d90f3d5e1bace0d6f06b5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_comp_no.tga",
+      "sha256": "36610fa794a6c90a63f72dd093c36c5e70826d6c32ca51a344a66aa4fd7ccefa"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_comp_state.tga",
+      "sha256": "7216e2d9d9d8f5a1b8eb773e109a59991d431eaaba939db2a82a80bb674f8ad9"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_comp_type.tga",
+      "sha256": "c010b08a6bcf198ef72459406b119ea40a46af1f354973963a71bec49fdcd508"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_confirm_off.tga",
+      "sha256": "ba3cac14ac443e7e324a643c90fe55d58a1bd3cd5e8115f2e375a80df579bd4b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_confirm_on.tga",
+      "sha256": "cbe5a52b06830c8353942d7d3ec40b9ab1565cd2f8604ae33ea8f0dcc7a38172"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_cross.tga",
+      "sha256": "661f57966be71561ed608c759417f9bf62c32a7041278f026f2b6331f9cf7d14"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_cross_red.tga",
+      "sha256": "d896b8479d2a62632c9b57dc8bfaa57ddbc50bb1ae5ef12e97ab4725423c78f2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_cross_yellow.tga",
+      "sha256": "367183eb3cfcaaec4fd87c645c0ec6913f4ff584bf28b1c0884238c01bae9da8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_crowd.tga",
+      "sha256": "51d60c5df364d3750f20ccb2c20dca18c0fd22c69c7f43e87b44c68b6757ed59"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_darrow_left.tga",
+      "sha256": "026ffcddbf0a1338565a0f140440d49ed1a21918973e5dda7df76ad688edca05"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_darrow_right.tga",
+      "sha256": "ab265c972aaffdb0548480c3e437cbfc32345606eb47b80ffa292a4ebb306b43"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_decor.bmp",
+      "sha256": "1a739305006234e06d2dde79107b27893a282b34c6230beb983e712ea77d2610"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_decor.tga",
+      "sha256": "db65c42360c26f149f00bf51dcd1c058d867982e00f435208df71e19982b12f2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_default_template.tga",
+      "sha256": "1dae30f8ded224c774a49aa48baf14f937a11d20a9df3e478bc177a858f164a1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_demolish.tga",
+      "sha256": "789f8792f6b5d71f8399fdb03ea8f7c99959fc1f59109b4d11389ca73c13ea4d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_desires.tga",
+      "sha256": "efb15e7c115355e8dbaa0747557c7b038e7e68a982544d159f9ae08eb398d04b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_downgrade_red.tga",
+      "sha256": "c549aea851cc19850286809f217d15d7d1e4ba4d1186ff56002f4eef0d5debb0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_entertainment.tga",
+      "sha256": "8122090a32674a20ad2dbcef3bdbd480e528c34444012c84afaf9c88e933fbfd"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_entertainment_big.tga",
+      "sha256": "5081d75dbd59c19beaf9d130024bfdfc09414d5826068bfd267aba88467bf328"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_enter_casino.tga",
+      "sha256": "c0004b5c4ab91f8c8004cee89d4973552e7ae1e8a090c238ab3c8abda9b4ecb2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_fast.tga",
+      "sha256": "923151b99ea833b407ea24656a960934cf74ffe0765fadfb6f906bc153835b3a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/I_fe_campaign.tga",
+      "sha256": "0462d746d629d9c31e93287be5750577a9235c4883c8d4667594f74d3190d981"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_fe_credits.tga",
+      "sha256": "f4813fe5bf6e3c286a4dd180abdd38d2ff970f0fcdb4532b6fffe52141e032eb"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/I_fe_loadgame.tga",
+      "sha256": "786bd3cfb4908a267ab22b78c2472a58127107e4ba8e0b7094e944c068c3d768"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_fe_options.tga",
+      "sha256": "ed4815c2c5f8197a1236b2c7a5cc5dd552dffc27b719ccbb059196b039ff7795"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/I_fe_sandbox.tga",
+      "sha256": "b8df5ae1ac3135478f4562d11bd10da6565f699728305ff32dd265b2b4978c83"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_filter.tga",
+      "sha256": "684ab8a3b6c75e8dd669756b73c64fd83aa7e22c9965d94fc2088a5a3b9f670d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_finance.tga",
+      "sha256": "51c7b974ba4daebf048475bac9ad3269f34e6ddf25ac58e990ce9458274c28d8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_financedet.tga",
+      "sha256": "a0cb52480e193335dbdb2d6d12c3179f29e378914d1fdb792b526a965f0b8127"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_fire.tga",
+      "sha256": "998982f0723574f92b80f7441ca50ca6591116dcc2d939e6c6a7dc39960205ec"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_floors.tga",
+      "sha256": "3a372c8d1f9ec8279ebebf67c72681e390583b4dd5f60def0a0c6758e6391114"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_games.tga",
+      "sha256": "8e9d1e0f86c86319c7f542a0d9266443d0ed6b0147130b10c97c1719755ac7d5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_games2.tga",
+      "sha256": "1b7af804091b7d60a0f714c5128e9673148c007c9f74eec08d70e0072f7f9723"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_games_big.tga",
+      "sha256": "59913d7b38b2862d07f4f484e953d8e7ccb13331a44fac6b03d79f1075e000e5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_goto.tga",
+      "sha256": "f6e8402daacb8c89054592417bebf6d4b4810fafd11feefb3365dde665627ed1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_hidebar.tga",
+      "sha256": "193474f0d4a044947c51d2998178787c2b483a0c6deba757bdfc76d7a6c72cb4"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_hire.tga",
+      "sha256": "d1224a7e1773dbd082ee2d058d00664ad13424d1523922dc4716996787203021"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_history.tga",
+      "sha256": "8ce0441a73e611ff49171722f4d502679b574e450964550edc6cce6fd0e7c5d1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_home.tga",
+      "sha256": "f6e8402daacb8c89054592417bebf6d4b4810fafd11feefb3365dde665627ed1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/I_ig_options.tga",
+      "sha256": "ad5bb6ee114904db87d6c42d8bc3c5365dabd2c2e5643d207d049a8242b677ae"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/I_ig_quit_to_mainmenu.tga",
+      "sha256": "8c21f18bc0ccea348e78d5ff63f71c434e7ea5584b4beefb67fc8d9101bdc890"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/I_ig_savegame.tga",
+      "sha256": "737d8cf14d143f995a09f11d2f9871cda258001090e95c9358e2cde79184239e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_info.tga",
+      "sha256": "05f4680971b725e7b00ceab1fe09172627b695d7cc5b888264a47d7332373e21"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_infrastructure.tga",
+      "sha256": "2c4f478709bcb80bc584a3a74f48687a47ed9e981901bb3ecccb8a64cf99805a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_infrastructure_big.tga",
+      "sha256": "2d2b9d44eff0d3299237408f9afe042bf54c671f0f0edd7aa4e6fa9697dadf43"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_internalbuildings_big.tga",
+      "sha256": "711c3ce383249fd30420d693a3c686d09861d966e1f2808ad4570daab39a5961"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_internalscenery_big.tga",
+      "sha256": "8ca0679407a47d41321fcc151bbfa029e9fed74d8e2d30291fd3b2fb0faae382"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_intfac.tga",
+      "sha256": "9d8a510240f2f6a7c6eba0211f18e73fe6ab5bdac91c3a49dec31d28d0fe010a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_lastvisit.tga",
+      "sha256": "c01d777d75052f36ac4bf6699ea508a89e051468e965278f3b50a84e9dd207e8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_leave_casino.tga",
+      "sha256": "f76688daf34519725986e2610c58fa319f3bc10b03f011d56484e40fa481b05b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_link.tga",
+      "sha256": "ec6b7a143e710149327974ac99d4a096c93ef0df70bf93636137ded1850e7542"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_load.tga",
+      "sha256": "25b31981d80310fa5c1be076329c56dccbe6ca40f58f41f1105771815646e36a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_lot.tga",
+      "sha256": "688357a0b731d37cc4350dae3cd48617047a017c739c333891b814d0edf7f590"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_lot_A.tga",
+      "sha256": "c9efa792e3e3bc59381c67ca8e47cdddff6149c6449d575c9821cb18f95600be"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_lot_B.tga",
+      "sha256": "3d6205a7b69cd38e86889a79137983d5e4254b32d83c3a9cb40bde53ea12bfaa"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_lot_badreputation.tga",
+      "sha256": "ed02c1c115ed2660e2ac3dcb5a7a75a06f7cd9f46404b67b5a5f2a2423881b94"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_lot_notsuitable.tga",
+      "sha256": "22b7f74a2d63394a0aeb83fcb78b5c785d37a847cd52d1694b7c60c0736b8382"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_lot_notsupply.tga",
+      "sha256": "90d5bd55d8d1dd235fce207846df11019874549e038f00967626169fa538b2c7"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_lot_people_visiting.tga",
+      "sha256": "05d5122cd0dd3617958780b625266080d208eb77642a8408ef54cb0d3e1522b9"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_lot_viable.tga",
+      "sha256": "2e4cce1cca44f91c1c03177965ba204abd4c77fefb50c6316fe2301916cfa5b0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_lower.tga",
+      "sha256": "f565dfff36cdd4fe283629667d7dec8fa85175301289bf2ff40f5df36fc10a0b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_lowerfloor_big.tga",
+      "sha256": "246bd947c48cadf6651330ed78d209eed281d6928cc3ca536f6638dbce68c2fc"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_mechanic.tga",
+      "sha256": "de4a5fb24805f8f04b66117fd22bb1537178dc5f1f2712fdbfc0c08447ca9e1d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_merge.tga",
+      "sha256": "e6afa6b1533cd81d1dbcdbf168478e5bf49af4ee77e687adb7d9a341028d2c7b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_moreinfo.tga",
+      "sha256": "c44d43a909253152d3eca932625cf52d3010a599c29050982f296a66e8110bc3"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_multibuild.tga",
+      "sha256": "b4960d17df991cea3647eccedeb2348d903f6e73df019c3477914604fb4ee6fc"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_normal.tga",
+      "sha256": "46aa601f6ae0d8290263f1ed36c15df4ef6d80a4c519d7b051b78750390739c7"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_objectives.tga",
+      "sha256": "1f8b3453e2d289def70e79ca120315948fafdd8fba6ea8d9069a19142a9a3a9e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_options.tga",
+      "sha256": "32a521b4b5d56a0cc88ba42f31f27e17ec765b698c53cde78e0ffba824bf2e75"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_paint_floor.tga",
+      "sha256": "bdae1c46c1adf570b02c7391a83e4eb21ecf5697f15d311a06b06e50a5ed7876"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_paint_wall.tga",
+      "sha256": "326f951b85c99a826f3d839d9f0d8d631866508d36ba1a1d5ed830b599b2a8df"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_pathing.tga",
+      "sha256": "197b41ba1679e762e3321c5230612a70bb3fb965c3effb0a3e45f492c51e706a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_pause.tga",
+      "sha256": "e8bf4bf4ad6bf3726e527c53a9ca8c50c45cbaf83f35facd011412121e753bdc"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_peop.tga",
+      "sha256": "f212b8e8ac5f6e35b750bbc9efc8e475491f9478e9a9e5b051f8846160cee928"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_peopgrp.tga",
+      "sha256": "ae976c13eee6a462538c82599da5bceb6078a9070260daad1ddb79c211400f6b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_people.tga",
+      "sha256": "b0ebbbb438365179a945796352283704d60586975c0fe757c5b308d47e29394e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_people_no.tga",
+      "sha256": "63183492fc9e1188636b6fb892e5e38f0d5433acf0952321312f09f4300e0f41"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_person_cash.tga",
+      "sha256": "12c5f62cb982088f3f7ad5b34804e6cf0224ef33ed8b1d782ba446bd89c1efc8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_person_duration.tga",
+      "sha256": "1950592e8d51f74d7f15084264954904428fb00b5ffcf90802eba72f10c7be1a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_person_happiness.tga",
+      "sha256": "530a0fe38cd522fd9d76264a96b132f96b4a12a2c98b1132dc8b5cdff48327e1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_play.tga",
+      "sha256": "63fb707a4e919faca6f875be0e66546557d3bde945b8a6a9de82c441fb63c5fb"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_players.tga",
+      "sha256": "e52db252247babf46113b9afe8d9e63433b7ccd7ab128a44d8123e5751a88863"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_power.tga",
+      "sha256": "4b5ad33dc9de9946c95695585e8fb3970c37f5f6907e9a34180de2a6b05e1aaa"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_profit.tga",
+      "sha256": "4785637d493e2d5870c791f7b5fdc918e3ae0275a53ccc41dc60415651ae5b61"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_profit_no.tga",
+      "sha256": "9aa5acb66e3c10ce324a1a40bbb3322be9aa08a4c723d2aa1f57281e2da6927c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_raise.tga",
+      "sha256": "262e549d7258156c61e39914f6b22a06437f997f2ac7ea211baf2de648be0b63"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_raisefloor_big.tga",
+      "sha256": "2895a85f7b8a036946e707125c0c717c3ef6dbd87088c86feaf31a79ecfc6332"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_reset.tga",
+      "sha256": "0588ba6bde929c053c9b67aaacf664758a35ff34e9f0529be4df0e54c1048135"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_retail.tga",
+      "sha256": "6a89ab7c1939ced07ee4cd4c4be3e7253f7e61d75f698b9b4032eca317e6916e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_retail_big.tga",
+      "sha256": "94a39b72a20d4080253e8ac036a72e89ac7e88ea64db81ac76cbd5e0336384c0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_runningcosts.tga",
+      "sha256": "b98504a8a35733830985237b198da56dbb549e2ff549a0694b32e1ea14a08a83"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_sad.tga",
+      "sha256": "5021ab5dc2bbbe9990e59b7a51d4ddd2aae7fba477954577c0939ce35a1de61d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_save.tga",
+      "sha256": "57e74f69f76461ae9877ed378c87de10987b0ea7ea0e1bfeb2e10f039cabb248"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_savegame.tga",
+      "sha256": "15db167a936f39e2f6d0b52b5828a51f3dbc939343360e25a74fb61261934d52"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_scenery.tga",
+      "sha256": "4cbf30c6f7cc096bf808c5d09becca01c15dde6a08ac3ca0987946d7c4d8235b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_scenery_big.tga",
+      "sha256": "d4428c644bd3aa3a8f8879995cf30e480e0870368626ac0636579e001075b382"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_sell.tga",
+      "sha256": "80dd9f5073601fc2d192ee46e0b6ae3c3864ef43eac7dccf5a5fc0107696717b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_showbar.tga",
+      "sha256": "7566e360df8dd5f299fdb9b373fbfe9862ab736d3a1eaa083dd03845b12e6779"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_singlebuild.tga",
+      "sha256": "77770d88430f6e8f9b5e5aae66c608e006661daa9a03e23f7f883ebe1f0c39c0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_slow.tga",
+      "sha256": "7391cae43c4f7d05fc4a60fb9891703e6f980e23d217d7f7a2541c128f40ade8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_smallhistory.tga",
+      "sha256": "31119e8fa11c59c139ba54e9375c556963fea8b1ac1d5769dbbea5cf699ecaeb"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_smile.tga",
+      "sha256": "befe8daf3319962e6b69c0d9b20a3ed174588b5e16c4a9017d7fe02be3ea2bdb"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_star.tga",
+      "sha256": "e3d01934a672500285e2c34e1e780badd5d66222762565e186862b96fbe3e27f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_stats.tga",
+      "sha256": "3c93e00cb4c11268077955e897808880a09b26e04782541e383adb1463c3d5c1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_supply.tga",
+      "sha256": "7caa6a60565324d3085f9801227b2009dc518380d24f630ba6c7b02030d3ee44"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_thoughts.tga",
+      "sha256": "95f13d819c97a6d0476dca441e9b8e0c0febe0d342728ae7698008c0c5393b59"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_thoughts_more.tga",
+      "sha256": "a4b26a3ad7c7f69340752707a4fb8884350f52ad9fbeae73626769bb81bd0a59"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_thumbsdown.tga",
+      "sha256": "95bcee59ff2287bc850545a94d853ea91ae08eac2b69254595be3bd2d7e18c9e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_thumbsup.tga",
+      "sha256": "233e44d65ef16b0c259a14de124cf12f3ab50d7a48437d0f6634881c5038df12"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_tick.tga",
+      "sha256": "f14aa53a62a8838023c48c5cfbec3c9d8cab0438017378af3ab56b4597e03bc2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_totalpeople.tga",
+      "sha256": "a00de7b356987fc8fb71ea5a5284b83b6d443f01ab9638e4c3fe5fffea227ee8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_tourist.tga",
+      "sha256": "accc7b096198cd990a470023d275593e14762722e6c7180482b13b9ccac290d8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_track.tga",
+      "sha256": "56806f1921ae3ecfd50555abbe4439bd1f21ba7e10d2b39dd88ae5c9647953fa"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_upgrade.tga",
+      "sha256": "28539ec08b488835deb593d284994ae99916e85f533c2e4e59ca5241bd3470ee"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_upgrade_green.tga",
+      "sha256": "0c31c1c89627ccad9ed02277bdf21134dc8a4cce485a0946ddcacb8903385901"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_wander.tga",
+      "sha256": "7c25df6be809315d47a91c391ac16c5d785c574b902dc64eb631f0fbcfd84654"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_water.tga",
+      "sha256": "8e2b6340fe5e03a2a1d9d4361a7872e38ebd6bdb6e08c215b9e7f293b5799bd5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/i_world.tga",
+      "sha256": "54889e3b20c815c0bd38bc6c89bd070554b5748825eaaf1e8612aaf525d13c9a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/lb_down.tga",
+      "sha256": "2e5da76a0d18f49091c65658766fa37f79ead1a5943024ecf757da375d8e5280"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/lb_down_over.tga",
+      "sha256": "3c64209d8000b26742b813c341b7df2c1b5b4e7ab0fc8ce8ed11effc94a70d2e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/lb_glow.tga",
+      "sha256": "e1d711e739f417619ad092fcc05c494eed90e4bb3bcd8b58089dced6136f5bfa"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/lb_normal.tga",
+      "sha256": "54511be866c61095ebd083e23dc727ad0b472651e2f9a3a06354c5260d447147"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/lb_over.tga",
+      "sha256": "b7f4deb78d36fa93fe71da736455e620085220949e9a0d322f6f2d0ce95067c6"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/moon_A.tga",
+      "sha256": "fba7b10b56c2149d518867823d7638097ea6b2612ada21848ca2f4f61e241e44"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/moon_B.tga",
+      "sha256": "59be07223efb546be020ff0d5f2d749376e60bccca26d90eb2f77aa6cf74272a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/moon_C.tga",
+      "sha256": "8db7260b903062d496a70b5279a78ba9ee151a735623d365c0f329a6d8e84f91"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/m_building.tga",
+      "sha256": "30e19b10bb1b9683548e883f2577a6b6684b56499a81897be2f676a09593befd"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/m_casino.tga",
+      "sha256": "9e3def7344c20fe7591ef153838fe07253bef88e160aa7987c6b0a076a2e450d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/m_facilities.tga",
+      "sha256": "030d8daf153431870339759d8c479bae7af0eb384d5a907bf0f7195f050d3744"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/m_filter.tga",
+      "sha256": "4440ace4e8d255812551d109924502415fe939c21fead2311df69de0fba1d2de"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/m_gambling.tga",
+      "sha256": "3f9403c6e8bb05b215db0b80055d968b926be7eadd2d96feb4d03fbacfa74804"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/m_lot.tga",
+      "sha256": "3b8fd990732b71bf01f5d33e747d7e57ff0f0c42194636f87a33583256182252"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/m_people.tga",
+      "sha256": "2b771f2c05dae39043ac00801c4a5a45c65ce766e2d5a5ac46614d7f8951df9a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/m_scenary.tga",
+      "sha256": "7426bdf08a8ad3567936562eaeee4e843ff0d7154a7f022847261e00b9314c3f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/m_staff.tga",
+      "sha256": "223690f24fbf5d0c863464be3f58c44bd797791ffcde72bcbfbde9ce76b47e14"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/m_world.tga",
+      "sha256": "c0350fb8b2d26c937692f892d07859ac4b8c4224bede63828d02839533a25471"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/nomoneytobuild.tga",
+      "sha256": "602215baeb760da1aeed1ff29775ba04987fc5aebba79ff6e90d6ec795b770c1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/no_slots.tga",
+      "sha256": "ce9cc7d6c006e17cf4897a112322b1c6324510e6d46afbfec0f025dd81df08bc"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/obj_info.tga",
+      "sha256": "62fd8f5220eeda18a92428cae59409551e1774d8d7527918576ae70037ffd611"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/obj_link.tga",
+      "sha256": "a381ba7175e1ff8b07ed3a41747f262482209fc40f44be5f6060976185b28740"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/PlayerMarker.tga",
+      "sha256": "9c8eb70dd759d8ca3279d05bcebb6e704a2cf7b4369adef39af8777770f6d99e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/sandbox_SQ.tga",
+      "sha256": "702c344957e64d936e7240ea5c34f1ce22856072c0570d2a40501efcd0864ef1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/SB_map1.tga",
+      "sha256": "1201800d85ec40544ef028a05751ccde26962230539476d3b7b327bd22d642d5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/SB_map2.tga",
+      "sha256": "880ca6d618393339a24c8960a841f775412310d1aaa90d599f64bfb70fe2b5bd"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/SB_map3.tga",
+      "sha256": "e9f5d4fcce22e937a5e8d37f2755dbc1d688570686e700d4cbab2cd86f62d6d0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/SB_map4.tga",
+      "sha256": "c2fb5d7404e8a657ca302dc7373b33e2b42e2e98c4a5aeebb730918a76dbf857"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_attention.tga",
+      "sha256": "86baccd78d9d6ecfc8edb5242ae446200836fefd390aa83ae3fbf3f9e0cb8993"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_cashier_A.tga",
+      "sha256": "f31e4dc925de9ea5962bfe520b153d922531d7477025a91fb9b87d1733141e87"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_cashier_B.tga",
+      "sha256": "6b9f7a03ee2e4dc7cee7557e79e430858ecaf6f2a3250902c02587476a1e8300"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_charisma.tga",
+      "sha256": "7503ecc152e03fdfc4d7532c0e4686738f099f57b85d9c5552d7a28624d4ac5b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_chef.tga",
+      "sha256": "25b2b6f20625998df0aad6711a5e7ea8ce9bee17e800f17aff4ada0ebe40114f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_cleaner.tga",
+      "sha256": "8aea39b90c4f6fc2fd4b71ca98e34905241a2d59065b3db9d69ccc12f3688191"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_croupier_f.tga",
+      "sha256": "56ea69735a1b856f2eaa1551597e38737895259b401dd93f256b091bd36bae14"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_croupier_m.tga",
+      "sha256": "bac97399587d5b4fa4c46cd3a65f04f5a414f85c44d7e441db05ca95c9ca5e52"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_electrics.tga",
+      "sha256": "f51d56e53dcc9c06642e04b5ea7a8a5bbfbeb8657f4254b3e243b3e763721244"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_entertainer.tga",
+      "sha256": "f0c245e3ccb3a8cc0191dd632a780a925921b069908cf9ecd6c3008e98464c0c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_host_f.tga",
+      "sha256": "a47156ef0a725ef33ace28513a066ef8c5dd57996d36af13d92296830013b77c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_host_m.tga",
+      "sha256": "b7b3c6d7078f99bab23d78111cbb87a5f0ffe3838cabdb2cf49545148ed42d02"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_mechanic.tga",
+      "sha256": "60202e0bb4e9b4ec3e9188dcd50ca4f0449aa16f1f9b05028693dae45e7162d5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_pitboss.tga",
+      "sha256": "74f30ec2b188a9eec4497f7f16c3380d1eb0ed0b4035d937259854a518786e72"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_salary.tga",
+      "sha256": "4e267652ace66d30908818290281164a0253181c5472a4879042a815406273c5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_security.tga",
+      "sha256": "2c8570ddda37e146ec755cd63b98f286b9d8525f17f6540e044d6e87d6f21c9a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_skill.tga",
+      "sha256": "c8bd9c09b63faf46a18d26c356c6bf4f150dd3bc7c4327b9b35db8fdabbafded"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_speed.tga",
+      "sha256": "0c96c32e374b5bb48b82958f12f523f4c9f0fc62f44a68f1ffa2b762c42f03d5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/stf_waitress.tga",
+      "sha256": "4fc5c5d801be03c02ede634d273f9697ce3f997e72a327675687b845f56a1ef8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/sun.tga",
+      "sha256": "6db56d50b1403d6ead8a93c0951a2f49f7eedc174267d10cf3bd0645151f2b4a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/SUN2.tga",
+      "sha256": "9adc336d9c74672d7062dc0e627ef22cfe7e5eb7c433d59f0ef0a7ead137060e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/SUNFLARE.tga",
+      "sha256": "f3d0b57254a22e2cbe6ae9ded42128ca5e8a162ffa56c378ac0fe609ffc0b67f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/super_VIP.tga",
+      "sha256": "6ec2cd3c58cc549bf791287340e71589c32c3ce08b3005aabeac3a68309ba070"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/thumb_tick.tga",
+      "sha256": "cbd75016fd84f0e7307f8f9618a5907c19edf7e0afdaad3fbddfb50cc591ad7e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/th_dice.tga",
+      "sha256": "4f91613bc977392883704567822a31f0f2a3245897adc9b3982f49ab2afafa5c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/th_Greek.tga",
+      "sha256": "5342818bb2058a40561124b05172cfcf2781687a7ea7a9f43d8e0ed5f963376f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/th_Indian.tga",
+      "sha256": "5e839d992952debc01bf3ea5982bf34edd22dd3397419034e9360a4226f76115"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/th_Japan.tga",
+      "sha256": "5f2f42c09fa9103c3aa77bbcfee37a395d1bef832e27221563866e7db2878635"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/th_London.tga",
+      "sha256": "3c563187ec095bec01cef6c55942b5c611db24be41d8dba81736866a3f82bd85"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/th_LostWorld.tga",
+      "sha256": "96ed79a37f169a098d20313e785c3fb600345a801c883d94f20273b87a9ca826"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/th_Mayan.tga",
+      "sha256": "d948a1720b15550f2b7f2ce3587586d142d37e509075ed5cd2c229248ae3fcfe"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/th_Nautical.tga",
+      "sha256": "a57035b1218039db6d5a87f8fc7ea81b81c154f502d1523609008a7ce99850d3"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/th_Space.tga",
+      "sha256": "826bc36465c9c192a8860cc61d4726678aa0e1bddcfbcb89fdeece2290ee9e4b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/th_USA.tga",
+      "sha256": "653f43c3623ef6d3b305e96d1a0e7fc6036a47c3a042dcb784c711b8cae58dc2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/Tourist.tga",
+      "sha256": "eaba11a0632cec1627896bddac3214c06a6f32de169c11395a24eac426770158"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/Trash.tga",
+      "sha256": "531e960f383483b196ca8ed63406e570b3bb0ffa1c21cbfab8ff6ce73c5eb60c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_accom.tga",
+      "sha256": "4e6d1987c07b00c893592b2251706bec450058e58746cea8dc0606ab97a010e2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_activities.tga",
+      "sha256": "ea5ce1ea407468405cfe5df4c8eb744fef1756602f50a98e31b5e43400cd08b9"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_decor.tga",
+      "sha256": "38f1dc252b83b75374fb6fd7fe593ca611ba1ba4eca1933744a8948e9a23371a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_entertainment.tga",
+      "sha256": "3c379ba24c564838a5bb5989b481a161f24c1916979e9b04141cd88c2d1060ed"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_facilities_A.tga",
+      "sha256": "36de82ecfd29c3bb96b6da84f5232c46ab879d259fc10555fd8b0b60d3472c0f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_facilities_B.tga",
+      "sha256": "911f550771a226eeebb1bad4663b60da6adf196a75d2624e82cc5e427ce44c89"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_fooddrink.tga",
+      "sha256": "cff1611702b6bee01f7c556807bfb64dde539ca7006973c821d36c698bb7643d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_fount.tga",
+      "sha256": "1514ed0beb31976a3cc2eee8ea271420426ca1129f9105b672c08017d8dcc3a7"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_furniture.tga",
+      "sha256": "e391dc6db1055d1b2ceec41f47845641a938c95aa521a656ebad1cc75717aeab"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_gambling.tga",
+      "sha256": "4f92eb880cbdb1033cbafc2856dc1309e40b27b4be4112665647d4111c975b84"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_gaming.tga",
+      "sha256": "fe913f13117275e3b1d1c04c6f2b9f88737f466f941c4e3da022d51e57359aa5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_gardens.tga",
+      "sha256": "2c8ab995fe45a2e9968ab92e2c6169f41083d218eb5cb8482e724f33f68c9a56"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_glow.tga",
+      "sha256": "0d9eb9add2ea4529e13b1a1c711622cc5333d7c449e77bdde662e70c37c08f9d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_grass.tga",
+      "sha256": "8184b3ca9b60a02ca8e25f3137e2857f56bc4c85d3a38dd6f88bc11c40821f4c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_inflnc.tga",
+      "sha256": "df23e55237a8f041aac86eca49edc1667219034429bf61dd6350b61df600f964"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_influences.tga",
+      "sha256": "25415d5ff262ccf8835cac614cc15815bb16e8af4ecfc97258c496b6aad3b7ec"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_intfac.tga",
+      "sha256": "9d8a510240f2f6a7c6eba0211f18e73fe6ab5bdac91c3a49dec31d28d0fe010a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_intfac_A.tga",
+      "sha256": "64636408bc779d0cc7db1ba347f70b0d52be6f66acfdba0b2089cf5653d196c4"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_intmech_A.tga",
+      "sha256": "d458f41b79b32abe3a0b9b7b3681547c3a38bba05bff7c694eabd9d6142fec0d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_lastvisit.tga",
+      "sha256": "37ae24c337ed7588f202aa7c02d56b0f935f47d3557f69eba8f839bb40f71cf3"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_lot_overview.tga",
+      "sha256": "cd65e05afbb37e13f1bb724f5dc9822db95e8aed87966d0e124b2934ef3b35f3"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_lounges.tga",
+      "sha256": "8fa5d93dc76b5628b2d51aa594ca9da81d5ee7fbbb2d00f4e6f6312e064e63e1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_misc_options.tga",
+      "sha256": "92450b9841abd22edba9e1649471a2ef8897483ea221416831cb6d707fc300f6"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_objects.tga",
+      "sha256": "a17c2afabb1e8d870d873f0bcf43bdc145cf23c1bc267a8841863e0278bf5ecb"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_office.tga",
+      "sha256": "c6795f646ea0029783c7fd9a7e0b08827face9cd075cf5a56baeb144e8c2e2e4"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_paintfloor.tga",
+      "sha256": "433856f75b351a353c3396a7c77e3ba6f7c9415991867deb142c710c810815a2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_paintwalls.tga",
+      "sha256": "19c5e44ac33bf67ccd493d8034bc81ccc03ac20cd5c8f1547ae63950d676d2ad"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_path.tga",
+      "sha256": "4159206c1d9ca1de781adef18715389a090196649b5e13f0248deae73b09f151"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_peopgrp.tga",
+      "sha256": "ae976c13eee6a462538c82599da5bceb6078a9070260daad1ddb79c211400f6b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_peopgrp2.tga",
+      "sha256": "da6dc067a7ca6986965590b7e3c5e71636b6f93ffdde060996dfb127f1d47f5a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_people.tga",
+      "sha256": "b4b1324ea04632858e46991012635b8db8d3ee59247b868ef33abc297f602944"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_people_opinions.tga",
+      "sha256": "27ee6d07f19563d28eb89d1b9e04124c4e0ed04ad59c6f6881d45546a1a11630"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_people_report.tga",
+      "sha256": "007d14d9e2db9a5925cdb0b667c243d1e866cf0c2f7ea30fc0ed05a9ce67bbb5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_popularity.tga",
+      "sha256": "7c99e85570214765bd7254b84c49382da64f2947e6b80dece12674e3e1750087"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_profit.tga",
+      "sha256": "403c7a4290683f897172f6b2473e00817eaa07429af1b44472006d8d383429a0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_raiselower.tga",
+      "sha256": "79b12a4caca5910a4c44d9b64ffce41d31072ef5e206a6af366d00417908497d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_reputation.tga",
+      "sha256": "6f6a7cbf06816198777f8fba709848505f0c1de2cbcd8d36cd40e109df514fb4"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_res.tga",
+      "sha256": "7d149578090e59a051cdceea33cd4757c8e2b3e25c041e4cee497d60159a53df"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_rest.tga",
+      "sha256": "d9ac6c4cc5da536361d0ee37d1c051d00c29a112931698e0690f45dd82fdc2e9"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_services.tga",
+      "sha256": "a197f219b9f9e93ffd53387af52695fe7441229a12d70f2e281a6f3f10a42b6f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_shops.tga",
+      "sha256": "a06020deaf2ee6919bded83f4c84ca95278b7da9adc137769fc341cd75de9a2c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_shows.tga",
+      "sha256": "fedebfb7cb3bf535812f50c8e8191670f5ef03b177013004c8082cd293e34716"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_signs.tga",
+      "sha256": "934e5cb26d4df55243104f3aa6d200eac836f191ba83264ce1ea596b54b939b0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_slots.tga",
+      "sha256": "b0f86d26d11367ded4b5c74cfc708abc1986783daf342df149f612550a4a1634"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_sound.tga",
+      "sha256": "203eb0a88e626670589ed45784227d06424b6b49f9efbf97540f14fbd843932e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_staff.tga",
+      "sha256": "8d65bd53980e7fc291105902085f5c8c4eb5d159d4e59752399c6e67a6f7f7f2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_stat.tga",
+      "sha256": "a12f67bb8934c1fee4474f895f52c0b71c1bf349a243f4d01549febb3d08e013"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_supply.tga",
+      "sha256": "7caa6a60565324d3085f9801227b2009dc518380d24f630ba6c7b02030d3ee44"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_tables.tga",
+      "sha256": "12b8face7d2f45ba10782b8f8a50abb10f93d630d71e46f7a770fb1bc3f29d0d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/t_trans.tga",
+      "sha256": "2d3699fa18e0185040410059d9bca11e2319f168788b6d762c64d884499ec416"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/UIbg_maya.tga",
+      "sha256": "cc06fd8febfd388eac9a5260dd207a45dbc0e709c4d36164aa11b2a9723c4622"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/UIbg_money.tga",
+      "sha256": "9800060672e3e854e7a888cf454e85bf5a9a37835191cd5543411b6cc0f694d2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/UIbg_Satin.tga",
+      "sha256": "f34e41b9d76d1b929d6483590d49dd844f1ee24f2ae0f22132c8cf4e2c0a1bc2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/GUI/VIP.tga",
+      "sha256": "4693ca7786f054620497589ce865377c1dfcece45a641792411728a0abc67542"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/restaurant_dc_thumb.tga",
+      "sha256": "c06eccc2b1c49cc9084e23f62f3feebbde456c28ffedf58c7d541ebdda3fd3cc"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/aquarium_dc_thumb.tga",
+      "sha256": "c1ac991fd69017f314b6df729c156a0bcbd2218f1e11ead44036dbc032e1dcd4"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/arcade_dc_thumb.tga",
+      "sha256": "9c9b7edb6e5e99448ec67a3a8b4f097229c158ba5336cba73d934537cc488dcb"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/arena_dc_thumb.tga",
+      "sha256": "5116e9f4dd3b8f350727f2a12c1ab6f06509ec597d076c7a98f86401ae4e8d6d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/artgallery_dc_thumb.tga",
+      "sha256": "9e3f6438c6ae2dd526242bc7e80b41d361f481c64a3eee8d9f46950f96018b8d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/beautyparlour_dc_thumb.tga",
+      "sha256": "ec1ea98cdf4e02535c834cc1c00fc61563333feff5939dc2a8c6ce7342786569"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/carpark_thumb.tga",
+      "sha256": "cdb34ffa208fda02d5276f26fc5e54687d97ea1571baf873bcac2177eb5e2fc1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cinema_dc_thumb.tga",
+      "sha256": "dba4e09c96f0e6358dafa5de4839aeda678efc0800620ad2dd585f4e394c7f68"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/circus_dc_thumb.tga",
+      "sha256": "7f5e824950a1a93e10012af0af44b0b9bdd3dc85d59c6c932e5000ba1822ff2a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cocktailbar_dc_thumb.tga",
+      "sha256": "e902444ca06828df1101cd1024d023f8dd493053544ed634c0eb9025fa4c6598"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/coffeebar_dc_thumb.tga",
+      "sha256": "68c529e1682272e75d0c54188e7c0ecd85df975a3f9c2ae2a12a82106f53c5c2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/conv_centre_dc_thumb.tga",
+      "sha256": "6d01262ac029147b022006084b74ef98824a92d388e1b9f97a8d1fedfae410bf"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/creche_dc_thumb.tga",
+      "sha256": "9aa62a33a9a2e22f3bc01195a85f1f1d22cfc1ff3cf264c443126e11fef088c3"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/display_stage_thumb.tga",
+      "sha256": "427495f47e78bde5db9632b3a23b49b8e8403eace1de374a5bc63c59c36e5377"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/dolphin pool_thumb.tga",
+      "sha256": "c51497943bae40268d4ffb9794a53385940ffd906980ba2a4db49fe0a9693a23"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/elec_hut_thumb.tga",
+      "sha256": "58ad803f8ff9194bc6dfd180c8251271519ded398f3da6f2a5c2a21589e38aa8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/entertainersuite_dc_thumb.tga",
+      "sha256": "7ca0221c19b75bb9bb085a3694184b26fb91d177deacab13863851065823744f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/bench_dc_thumb.tga",
+      "sha256": "df90ac7406f44258ba62970ee6b55327a838bb89cca2a8dfb94b258aad7ed13f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/bin_dc_thumb.tga",
+      "sha256": "5227878f94692e5886cb24aa8b56a41ac376247c490418c2e9f1cd29b55cb029"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/fount_1x1_dc_thumb.tga",
+      "sha256": "e20df6e4a8d54aab9aaea2093b6ea65324a8ff01137cdb405df81f550a281a19"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/fount_2x2_grk_thumb.tga",
+      "sha256": "daaefdaf3fb02b7a611cc9cc9d5424ffe9f1764326fcbd3205bc5d0198fafbe5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/fount_3x3_dc_thumb.tga",
+      "sha256": "1f4ba2afb25b93322655ef942caf51fab05ca185fb5fd9c87e37da1cdf991a5a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/fount_2x4_dc_thumb.tga",
+      "sha256": "60a32ac00c5e0daf0937e6a075f27b25c35fb1e4ffcf433b783ecbd7236cf1a5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/light1_dc_int_thumb.tga",
+      "sha256": "5ba870e84ca431aed6e3f85f43f5f16edfef1e1898dcec4663d0c80c9b77351c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/light1_dc_int_thumb.tga",
+      "sha256": "5ba870e84ca431aed6e3f85f43f5f16edfef1e1898dcec4663d0c80c9b77351c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/light1_dc_int_thumb.tga",
+      "sha256": "5ba870e84ca431aed6e3f85f43f5f16edfef1e1898dcec4663d0c80c9b77351c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/light1_dc_int_thumb.tga",
+      "sha256": "5ba870e84ca431aed6e3f85f43f5f16edfef1e1898dcec4663d0c80c9b77351c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/light1_dc_int_thumb.tga",
+      "sha256": "5ba870e84ca431aed6e3f85f43f5f16edfef1e1898dcec4663d0c80c9b77351c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/sunlounger_thumb.tga",
+      "sha256": "c522c211fc07f04767c6d3d352e689e9ea903c4dfbdf19ac0c050cf33bc9d3a6"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/stat_1x1_dc_thumb.tga",
+      "sha256": "7f8d1db95a1877d362e986314e0c2655474d3aab65385e8946620371187762e5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/stat_2x2_dc_thumb.tga",
+      "sha256": "f6dcb92b7605d2091f282ac8bfeb359722fac2911905bd4185352b08a83fd697"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/stat_3x3_dc_thumb.tga",
+      "sha256": "2210a1e57fa03a1978692e97812f6fd6e2362fdf3ae77fdd1f5a599670ee71d1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/stat_5x2_ld_thumb.tga",
+      "sha256": "7a78b1010b268694218d646cae018a6814b52be901029024177a3c7f6860507c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/fastfood_dc_thumb.tga",
+      "sha256": "94ac1b1b93391503ae8f579a8944e371f97743f5bb8cc02af94a59d9eaefab26"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/loo-fem_thumb.tga",
+      "sha256": "7899dc5a8eb5dfeb3bab5c492ecb976810fa5fabc3315dc471289f2d5ea5e15f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/firstaidstation_dc_thumb.tga",
+      "sha256": "c0ddab23b8a29652286d82ec59b77ba7e20a9ca6210da4173a50b70c25470db1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/gym_dc_thumb.tga",
+      "sha256": "b19822fe497d5a213cbe247364b033e38639d76119a036893a56358e3973b356"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/hairsalon_dc_thumb.tga",
+      "sha256": "743a48c9db1ab877a2452afa607c0ee3ac7f5204ce76bcef0336eb01512836f1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/head_office_dc_thumb.tga",
+      "sha256": "312a9077dba05f93f2fe31a19e3f0cb908e048ebb5f61dea72bc44bc9688161d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/healthspa_dc_thumb.tga",
+      "sha256": "85c675f952a4b8b00098d0c1ff43ef95c666d96cd71e1e96b6b6cd9f72b9f9e7"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/helipad_dc_thumb.tga",
+      "sha256": "3f3e24ca12c53a6cb488dc051000845019f5f7dadb903c2e30692411612eceb3"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/bin_store_thumb.tga",
+      "sha256": "7796c4763b6aee7b8aa3832cd4f1d4a89ea1c7a6eef59f076a703e10ea95531e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/jewelleryshop_dc_thumb.tga",
+      "sha256": "f32988c7333c77bd3c7eb3d7f7ec2bebb87a5538ed7d517f0e36f03f0f585adb"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_lge_dc_thumb.tga",
+      "sha256": "f6ca0817bb7f49ccf3b818cabe2c23c929a741bb500a6dd9226722747dc5d98b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/hot_lge_dc_thumb.tga",
+      "sha256": "79771a6b6f5c8018653370003e625b1fabf65de04ff9db2e3e2532ebe39a1005"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/live_music_venue_thumb.tga",
+      "sha256": "6cc98c18a19a40071a3312704f73b22d7c423fa6517173f571bb14cf3f04a0ec"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/magicshop_dc_thumb.tga",
+      "sha256": "14189edbd787cdf2629462725ceb7bd52061abc1070a2566460712e84afbcee8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/magicshow_thumb.tga",
+      "sha256": "931018ab4957e3f72368eed6becdf7ed0cde174332d170b4fe037c0470c230fe"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/loo-mas_thumb.tga",
+      "sha256": "55e3c1bb2e68b004eb074b82c78567d3488a9be63fe68a44f22e781edb40f765"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/build_maint_dept_thumb.tga",
+      "sha256": "549b2eda00ffebd87a77066fd764f13d097da46110e0fc6ff3515ebf0768e1d0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/build_maint_hut_thumb.tga",
+      "sha256": "baec84000df3389d64dfb819e5aa373378f4ee62199cbd192d5d3b3b79594e42"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_med_dc_thumb.tga",
+      "sha256": "0dd72cdd4b90a06585a52097d8262526568662e811e8cdb6ef0157f74f1a86d0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/hot_med_dc_thumb.tga",
+      "sha256": "8fa037ee395b718b0b864333ed04fec920e1d859f9d1bf967f2a4a45ce88013c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/menclothing_dc_thumb.tga",
+      "sha256": "441bf34ed8342cafafd38946888a383453475dfcf3f0a71c7f9cd2015653b698"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/museum_dc_thumb.tga",
+      "sha256": "bec4ba84a89782758066d1fd213ac37f11bf2206ee7a3f89fe5f4bb4660e95f1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/nightclub_dc_thumb.tga",
+      "sha256": "f40d6190c562401837ddd795c8ae58b48cb82d019c99387bb5585e5f3622bc61"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/nightclub1_dc_thumb.tga",
+      "sha256": "38ca6552b50ecaecf45065196997b87f554aaad6b8568e2ea13d68da4eb15ad8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/nightclub2_dc_thumb.tga",
+      "sha256": "33aadcb14513dc4a5cc7250a99db3990738fee5faa0e70ba352521375db76b9d"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/nightclub3_dc_thumb.tga",
+      "sha256": "7f26a19b0f56ae7356c2bcaecdece01f07109eb721c79de7d69229f4b4bef9f8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/nightclub4_dc_thumb.tga",
+      "sha256": "df2d3515a2cd8ea76583a356a0e5708d611525ed96b5751a6d45504fb3c5b628"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/obs_tower_dc_thumb.tga",
+      "sha256": "383f4e4731f31b4507abf757501478996dc0a55c5594631fc839d8117bb0c40b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/palmsing1_thumb.tga",
+      "sha256": "d1f5fd5f2388c8265e9f1c6d361f64b33d49096bdd961ca174bc1b6e8d1e138e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/palmsing2_thumb.tga",
+      "sha256": "29ac278e34428abe7ce26af69f588d68d8583eebf0b35305ea84287cdff3d12a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/palmsing3_thumb.tga",
+      "sha256": "675f103d2e522f7da89f96beb505ce16690d9cc82e4fd65d2516d64315673bee"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/palmsing4_thumb.tga",
+      "sha256": "874f8f31aef1ecf916b4969a7a5da83a27d1c41f4a0c396f2344caf8d8989dde"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/palmsing5_thumb.tga",
+      "sha256": "a65abba299c9d4be56c14346366eba5665cfbcc8fd67f271df5d34a4ca0fe9c1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/palmset1_thumb.tga",
+      "sha256": "d92705d7f30955c45353343cd45482b593f667a0834f3cc22289a5aa096bf9a1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/pawnbroker_dc_thumb.tga",
+      "sha256": "27cbbfd8ac095763ebbbee6edaabf2f8117fc6c05e5d0869ed761b4665e383ab"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/pottree1x1_dc_int_thumb.tga",
+      "sha256": "57c294cda87a6abd8477ffd336e6b61f4d389386b7b91cde33fbb1f1840df72c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/pottree2x2_dc_int_thumb.tga",
+      "sha256": "bb3e94e12f93d2f99c00d5f107ecc1377f0859e0499bfebb28d9c3fa3135046c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/pottree3x3_dc_int_thumb.tga",
+      "sha256": "5ef487ed08cb2047c560bf5a19b154eff6c9dc01e03560234bfd2aa5f6ffceaa"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/power_generator_thumb.tga",
+      "sha256": "ae8726f10ab1faffcce823775179100b2d4028bf8247732a527a324b63c8e094"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/power_sub_station_thumb.tga",
+      "sha256": "31c74f8e9df221ad67aef160a4075eb7bfafba438c5aa9eab14bb56fef1ad035"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/recycling_dept_thumb.tga",
+      "sha256": "d6272f6afb48145af9d1852256e20a5b03806d3145db183c23e0196ecf19a849"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/restaurant_norm_dc_thumb.tga",
+      "sha256": "d98fd60dc25e5f654daf9f29f0c01c37252d3e5ea8a17581a2c1e0bb8b00be89"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/thmd_rcoaster_dc_thumb.tga",
+      "sha256": "cb31b6b3c5549588e12b8986d4d2d93ebca673d010ef8811061e90fe47dec2f3"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/shark_pool_thumb.tga",
+      "sha256": "f947e0376385f2278a9282bacccd8495879bbf9573881d46e521da443da5d4ee"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/showgirls_dc_thumb.tga",
+      "sha256": "5c68520be4dfab9658d31fba337a0f865758f9447717fec46c4b6392baf44e27"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/sign_lge_dc_thumb.tga",
+      "sha256": "acf2a7a14ae727e1ab38282380a5c9ba2508f347ba8c6e7987a3fed125e6ae8b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/sign_med_dc_thumb.tga",
+      "sha256": "ae4e580f8078a594138a8cda1d01b7661215cbb211abd62578b778042b8971be"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/sign_sml_dc_thumb.tga",
+      "sha256": "08cd9256e10c69959a8a10986e822bcb0bb1240fa29f9d8e705f1cb68e7ed4ac"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_sml_dc_thumb.tga",
+      "sha256": "ddad9e25dc1923f9e794c639cbb7cd7446494df2c45f93df3fc24e50987fadf4"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/hot_sml_dc_thumb.tga",
+      "sha256": "ce506c1f4616b9898c71bab05b7d0c0dbebb5039f1bb7f636bbf3ae9d91fb3bd"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/souvenirshop_dc_thumb.tga",
+      "sha256": "5c352e55f2c757b696d373f0f8e80e2c7e9b89b985b9548c718b11c61a1e0ada"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/stageshow_dc_thumb.tga",
+      "sha256": "2afe304094275a8ab25fbdd88e40e4bc25a72635d8d00143cbdee4daae698f89"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/swimmingpool_dc_thumb.tga",
+      "sha256": "460f37c69cd00321ebde0ba94218ef34856a8c428b7f1f1c514e2aa5ee314cfc"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/theatre_dc_thumb.tga",
+      "sha256": "213d0f0502621eb90baeba1d465e0f2bf6c7f11e1f08fbe109e23a3c69535ef2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/thmd_rd_dc_thumb.tga",
+      "sha256": "84265e1871414e64046d4d102fed39fe866c9652af61ed110126ae3348f2c8bf"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/toplessrevue_dc_thumb.tga",
+      "sha256": "1a4bc2b5311bc1dd57cbdfc6bd01f445d559725b623075eaf454950f4854aeaa"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/travelagent_dc_thumb.tga",
+      "sha256": "98fb14f785a7534024946c1202d47b296dc82345d73a3fdd4875a8f49cedcae6"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/water_dc_thumb.tga",
+      "sha256": "efb0ed5ee9b2627a1679b5b2e18c093b3925a080a13a95ae7fd33e63a7d1f8f8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/wavepool_dc_thumb.tga",
+      "sha256": "c2c128c1681ab8968bf3f7471d0303e45ad865b62879d1dec68fae153a491e13"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/chapel_dc_thumb.tga",
+      "sha256": "09ef45bfcf84f655c5d17b95ee6141ad1df75fb47bff75fc557778373d57726f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/womenclothing_dc_thumb.tga",
+      "sha256": "72598220b2f6fc49f2f5cda9abf0aa28f78eaa9a29871f8c734bf24314e1c71e"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_atm_int_thumb.tga",
+      "sha256": "066e0960f27b14e22a7efe785877f1eaf295512b07bfb4c67fe4eb4e8d13fa46"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/stair_dc_int_thumb.tga",
+      "sha256": "86387ac4d118851ac6e785839e6c89b6c1ea64441932ccbd60d11b61b85fb4c8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/bench_dc_thumb.tga",
+      "sha256": "df90ac7406f44258ba62970ee6b55327a838bb89cca2a8dfb94b258aad7ed13f"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/bin_int_thumb.tga",
+      "sha256": "067adb43b28c617fe66abe3f01b60e653280336931bb5c22e09fecd9abead1b1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/column_grk_int_thumb.tga",
+      "sha256": "0486d3d70f669b2da709548ac42af2c902a132bf5a893d38b6c6af7cae1c71a2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/flowerbed2x1_dc_int_thumb.tga",
+      "sha256": "fd96e80e0a2c4524bdc846e47d32eb181c33e0bb492affdeb625a44c7d25c9c0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/flowerbed3x1_dc_int_thumb.tga",
+      "sha256": "f99fde1e077f10ddf03a8372ef535a453d527dc598950c9bc593f902d16eb4e8"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/fount_1x1_dc_thumb.tga",
+      "sha256": "e20df6e4a8d54aab9aaea2093b6ea65324a8ff01137cdb405df81f550a281a19"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/fount_2x2_grk_thumb.tga",
+      "sha256": "daaefdaf3fb02b7a611cc9cc9d5424ffe9f1764326fcbd3205bc5d0198fafbe5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/fount_2x4_dc_thumb.tga",
+      "sha256": "60a32ac00c5e0daf0937e6a075f27b25c35fb1e4ffcf433b783ecbd7236cf1a5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/fount_3x3_dc_thumb.tga",
+      "sha256": "1f4ba2afb25b93322655ef942caf51fab05ca185fb5fd9c87e37da1cdf991a5a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/stud_thumb.tga",
+      "sha256": "a611339b530a4e479ca8971954d74313dd2c2bf5b8544af1e8c3ae6d13dc09ca"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/bacc_thumb.tga",
+      "sha256": "d72026a514d827a232ff2c565a546229280ed75c32b343de1f70c95f6b27f2e1"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/crib_poker_thumb.tga",
+      "sha256": "7ac6168afbee75535c577af89d05582e223218add1b3a9285e833d6f78e5328b"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/carslot_thumb.tga",
+      "sha256": "44f86a4cda3f1f546abe6a139a83e1ed1b22a26c05682d7967c3dbe797b99bfb"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/crap_thumb.tga",
+      "sha256": "3b184543e978f75bc9ae527e081af81ed62bbdd779ba4a2b82776125e46f92db"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/keno_thumb.tga",
+      "sha256": "49e11edeac64b415e7472a809e220ce977202cf67c29bcf34e8ffa13874f6cb0"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/ltrd_poker_thumb.tga",
+      "sha256": "3125adf16946d6c81fc45c944ffb05135fa2e4bba3edf5f60c082b83d5333f98"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/pg_poker_thumb.tga",
+      "sha256": "a785ce6be684b8d7c062a5425929cdc56316863fd710c31d7b7e4ff2d58d6e69"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/progslot_thumb.tga",
+      "sha256": "750e1c157b031243a223de16f82c2b9203300cc8586fbf716b9d12c3ba59c490"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/sports_thumb.tga",
+      "sha256": "589c3604192d4aada817857317a9cc6fba8ea47c484cca7395d44ae5b484354a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/txhm_poker_thumb.tga",
+      "sha256": "53c1cb2c929084efb6b0885264722479b68b8514082c4726cf492a792b49cc68"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/video_keno_thumb.tga",
+      "sha256": "30d806c92df036e831f35d6f5bce2b05481710ab4b6b4d145fbf78d8a815b5e4"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/wof_thumb.tga",
+      "sha256": "077e5a622a41f6c3859d520bf79cc1645503050c3a2fa9c515afde4fec0d049a"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_hos_suite_int_thumb.tga",
+      "sha256": "8680210c87b872f7bc3b32f122f370fe20f93f10a6fffada8ecefd09218a66d5"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_loo_f_int_thumb.tga",
+      "sha256": "9397a3fcca3791e2885a64ee6d8c1b0b0cd572122e90099ca002624cd222c887"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_loo_m_int_thumb.tga",
+      "sha256": "9cb8fbb14bc1f322a910a059bb6960d7a367a275ab98cf2758a077831e7938e6"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_buffet_int_thumb.tga",
+      "sha256": "c8573d866e823b9ca5badc9d52d9fdf54a4b8dbaade000b5425d4adffb3e9fa2"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_kitchen_int_thumb.tga",
+      "sha256": "4990304cf15400b5f7caa687977677c514af3d47f3fabad754d82dbf4c53d0bf"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/light1_dc_int_thumb.tga",
+      "sha256": "5ba870e84ca431aed6e3f85f43f5f16edfef1e1898dcec4663d0c80c9b77351c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/light1_dc_int_thumb.tga",
+      "sha256": "5ba870e84ca431aed6e3f85f43f5f16edfef1e1898dcec4663d0c80c9b77351c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/light1_dc_int_thumb.tga",
+      "sha256": "5ba870e84ca431aed6e3f85f43f5f16edfef1e1898dcec4663d0c80c9b77351c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/light1_dc_int_thumb.tga",
+      "sha256": "5ba870e84ca431aed6e3f85f43f5f16edfef1e1898dcec4663d0c80c9b77351c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_landscape_int_thumb.tga",
+      "sha256": "a16b4100d2c3325e1be6fa52c563eedf8d79d7758aae76024d9ebaa9cd2afe84"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_monitor_int_thumb.tga",
+      "sha256": "9e016514438942375f819250e6a14fc9a7c9d7f31b53a55da96094c317c498af"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_pitboss_int_thumb.tga",
+      "sha256": "22fd05e15812d60d78acbb18a6ce877341d4986920940e2ce24910d8f192a6f7"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/pottree2x2_dc_int_thumb.tga",
+      "sha256": "bb3e94e12f93d2f99c00d5f107ecc1377f0859e0499bfebb28d9c3fa3135046c"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/pottree3x3_dc_int_thumb.tga",
+      "sha256": "5ef487ed08cb2047c560bf5a19b154eff6c9dc01e03560234bfd2aa5f6ffceaa"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/stat_1x1_dc_int_thumb.tga",
+      "sha256": "a431352897b8d5fd4f82b86e8b6a04b95fe8b0d9e7df6bc0b1961b63164fbc79"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/stat_2x2_dc_int_thumb.tga",
+      "sha256": "329a1dc853d40b2d666ac0ec0da422caf217a9ffa2a28eaabb9a1e8658d686ea"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/stat_3x3_dc_int_thumb.tga",
+      "sha256": "87885b7543a864504f1af1b99d6669b418dc1465ebaadcb15ec706aef86957f9"
+    },
+    {
+      "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/tree_int_thumb.tga",
+      "sha256": "b619ef7b3f60fd59d1d8c16abf9dc7a8b59f0fc07ad589d9599b3222c5bccefb"
+    },
+    {
+      "file": "GAMEDATA/Sound/Effects/UserInterface/Click20.ogg",
+      "sha256": "4dec22c3af46e73a9f7700314e14d3ddf690b95aba414304c174717efca85262"
+    },
+    {
+      "file": "GAMEDATA/Sound/Effects/InsideAmbience.ogg",
+      "sha256": "df9e65baf1d72b6395789f3ef9cc73f215c13194380aa647b3330d50e81fbedc"
+    },
+    {
+      "file": "GAMEDATA/Sound/Effects/InsideAmbienceMachines.ogg",
+      "sha256": "f0c17cc0487ee65a680ffadd499906f46ab953ca3416c40d9fdcea8f7f089493"
+    },
+    {
+      "file": "GAMEDATA/Sound/Effects/ResultWinSmall.ogg",
+      "sha256": "42e6adc5b7ed940f37ac7f5b7f0ccd9c7a22684af2b807d0e1fd0a9b7826c7fd"
+    },
+    {
+      "file": "GAMEDATA/Sound/Effects/ResultWinMedium.ogg",
+      "sha256": "5f9b9b96178bd48fb35a76057fa086faa3a5e675c1cf731f58eba369fa8a46fe"
+    },
+    {
+      "file": "GAMEDATA/Sound/Effects/ResultWinBig.ogg",
+      "sha256": "eefcab1da68ef5fd744a998c10f375efb0cdbbde3a48dca2ccba520d981045aa"
+    },
+    {
+      "file": "GAMEDATA/Sound/Effects/ResultLoseSmall.ogg",
+      "sha256": "d18f58a70155e323fb5082a9171b0e968d6b85fe6346343a151ebe9eddcfc809"
+    },
+    {
+      "file": "GAMEDATA/Sound/Effects/ResultLoseMedium.ogg",
+      "sha256": "3750f2981b8ef2c823776b4ffb1e577ffd865575f439f7e7014949cb82b49c64"
+    },
+    {
+      "file": "GAMEDATA/Sound/Effects/UserInterface/Odd23.ogg",
+      "sha256": "790431a2b4241281f483ea378adc0e564916107b3eac0443f7d1d52eb670c5eb"
+    },
+    {
+      "file": "GAMEDATA/Sound/Effects/UserInterface/Odd24.ogg",
+      "sha256": "893ac83757600c8cd2e65723535b4baa31d594353b1634e27310178b00e657e5"
     }
   ]
 }

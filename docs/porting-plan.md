@@ -1,6 +1,6 @@
 # Vegas: Make It Big! — browser port
 
-## Current milestone: 0.1 / first playable technical prototype
+## Current milestone: UI fidelity / playable browser prototype
 
 Desktop-first TypeScript + Three.js + Vite. Static deployment on GitHub Pages.
 The Windows executable is not run or emulated. The browser simulation is a new
@@ -22,8 +22,11 @@ theme registration, gambling definitions and representative source templates.
 | UNI | 6 | Localization resources; character encoding/schema still to investigate. |
 
 `public/assets/game-data.json` includes the complete format counts and byte totals.
+The import also records 164 exterior/interior build templates, all 372 original
+GUI sprites and ten selected original interface/casino/result sounds.
 `public/assets/provenance.json` records installation-relative source paths and
-SHA-256 hashes for every imported thumbnail and building script.
+SHA-256 hashes for every imported thumbnail, UI sprite, selected sound and
+building script.
 
 The source scripts reference `GAMEART/TM Files`, while the supplied production
 models are under `GAMEART/OTM Files`. Future importers need a case-insensitive
@@ -43,8 +46,15 @@ resolver and this directory alias. Web URLs themselves must remain case-correct.
 ## Implemented
 
 - Reproducible scalar-data importer; does not execute original Lua.
-- Twelve original thumbnails loaded from TGA, plus source costs, footprints,
-  capacities, duration, resale and utility/running expenses.
+- 164 exterior/interior objects extracted from original Lua templates with
+  source costs, footprints, major/minor build groups, capacity, duration, resale
+  and utility/running expenses.
+- Original in-game status strip, clock/cash panel, side tools and bottom
+  major-group → minor-tab → thumbnail construction toolbox, using 372 original
+  GUI sprites.
+- Exterior-lot vs casino-interior construction context switch.
+- Original UI click, casino ambience/machines and result win/lose sounds. Browser
+  interaction unlocks audio playback; simulated game results trigger result sounds.
 - 3D casino floor, orbit/pan/zoom camera and temporary geometric objects.
 - Placement preview, rotation, repeat placement with Shift, selection and selling.
 - Collision and bounds checks, protected entry and reachable building access.
@@ -70,8 +80,10 @@ resolver and this directory alias. Web URLs themselves must remain case-correct.
 - The first goal (50 arrivals + $1,000 net play/service income) is a new prototype
   goal, not the original training mission. Net play/service income excludes daily
   overhead and construction costs; it is not total business profit.
-- No original exterior maps, hotel construction, terrain levels, campaigns,
-  opponents, progression, sound or original savegame compatibility yet.
+- Casino-interior and exterior object categories are selectable, but there is
+  not yet a separate exterior map/lot scene or hotel/lot ownership workflow.
+- No original terrain levels, playable campaigns, opponents, progression, full
+  soundscape or original savegame compatibility yet.
 
 ## Next milestones
 
@@ -81,7 +93,7 @@ resolver and this directory alias. Web URLs themselves must remain case-correct.
 2. Port original per-cell navigation and entrances, guest classes/desires,
    gambling outcome tables and house-edge logic. Separate simulation from rendering.
 3. Implement staff dispatch, cleaning, security, repairs, pricing, reputation and
-   influences. Import strings and sound with a documented mapping.
+   influences. Import remaining strings and sound with a documented mapping.
 4. Decode maps and introduce exterior lots, themes, utilities, paths, hotels,
    entertainment, casino interiors and building dependency/unlock trees.
 5. Implement original training and all ten campaign scenarios. Add scenario
@@ -94,7 +106,8 @@ Keep each responsibility in a cohesive module; aim below 800–1,000 lines per
 handwritten file, never exceed 1,500. Generated/lock files are exempt.
 
 - `npm install` then `npm run dev` for development.
-- `npm run import:game -- "C:/.../Vegas - Make It Big"` to regenerate selected data.
+- `npm run import:game -- "C:/.../Vegas - Make It Big"` to regenerate catalog,
+  GUI sprites, selected sounds and provenance.
 - `node tools/inspect-game.mjs "C:/.../Vegas - Make It Big"` for inventory/header diagnostics.
 - `npm test` for original data, placement, paths, simulation, costs and saves.
 - `npm run build` for strict TypeScript and production output.

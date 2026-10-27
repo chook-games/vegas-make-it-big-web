@@ -15,6 +15,15 @@ test('original Lua values are preserved in the imported catalog', () => {
   assert.equal(item('roulette').cost, 700);
   assert.equal(item('cashier').runningCost, 105);
 });
+test('the complete template/UI/audio manifests import source fidelity data', () => {
+  const data = JSON.parse(readFileSync(new URL('../public/assets/game-data.json', import.meta.url), 'utf8'));
+  assert.equal(data.catalog.length, 164);
+  assert.equal(data.uiSprites.length, 372);
+  assert.equal(data.sounds.length, 10);
+  assert.ok(data.catalog.some((entry: { major: number }) => entry.major === 0));
+  assert.ok(data.catalog.some((entry: { major: number }) => entry.major === 7));
+  assert.equal(data.campaign.length, 10);
+});
 test('placement handles rotated footprints, overlap, cash and entry protection', () => {
   const s = createGame();
   assert.equal(place(s, item('blackjack'), 4, 4, 1, catalog), null);
@@ -42,6 +51,7 @@ test('visitors reach games, generate revenue and daily expenses are charged', ()
   assert.ok(s.totalVisitors > 0);
   assert.ok(s.buildings[0].visits > 0);
   assert.ok(s.income > 0);
+  assert.ok(sim.events.some(event => event.type === 'win' || event.type === 'lose'));
   assert.equal(s.expenses, item('blackjack').runningCost);
   assert.equal(s.cash, cash + s.income - s.expenses);
   assert.ok(s.guests.every(g => Number.isFinite(g.x) && Number.isFinite(g.z)));

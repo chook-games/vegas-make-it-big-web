@@ -1,10 +1,13 @@
 {
-  "version": 1,
+  "version": 2,
   "catalog": [
     {
       "id": "slot",
       "name": "Slot machine",
       "category": "gaming",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_SLOTS",
       "width": 1,
       "depth": 3,
       "cost": 120,
@@ -21,6 +24,9 @@
       "id": "blackjack",
       "name": "Blackjack",
       "category": "gaming",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_TABLES",
       "width": 7,
       "depth": 6,
       "cost": 400,
@@ -37,6 +43,9 @@
       "id": "roulette",
       "name": "Roulette",
       "category": "gaming",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_TABLES",
       "width": 8,
       "depth": 5,
       "cost": 700,
@@ -53,6 +62,9 @@
       "id": "poker",
       "name": "Video poker",
       "category": "gaming",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_SLOTS",
       "width": 1,
       "depth": 3,
       "cost": 150,
@@ -69,6 +81,9 @@
       "id": "cashier",
       "name": "Cashier’s desk",
       "category": "service",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
       "width": 5,
       "depth": 5,
       "cost": 500,
@@ -85,6 +100,9 @@
       "id": "bar",
       "name": "Casino bar",
       "category": "service",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_FOOD_DRINK",
       "width": 11,
       "depth": 9,
       "cost": 1200,
@@ -101,6 +119,9 @@
       "id": "restroom",
       "name": "Restroom",
       "category": "service",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_RESTROOMS",
       "width": 8,
       "depth": 5,
       "cost": 250,
@@ -117,6 +138,9 @@
       "id": "security",
       "name": "Security office",
       "category": "staff",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
       "width": 5,
       "depth": 3,
       "cost": 500,
@@ -133,6 +157,9 @@
       "id": "cleaner",
       "name": "Cleaner’s closet",
       "category": "staff",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_MAINTENANCESTAFF",
       "width": 5,
       "depth": 4,
       "cost": 300,
@@ -149,6 +176,9 @@
       "id": "mechanic",
       "name": "Mechanic’s closet",
       "category": "staff",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_MAINTENANCESTAFF",
       "width": 5,
       "depth": 4,
       "cost": 300,
@@ -165,6 +195,9 @@
       "id": "plant",
       "name": "Potted tree",
       "category": "decor",
+      "context": "interior",
+      "major": 6,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "width": 1,
       "depth": 1,
       "cost": 120,
@@ -181,6 +214,9 @@
       "id": "sofa",
       "name": "Sofa",
       "category": "decor",
+      "context": "interior",
+      "major": 6,
+      "minor": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
       "width": 2,
       "depth": 3,
       "cost": 150,
@@ -192,6 +228,2894 @@
       "duration": 30,
       "thumbnail": "sofa.tga",
       "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Sofa.lua"
+    },
+    {
+      "id": "alacarterestaurant",
+      "name": "ALa Carte Restaurant",
+      "category": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
+      "width": 7,
+      "depth": 8,
+      "cost": 2400,
+      "resale": 1200,
+      "capacity": 8,
+      "runningCost": 350,
+      "power": 120,
+      "water": 50,
+      "duration": 30,
+      "thumbnail": "alacarterestaurant.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ALaCarteRestaurant.lua"
+    },
+    {
+      "id": "aquarium",
+      "name": "Aquarium",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 7,
+      "depth": 5,
+      "cost": 4000,
+      "resale": 2000,
+      "capacity": 12,
+      "runningCost": 100,
+      "power": 150,
+      "water": 300,
+      "duration": 50,
+      "thumbnail": "aquarium.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Aquarium.lua"
+    },
+    {
+      "id": "arcade",
+      "name": "Arcade",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 7,
+      "depth": 5,
+      "cost": 800,
+      "resale": 400,
+      "capacity": 12,
+      "runningCost": 90,
+      "power": 150,
+      "water": 0,
+      "duration": 20,
+      "thumbnail": "arcade.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Arcade.lua"
+    },
+    {
+      "id": "arena",
+      "name": "Arena",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 15,
+      "depth": 16,
+      "cost": 15000,
+      "resale": 7500,
+      "capacity": 100,
+      "runningCost": 500,
+      "power": 500,
+      "water": 0,
+      "duration": 80,
+      "thumbnail": "arena.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Arena.lua"
+    },
+    {
+      "id": "artgallery",
+      "name": "Art Gallery",
+      "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "width": 5,
+      "depth": 7,
+      "cost": 15000,
+      "resale": 7500,
+      "capacity": 4,
+      "runningCost": 8000,
+      "power": 50,
+      "water": 0,
+      "duration": 80,
+      "thumbnail": "artgallery.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ArtGallery.lua"
+    },
+    {
+      "id": "beautyparlor",
+      "name": "Beauty Parlor",
+      "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "width": 5,
+      "depth": 7,
+      "cost": 3000,
+      "resale": 1500,
+      "capacity": 5,
+      "runningCost": 180,
+      "power": 50,
+      "water": 50,
+      "duration": 80,
+      "thumbnail": "beautyparlor.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/BeautyParlor.lua"
+    },
+    {
+      "id": "carpark",
+      "name": "Carpark",
+      "category": "BUILDING_MINOR_GROUP_EXT_TRANSPORT",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_TRANSPORT",
+      "width": 12,
+      "depth": 25,
+      "cost": 2000,
+      "resale": 1000,
+      "capacity": 0,
+      "runningCost": 500,
+      "power": 150,
+      "water": 50,
+      "duration": 10,
+      "thumbnail": "carpark.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Carpark.lua"
+    },
+    {
+      "id": "cinema",
+      "name": "Cinema",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 10,
+      "depth": 8,
+      "cost": 5000,
+      "resale": 2500,
+      "capacity": 22,
+      "runningCost": 140,
+      "power": 145,
+      "water": 0,
+      "duration": 75,
+      "thumbnail": "cinema.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Cinema.lua"
+    },
+    {
+      "id": "circus",
+      "name": "Circus",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 12,
+      "depth": 12,
+      "cost": 4500,
+      "resale": 2250,
+      "capacity": 25,
+      "runningCost": 390,
+      "power": 90,
+      "water": 70,
+      "duration": 60,
+      "thumbnail": "circus.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Circus.lua"
+    },
+    {
+      "id": "cocktailbar",
+      "name": "Cocktail Bar",
+      "category": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
+      "width": 7,
+      "depth": 10,
+      "cost": 1600,
+      "resale": 800,
+      "capacity": 8,
+      "runningCost": 230,
+      "power": 75,
+      "water": 35,
+      "duration": 14,
+      "thumbnail": "cocktailbar.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/CocktailBar.lua"
+    },
+    {
+      "id": "coffeebar",
+      "name": "Coffee Bar",
+      "category": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
+      "width": 7,
+      "depth": 8,
+      "cost": 400,
+      "resale": 200,
+      "capacity": 12,
+      "runningCost": 40,
+      "power": 20,
+      "water": 20,
+      "duration": 8,
+      "thumbnail": "coffeebar.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/CoffeeBar.lua"
+    },
+    {
+      "id": "conventioncentre",
+      "name": "Convention Centre",
+      "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "width": 10,
+      "depth": 8,
+      "cost": 7000,
+      "resale": 3500,
+      "capacity": 0,
+      "runningCost": 450,
+      "power": 350,
+      "water": 50,
+      "duration": 10,
+      "thumbnail": "conventioncentre.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ConventionCentre.lua"
+    },
+    {
+      "id": "creche",
+      "name": "Creche",
+      "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "width": 7,
+      "depth": 5,
+      "cost": 4000,
+      "resale": 2000,
+      "capacity": 10,
+      "runningCost": 215,
+      "power": 50,
+      "water": 35,
+      "duration": 70,
+      "thumbnail": "creche.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Creche.lua"
+    },
+    {
+      "id": "displaystage",
+      "name": "Display Stage",
+      "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "width": 8,
+      "depth": 5,
+      "cost": 10000,
+      "resale": 5000,
+      "capacity": 0,
+      "runningCost": 140,
+      "power": 800,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "displaystage.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/DisplayStage.lua"
+    },
+    {
+      "id": "dolphinpool",
+      "name": "Dolphin Pool",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 12,
+      "depth": 10,
+      "cost": 12000,
+      "resale": 6000,
+      "capacity": 25,
+      "runningCost": 350,
+      "power": 200,
+      "water": 900,
+      "duration": 40,
+      "thumbnail": "dolphinpool.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/DolphinPool.lua"
+    },
+    {
+      "id": "electricianhut",
+      "name": "Electrician Hut",
+      "category": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
+      "width": 3,
+      "depth": 2,
+      "cost": 300,
+      "resale": 150,
+      "capacity": 3,
+      "runningCost": 20,
+      "power": 50,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "electricianhut.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ElectricianHut.lua"
+    },
+    {
+      "id": "entertainerssuite",
+      "name": "Entertainers Suite",
+      "category": "BUILDING_MINOR_GROUP_EXT_OFFICES",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_OFFICES",
+      "width": 7,
+      "depth": 5,
+      "cost": 1200,
+      "resale": 600,
+      "capacity": 3,
+      "runningCost": 150,
+      "power": 50,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "entertainerssuite.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/EntertainersSuite.lua"
+    },
+    {
+      "id": "exteriorbench-2x1",
+      "name": "Exterior Bench 2x1",
+      "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "width": 2,
+      "depth": 3,
+      "cost": 50,
+      "resale": 25,
+      "capacity": 2,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 8,
+      "thumbnail": "exteriorbench-2x1.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorBench_2x1.lua"
+    },
+    {
+      "id": "exteriorbin",
+      "name": "Exterior Bin",
+      "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 1,
+      "cost": 25,
+      "resale": 12,
+      "capacity": 100,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 0,
+      "thumbnail": "exteriorbin.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorBin.lua"
+    },
+    {
+      "id": "exteriorfountain-1x1",
+      "name": "Exterior Fountain 1x1",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 350,
+      "resale": 175,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 5,
+      "water": 20,
+      "duration": 10,
+      "thumbnail": "exteriorfountain-1x1.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorFountain_1x1.lua"
+    },
+    {
+      "id": "exteriorfountain-2x2",
+      "name": "Exterior Fountain 2x2",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 2,
+      "depth": 2,
+      "cost": 750,
+      "resale": 375,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 10,
+      "water": 40,
+      "duration": 10,
+      "thumbnail": "exteriorfountain-2x2.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorFountain_2x2.lua"
+    },
+    {
+      "id": "exteriorfountain-3x3",
+      "name": "Exterior Fountain 3x3",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 3,
+      "depth": 3,
+      "cost": 1250,
+      "resale": 625,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 20,
+      "water": 80,
+      "duration": 10,
+      "thumbnail": "exteriorfountain-3x3.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorFountain_3x3.lua"
+    },
+    {
+      "id": "exteriorfountain-4x2",
+      "name": "Exterior Fountain 4x2",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 4,
+      "depth": 2,
+      "cost": 1100,
+      "resale": 550,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 15,
+      "water": 65,
+      "duration": 10,
+      "thumbnail": "exteriorfountain-4x2.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorFountain_4x2.lua"
+    },
+    {
+      "id": "exteriorlamp-1x1",
+      "name": "Exterior Lamp 1x1",
+      "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 1,
+      "cost": 50,
+      "resale": 25,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 5,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "exteriorlamp-1x1.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_1x1.lua"
+    },
+    {
+      "id": "exteriorlamp-cold",
+      "name": "Exterior Lamp cold",
+      "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 1,
+      "cost": 50,
+      "resale": 25,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 5,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "exteriorlamp-cold.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_cold.lua"
+    },
+    {
+      "id": "exteriorlamp-green",
+      "name": "Exterior Lamp green",
+      "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 1,
+      "cost": 50,
+      "resale": 25,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 5,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "exteriorlamp-green.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_green.lua"
+    },
+    {
+      "id": "exteriorlamp-pink",
+      "name": "Exterior Lamp pink",
+      "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 1,
+      "cost": 50,
+      "resale": 25,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 5,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "exteriorlamp-pink.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_pink.lua"
+    },
+    {
+      "id": "exteriorlamp-warm",
+      "name": "Exterior Lamp warm",
+      "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 1,
+      "cost": 50,
+      "resale": 25,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 5,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "exteriorlamp-warm.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_warm.lua"
+    },
+    {
+      "id": "exteriorlounger",
+      "name": "Exterior Lounger",
+      "category": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 3,
+      "cost": 100,
+      "resale": 50,
+      "capacity": 2,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "exteriorlounger.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLounger.lua"
+    },
+    {
+      "id": "exteriorstatue-1x1",
+      "name": "Exterior Statue 1x1",
+      "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "width": 1,
+      "depth": 1,
+      "cost": 300,
+      "resale": 150,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "exteriorstatue-1x1.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_1x1.lua"
+    },
+    {
+      "id": "exteriorstatue-2x2",
+      "name": "Exterior Statue 2x2",
+      "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "width": 2,
+      "depth": 2,
+      "cost": 700,
+      "resale": 350,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "exteriorstatue-2x2.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_2x2.lua"
+    },
+    {
+      "id": "exteriorstatue-3x3",
+      "name": "Exterior Statue 3x3",
+      "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "width": 3,
+      "depth": 3,
+      "cost": 1800,
+      "resale": 900,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "exteriorstatue-3x3.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_3x3.lua"
+    },
+    {
+      "id": "exteriorstatue-5x2",
+      "name": "Exterior Statue 5x2",
+      "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "width": 5,
+      "depth": 2,
+      "cost": 2400,
+      "resale": 1200,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_5x2.lua"
+    },
+    {
+      "id": "exteriorstatue-6x2",
+      "name": "Exterior Statue 6x2",
+      "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "width": 6,
+      "depth": 2,
+      "cost": 2500,
+      "resale": 1250,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "exteriorstatue-6x2.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_6x2.lua"
+    },
+    {
+      "id": "fastfood",
+      "name": "Fast Food",
+      "category": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
+      "width": 7,
+      "depth": 10,
+      "cost": 800,
+      "resale": 400,
+      "capacity": 12,
+      "runningCost": 100,
+      "power": 80,
+      "water": 20,
+      "duration": 10,
+      "thumbnail": "fastfood.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/FastFood.lua"
+    },
+    {
+      "id": "femaletoilet",
+      "name": "Female Toilet",
+      "category": "BUILDING_MINOR_GROUP_EXT_RESTROOMS",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_RESTROOMS",
+      "width": 3,
+      "depth": 2,
+      "cost": 250,
+      "resale": 125,
+      "capacity": 6,
+      "runningCost": 30,
+      "power": 10,
+      "water": 40,
+      "duration": 16,
+      "thumbnail": "femaletoilet.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/FemaleToilet.lua"
+    },
+    {
+      "id": "firstaidstation",
+      "name": "First Aid Station",
+      "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "width": 5,
+      "depth": 7,
+      "cost": 1200,
+      "resale": 600,
+      "capacity": 5,
+      "runningCost": 200,
+      "power": 35,
+      "water": 15,
+      "duration": 10,
+      "thumbnail": "firstaidstation.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/FirstAidStation.lua"
+    },
+    {
+      "id": "gym",
+      "name": "Gym",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 5,
+      "depth": 11,
+      "cost": 1600,
+      "resale": 800,
+      "capacity": 8,
+      "runningCost": 110,
+      "power": 50,
+      "water": 30,
+      "duration": 50,
+      "thumbnail": "gym.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Gym.lua"
+    },
+    {
+      "id": "hairsalon",
+      "name": "Hair Salon",
+      "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "width": 5,
+      "depth": 7,
+      "cost": 2200,
+      "resale": 1100,
+      "capacity": 6,
+      "runningCost": 140,
+      "power": 40,
+      "water": 20,
+      "duration": 50,
+      "thumbnail": "hairsalon.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/HairSalon.lua"
+    },
+    {
+      "id": "headoffice",
+      "name": "Head Office",
+      "category": "BUILDING_MINOR_GROUP_EXT_OFFICES",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_OFFICES",
+      "width": 7,
+      "depth": 6,
+      "cost": 1000,
+      "resale": 250,
+      "capacity": 0,
+      "runningCost": 150,
+      "power": 100,
+      "water": 50,
+      "duration": 10,
+      "thumbnail": "headoffice.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/HeadOffice.lua"
+    },
+    {
+      "id": "healthspa",
+      "name": "Health Spa",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 5,
+      "depth": 7,
+      "cost": 2700,
+      "resale": 1350,
+      "capacity": 6,
+      "runningCost": 125,
+      "power": 50,
+      "water": 75,
+      "duration": 65,
+      "thumbnail": "healthspa.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/HealthSpa.lua"
+    },
+    {
+      "id": "helipad",
+      "name": "Helipad",
+      "category": "BUILDING_MINOR_GROUP_EXT_TRANSPORT",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_TRANSPORT",
+      "width": 9,
+      "depth": 9,
+      "cost": 10000,
+      "resale": 5000,
+      "capacity": 0,
+      "runningCost": 3000,
+      "power": 300,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "helipad.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Helipad.lua"
+    },
+    {
+      "id": "janitorcloset",
+      "name": "Janitor Closet",
+      "category": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
+      "width": 3,
+      "depth": 2,
+      "cost": 350,
+      "resale": 175,
+      "capacity": 1,
+      "runningCost": 20,
+      "power": 20,
+      "water": 30,
+      "duration": 10,
+      "thumbnail": "janitorcloset.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/JanitorCloset.lua"
+    },
+    {
+      "id": "jewelrystore",
+      "name": "Jewelry Store",
+      "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "width": 5,
+      "depth": 7,
+      "cost": 12000,
+      "resale": 6000,
+      "capacity": 3,
+      "runningCost": 5500,
+      "power": 50,
+      "water": 0,
+      "duration": 50,
+      "thumbnail": "jewelrystore.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/JewelryStore.lua"
+    },
+    {
+      "id": "largecasino",
+      "name": "Large Casino",
+      "category": "BUILDING_MINOR_GROUP_EXT_CASINOS",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_CASINOS",
+      "width": 25,
+      "depth": 25,
+      "cost": 16000,
+      "resale": 8000,
+      "capacity": 500,
+      "runningCost": 900,
+      "power": 180,
+      "water": 30,
+      "duration": 10,
+      "thumbnail": "largecasino.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/LargeCasino.lua"
+    },
+    {
+      "id": "largehotel",
+      "name": "Large Hotel",
+      "category": "BUILDING_MINOR_GROUP_EXT_HOTELS",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_HOTELS",
+      "width": 24,
+      "depth": 22,
+      "cost": 20000,
+      "resale": 10000,
+      "capacity": 100,
+      "runningCost": 3500,
+      "power": 900,
+      "water": 500,
+      "duration": 110,
+      "thumbnail": "largehotel.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/LargeHotel.lua"
+    },
+    {
+      "id": "livemusicvenue",
+      "name": "Live Music Venue",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 10,
+      "depth": 10,
+      "cost": 14000,
+      "resale": 7000,
+      "capacity": 40,
+      "runningCost": 100,
+      "power": 200,
+      "water": 0,
+      "duration": 80,
+      "thumbnail": "livemusicvenue.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/LiveMusicVenue.lua"
+    },
+    {
+      "id": "magicshop",
+      "name": "Magic Shop",
+      "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "width": 5,
+      "depth": 7,
+      "cost": 1000,
+      "resale": 500,
+      "capacity": 8,
+      "runningCost": 350,
+      "power": 50,
+      "water": 0,
+      "duration": 40,
+      "thumbnail": "magicshop.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MagicShop.lua"
+    },
+    {
+      "id": "magicshow",
+      "name": "Magic Show",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 8,
+      "depth": 10,
+      "cost": 6500,
+      "resale": 3250,
+      "capacity": 20,
+      "runningCost": 300,
+      "power": 150,
+      "water": 0,
+      "duration": 70,
+      "thumbnail": "magicshow.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MagicShow.lua"
+    },
+    {
+      "id": "maletoilet",
+      "name": "Male Toilet",
+      "category": "BUILDING_MINOR_GROUP_EXT_RESTROOMS",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_RESTROOMS",
+      "width": 3,
+      "depth": 2,
+      "cost": 250,
+      "resale": 125,
+      "capacity": 9,
+      "runningCost": 30,
+      "power": 10,
+      "water": 40,
+      "duration": 7,
+      "thumbnail": "maletoilet.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MaleToilet.lua"
+    },
+    {
+      "id": "mechanicdept",
+      "name": "Mechanic Dept",
+      "category": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
+      "width": 5,
+      "depth": 3,
+      "cost": 1000,
+      "resale": 500,
+      "capacity": 3,
+      "runningCost": 80,
+      "power": 100,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "mechanicdept.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MechanicDept.lua"
+    },
+    {
+      "id": "mechanichut",
+      "name": "Mechanic Hut",
+      "category": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
+      "width": 4,
+      "depth": 2,
+      "cost": 350,
+      "resale": 175,
+      "capacity": 1,
+      "runningCost": 40,
+      "power": 30,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "mechanichut.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MechanicHut.lua"
+    },
+    {
+      "id": "mediumcasino",
+      "name": "Medium Casino",
+      "category": "BUILDING_MINOR_GROUP_EXT_CASINOS",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_CASINOS",
+      "width": 19,
+      "depth": 19,
+      "cost": 10000,
+      "resale": 5000,
+      "capacity": 280,
+      "runningCost": 400,
+      "power": 120,
+      "water": 20,
+      "duration": 10,
+      "thumbnail": "mediumcasino.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MediumCasino.lua"
+    },
+    {
+      "id": "mediumhotel",
+      "name": "Medium Hotel",
+      "category": "BUILDING_MINOR_GROUP_EXT_HOTELS",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_HOTELS",
+      "width": 17,
+      "depth": 13,
+      "cost": 10000,
+      "resale": 5000,
+      "capacity": 50,
+      "runningCost": 1500,
+      "power": 500,
+      "water": 200,
+      "duration": 100,
+      "thumbnail": "mediumhotel.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MediumHotel.lua"
+    },
+    {
+      "id": "mensclothing",
+      "name": "Mens Clothing",
+      "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "width": 5,
+      "depth": 5,
+      "cost": 4000,
+      "resale": 2000,
+      "capacity": 6,
+      "runningCost": 450,
+      "power": 50,
+      "water": 0,
+      "duration": 35,
+      "thumbnail": "mensclothing.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MensClothing.lua"
+    },
+    {
+      "id": "museum",
+      "name": "Museum",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 12,
+      "depth": 8,
+      "cost": 16000,
+      "resale": 8000,
+      "capacity": 40,
+      "runningCost": 140,
+      "power": 100,
+      "water": 0,
+      "duration": 60,
+      "thumbnail": "museum.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Museum.lua"
+    },
+    {
+      "id": "nightclub",
+      "name": "Nightclub",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 10,
+      "depth": 10,
+      "cost": 4000,
+      "resale": 2000,
+      "capacity": 24,
+      "runningCost": 180,
+      "power": 80,
+      "water": 0,
+      "duration": 60,
+      "thumbnail": "nightclub.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub.lua"
+    },
+    {
+      "id": "nightclub1",
+      "name": "Nightclub1",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 10,
+      "depth": 10,
+      "cost": 6000,
+      "resale": 3000,
+      "capacity": 35,
+      "runningCost": 200,
+      "power": 120,
+      "water": 0,
+      "duration": 75,
+      "thumbnail": "nightclub1.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub1.lua"
+    },
+    {
+      "id": "nightclub2",
+      "name": "Nightclub2",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 10,
+      "depth": 10,
+      "cost": 12000,
+      "resale": 6000,
+      "capacity": 30,
+      "runningCost": 300,
+      "power": 200,
+      "water": 0,
+      "duration": 75,
+      "thumbnail": "nightclub2.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub2.lua"
+    },
+    {
+      "id": "nightclub3",
+      "name": "Nightclub3",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 10,
+      "depth": 10,
+      "cost": 10000,
+      "resale": 5000,
+      "capacity": 35,
+      "runningCost": 250,
+      "power": 120,
+      "water": 0,
+      "duration": 80,
+      "thumbnail": "nightclub3.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub3.lua"
+    },
+    {
+      "id": "nightclub4",
+      "name": "Nightclub4",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 10,
+      "depth": 10,
+      "cost": 15000,
+      "resale": 7500,
+      "capacity": 25,
+      "runningCost": 450,
+      "power": 250,
+      "water": 0,
+      "duration": 80,
+      "thumbnail": "nightclub4.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub4.lua"
+    },
+    {
+      "id": "observationdeck",
+      "name": "Observation Deck",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 7,
+      "depth": 7,
+      "cost": 10000,
+      "resale": 5000,
+      "capacity": 20,
+      "runningCost": 500,
+      "power": 200,
+      "water": 0,
+      "duration": 60,
+      "thumbnail": "observationdeck.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ObservationDeck.lua"
+    },
+    {
+      "id": "palm2x2-0",
+      "name": "Palm2x2 0",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 340,
+      "resale": 170,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 28,
+      "duration": 10,
+      "thumbnail": "palm2x2-0.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_0.lua"
+    },
+    {
+      "id": "palm2x2-1",
+      "name": "Palm2x2 1",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 280,
+      "resale": 140,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 25,
+      "duration": 10,
+      "thumbnail": "palm2x2-1.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_1.lua"
+    },
+    {
+      "id": "palm2x2-2",
+      "name": "Palm2x2 2",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 240,
+      "resale": 120,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 23,
+      "duration": 10,
+      "thumbnail": "palm2x2-2.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_2.lua"
+    },
+    {
+      "id": "palm2x2-3",
+      "name": "Palm2x2 3",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 200,
+      "resale": 100,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 20,
+      "duration": 10,
+      "thumbnail": "palm2x2-3.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_3.lua"
+    },
+    {
+      "id": "palm2x2-4",
+      "name": "Palm2x2 4",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 2,
+      "depth": 2,
+      "cost": 240,
+      "resale": 120,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 22,
+      "duration": 10,
+      "thumbnail": "palm2x2-4.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_4.lua"
+    },
+    {
+      "id": "palmset",
+      "name": "Palmset",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 11,
+      "depth": 1,
+      "cost": 1000,
+      "resale": 500,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 100,
+      "duration": 10,
+      "thumbnail": "palmset.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palmset.lua"
+    },
+    {
+      "id": "grass",
+      "name": "Grass",
+      "category": "BUILDING_MINOR_GROUP_EXT_GRASS_WATER",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_GRASS_WATER",
+      "width": 1,
+      "depth": 1,
+      "cost": 8,
+      "resale": 0,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Paths/Grass.lua"
+    },
+    {
+      "id": "path-1",
+      "name": "Path 1",
+      "category": "BUILDING_MINOR_GROUP_EXT_PATHS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PATHS",
+      "width": 1,
+      "depth": 1,
+      "cost": 10,
+      "resale": 0,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Paths/Path_1.lua"
+    },
+    {
+      "id": "tarmac",
+      "name": "Tarmac",
+      "category": "BUILDING_MINOR_GROUP_EXT_PATHS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PATHS",
+      "width": 1,
+      "depth": 1,
+      "cost": 2,
+      "resale": 0,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Paths/Tarmac.lua"
+    },
+    {
+      "id": "themed",
+      "name": "Themed",
+      "category": "BUILDING_MINOR_GROUP_EXT_PATHS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PATHS",
+      "width": 1,
+      "depth": 1,
+      "cost": 20,
+      "resale": 0,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Paths/Themed.lua"
+    },
+    {
+      "id": "water",
+      "name": "Water",
+      "category": "BUILDING_MINOR_GROUP_EXT_GRASS_WATER",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_GRASS_WATER",
+      "width": 1,
+      "depth": 1,
+      "cost": 30,
+      "resale": 0,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Paths/Water.lua"
+    },
+    {
+      "id": "pawnbroker",
+      "name": "Pawn Broker",
+      "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "width": 5,
+      "depth": 7,
+      "cost": 2000,
+      "resale": 1000,
+      "capacity": 5,
+      "runningCost": 100,
+      "power": 50,
+      "water": 0,
+      "duration": 40,
+      "thumbnail": "pawnbroker.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PawnBroker.lua"
+    },
+    {
+      "id": "potflower1x1",
+      "name": "Pot Flower1x1",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 30,
+      "resale": 15,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 12,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotFlower1x1.lua"
+    },
+    {
+      "id": "potflower2x2",
+      "name": "Pot Flower2x2",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 80,
+      "resale": 40,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 25,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotFlower2x2.lua"
+    },
+    {
+      "id": "potflower3x3",
+      "name": "Pot Flower3x3",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 160,
+      "resale": 80,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 50,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotFlower3x3.lua"
+    },
+    {
+      "id": "pottree1x1",
+      "name": "Pot Tree1x1",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 40,
+      "resale": 20,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 10,
+      "duration": 10,
+      "thumbnail": "pottree1x1.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotTree1x1.lua"
+    },
+    {
+      "id": "pottree2x2",
+      "name": "Pot Tree2x2",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 100,
+      "resale": 50,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 20,
+      "duration": 10,
+      "thumbnail": "pottree2x2.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotTree2x2.lua"
+    },
+    {
+      "id": "pottree3x3",
+      "name": "Pot Tree3x3",
+      "category": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 240,
+      "resale": 120,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 40,
+      "duration": 10,
+      "thumbnail": "pottree3x3.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotTree3x3.lua"
+    },
+    {
+      "id": "powergenerator",
+      "name": "Power Generator",
+      "category": "BUILDING_MINOR_GROUP_EXT_POWER_WATER",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_POWER_WATER",
+      "width": 5,
+      "depth": 3,
+      "cost": 2000,
+      "resale": 500,
+      "capacity": 0,
+      "runningCost": 500,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "powergenerator.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PowerGenerator.lua"
+    },
+    {
+      "id": "powersubstation",
+      "name": "Power Sub Station",
+      "category": "BUILDING_MINOR_GROUP_EXT_POWER_WATER",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_POWER_WATER",
+      "width": 4,
+      "depth": 2,
+      "cost": 1000,
+      "resale": 500,
+      "capacity": 0,
+      "runningCost": 250,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "powersubstation.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PowerSubStation.lua"
+    },
+    {
+      "id": "recyclingcenter",
+      "name": "Recycling Center",
+      "category": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF",
+      "width": 4,
+      "depth": 5,
+      "cost": 1000,
+      "resale": 500,
+      "capacity": 3,
+      "runningCost": 50,
+      "power": 50,
+      "water": 80,
+      "duration": 10,
+      "thumbnail": "recyclingcenter.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/RecyclingCenter.lua"
+    },
+    {
+      "id": "restaurant",
+      "name": "Restaurant",
+      "category": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_FOOD_DRINK",
+      "width": 7,
+      "depth": 8,
+      "cost": 1500,
+      "resale": 750,
+      "capacity": 12,
+      "runningCost": 245,
+      "power": 110,
+      "water": 45,
+      "duration": 27,
+      "thumbnail": "restaurant.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Restaurant.lua"
+    },
+    {
+      "id": "rollercoaster",
+      "name": "Rollercoaster",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 15,
+      "depth": 25,
+      "cost": 20000,
+      "resale": 10000,
+      "capacity": 25,
+      "runningCost": 350,
+      "power": 350,
+      "water": 0,
+      "duration": 35,
+      "thumbnail": "rollercoaster.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Rollercoaster.lua"
+    },
+    {
+      "id": "sharkpool",
+      "name": "Shark Pool",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 12,
+      "depth": 10,
+      "cost": 15000,
+      "resale": 7500,
+      "capacity": 25,
+      "runningCost": 400,
+      "power": 240,
+      "water": 1200,
+      "duration": 40,
+      "thumbnail": "sharkpool.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SharkPool.lua"
+    },
+    {
+      "id": "showgirls",
+      "name": "Showgirls",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 10,
+      "depth": 8,
+      "cost": 9000,
+      "resale": 4500,
+      "capacity": 20,
+      "runningCost": 370,
+      "power": 130,
+      "water": 0,
+      "duration": 60,
+      "thumbnail": "showgirls.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Showgirls.lua"
+    },
+    {
+      "id": "signlarge",
+      "name": "Sign Large",
+      "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "width": 10,
+      "depth": 4,
+      "cost": 6000,
+      "resale": 3000,
+      "capacity": 0,
+      "runningCost": 50,
+      "power": 250,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "signlarge.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SignLarge.lua"
+    },
+    {
+      "id": "signmedium",
+      "name": "Sign Medium",
+      "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "width": 6,
+      "depth": 2,
+      "cost": 4200,
+      "resale": 2100,
+      "capacity": 0,
+      "runningCost": 30,
+      "power": 200,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "signmedium.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SignMedium.lua"
+    },
+    {
+      "id": "signsmall",
+      "name": "Sign Small",
+      "category": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "context": "exterior",
+      "major": 3,
+      "minor": "BUILDING_MINOR_GROUP_EXT_STATUES_SIGNS_DISPLAYS",
+      "width": 3,
+      "depth": 1,
+      "cost": 2000,
+      "resale": 1000,
+      "capacity": 0,
+      "runningCost": 10,
+      "power": 100,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "signsmall.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SignSmall.lua"
+    },
+    {
+      "id": "smallcasino",
+      "name": "Small Casino",
+      "category": "BUILDING_MINOR_GROUP_EXT_CASINOS",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_CASINOS",
+      "width": 11,
+      "depth": 11,
+      "cost": 3200,
+      "resale": 1600,
+      "capacity": 85,
+      "runningCost": 100,
+      "power": 60,
+      "water": 10,
+      "duration": 10,
+      "thumbnail": "smallcasino.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SmallCasino.lua"
+    },
+    {
+      "id": "smallhotel",
+      "name": "Small Hotel",
+      "category": "BUILDING_MINOR_GROUP_EXT_HOTELS",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_HOTELS",
+      "width": 13,
+      "depth": 11,
+      "cost": 3000,
+      "resale": 1000,
+      "capacity": 20,
+      "runningCost": 450,
+      "power": 150,
+      "water": 60,
+      "duration": 90,
+      "thumbnail": "smallhotel.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SmallHotel.lua"
+    },
+    {
+      "id": "souvenirshop",
+      "name": "Souvenir Shop",
+      "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "width": 5,
+      "depth": 7,
+      "cost": 3200,
+      "resale": 1600,
+      "capacity": 12,
+      "runningCost": 350,
+      "power": 50,
+      "water": 0,
+      "duration": 36,
+      "thumbnail": "souvenirshop.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SouvenirShop.lua"
+    },
+    {
+      "id": "stageshow",
+      "name": "Stage Show",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 10,
+      "depth": 8,
+      "cost": 8000,
+      "resale": 4000,
+      "capacity": 20,
+      "runningCost": 360,
+      "power": 150,
+      "water": 0,
+      "duration": 80,
+      "thumbnail": "stageshow.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/StageShow.lua"
+    },
+    {
+      "id": "swimmingpool",
+      "name": "Swimming Pool",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 12,
+      "depth": 7,
+      "cost": 8000,
+      "resale": 4000,
+      "capacity": 20,
+      "runningCost": 100,
+      "power": 50,
+      "water": 450,
+      "duration": 55,
+      "thumbnail": "swimmingpool.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SwimmingPool.lua"
+    },
+    {
+      "id": "theatre",
+      "name": "Theatre",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 10,
+      "depth": 8,
+      "cost": 8500,
+      "resale": 4250,
+      "capacity": 18,
+      "runningCost": 400,
+      "power": 100,
+      "water": 0,
+      "duration": 70,
+      "thumbnail": "theatre.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Theatre.lua"
+    },
+    {
+      "id": "themedride",
+      "name": "Themed Ride",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 11,
+      "depth": 9,
+      "cost": 12000,
+      "resale": 6000,
+      "capacity": 15,
+      "runningCost": 200,
+      "power": 200,
+      "water": 0,
+      "duration": 25,
+      "thumbnail": "themedride.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ThemedRide.lua"
+    },
+    {
+      "id": "toplessrevue",
+      "name": "Topless Revue",
+      "category": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT",
+      "width": 10,
+      "depth": 8,
+      "cost": 10000,
+      "resale": 5000,
+      "capacity": 20,
+      "runningCost": 350,
+      "power": 150,
+      "water": 0,
+      "duration": 60,
+      "thumbnail": "toplessrevue.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ToplessRevue.lua"
+    },
+    {
+      "id": "travelagent",
+      "name": "Travel Agent",
+      "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "width": 5,
+      "depth": 7,
+      "cost": 1800,
+      "resale": 900,
+      "capacity": 4,
+      "runningCost": 950,
+      "power": 50,
+      "water": 0,
+      "duration": 80,
+      "thumbnail": "travelagent.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/TravelAgent.lua"
+    },
+    {
+      "id": "waterplant",
+      "name": "Water Plant",
+      "category": "BUILDING_MINOR_GROUP_EXT_POWER_WATER",
+      "context": "exterior",
+      "major": 0,
+      "minor": "BUILDING_MINOR_GROUP_EXT_POWER_WATER",
+      "width": 5,
+      "depth": 3,
+      "cost": 2000,
+      "resale": 500,
+      "capacity": 0,
+      "runningCost": 500,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "waterplant.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/WaterPlant.lua"
+    },
+    {
+      "id": "wavepool",
+      "name": "Wave Pool",
+      "category": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "context": "exterior",
+      "major": 1,
+      "minor": "BUILDING_MINOR_GROUP_EXT_ACTIVITIES",
+      "width": 7,
+      "depth": 12,
+      "cost": 10000,
+      "resale": 5000,
+      "capacity": 15,
+      "runningCost": 135,
+      "power": 150,
+      "water": 450,
+      "duration": 35,
+      "thumbnail": "wavepool.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/WavePool.lua"
+    },
+    {
+      "id": "weddingchapel",
+      "name": "Wedding Chapel",
+      "category": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SERVICES",
+      "width": 7,
+      "depth": 10,
+      "cost": 8000,
+      "resale": 4000,
+      "capacity": 4,
+      "runningCost": 240,
+      "power": 80,
+      "water": 40,
+      "duration": 80,
+      "thumbnail": "weddingchapel.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/WeddingChapel.lua"
+    },
+    {
+      "id": "womensclothing",
+      "name": "Womens Clothing",
+      "category": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "context": "exterior",
+      "major": 2,
+      "minor": "BUILDING_MINOR_GROUP_EXT_SHOPS",
+      "width": 5,
+      "depth": 7,
+      "cost": 5000,
+      "resale": 2500,
+      "capacity": 5,
+      "runningCost": 550,
+      "power": 50,
+      "water": 0,
+      "duration": 65,
+      "thumbnail": "womensclothing.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/WomensClothing.lua"
+    },
+    {
+      "id": "atm",
+      "name": "ATM",
+      "category": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
+      "width": 1,
+      "depth": 2,
+      "cost": 300,
+      "resale": 150,
+      "capacity": 1,
+      "runningCost": 5,
+      "power": 15,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "atm.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/ATM.lua"
+    },
+    {
+      "id": "basicstairs",
+      "name": "Basic Stairs",
+      "category": "BUILDING_MINOR_GROUP_INT_STAIRS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_STAIRS",
+      "width": 2,
+      "depth": 2,
+      "cost": 150,
+      "resale": 75,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "basicstairs.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/BasicStairs.lua"
+    },
+    {
+      "id": "bench-1-int",
+      "name": "Bench 1 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "width": 2,
+      "depth": 3,
+      "cost": 30,
+      "resale": 15,
+      "capacity": 2,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 20,
+      "thumbnail": "bench-1-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Bench_1_INT.lua"
+    },
+    {
+      "id": "bin-1-int",
+      "name": "Bin 1 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 1,
+      "cost": 20,
+      "resale": 10,
+      "capacity": 100,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 0,
+      "thumbnail": "bin-1-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Bin_1_INT.lua"
+    },
+    {
+      "id": "column-int",
+      "name": "Column INT",
+      "category": "BUILDING_MINOR_GROUP_INT_STATUES",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_STATUES",
+      "width": 2,
+      "depth": 2,
+      "cost": 800,
+      "resale": 400,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "column-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Column_INT.lua"
+    },
+    {
+      "id": "flowerbed1x1-int",
+      "name": "Flowerbed1x1 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 50,
+      "resale": 25,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 4,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed1x1_INT.lua"
+    },
+    {
+      "id": "flowerbed2x1-int",
+      "name": "Flowerbed2x1 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 2,
+      "depth": 1,
+      "cost": 60,
+      "resale": 30,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 6,
+      "duration": 10,
+      "thumbnail": "flowerbed2x1-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed2x1_INT.lua"
+    },
+    {
+      "id": "flowerbed2x2-int",
+      "name": "Flowerbed2x2 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 120,
+      "resale": 60,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 16,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed2x2_INT.lua"
+    },
+    {
+      "id": "flowerbed3x1-int",
+      "name": "Flowerbed3x1 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 3,
+      "depth": 1,
+      "cost": 80,
+      "resale": 40,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 10,
+      "duration": 10,
+      "thumbnail": "flowerbed3x1-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed3x1_INT.lua"
+    },
+    {
+      "id": "flowerbed3x3-int",
+      "name": "Flowerbed3x3 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 50,
+      "resale": 25,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 6,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed3x3_INT.lua"
+    },
+    {
+      "id": "fount-1x1-int",
+      "name": "Fount 1x1 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 2,
+      "depth": 2,
+      "cost": 400,
+      "resale": 200,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 5,
+      "water": 20,
+      "duration": 10,
+      "thumbnail": "fount-1x1-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Fount_1x1_INT.lua"
+    },
+    {
+      "id": "fount-2x2-int",
+      "name": "Fount 2x2 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 4,
+      "depth": 4,
+      "cost": 750,
+      "resale": 370,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 10,
+      "water": 40,
+      "duration": 10,
+      "thumbnail": "fount-2x2-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Fount_2x2_INT.lua"
+    },
+    {
+      "id": "fount-2x4-int",
+      "name": "Fount 2x4 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 8,
+      "depth": 4,
+      "cost": 1000,
+      "resale": 500,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 15,
+      "water": 65,
+      "duration": 10,
+      "thumbnail": "fount-2x4-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Fount_2x4_INT.lua"
+    },
+    {
+      "id": "fount-3x3-int",
+      "name": "Fount 3x3 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 6,
+      "depth": 6,
+      "cost": 1250,
+      "resale": 625,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 20,
+      "water": 80,
+      "duration": 10,
+      "thumbnail": "fount-3x3-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Fount_3x3_INT.lua"
+    },
+    {
+      "id": "5cardstud",
+      "name": "5Card Stud",
+      "category": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "width": 6,
+      "depth": 6,
+      "cost": 450,
+      "resale": 225,
+      "capacity": 7,
+      "runningCost": 25,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "5cardstud.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/5CardStud.lua"
+    },
+    {
+      "id": "baccarat",
+      "name": "Baccarat",
+      "category": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "width": 9,
+      "depth": 6,
+      "cost": 800,
+      "resale": 400,
+      "capacity": 13,
+      "runningCost": 50,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "baccarat.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/Baccarat.lua"
+    },
+    {
+      "id": "caribbeanstud",
+      "name": "Caribbean Stud",
+      "category": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "width": 7,
+      "depth": 6,
+      "cost": 450,
+      "resale": 225,
+      "capacity": 7,
+      "runningCost": 25,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "caribbeanstud.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/CaribbeanStud.lua"
+    },
+    {
+      "id": "carjackpotslotgroup",
+      "name": "Car Jackpot Slot Group",
+      "category": "BUILDING_MINOR_GROUP_INT_SLOTS",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_SLOTS",
+      "width": 12,
+      "depth": 12,
+      "cost": 1000,
+      "resale": 500,
+      "capacity": 20,
+      "runningCost": 20,
+      "power": 120,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "carjackpotslotgroup.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/CarJackpotSlotGroup.lua"
+    },
+    {
+      "id": "craps",
+      "name": "Craps",
+      "category": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "width": 9,
+      "depth": 6,
+      "cost": 600,
+      "resale": 300,
+      "capacity": 9,
+      "runningCost": 35,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "craps.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/Craps.lua"
+    },
+    {
+      "id": "keno",
+      "name": "Keno",
+      "category": "BUILDING_MINOR_GROUP_INT_LOUNGES",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_LOUNGES",
+      "width": 10,
+      "depth": 11,
+      "cost": 1500,
+      "resale": 750,
+      "capacity": 24,
+      "runningCost": 150,
+      "power": 25,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "keno.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/Keno.lua"
+    },
+    {
+      "id": "letitride",
+      "name": "Let It Ride",
+      "category": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "width": 7,
+      "depth": 6,
+      "cost": 450,
+      "resale": 225,
+      "capacity": 7,
+      "runningCost": 25,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "letitride.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/LetItRide.lua"
+    },
+    {
+      "id": "paigow",
+      "name": "Pai Gow",
+      "category": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "width": 7,
+      "depth": 6,
+      "cost": 450,
+      "resale": 225,
+      "capacity": 7,
+      "runningCost": 25,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "paigow.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/PaiGow.lua"
+    },
+    {
+      "id": "progressiveslots",
+      "name": "Progressive Slots",
+      "category": "BUILDING_MINOR_GROUP_INT_SLOTS",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_SLOTS",
+      "width": 10,
+      "depth": 6,
+      "cost": 1200,
+      "resale": 600,
+      "capacity": 20,
+      "runningCost": 18,
+      "power": 90,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "progressiveslots.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/ProgressiveSlots.lua"
+    },
+    {
+      "id": "sportsbookbetting",
+      "name": "Sports Book Betting",
+      "category": "BUILDING_MINOR_GROUP_INT_LOUNGES",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_LOUNGES",
+      "width": 12,
+      "depth": 10,
+      "cost": 5000,
+      "resale": 2500,
+      "capacity": 23,
+      "runningCost": 500,
+      "power": 60,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "sportsbookbetting.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/SportsBookBetting.lua"
+    },
+    {
+      "id": "texasholdem",
+      "name": "Texas Holdem",
+      "category": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "width": 7,
+      "depth": 6,
+      "cost": 450,
+      "resale": 225,
+      "capacity": 7,
+      "runningCost": 25,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "texasholdem.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/TexasHoldem.lua"
+    },
+    {
+      "id": "videokeno",
+      "name": "Video Keno",
+      "category": "BUILDING_MINOR_GROUP_INT_SLOTS",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_SLOTS",
+      "width": 1,
+      "depth": 3,
+      "cost": 150,
+      "resale": 75,
+      "capacity": 1,
+      "runningCost": 2,
+      "power": 10,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "videokeno.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/VideoKeno.lua"
+    },
+    {
+      "id": "wheeloffortune",
+      "name": "Wheel Of Fortune",
+      "category": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "context": "interior",
+      "major": 4,
+      "minor": "BUILDING_MINOR_GROUP_INT_TABLES",
+      "width": 7,
+      "depth": 7,
+      "cost": 700,
+      "resale": 350,
+      "capacity": 7,
+      "runningCost": 25,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "wheeloffortune.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/WheelOfFortune.lua"
+    },
+    {
+      "id": "hospitalitysuitent",
+      "name": "Hospitality Suite NT",
+      "category": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
+      "width": 7,
+      "depth": 5,
+      "cost": 1500,
+      "resale": 750,
+      "capacity": 0,
+      "runningCost": 180,
+      "power": 40,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "hospitalitysuitent.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/HospitalitySuiteNT.lua"
+    },
+    {
+      "id": "interior-femaletoilet",
+      "name": "Interior Female Toilet",
+      "category": "BUILDING_MINOR_GROUP_INT_RESTROOMS",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_RESTROOMS",
+      "width": 8,
+      "depth": 5,
+      "cost": 250,
+      "resale": 125,
+      "capacity": 6,
+      "runningCost": 30,
+      "power": 10,
+      "water": 40,
+      "duration": 12,
+      "thumbnail": "interior-femaletoilet.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Interior FemaleToilet.lua"
+    },
+    {
+      "id": "interior-maletoilet",
+      "name": "Interior Male Toilet",
+      "category": "BUILDING_MINOR_GROUP_INT_RESTROOMS",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_RESTROOMS",
+      "width": 8,
+      "depth": 5,
+      "cost": 250,
+      "resale": 125,
+      "capacity": 9,
+      "runningCost": 30,
+      "power": 10,
+      "water": 40,
+      "duration": 10,
+      "thumbnail": "interior-maletoilet.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Interior MaleToilet.lua"
+    },
+    {
+      "id": "interiorbuffet",
+      "name": "Interior Buffet",
+      "category": "BUILDING_MINOR_GROUP_INT_FOOD_DRINK",
+      "context": "interior",
+      "major": 6,
+      "minor": "BUILDING_MINOR_GROUP_INT_FOOD_DRINK",
+      "width": 4,
+      "depth": 6,
+      "cost": 500,
+      "resale": 250,
+      "capacity": 4,
+      "runningCost": 30,
+      "power": 30,
+      "water": 30,
+      "duration": 12,
+      "thumbnail": "interiorbuffet.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/InteriorBuffet.lua"
+    },
+    {
+      "id": "kitchenint",
+      "name": "Kitchen INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FOOD_DRINK",
+      "context": "interior",
+      "major": 6,
+      "minor": "BUILDING_MINOR_GROUP_INT_FOOD_DRINK",
+      "width": 8,
+      "depth": 7,
+      "cost": 1000,
+      "resale": 500,
+      "capacity": 3,
+      "runningCost": 100,
+      "power": 100,
+      "water": 100,
+      "duration": 10,
+      "thumbnail": "kitchenint.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/KitchenINT.lua"
+    },
+    {
+      "id": "lamp-1-int",
+      "name": "Lamp 1 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 1,
+      "cost": 40,
+      "resale": 20,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 5,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_1_INT.lua"
+    },
+    {
+      "id": "lamp-cold-int",
+      "name": "Lamp cold INT",
+      "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 1,
+      "cost": 40,
+      "resale": 20,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 5,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "lamp-cold-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_cold_INT.lua"
+    },
+    {
+      "id": "lamp-green-int",
+      "name": "Lamp green INT",
+      "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 1,
+      "cost": 40,
+      "resale": 20,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 5,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "lamp-green-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_green_INT.lua"
+    },
+    {
+      "id": "lamp-pink-int",
+      "name": "Lamp pink INT",
+      "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 1,
+      "cost": 40,
+      "resale": 20,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 5,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "lamp-pink-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_pink_INT.lua"
+    },
+    {
+      "id": "lamp-warm-int",
+      "name": "Lamp warm INT",
+      "category": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_BINS_FURNITURE_LIGHTS",
+      "width": 1,
+      "depth": 1,
+      "cost": 40,
+      "resale": 20,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 5,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "lamp-warm-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_warm_INT.lua"
+    },
+    {
+      "id": "landscaping",
+      "name": "Landscaping",
+      "category": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
+      "width": 7,
+      "depth": 5,
+      "cost": 500,
+      "resale": 250,
+      "capacity": 0,
+      "runningCost": 80,
+      "power": 10,
+      "water": 40,
+      "duration": 10,
+      "thumbnail": "landscaping.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Landscaping.lua"
+    },
+    {
+      "id": "monitorstationint",
+      "name": "Monitor Station INT",
+      "category": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
+      "width": 7,
+      "depth": 5,
+      "cost": 2000,
+      "resale": 1000,
+      "capacity": 3,
+      "runningCost": 165,
+      "power": 55,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "monitorstationint.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/MonitorStationINT.lua"
+    },
+    {
+      "id": "pitbossint",
+      "name": "Pit Boss INT",
+      "category": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
+      "context": "interior",
+      "major": 5,
+      "minor": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
+      "width": 7,
+      "depth": 5,
+      "cost": 600,
+      "resale": 300,
+      "capacity": 0,
+      "runningCost": 100,
+      "power": 25,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "pitbossint.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PitBossINT.lua"
+    },
+    {
+      "id": "potflower1x1-int",
+      "name": "Pot Flower1x1 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 50,
+      "resale": 25,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 5,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotFlower1x1_INT.lua"
+    },
+    {
+      "id": "potflower2x2-int",
+      "name": "Pot Flower2x2 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 2,
+      "depth": 2,
+      "cost": 150,
+      "resale": 75,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 20,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotFlower2x2_INT.lua"
+    },
+    {
+      "id": "potflower3x3-int",
+      "name": "Pot Flower3x3 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 3,
+      "depth": 3,
+      "cost": 300,
+      "resale": 150,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 45,
+      "duration": 10,
+      "thumbnail": null,
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotFlower3x3_INT.lua"
+    },
+    {
+      "id": "pottree2x2-int",
+      "name": "Pot Tree2x2 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 2,
+      "depth": 2,
+      "cost": 200,
+      "resale": 100,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 20,
+      "duration": 10,
+      "thumbnail": "pottree2x2-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotTree2x2_INT.lua"
+    },
+    {
+      "id": "pottree3x3-int",
+      "name": "Pot Tree3x3 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 3,
+      "depth": 3,
+      "cost": 400,
+      "resale": 200,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 45,
+      "duration": 10,
+      "thumbnail": "pottree3x3-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotTree3x3_INT.lua"
+    },
+    {
+      "id": "statue-1x1-int",
+      "name": "Statue 1x1 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_STATUES",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_STATUES",
+      "width": 1,
+      "depth": 1,
+      "cost": 200,
+      "resale": 100,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "statue-1x1-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Statue_1x1_INT.lua"
+    },
+    {
+      "id": "statue-2x2-int",
+      "name": "Statue 2x2 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_STATUES",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_STATUES",
+      "width": 2,
+      "depth": 2,
+      "cost": 550,
+      "resale": 275,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "statue-2x2-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Statue_2x2_INT.lua"
+    },
+    {
+      "id": "statue-3x3-int",
+      "name": "Statue 3x3 INT",
+      "category": "BUILDING_MINOR_GROUP_INT_STATUES",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_STATUES",
+      "width": 3,
+      "depth": 3,
+      "cost": 1000,
+      "resale": 500,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 0,
+      "duration": 10,
+      "thumbnail": "statue-3x3-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Statue_3x3_INT.lua"
+    },
+    {
+      "id": "tree-int",
+      "name": "Tree INT",
+      "category": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "context": "interior",
+      "major": 7,
+      "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
+      "width": 1,
+      "depth": 1,
+      "cost": 130,
+      "resale": 65,
+      "capacity": 0,
+      "runningCost": 0,
+      "power": 0,
+      "water": 12,
+      "duration": 10,
+      "thumbnail": "tree-int.tga",
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Tree_INT.lua"
     }
   ],
   "campaign": [
@@ -263,5 +3187,1551 @@
       "count": 6,
       "bytes": 5002058
     }
-  }
+  },
+  "groups": {
+    "exterior": [
+      "Hotels, Staff & Facilities",
+      "Casinos & Entertainment",
+      "Shops, Services & Food",
+      "Paths, Scenery & Furniture"
+    ],
+    "interior": [
+      "Casino Gaming",
+      "Casino Staff & Facilities",
+      "Casino Shops & Services",
+      "Casino Scenery & Furniture"
+    ]
+  },
+  "uiSprites": [
+    {
+      "name": "agent",
+      "file": "agent.tga"
+    },
+    {
+      "name": "big_buylot",
+      "file": "big_buylot.tga"
+    },
+    {
+      "name": "big_info",
+      "file": "big_info.tga"
+    },
+    {
+      "name": "Businessman",
+      "file": "Businessman.tga"
+    },
+    {
+      "name": "b_closeit",
+      "file": "b_closeit.tga"
+    },
+    {
+      "name": "b_closeit_down",
+      "file": "b_closeit_down.tga"
+    },
+    {
+      "name": "b_closeit_down_over",
+      "file": "b_closeit_down_over.tga"
+    },
+    {
+      "name": "b_closeit_glow",
+      "file": "b_closeit_glow.tga"
+    },
+    {
+      "name": "b_closeit_over",
+      "file": "b_closeit_over.tga"
+    },
+    {
+      "name": "b_down",
+      "file": "b_down.tga"
+    },
+    {
+      "name": "b_down_over",
+      "file": "b_down_over.tga"
+    },
+    {
+      "name": "b_highlight",
+      "file": "b_highlight.tga"
+    },
+    {
+      "name": "b_mesbutton",
+      "file": "b_mesbutton.tga"
+    },
+    {
+      "name": "b_mesbuttonw",
+      "file": "b_mesbuttonw.tga"
+    },
+    {
+      "name": "b_mesbuttonw2",
+      "file": "b_mesbuttonw2.tga"
+    },
+    {
+      "name": "b_mesbuttonw2_down",
+      "file": "b_mesbuttonw2_down.tga"
+    },
+    {
+      "name": "b_mesbuttonw2_down_over",
+      "file": "b_mesbuttonw2_down_over.tga"
+    },
+    {
+      "name": "b_mesbuttonw2_over",
+      "file": "b_mesbuttonw2_over.tga"
+    },
+    {
+      "name": "b_mesbuttonw_down",
+      "file": "b_mesbuttonw_down.tga"
+    },
+    {
+      "name": "b_mesbuttonw_down_over",
+      "file": "b_mesbuttonw_down_over.tga"
+    },
+    {
+      "name": "b_mesbuttonw_over",
+      "file": "b_mesbuttonw_over.tga"
+    },
+    {
+      "name": "b_mesbutton_down",
+      "file": "b_mesbutton_down.tga"
+    },
+    {
+      "name": "b_mesbutton_down_over",
+      "file": "b_mesbutton_down_over.tga"
+    },
+    {
+      "name": "b_mesbutton_glow",
+      "file": "b_mesbutton_glow.tga"
+    },
+    {
+      "name": "b_mesbutton_over",
+      "file": "b_mesbutton_over.tga"
+    },
+    {
+      "name": "b_normal",
+      "file": "b_normal.tga"
+    },
+    {
+      "name": "b_over",
+      "file": "b_over.tga"
+    },
+    {
+      "name": "b_pad_left",
+      "file": "b_pad_left.tga"
+    },
+    {
+      "name": "b_pad_left_down",
+      "file": "b_pad_left_down.tga"
+    },
+    {
+      "name": "b_pad_left_glow",
+      "file": "b_pad_left_glow.tga"
+    },
+    {
+      "name": "b_pad_left_over",
+      "file": "b_pad_left_over.tga"
+    },
+    {
+      "name": "b_pad_left_over_down",
+      "file": "b_pad_left_over_down.tga"
+    },
+    {
+      "name": "b_pad_mid",
+      "file": "b_pad_mid.tga"
+    },
+    {
+      "name": "b_pad_mid_down",
+      "file": "b_pad_mid_down.tga"
+    },
+    {
+      "name": "b_pad_mid_glow",
+      "file": "b_pad_mid_glow.tga"
+    },
+    {
+      "name": "b_pad_mid_over",
+      "file": "b_pad_mid_over.tga"
+    },
+    {
+      "name": "b_pad_mid_over_down",
+      "file": "b_pad_mid_over_down.tga"
+    },
+    {
+      "name": "b_pad_right",
+      "file": "b_pad_right.tga"
+    },
+    {
+      "name": "b_pad_right_down",
+      "file": "b_pad_right_down.tga"
+    },
+    {
+      "name": "b_pad_right_glow",
+      "file": "b_pad_right_glow.tga"
+    },
+    {
+      "name": "b_pad_right_over",
+      "file": "b_pad_right_over.tga"
+    },
+    {
+      "name": "b_pad_right_over_down",
+      "file": "b_pad_right_over_down.tga"
+    },
+    {
+      "name": "b_scroll",
+      "file": "b_scroll.tga"
+    },
+    {
+      "name": "b_scroll_down_over",
+      "file": "b_scroll_down_over.tga"
+    },
+    {
+      "name": "b_scroll_glow",
+      "file": "b_scroll_glow.tga"
+    },
+    {
+      "name": "b_scroll_over",
+      "file": "b_scroll_over.tga"
+    },
+    {
+      "name": "b_square",
+      "file": "b_square.tga"
+    },
+    {
+      "name": "b_square_down",
+      "file": "b_square_down.tga"
+    },
+    {
+      "name": "b_square_down_over",
+      "file": "b_square_down_over.tga"
+    },
+    {
+      "name": "b_square_glow",
+      "file": "b_square_glow.tga"
+    },
+    {
+      "name": "b_square_over",
+      "file": "b_square_over.tga"
+    },
+    {
+      "name": "b_thumb",
+      "file": "b_thumb.tga"
+    },
+    {
+      "name": "b_thumb_down",
+      "file": "b_thumb_down.tga"
+    },
+    {
+      "name": "b_thumb_down_over",
+      "file": "b_thumb_down_over.tga"
+    },
+    {
+      "name": "b_thumb_glow",
+      "file": "b_thumb_glow.tga"
+    },
+    {
+      "name": "b_thumb_over",
+      "file": "b_thumb_over.tga"
+    },
+    {
+      "name": "C_Chase_Lanyon",
+      "file": "C_Chase_Lanyon.tga"
+    },
+    {
+      "name": "C_city",
+      "file": "C_city.tga"
+    },
+    {
+      "name": "C_Damien_G_West",
+      "file": "C_Damien_G_West.tga"
+    },
+    {
+      "name": "C_Derren_Languid",
+      "file": "C_Derren_Languid.tga"
+    },
+    {
+      "name": "C_Grace_Morley_Jones",
+      "file": "C_Grace_Morley_Jones.tga"
+    },
+    {
+      "name": "C_Hal_Harding",
+      "file": "C_Hal_Harding.tga"
+    },
+    {
+      "name": "C_Lucas_Graves",
+      "file": "C_Lucas_Graves.tga"
+    },
+    {
+      "name": "C_Michel_Dupont",
+      "file": "C_Michel_Dupont.tga"
+    },
+    {
+      "name": "C_you",
+      "file": "C_you.tga"
+    },
+    {
+      "name": "demolishing",
+      "file": "demolishing.tga"
+    },
+    {
+      "name": "d_activity_small",
+      "file": "d_activity_small.tga"
+    },
+    {
+      "name": "d_bed_small",
+      "file": "d_bed_small.tga"
+    },
+    {
+      "name": "d_bog_small",
+      "file": "d_bog_small.tga"
+    },
+    {
+      "name": "d_drink_small",
+      "file": "d_drink_small.tga"
+    },
+    {
+      "name": "d_eat_small",
+      "file": "d_eat_small.tga"
+    },
+    {
+      "name": "d_entertainment_small",
+      "file": "d_entertainment_small.tga"
+    },
+    {
+      "name": "d_gamble_small",
+      "file": "d_gamble_small.tga"
+    },
+    {
+      "name": "d_money_small",
+      "file": "d_money_small.tga"
+    },
+    {
+      "name": "d_rest_small",
+      "file": "d_rest_small.tga"
+    },
+    {
+      "name": "d_rubbish_small",
+      "file": "d_rubbish_small.tga"
+    },
+    {
+      "name": "d_shopping_small",
+      "file": "d_shopping_small.tga"
+    },
+    {
+      "name": "family",
+      "file": "family.tga"
+    },
+    {
+      "name": "fil_betrange",
+      "file": "fil_betrange.tga"
+    },
+    {
+      "name": "fil_houseedge",
+      "file": "fil_houseedge.tga"
+    },
+    {
+      "name": "fil_repair",
+      "file": "fil_repair.tga"
+    },
+    {
+      "name": "fil_reputation",
+      "file": "fil_reputation.tga"
+    },
+    {
+      "name": "ForSale",
+      "file": "ForSale.tga"
+    },
+    {
+      "name": "gambler",
+      "file": "gambler.tga"
+    },
+    {
+      "name": "inf_beauty",
+      "file": "inf_beauty.tga"
+    },
+    {
+      "name": "inf_calming",
+      "file": "inf_calming.tga"
+    },
+    {
+      "name": "inf_entertainment",
+      "file": "inf_entertainment.tga"
+    },
+    {
+      "name": "inf_host",
+      "file": "inf_host.tga"
+    },
+    {
+      "name": "inf_litter",
+      "file": "inf_litter.tga"
+    },
+    {
+      "name": "inf_noise",
+      "file": "inf_noise.tga"
+    },
+    {
+      "name": "inf_pitboss",
+      "file": "inf_pitboss.tga"
+    },
+    {
+      "name": "inf_security",
+      "file": "inf_security.tga"
+    },
+    {
+      "name": "inf_smell",
+      "file": "inf_smell.tga"
+    },
+    {
+      "name": "i_advanced_options",
+      "file": "i_advanced_options.tga"
+    },
+    {
+      "name": "i_advertise_staff",
+      "file": "i_advertise_staff.tga"
+    },
+    {
+      "name": "i_arrow_down",
+      "file": "i_arrow_down.tga"
+    },
+    {
+      "name": "i_arrow_left",
+      "file": "i_arrow_left.tga"
+    },
+    {
+      "name": "i_arrow_right",
+      "file": "i_arrow_right.tga"
+    },
+    {
+      "name": "i_arrow_up",
+      "file": "i_arrow_up.tga"
+    },
+    {
+      "name": "i_big_costs",
+      "file": "i_big_costs.tga"
+    },
+    {
+      "name": "i_big_income",
+      "file": "i_big_income.tga"
+    },
+    {
+      "name": "i_big_profit",
+      "file": "i_big_profit.tga"
+    },
+    {
+      "name": "i_big_todaysales",
+      "file": "i_big_todaysales.tga"
+    },
+    {
+      "name": "i_big_totalsales",
+      "file": "i_big_totalsales.tga"
+    },
+    {
+      "name": "i_build",
+      "file": "i_build.tga"
+    },
+    {
+      "name": "i_building_badbetrange",
+      "file": "i_building_badbetrange.tga"
+    },
+    {
+      "name": "i_building_badreputation",
+      "file": "i_building_badreputation.tga"
+    },
+    {
+      "name": "i_building_capacity",
+      "file": "i_building_capacity.tga"
+    },
+    {
+      "name": "i_building_closed",
+      "file": "i_building_closed.tga"
+    },
+    {
+      "name": "i_building_expensive",
+      "file": "i_building_expensive.tga"
+    },
+    {
+      "name": "i_building_full",
+      "file": "i_building_full.tga"
+    },
+    {
+      "name": "i_building_health",
+      "file": "i_building_health.tga"
+    },
+    {
+      "name": "i_building_no",
+      "file": "i_building_no.tga"
+    },
+    {
+      "name": "i_building_notsuitable",
+      "file": "i_building_notsuitable.tga"
+    },
+    {
+      "name": "i_building_viable",
+      "file": "i_building_viable.tga"
+    },
+    {
+      "name": "i_building_visited",
+      "file": "i_building_visited.tga"
+    },
+    {
+      "name": "i_buy",
+      "file": "i_buy.tga"
+    },
+    {
+      "name": "i_buy2",
+      "file": "i_buy2.tga"
+    },
+    {
+      "name": "i_camera",
+      "file": "i_camera.tga"
+    },
+    {
+      "name": "i_cash_down",
+      "file": "i_cash_down.tga"
+    },
+    {
+      "name": "i_cash_up",
+      "file": "i_cash_up.tga"
+    },
+    {
+      "name": "i_casino_view",
+      "file": "i_casino_view.tga"
+    },
+    {
+      "name": "i_charts_bar",
+      "file": "i_charts_bar.tga"
+    },
+    {
+      "name": "i_charts_pie",
+      "file": "i_charts_pie.tga"
+    },
+    {
+      "name": "i_clearstats",
+      "file": "i_clearstats.tga"
+    },
+    {
+      "name": "i_clock",
+      "file": "i_clock.tga"
+    },
+    {
+      "name": "i_closeit",
+      "file": "i_closeit.tga"
+    },
+    {
+      "name": "i_comps",
+      "file": "i_comps.tga"
+    },
+    {
+      "name": "i_comptype",
+      "file": "i_comptype.tga"
+    },
+    {
+      "name": "i_comp_cost",
+      "file": "i_comp_cost.tga"
+    },
+    {
+      "name": "i_comp_freedinner",
+      "file": "i_comp_freedinner.tga"
+    },
+    {
+      "name": "i_comp_freeflights",
+      "file": "i_comp_freeflights.tga"
+    },
+    {
+      "name": "i_comp_freenights",
+      "file": "i_comp_freenights.tga"
+    },
+    {
+      "name": "i_comp_freetheatre",
+      "file": "i_comp_freetheatre.tga"
+    },
+    {
+      "name": "i_comp_guestspend",
+      "file": "i_comp_guestspend.tga"
+    },
+    {
+      "name": "i_comp_happiness",
+      "file": "i_comp_happiness.tga"
+    },
+    {
+      "name": "i_comp_no",
+      "file": "i_comp_no.tga"
+    },
+    {
+      "name": "i_comp_state",
+      "file": "i_comp_state.tga"
+    },
+    {
+      "name": "i_comp_type",
+      "file": "i_comp_type.tga"
+    },
+    {
+      "name": "i_confirm_off",
+      "file": "i_confirm_off.tga"
+    },
+    {
+      "name": "i_confirm_on",
+      "file": "i_confirm_on.tga"
+    },
+    {
+      "name": "i_cross",
+      "file": "i_cross.tga"
+    },
+    {
+      "name": "i_cross_red",
+      "file": "i_cross_red.tga"
+    },
+    {
+      "name": "i_cross_yellow",
+      "file": "i_cross_yellow.tga"
+    },
+    {
+      "name": "i_crowd",
+      "file": "i_crowd.tga"
+    },
+    {
+      "name": "i_darrow_left",
+      "file": "i_darrow_left.tga"
+    },
+    {
+      "name": "i_darrow_right",
+      "file": "i_darrow_right.tga"
+    },
+    {
+      "name": "i_decor",
+      "file": "i_decor.bmp"
+    },
+    {
+      "name": "i_decor",
+      "file": "i_decor.tga"
+    },
+    {
+      "name": "i_default_template",
+      "file": "i_default_template.tga"
+    },
+    {
+      "name": "i_demolish",
+      "file": "i_demolish.tga"
+    },
+    {
+      "name": "i_desires",
+      "file": "i_desires.tga"
+    },
+    {
+      "name": "i_downgrade_red",
+      "file": "i_downgrade_red.tga"
+    },
+    {
+      "name": "i_entertainment",
+      "file": "i_entertainment.tga"
+    },
+    {
+      "name": "i_entertainment_big",
+      "file": "i_entertainment_big.tga"
+    },
+    {
+      "name": "i_enter_casino",
+      "file": "i_enter_casino.tga"
+    },
+    {
+      "name": "i_fast",
+      "file": "i_fast.tga"
+    },
+    {
+      "name": "I_fe_campaign",
+      "file": "I_fe_campaign.tga"
+    },
+    {
+      "name": "i_fe_credits",
+      "file": "i_fe_credits.tga"
+    },
+    {
+      "name": "I_fe_loadgame",
+      "file": "I_fe_loadgame.tga"
+    },
+    {
+      "name": "i_fe_options",
+      "file": "i_fe_options.tga"
+    },
+    {
+      "name": "I_fe_sandbox",
+      "file": "I_fe_sandbox.tga"
+    },
+    {
+      "name": "i_filter",
+      "file": "i_filter.tga"
+    },
+    {
+      "name": "i_finance",
+      "file": "i_finance.tga"
+    },
+    {
+      "name": "i_financedet",
+      "file": "i_financedet.tga"
+    },
+    {
+      "name": "i_fire",
+      "file": "i_fire.tga"
+    },
+    {
+      "name": "i_floors",
+      "file": "i_floors.tga"
+    },
+    {
+      "name": "i_games",
+      "file": "i_games.tga"
+    },
+    {
+      "name": "i_games2",
+      "file": "i_games2.tga"
+    },
+    {
+      "name": "i_games_big",
+      "file": "i_games_big.tga"
+    },
+    {
+      "name": "i_goto",
+      "file": "i_goto.tga"
+    },
+    {
+      "name": "i_hidebar",
+      "file": "i_hidebar.tga"
+    },
+    {
+      "name": "i_hire",
+      "file": "i_hire.tga"
+    },
+    {
+      "name": "i_history",
+      "file": "i_history.tga"
+    },
+    {
+      "name": "i_home",
+      "file": "i_home.tga"
+    },
+    {
+      "name": "I_ig_options",
+      "file": "I_ig_options.tga"
+    },
+    {
+      "name": "I_ig_quit_to_mainmenu",
+      "file": "I_ig_quit_to_mainmenu.tga"
+    },
+    {
+      "name": "I_ig_savegame",
+      "file": "I_ig_savegame.tga"
+    },
+    {
+      "name": "i_info",
+      "file": "i_info.tga"
+    },
+    {
+      "name": "i_infrastructure",
+      "file": "i_infrastructure.tga"
+    },
+    {
+      "name": "i_infrastructure_big",
+      "file": "i_infrastructure_big.tga"
+    },
+    {
+      "name": "i_internalbuildings_big",
+      "file": "i_internalbuildings_big.tga"
+    },
+    {
+      "name": "i_internalscenery_big",
+      "file": "i_internalscenery_big.tga"
+    },
+    {
+      "name": "i_intfac",
+      "file": "i_intfac.tga"
+    },
+    {
+      "name": "i_lastvisit",
+      "file": "i_lastvisit.tga"
+    },
+    {
+      "name": "i_leave_casino",
+      "file": "i_leave_casino.tga"
+    },
+    {
+      "name": "i_link",
+      "file": "i_link.tga"
+    },
+    {
+      "name": "i_load",
+      "file": "i_load.tga"
+    },
+    {
+      "name": "i_lot",
+      "file": "i_lot.tga"
+    },
+    {
+      "name": "i_lot_A",
+      "file": "i_lot_A.tga"
+    },
+    {
+      "name": "i_lot_B",
+      "file": "i_lot_B.tga"
+    },
+    {
+      "name": "i_lot_badreputation",
+      "file": "i_lot_badreputation.tga"
+    },
+    {
+      "name": "i_lot_notsuitable",
+      "file": "i_lot_notsuitable.tga"
+    },
+    {
+      "name": "i_lot_notsupply",
+      "file": "i_lot_notsupply.tga"
+    },
+    {
+      "name": "i_lot_people_visiting",
+      "file": "i_lot_people_visiting.tga"
+    },
+    {
+      "name": "i_lot_viable",
+      "file": "i_lot_viable.tga"
+    },
+    {
+      "name": "i_lower",
+      "file": "i_lower.tga"
+    },
+    {
+      "name": "i_lowerfloor_big",
+      "file": "i_lowerfloor_big.tga"
+    },
+    {
+      "name": "i_mechanic",
+      "file": "i_mechanic.tga"
+    },
+    {
+      "name": "i_merge",
+      "file": "i_merge.tga"
+    },
+    {
+      "name": "i_moreinfo",
+      "file": "i_moreinfo.tga"
+    },
+    {
+      "name": "i_multibuild",
+      "file": "i_multibuild.tga"
+    },
+    {
+      "name": "i_normal",
+      "file": "i_normal.tga"
+    },
+    {
+      "name": "i_objectives",
+      "file": "i_objectives.tga"
+    },
+    {
+      "name": "i_options",
+      "file": "i_options.tga"
+    },
+    {
+      "name": "i_paint_floor",
+      "file": "i_paint_floor.tga"
+    },
+    {
+      "name": "i_paint_wall",
+      "file": "i_paint_wall.tga"
+    },
+    {
+      "name": "i_pathing",
+      "file": "i_pathing.tga"
+    },
+    {
+      "name": "i_pause",
+      "file": "i_pause.tga"
+    },
+    {
+      "name": "i_peop",
+      "file": "i_peop.tga"
+    },
+    {
+      "name": "i_peopgrp",
+      "file": "i_peopgrp.tga"
+    },
+    {
+      "name": "i_people",
+      "file": "i_people.tga"
+    },
+    {
+      "name": "i_people_no",
+      "file": "i_people_no.tga"
+    },
+    {
+      "name": "i_person_cash",
+      "file": "i_person_cash.tga"
+    },
+    {
+      "name": "i_person_duration",
+      "file": "i_person_duration.tga"
+    },
+    {
+      "name": "i_person_happiness",
+      "file": "i_person_happiness.tga"
+    },
+    {
+      "name": "i_play",
+      "file": "i_play.tga"
+    },
+    {
+      "name": "i_players",
+      "file": "i_players.tga"
+    },
+    {
+      "name": "i_power",
+      "file": "i_power.tga"
+    },
+    {
+      "name": "i_profit",
+      "file": "i_profit.tga"
+    },
+    {
+      "name": "i_profit_no",
+      "file": "i_profit_no.tga"
+    },
+    {
+      "name": "i_raise",
+      "file": "i_raise.tga"
+    },
+    {
+      "name": "i_raisefloor_big",
+      "file": "i_raisefloor_big.tga"
+    },
+    {
+      "name": "i_reset",
+      "file": "i_reset.tga"
+    },
+    {
+      "name": "i_retail",
+      "file": "i_retail.tga"
+    },
+    {
+      "name": "i_retail_big",
+      "file": "i_retail_big.tga"
+    },
+    {
+      "name": "i_runningcosts",
+      "file": "i_runningcosts.tga"
+    },
+    {
+      "name": "i_sad",
+      "file": "i_sad.tga"
+    },
+    {
+      "name": "i_save",
+      "file": "i_save.tga"
+    },
+    {
+      "name": "i_savegame",
+      "file": "i_savegame.tga"
+    },
+    {
+      "name": "i_scenery",
+      "file": "i_scenery.tga"
+    },
+    {
+      "name": "i_scenery_big",
+      "file": "i_scenery_big.tga"
+    },
+    {
+      "name": "i_sell",
+      "file": "i_sell.tga"
+    },
+    {
+      "name": "i_showbar",
+      "file": "i_showbar.tga"
+    },
+    {
+      "name": "i_singlebuild",
+      "file": "i_singlebuild.tga"
+    },
+    {
+      "name": "i_slow",
+      "file": "i_slow.tga"
+    },
+    {
+      "name": "i_smallhistory",
+      "file": "i_smallhistory.tga"
+    },
+    {
+      "name": "i_smile",
+      "file": "i_smile.tga"
+    },
+    {
+      "name": "i_star",
+      "file": "i_star.tga"
+    },
+    {
+      "name": "i_stats",
+      "file": "i_stats.tga"
+    },
+    {
+      "name": "i_supply",
+      "file": "i_supply.tga"
+    },
+    {
+      "name": "i_thoughts",
+      "file": "i_thoughts.tga"
+    },
+    {
+      "name": "i_thoughts_more",
+      "file": "i_thoughts_more.tga"
+    },
+    {
+      "name": "i_thumbsdown",
+      "file": "i_thumbsdown.tga"
+    },
+    {
+      "name": "i_thumbsup",
+      "file": "i_thumbsup.tga"
+    },
+    {
+      "name": "i_tick",
+      "file": "i_tick.tga"
+    },
+    {
+      "name": "i_totalpeople",
+      "file": "i_totalpeople.tga"
+    },
+    {
+      "name": "i_tourist",
+      "file": "i_tourist.tga"
+    },
+    {
+      "name": "i_track",
+      "file": "i_track.tga"
+    },
+    {
+      "name": "i_upgrade",
+      "file": "i_upgrade.tga"
+    },
+    {
+      "name": "i_upgrade_green",
+      "file": "i_upgrade_green.tga"
+    },
+    {
+      "name": "i_wander",
+      "file": "i_wander.tga"
+    },
+    {
+      "name": "i_water",
+      "file": "i_water.tga"
+    },
+    {
+      "name": "i_world",
+      "file": "i_world.tga"
+    },
+    {
+      "name": "lb_down",
+      "file": "lb_down.tga"
+    },
+    {
+      "name": "lb_down_over",
+      "file": "lb_down_over.tga"
+    },
+    {
+      "name": "lb_glow",
+      "file": "lb_glow.tga"
+    },
+    {
+      "name": "lb_normal",
+      "file": "lb_normal.tga"
+    },
+    {
+      "name": "lb_over",
+      "file": "lb_over.tga"
+    },
+    {
+      "name": "moon_A",
+      "file": "moon_A.tga"
+    },
+    {
+      "name": "moon_B",
+      "file": "moon_B.tga"
+    },
+    {
+      "name": "moon_C",
+      "file": "moon_C.tga"
+    },
+    {
+      "name": "m_building",
+      "file": "m_building.tga"
+    },
+    {
+      "name": "m_casino",
+      "file": "m_casino.tga"
+    },
+    {
+      "name": "m_facilities",
+      "file": "m_facilities.tga"
+    },
+    {
+      "name": "m_filter",
+      "file": "m_filter.tga"
+    },
+    {
+      "name": "m_gambling",
+      "file": "m_gambling.tga"
+    },
+    {
+      "name": "m_lot",
+      "file": "m_lot.tga"
+    },
+    {
+      "name": "m_people",
+      "file": "m_people.tga"
+    },
+    {
+      "name": "m_scenary",
+      "file": "m_scenary.tga"
+    },
+    {
+      "name": "m_staff",
+      "file": "m_staff.tga"
+    },
+    {
+      "name": "m_world",
+      "file": "m_world.tga"
+    },
+    {
+      "name": "nomoneytobuild",
+      "file": "nomoneytobuild.tga"
+    },
+    {
+      "name": "no_slots",
+      "file": "no_slots.tga"
+    },
+    {
+      "name": "obj_info",
+      "file": "obj_info.tga"
+    },
+    {
+      "name": "obj_link",
+      "file": "obj_link.tga"
+    },
+    {
+      "name": "PlayerMarker",
+      "file": "PlayerMarker.tga"
+    },
+    {
+      "name": "sandbox_SQ",
+      "file": "sandbox_SQ.tga"
+    },
+    {
+      "name": "SB_map1",
+      "file": "SB_map1.tga"
+    },
+    {
+      "name": "SB_map2",
+      "file": "SB_map2.tga"
+    },
+    {
+      "name": "SB_map3",
+      "file": "SB_map3.tga"
+    },
+    {
+      "name": "SB_map4",
+      "file": "SB_map4.tga"
+    },
+    {
+      "name": "stf_attention",
+      "file": "stf_attention.tga"
+    },
+    {
+      "name": "stf_cashier_A",
+      "file": "stf_cashier_A.tga"
+    },
+    {
+      "name": "stf_cashier_B",
+      "file": "stf_cashier_B.tga"
+    },
+    {
+      "name": "stf_charisma",
+      "file": "stf_charisma.tga"
+    },
+    {
+      "name": "stf_chef",
+      "file": "stf_chef.tga"
+    },
+    {
+      "name": "stf_cleaner",
+      "file": "stf_cleaner.tga"
+    },
+    {
+      "name": "stf_croupier_f",
+      "file": "stf_croupier_f.tga"
+    },
+    {
+      "name": "stf_croupier_m",
+      "file": "stf_croupier_m.tga"
+    },
+    {
+      "name": "stf_electrics",
+      "file": "stf_electrics.tga"
+    },
+    {
+      "name": "stf_entertainer",
+      "file": "stf_entertainer.tga"
+    },
+    {
+      "name": "stf_host_f",
+      "file": "stf_host_f.tga"
+    },
+    {
+      "name": "stf_host_m",
+      "file": "stf_host_m.tga"
+    },
+    {
+      "name": "stf_mechanic",
+      "file": "stf_mechanic.tga"
+    },
+    {
+      "name": "stf_pitboss",
+      "file": "stf_pitboss.tga"
+    },
+    {
+      "name": "stf_salary",
+      "file": "stf_salary.tga"
+    },
+    {
+      "name": "stf_security",
+      "file": "stf_security.tga"
+    },
+    {
+      "name": "stf_skill",
+      "file": "stf_skill.tga"
+    },
+    {
+      "name": "stf_speed",
+      "file": "stf_speed.tga"
+    },
+    {
+      "name": "stf_waitress",
+      "file": "stf_waitress.tga"
+    },
+    {
+      "name": "sun",
+      "file": "sun.tga"
+    },
+    {
+      "name": "SUN2",
+      "file": "SUN2.tga"
+    },
+    {
+      "name": "SUNFLARE",
+      "file": "SUNFLARE.tga"
+    },
+    {
+      "name": "super_VIP",
+      "file": "super_VIP.tga"
+    },
+    {
+      "name": "thumb_tick",
+      "file": "thumb_tick.tga"
+    },
+    {
+      "name": "th_dice",
+      "file": "th_dice.tga"
+    },
+    {
+      "name": "th_Greek",
+      "file": "th_Greek.tga"
+    },
+    {
+      "name": "th_Indian",
+      "file": "th_Indian.tga"
+    },
+    {
+      "name": "th_Japan",
+      "file": "th_Japan.tga"
+    },
+    {
+      "name": "th_London",
+      "file": "th_London.tga"
+    },
+    {
+      "name": "th_LostWorld",
+      "file": "th_LostWorld.tga"
+    },
+    {
+      "name": "th_Mayan",
+      "file": "th_Mayan.tga"
+    },
+    {
+      "name": "th_Nautical",
+      "file": "th_Nautical.tga"
+    },
+    {
+      "name": "th_Space",
+      "file": "th_Space.tga"
+    },
+    {
+      "name": "th_USA",
+      "file": "th_USA.tga"
+    },
+    {
+      "name": "Tourist",
+      "file": "Tourist.tga"
+    },
+    {
+      "name": "Trash",
+      "file": "Trash.tga"
+    },
+    {
+      "name": "t_accom",
+      "file": "t_accom.tga"
+    },
+    {
+      "name": "t_activities",
+      "file": "t_activities.tga"
+    },
+    {
+      "name": "t_decor",
+      "file": "t_decor.tga"
+    },
+    {
+      "name": "t_entertainment",
+      "file": "t_entertainment.tga"
+    },
+    {
+      "name": "t_facilities_A",
+      "file": "t_facilities_A.tga"
+    },
+    {
+      "name": "t_facilities_B",
+      "file": "t_facilities_B.tga"
+    },
+    {
+      "name": "t_fooddrink",
+      "file": "t_fooddrink.tga"
+    },
+    {
+      "name": "t_fount",
+      "file": "t_fount.tga"
+    },
+    {
+      "name": "t_furniture",
+      "file": "t_furniture.tga"
+    },
+    {
+      "name": "t_gambling",
+      "file": "t_gambling.tga"
+    },
+    {
+      "name": "t_gaming",
+      "file": "t_gaming.tga"
+    },
+    {
+      "name": "t_gardens",
+      "file": "t_gardens.tga"
+    },
+    {
+      "name": "t_glow",
+      "file": "t_glow.tga"
+    },
+    {
+      "name": "t_grass",
+      "file": "t_grass.tga"
+    },
+    {
+      "name": "t_inflnc",
+      "file": "t_inflnc.tga"
+    },
+    {
+      "name": "t_influences",
+      "file": "t_influences.tga"
+    },
+    {
+      "name": "t_intfac",
+      "file": "t_intfac.tga"
+    },
+    {
+      "name": "t_intfac_A",
+      "file": "t_intfac_A.tga"
+    },
+    {
+      "name": "t_intmech_A",
+      "file": "t_intmech_A.tga"
+    },
+    {
+      "name": "t_lastvisit",
+      "file": "t_lastvisit.tga"
+    },
+    {
+      "name": "t_lot_overview",
+      "file": "t_lot_overview.tga"
+    },
+    {
+      "name": "t_lounges",
+      "file": "t_lounges.tga"
+    },
+    {
+      "name": "t_misc_options",
+      "file": "t_misc_options.tga"
+    },
+    {
+      "name": "t_objects",
+      "file": "t_objects.tga"
+    },
+    {
+      "name": "t_office",
+      "file": "t_office.tga"
+    },
+    {
+      "name": "t_paintfloor",
+      "file": "t_paintfloor.tga"
+    },
+    {
+      "name": "t_paintwalls",
+      "file": "t_paintwalls.tga"
+    },
+    {
+      "name": "t_path",
+      "file": "t_path.tga"
+    },
+    {
+      "name": "t_peopgrp",
+      "file": "t_peopgrp.tga"
+    },
+    {
+      "name": "t_peopgrp2",
+      "file": "t_peopgrp2.tga"
+    },
+    {
+      "name": "t_people",
+      "file": "t_people.tga"
+    },
+    {
+      "name": "t_people_opinions",
+      "file": "t_people_opinions.tga"
+    },
+    {
+      "name": "t_people_report",
+      "file": "t_people_report.tga"
+    },
+    {
+      "name": "t_popularity",
+      "file": "t_popularity.tga"
+    },
+    {
+      "name": "t_profit",
+      "file": "t_profit.tga"
+    },
+    {
+      "name": "t_raiselower",
+      "file": "t_raiselower.tga"
+    },
+    {
+      "name": "t_reputation",
+      "file": "t_reputation.tga"
+    },
+    {
+      "name": "t_res",
+      "file": "t_res.tga"
+    },
+    {
+      "name": "t_rest",
+      "file": "t_rest.tga"
+    },
+    {
+      "name": "t_services",
+      "file": "t_services.tga"
+    },
+    {
+      "name": "t_shops",
+      "file": "t_shops.tga"
+    },
+    {
+      "name": "t_shows",
+      "file": "t_shows.tga"
+    },
+    {
+      "name": "t_signs",
+      "file": "t_signs.tga"
+    },
+    {
+      "name": "t_slots",
+      "file": "t_slots.tga"
+    },
+    {
+      "name": "t_sound",
+      "file": "t_sound.tga"
+    },
+    {
+      "name": "t_staff",
+      "file": "t_staff.tga"
+    },
+    {
+      "name": "t_stat",
+      "file": "t_stat.tga"
+    },
+    {
+      "name": "t_supply",
+      "file": "t_supply.tga"
+    },
+    {
+      "name": "t_tables",
+      "file": "t_tables.tga"
+    },
+    {
+      "name": "t_trans",
+      "file": "t_trans.tga"
+    },
+    {
+      "name": "UIbg_maya",
+      "file": "UIbg_maya.tga"
+    },
+    {
+      "name": "UIbg_money",
+      "file": "UIbg_money.tga"
+    },
+    {
+      "name": "UIbg_Satin",
+      "file": "UIbg_Satin.tga"
+    },
+    {
+      "name": "VIP",
+      "file": "VIP.tga"
+    }
+  ],
+  "sounds": [
+    {
+      "id": "ui-click",
+      "file": "sound/ui-click.ogg"
+    },
+    {
+      "id": "casino-ambience",
+      "file": "sound/casino-ambience.ogg"
+    },
+    {
+      "id": "casino-machines",
+      "file": "sound/casino-machines.ogg"
+    },
+    {
+      "id": "win-small",
+      "file": "sound/win-small.ogg"
+    },
+    {
+      "id": "win-medium",
+      "file": "sound/win-medium.ogg"
+    },
+    {
+      "id": "win-big",
+      "file": "sound/win-big.ogg"
+    },
+    {
+      "id": "lose-small",
+      "file": "sound/lose-small.ogg"
+    },
+    {
+      "id": "lose-medium",
+      "file": "sound/lose-medium.ogg"
+    },
+    {
+      "id": "event-positive",
+      "file": "sound/event-positive.ogg"
+    },
+    {
+      "id": "event-negative",
+      "file": "sound/event-negative.ogg"
+    }
+  ]
 }

@@ -2,9 +2,10 @@
 
 A desktop-first browser port project for **Vegas: Make It Big!**
 
-**Status: 0.1 — early playable technical prototype.** Original TGA thumbnails and
-Lua building values are imported from the game installation. 3D models and the
-simulation are currently simplified replacements. See the detailed
+**Status: UI fidelity milestone — playable browser prototype.** The in-game HUD,
+construction groups, category tabs, icons and action sounds now use original
+game assets. The catalogue contains 164 objects extracted from original Lua
+templates. 3D models and simulation rules remain simplified replacements. See the detailed
 [porting plan and fidelity status](docs/porting-plan.md).
 
 ## Play
@@ -12,7 +13,8 @@ simulation are currently simplified replacements. See the detailed
 https://chook-games.github.io/vegas-make-it-big-web/
 
 Build a casino floor, attract visitors, manage expenses and save your layout.
-The example layout provides a quick way to try the simulation.
+The example layout provides a quick way to try the simulation. The bottom build
+panel follows the original major-group → minor-tab → thumbnail workflow.
 
 | Control | Action |
 | --- | --- |
@@ -60,7 +62,8 @@ The original executable, DLLs and player saves are not part of the distribution.
 - `src/scene.ts` — Three.js scene, TGA loading and temporary object geometry.
 - `src/main.ts` — interface and interaction.
 - `tools/` — reproducible import, inspection and browser checks.
-- `public/assets/` — selected original data/images and provenance hashes.
+- `public/assets/` — 164 catalog entries, 372 original GUI sprites, thumbnails,
+  selected original UI/gameplay sounds and provenance hashes.
 - `.github/workflows/pages.yml` — static Pages deployment.
 
 ## Credits

@@ -1,4 +1,4 @@
-import { mkdir, readFile, readdir, writeFile, stat } from 'node:fs/promises';
+import { mkdir, readFile, readdir, writeFile, stat, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 
@@ -6,6 +6,8 @@ import { createHash } from 'node:crypto';
 const root = process.argv[2] ?? 'C:/Program Files (x86)/Steam/steamapps/common/Vegas - Make It Big';
 const output = path.resolve('public/assets');
 const sourceRoot = 'GAMEDATA/Scripts/Objects/Buildings/Source/Interior/';
+let previousCatalog = [];
+try { previousCatalog = JSON.parse(await readFile(path.join(output, 'game-data.json'), 'utf8')).catalog ?? []; } catch { /* first import */ }
 const selected = [
   ['slot', 'Slot machine', 'Gambling/Slot_Type_1.lua', 'slot_thumb.tga', 'gaming'],
   ['blackjack', 'Blackjack', 'Gambling/BlackJack.lua', 'BLACKJACK_thumb.tga', 'gaming'],
@@ -22,6 +24,8 @@ const selected = [
 ];
 await stat(root);
 await mkdir(output, { recursive: true });
+await mkdir(path.join(output, 'ui'), { recursive: true });
+await mkdir(path.join(output, 'sound'), { recursive: true });
 const provenance = [];
 const catalog = [];
 for (const [id, name, script, thumbnail, category] of selected) {
@@ -35,7 +39,8 @@ for (const [id, name, script, thumbnail, category] of selected) {
   const imageSource = 'GAMEDATA/GAMEART/TGA Files/Thumbnails/' + thumbnail;
   const image = await readFile(path.join(root, imageSource));
   await writeFile(path.join(output, id + '.tga'), image);
-  catalog.push({ id, name, category, width: scalar('_w', 1), depth: scalar('_l', 1),
+  const minor = text.match(/SourceTemplate\[x\]\._minorgroup\s*=\s*([A-Z0-9_]+)/)?.[1] ?? category;
+  catalog.push({ id, name, category, context: 'interior', major: category === 'gaming' ? 4 : category === 'service' || category === 'staff' ? 5 : 6, minor, width: scalar('_w', 1), depth: scalar('_l', 1),
     cost: scalar('_buildcost'), resale: scalar('_democost'), capacity: scalar('_capacity', 1),
     runningCost: scalar('_baserunningcost'), power: scalar('_basepowerconsumption'),
     water: scalar('_basewaterconsumption'), duration: scalar('_supplies\\.duration', 10),
@@ -60,6 +65,104 @@ async function inventory(dir) {
   }
 }
 await inventory(path.join(root, 'GAMEDATA'));
-await writeFile(path.join(output, 'game-data.json'), JSON.stringify({ version: 1, catalog, campaign, formats }, null, 2) + '\n');
+const buildingRoot = 'GAMEDATA/Scripts/Objects/Buildings/Source';
+const uiFiles = await readdir(path.join(root, 'GAMEDATA/GAMEART/TGA Files/GUI'));
+const uiSprites = [];
+for (const name of uiFiles.filter(name => /\.(tga|bmp)$/i.test(name))) {
+  const relative = `GAMEDATA/GAMEART/TGA Files/GUI/${name}`;
+  const bytes = await readFile(path.join(root, relative));
+  await writeFile(path.join(output, 'ui', name), bytes);
+  uiSprites.push({ name: name.replace(/\.(tga|bmp)$/i, ''), file: name });
+  provenance.push({ file: relative, sha256: createHash('sha256').update(bytes).digest('hex') });
+}
+const groupNames = new Map([
+  ['BUILDING_MAJOR_GROUP_EXT_HOTELS_AND_FACILITIES', ['exterior', 0]],
+  ['BUILDING_MAJOR_GROUP_EXT_CASINOS_AND_ENTERTAINMENT', ['exterior', 1]],
+  ['BUILDING_MAJOR_GROUP_EXT_SHOPS_AND_SERVICES', ['exterior', 2]],
+  ['BUILDING_MAJOR_GROUP_EXT_PATHS_SCENERY_AND_FURNITURE', ['exterior', 3]],
+  ['BUILDING_MAJOR_GROUP_INT_GAMBLING', ['interior', 4]],
+  ['BUILDING_MAJOR_GROUP_INT_MAINTENANCESTAFF_AND_FACILITIES', ['interior', 5]],
+  ['BUILDING_MAJOR_GROUP_INT_SHOPS_AND_SERVICES', ['interior', 6]],
+  ['BUILDING_MAJOR_GROUP_INT_SCENERY_LIGHTS_AND_FURNITURE', ['interior', 7]],
+]);
+const groups = {
+  exterior: ['Hotels, Staff & Facilities', 'Casinos & Entertainment', 'Shops, Services & Food', 'Paths, Scenery & Furniture'],
+  interior: ['Casino Gaming', 'Casino Staff & Facilities', 'Casino Shops & Services', 'Casino Scenery & Furniture'],
+};
+const aliases = new Map([
+  ['slot-type-1', 'slot'], ['videopoker', 'poker'], ['intmechanic', 'mechanic'],
+  ['janitorint', 'cleaner'], ['pottree1x1-int', 'plant'], ['interior-male-toilet', 'restroom'],
+  ['cashiersdesk', 'cashier'], ['interiorbar', 'bar'], ['securityint', 'security'],
+]);
+async function walkSource(dir) {
+  for (const entry of await readdir(dir, { withFileTypes: true })) {
+    const file = path.join(dir, entry.name);
+    if (entry.isDirectory()) { await walkSource(file); continue; }
+    if (!entry.name.toLowerCase().endsWith('.lua')) continue;
+    const relative = path.relative(root, file).replaceAll('\\', '/');
+    const raw = await readFile(file);
+    const text = raw.toString('latin1').replace(/--[^\r\n]*/g, '');
+    const scalar = (key, fallback = 0) => {
+      const match = text.match(new RegExp(`SourceTemplate\\[x\\]\\.${key}\\s*=\\s*(-?\\d+(?:\\.\\d+)?)`));
+      return match ? Number(match[1]) : fallback;
+    };
+    const extract = (key) => text.match(new RegExp(`SourceTemplate\\[x\\]\\.${key}\\s*=\\s*([A-Z0-9_]+)`))?.[1] ?? '';
+    const major = extract('_majorgroup');
+    const mapping = groupNames.get(major);
+    if (!mapping) continue;
+    const [, originalMajor] = mapping;
+    const basename = path.basename(entry.name, '.lua');
+    const model = text.match(/SourceTemplate\[x\]\._(?:base)?model\s*=\s*"([^"]+\.tm)"/i)?.[1];
+    const thumbStem = model ? path.basename(model).replace(/\.tm$/i, '').toLowerCase() + '_thumb.tga' : '';
+    const thumbPath = thumbStem && await stat(path.join(root, 'GAMEDATA/GAMEART/TGA Files/Thumbnails', thumbStem)).then(() => thumbStem, () => null);
+    const rawId = basename.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const id = aliases.get(rawId) ?? rawId;
+    if (catalog.some(item => item.id === id)) continue;
+    if (thumbPath) {
+      const relativeThumb = `GAMEDATA/GAMEART/TGA Files/Thumbnails/${thumbPath}`;
+      const bytes = await readFile(path.join(root, relativeThumb));
+      await writeFile(path.join(output, id + '.tga'), bytes);
+      provenance.push({ file: relativeThumb, sha256: createHash('sha256').update(bytes).digest('hex') });
+    }
+    const minor = extract('_minorgroup') || 'other';
+    const selectedTemplate = selected.find(row => row[0] === id);
+    catalog.push({ id, name: selectedTemplate?.[1] ?? basename.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' '),
+      category: selectedTemplate?.[4] ?? minor, context: mapping[0], major: originalMajor, minor,
+      width: scalar('_w', 1), depth: scalar('_l', 1), cost: scalar('_buildcost'),
+      resale: scalar('_democost'), capacity: scalar('_capacity'), runningCost: scalar('_baserunningcost'),
+      power: scalar('_basepowerconsumption'), water: scalar('_basewaterconsumption'),
+      duration: scalar('_supplies\\.duration', 10), thumbnail: thumbPath ? `${id}.tga` : null, source: relative });
+  }
+}
+await walkSource(path.join(root, buildingRoot));
+const currentThumbnails = new Set(catalog.map(item => item.thumbnail).filter(Boolean));
+for (const oldName of new Set(previousCatalog.map(item => item.thumbnail).filter(Boolean))) {
+  if (!currentThumbnails.has(oldName)) await unlink(path.join(output, oldName)).catch(() => {});
+}
+// Catalog thumbnails are generated into the top-level assets directory; GUI
+// sprites live in assets/ui and are deliberately not affected by this cleanup.
+for (const name of await readdir(output)) {
+  if (/\.tga$/i.test(name) && !currentThumbnails.has(name)) await unlink(path.join(output, name)).catch(() => {});
+}
+const sounds = [
+  ['ui-click', 'GAMEDATA/Sound/Effects/UserInterface/Click20.ogg'],
+  ['casino-ambience', 'GAMEDATA/Sound/Effects/InsideAmbience.ogg'],
+  ['casino-machines', 'GAMEDATA/Sound/Effects/InsideAmbienceMachines.ogg'],
+  ['win-small', 'GAMEDATA/Sound/Effects/ResultWinSmall.ogg'],
+  ['win-medium', 'GAMEDATA/Sound/Effects/ResultWinMedium.ogg'],
+  ['win-big', 'GAMEDATA/Sound/Effects/ResultWinBig.ogg'],
+  ['lose-small', 'GAMEDATA/Sound/Effects/ResultLoseSmall.ogg'],
+  ['lose-medium', 'GAMEDATA/Sound/Effects/ResultLoseMedium.ogg'],
+  ['event-positive', 'GAMEDATA/Sound/Effects/UserInterface/Odd23.ogg'],
+  ['event-negative', 'GAMEDATA/Sound/Effects/UserInterface/Odd24.ogg'],
+];
+const soundManifest = [];
+for (const [id, relative] of sounds) {
+  const bytes = await readFile(path.join(root, relative));
+  await writeFile(path.join(output, 'sound', id + '.ogg'), bytes);
+  soundManifest.push({ id, file: `sound/${id}.ogg` });
+  provenance.push({ file: relative, sha256: createHash('sha256').update(bytes).digest('hex') });
+}
+await writeFile(path.join(output, 'game-data.json'), JSON.stringify({ version: 2, catalog, campaign, formats, groups, uiSprites, sounds: soundManifest }, null, 2) + '\n');
 await writeFile(path.join(output, 'provenance.json'), JSON.stringify({ description: 'Original files used for the first web prototype. Paths relative to the game installation.', files: provenance }, null, 2) + '\n');
-console.log(`Imported ${catalog.length} objects, ${campaign.length} campaign names and ${provenance.length} source hashes.`);
+console.log(`Imported ${catalog.length} object templates, ${uiSprites.length} original UI sprites, ${sounds.length} sound effects and ${campaign.length} campaign names.`);

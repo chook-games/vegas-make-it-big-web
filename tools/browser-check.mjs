@@ -20,8 +20,15 @@ try {
   page.on('pageerror', error => errors.push(error.message));
   page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
   await page.goto(url);
-  await page.waitForSelector('#catalog img', { timeout: 30000 });
-  assert.equal(await page.locator('#catalog img').count(), 12);
+  await page.waitForSelector('[data-item="slot"]', { timeout: 30000 });
+  assert.ok(await page.locator('[data-item]').count() >= 1);
+  assert.equal(await page.locator('.major-group').count(), 4);
+  assert.ok(await page.locator('.minor-tab').count() >= 1);
+  assert.equal(await page.locator('.classic-build').count(), 1);
+  await page.click('#build-context');
+  assert.equal(await page.locator('.major-group').count(), 4, 'Exterior lot has the four original major groups');
+  await page.click('#build-context');
+  assert.ok(await page.locator('[data-item="slot"]').count(), 'Casino-interior catalogue returns after switching context');
   await page.click('#first-slot');
   await page.keyboard.press('r');
   const canvas = page.locator('#viewport canvas');
@@ -63,7 +70,7 @@ try {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
   assert.equal(overflow, false, 'Compact layout has no horizontal page overflow');
   assert.deepEqual(errors, [], 'No page exceptions or failed HTTP resources');
-  console.log('Browser checks passed: nested Pages path, 12 TGA images, rotated placement, demo, visitors, save/load, help and compact layout.');
+  console.log('Browser checks passed: nested Pages path, original TGA thumbnails/UI sprites, original-style build groups, rotated placement, visitors, save/load, help and compact layout.');
 } finally {
   await browser?.close();
   server?.kill();

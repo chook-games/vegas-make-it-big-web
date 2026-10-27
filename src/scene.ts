@@ -23,7 +23,7 @@ export class CasinoScene {
   private observer: ResizeObserver;
 
   constructor(public host: HTMLElement) {
-    this.renderer = new THREE.WebGLRenderer({ antialias: true });
+    this.renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
     this.renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -101,9 +101,15 @@ export class CasinoScene {
     parent.add(mesh);
   }
   async thumbnail(item: CatalogItem): Promise<string> {
-    const texture = await new TGALoader().loadAsync(`${import.meta.env.BASE_URL}assets/${item.thumbnail}`);
+    return this.loadTga(`assets/${item.thumbnail}`, item.id);
+  }
+  async sprite(file: string): Promise<string> {
+    return this.loadTga(`assets/ui/${file}`);
+  }
+  private async loadTga(relative: string, key?: string): Promise<string> {
+    const texture = await new TGALoader().loadAsync(`${import.meta.env.BASE_URL}${relative}`);
     texture.colorSpace = THREE.SRGBColorSpace;
-    this.thumbnailTextures.set(item.id, texture);
+    if (key) this.thumbnailTextures.set(key, texture);
     const image = texture.image as { width: number; height: number; data: Uint8Array };
     const canvas = document.createElement('canvas'); canvas.width = image.width; canvas.height = image.height;
     const ctx = canvas.getContext('2d')!;

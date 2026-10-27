@@ -13,6 +13,9 @@ export interface CatalogItem {
   duration: number;
   thumbnail: string;
   source: string;
+  context?: string;
+  major?: number;
+  minor?: string;
 }
 export interface Building {
   uid: number;
@@ -144,6 +147,7 @@ export function sell(state: GameState, uid: number, catalog: CatalogItem[]) {
 
 export class Simulation {
   private spawnTimer = 0;
+  readonly events: { type: 'win' | 'lose'; amount: number }[] = [];
   constructor(public state: GameState, public catalog: CatalogItem[], private random = Math.random) {}
 
   step(dt: number) {
@@ -220,6 +224,7 @@ export class Simulation {
     if (item.category === 'gaming') {
       const bet = Math.min(g.cash, b.type === 'slot' || b.type === 'poker' ? 8 : 30);
       income = this.random() < .72 ? bet : -bet * 1.5;
+      this.events.push({ type: income >= 0 ? 'win' : 'lose', amount: Math.abs(income) });
       b.health = Math.max(0, b.health - .15);
     } else if (b.type === 'bar') income = Math.min(12, g.cash);
     g.cash -= income; b.income += income; this.state.cash += income; this.state.income += income;
