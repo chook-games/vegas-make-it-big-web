@@ -3,6 +3,7 @@ import { CasinoScene } from './scene';
 import { language, localizeDocument, setLanguage, translate as t } from './i18n';
 import { beginTutorial, tutorialStage } from './tutorial';
 import { TutorialUI } from './tutorial-ui';
+import { HotelUI } from './hotel-ui';
 import { Simulation, createGame, canPlace, place, sell, restore, serialize, SAVE_KEY,
   DAY_SECONDS, type CatalogItem, type GameState } from './game';
 
@@ -77,13 +78,21 @@ async function start() {
     <dialog id="confirm-dialog"><h2 data-i18n="ID_WEB_NEW_CASINO_CONFIRM">Start a new casino?</h2><p data-i18n="ID_WEB_NEW_CASINO_CONFIRM_TEXT">Your current progress and saved game will be replaced.</p><div class="dialog-actions"><button id="cancel-new" data-i18n="ID_GENERAL_CANCEL">Cancel</button><button id="confirm-new" class="primary" data-i18n="ID_WEB_NEW_GAME">New Game</button></div></dialog>`;
   const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
   const world = new CasinoScene($('viewport'));
-  const tutorialUI = new TutorialUI(() => state, () => {
-    major = 0; minor = 'BUILDING_MINOR_GROUP_EXT_HOTELS'; choose(null); renderGroups(); renderMinors(); renderCatalog();
-  }, () => { renderCatalog(); updateHud(); }, message => toast(message), async file => {
+  const getIcon = async (file: string) => {
     const key = `ui:${file}`;
     if (!images.has(key)) images.set(key, await world.sprite(file));
     return images.get(key)!;
-  });
+  };
+  const hotelUI = new HotelUI($('inspector'), () => updateHud(), () => { selected = null; updateInspector(); }, getIcon);
+  const inspectHotel = () => {
+    build = null; world.controls.enablePan = true; updatePreview();
+    selected = state.buildings.find(b => b.type === 'smallhotel')?.uid ?? null; updateInspector();
+  };
+  const tutorialUI = new TutorialUI(() => state, () => {
+    const paths = !!state.buildings.find(b => b.type === 'smallhotel');
+    major = paths ? 3 : 0; minor = paths ? 'BUILDING_MINOR_GROUP_EXT_PATHS' : 'BUILDING_MINOR_GROUP_EXT_HOTELS';
+    choose(null); renderGroups(); renderMinors(); renderCatalog();
+  }, () => { renderCatalog(); updateHud(); }, message => toast(message), getIcon, inspectHotel);
   document.querySelector('.classic-ui')!.classList.add('game-hidden');
   $<HTMLSelectElement>('language-select').value = language();
   localizeDocument(app);
@@ -95,6 +104,7 @@ async function start() {
   }
   function choose(item: CatalogItem | null) {
     build = item; selected = null; rotation = 0;
+    world.controls.enablePan = item?.id !== 'path-1';
     renderCatalog(); updatePreview(); updateHud();
   }
   function imageMarkup(name: string) {
@@ -174,6 +184,7 @@ async function start() {
     try { $('menu-load').toggleAttribute('disabled', !localStorage.getItem(SAVE_KEY)); } catch { $('menu-load').setAttribute('disabled', ''); }
   }
   function startGame(scenario: string | null, restored?: GameState) {
+    hotelUI.reset();
     state = restored ?? (scenario === data.campaign[0] ? beginTutorial(createGame()) : createGame());
     sim = new Simulation(state, catalog); inGame = true; speed = 1;
     $('frontend').hidden = true; document.querySelector('.classic-ui')!.classList.remove('game-hidden');
@@ -190,7 +201,7 @@ async function start() {
   }
   function renderCatalog() {
     const visible = catalog.filter(c => c.major === major && (minor === '' || (c.minor ?? c.category) === minor) &&
-      (!state.tutorial || c.id === 'smallhotel'));
+      (!state.tutorial || c.id === 'smallhotel' || c.id === 'path-1'));
     $('object-count').textContent = `${visible.length} objects`;
     const missing = visible.filter(item => item.thumbnail && !images.has(item.id) && !pendingImages.has(item.id));
     for (const item of missing) pendingImages.add(item.id);
@@ -200,7 +211,7 @@ async function start() {
     })).then(() => renderCatalog());
     $('catalog').innerHTML = visible.map(item => `
       <button class="catalog-item ${build?.id === item.id ? 'selected' : ''}" data-item="${item.id}" title="${item.width} × ${item.depth} · ${t('ID_BUILDING_TYPE_CAPACITY', 'Capacity')} ${item.capacity}">
-      <div class="item-image">${images.has(item.id) ? `<img src="${images.get(item.id)}" alt="" />` : '<span>♠</span>'}</div>
+      <div class="item-image">${images.has(item.id) ? `<img src="${images.get(item.id)}" alt="" />` : item.id === 'path-1' ? imageMarkup('t_path') : '<span>♠</span>'}</div>
       <div><strong>${t(item.nameKey, item.name)}</strong><small>${item.width} × ${item.depth} cells</small><b>${money(item.cost)}</b></div><span class="item-add">+</span></button>`).join('');
     $('catalog').querySelectorAll<HTMLButtonElement>('[data-item]').forEach(button => {
       button.onclick = () => choose(catalog.find(c => c.id === button.dataset.item)!);
@@ -212,7 +223,7 @@ async function start() {
     $('placement').hidden = !build;
     if (build) {
       $('placement').classList.toggle('invalid', !!error && hasPointer);
-      $('placement').innerHTML = `<span>${t(build.nameKey, build.name)} <b>${money(build.cost)}</b></span><small>${hasPointer && error ? t(error, error) : t('ID_WEB_PLACE_HINT')}</small>`;
+      $('placement').innerHTML = `<span>${t(build.nameKey, build.name)} <b>${money(build.cost)}</b></span><small>${hasPointer && error ? t(error, error) : t(build.id === 'path-1' ? 'ID_WEB_PAVING_HINT' : 'ID_WEB_PLACE_HINT')}</small>`;
     }
   }
   function updateInspector() {
@@ -220,6 +231,7 @@ async function start() {
     $('inspector').hidden = !b;
     if (!b) return;
     const item = catalog.find(c => c.id === b.type)!;
+    if (state.tutorial && b.type === 'smallhotel') { hotelUI.render(state, b, catalog); return; }
     $('inspector').innerHTML = `<div class="section-heading"><span class="eyebrow">${t('ID_WEB_SELECTED_OBJECT')}</span><button id="deselect" class="text-button" aria-label="${t('ID_GENERAL_CLOSE')}">×</button></div><h2>${t(item.nameKey, item.name)}</h2><div class="inspector-grid"><span>${t('ID_BUILDING_TYPE_HEALTH', 'Health')} <b>${Math.round(b.health)}%</b></span><span>${t('ID_BUILDING_TYPE_TOTALVISITS', 'Visits')} <b>${b.visits}</b></span><span>${t('ID_GENERAL_INCOME', 'Income')} <b>${money(b.income)}</b></span><span>${t('ID_GENERAL_RUNNINGCOSTS', 'Daily Costs')} <b>${money(item.runningCost + item.power + item.water)}</b></span></div><small class="muted">${t('ID_WEB_FOOTPRINT')}: ${item.width} × ${item.depth} · ${t('ID_BUILDING_TYPE_CAPACITY', 'Capacity')} ${item.capacity}</small><button id="sell" class="sell-button">${t('ID_BUILDING_TYPE_SELL', 'Sell')} · +${money(item.resale)}</button>`;
     $('sell').onclick = () => { sell(state, b.uid, catalog); selected = null; updateInspector(); toast(t('ID_WEB_OBJECT_SOLD')); };
     if (state.tutorial) { ($('sell') as HTMLButtonElement).disabled = true; $('sell').title = t('ID_WEB_HOTEL_REQUIRED'); }
@@ -237,8 +249,10 @@ async function start() {
     $('objective-title').textContent = state.completed ? t('ID_WEB_GOAL_COMPLETE') : t('ID_SCENARIO_NWS_WELCOME_NAME', 'Welcome to the Strip!');
     if (state.tutorial) {
       const stage = tutorialStage(state);
-      $('objective-count').textContent = t(stage === 'lot' ? 'ID_SCENARIO_NWS_OBJ_OBJECTIVE_NAME' : stage === 'hotel' ? 'ID_SCENARIO_NWS_OBJ_BUILD_NAME' : 'ID_SCENARIO_NWS_OBJ_PATHS_NAME');
-      $('progress').style.width = `${['lot','hotel','paths'].indexOf(stage) / 3 * 100}%`;
+      const keys = { lot:'ID_SCENARIO_NWS_OBJ_OBJECTIVE_NAME', hotel:'ID_SCENARIO_NWS_OBJ_BUILD_NAME', paths:'ID_SCENARIO_NWS_OBJ_PATHS_NAME',
+        guests:'ID_WEB_WAITING_FOR_GUESTS', finance:'ID_SCENARIO_NWS_OBJ_SALES_NAME', review:'ID_SCENARIO_NWS_OBJ_SALES2_NAME', next:'ID_WEB_FIRST_HOTEL_READY' };
+      $('objective-count').textContent = t(keys[stage]);
+      $('progress').style.width = `${['lot','hotel','paths','guests','finance','review','next'].indexOf(stage) / 7 * 100}%`;
     }
     $('toggle-open').textContent = state.open ? 'CASINO OPEN' : 'CASINO CLOSED';
     $('game-clock').textContent = `${String(Math.floor((state.elapsed % DAY_SECONDS) / DAY_SECONDS * 24)).padStart(2, '0')}:00`;
@@ -246,6 +260,7 @@ async function start() {
     tutorialUI.render();
   }
   function changeState(next: GameState) {
+    hotelUI.reset();
     state = next; sim = new Simulation(state, catalog); choose(null); world.sync(state.buildings, [], catalog, null); updateHud();
     world.setExterior(!!state.tutorial); tutorialUI.start();
   }
@@ -325,7 +340,7 @@ async function start() {
       $('simulation-label').textContent = speed ? `${t('ID_WEB_SIMULATION_RUNNING')} · ${speed}×` : t('ID_GENERAL_PAUSE');
     };
   });
-  $('cancel-build').onclick = () => choose(null);
+  $('cancel-build').onclick = () => { choose(null); document.querySelector('.classic-ui')!.classList.remove('tutorial-building'); };
   $('build-context').onclick = () => { major = major < 4 ? 4 : 0; minor = ''; renderGroups(); renderMinors(); renderCatalog(); };
   $('build-confirm').onclick = () => { if (build) toast(`${t('ID_WEB_PLACE_OBJECT')}: ${t(build.nameKey, build.name)}.`); else toast(t('ID_WEB_SELECT_BUILD_OBJECT')); };
   $('multi-build').onclick = () => { multiBuild = !multiBuild; $('multi-build').classList.toggle('active', multiBuild); toast(multiBuild ? t('ID_WEB_MULTI_BUILD_ON') : t('ID_WEB_MULTI_BUILD_OFF')); };
@@ -363,23 +378,42 @@ async function start() {
     }
   });
   let down = { x: 0, y: 0 };
+  let painting: { x: number; z: number } | null = null;
   const canvas = world.renderer.domElement;
+  function paintTo(x: number, z: number) {
+    if (!build || build.id !== 'path-1' || !state.tutorial || tutorialUI.paused) return;
+    x = Math.max(-1, Math.min(48, x)); z = Math.max(-1, Math.min(40, z));
+    if (!painting) painting = { x, z };
+    // Four-connected strokes: fill every intervening cell, including fast drags.
+    const point = { ...painting };
+    place(state, build, point.x, point.z, 0, catalog);
+    while (point.x !== x) { point.x += Math.sign(x - point.x); place(state, build, point.x, point.z, 0, catalog); }
+    while (point.z !== z) { point.z += Math.sign(z - point.z); place(state, build, point.x, point.z, 0, catalog); }
+    painting = { x, z }; updateHud();
+  }
   canvas.addEventListener('contextmenu', e => e.preventDefault());
-  canvas.addEventListener('pointerdown', e => { down = { x: e.clientX, y: e.clientY }; });
+  canvas.addEventListener('pointerdown', e => {
+    down = { x: e.clientX, y: e.clientY };
+    if (e.button === 0 && build?.id === 'path-1' && state.tutorial) {
+      const p = world.point(e); if (p) paintTo(Math.floor(p.x), Math.floor(p.z));
+    }
+  });
   canvas.addEventListener('pointermove', e => {
     const p = world.point(e);
     hasPointer = !!p;
     if (p) pointer = { x: Math.floor(p.x), z: Math.floor(p.z) };
+    if (painting && (e.buttons & 1) && p) paintTo(pointer.x, pointer.z);
     updatePreview();
   });
   canvas.addEventListener('pointerleave', () => { hasPointer = false; updatePreview(); });
   canvas.addEventListener('pointerup', e => {
+    if (painting) { painting = null; updatePreview(); return; }
     if (e.button !== 0 || Math.hypot(e.clientX - down.x, e.clientY - down.y) > 5) return;
     if (build) {
       const p = world.point(e); if (!p) return;
       const error = place(state, build, Math.floor(p.x), Math.floor(p.z), rotation, catalog);
       if (error) toast(t(error, error));
-      else { toast(`${t(build.nameKey, build.name)}: ${t('ID_WEB_OBJECT_PLACED')}.`); if (!(e.shiftKey || multiBuild)) choose(null); }
+      else { toast(`${t(build.nameKey, build.name)}: ${t('ID_WEB_OBJECT_PLACED')}.`); if (!(e.shiftKey || multiBuild || build.id === 'path-1')) choose(null); }
       updatePreview(); updateHud();
     } else {
       selected = world.pick(e); updateInspector();
@@ -429,6 +463,7 @@ async function start() {
       sound.currentTime = 0; void sound.play().catch(() => {});
     }
     world.sync(state.buildings, state.guests, catalog, selected); world.render();
+    world.syncPaving(state, catalog);
     hudTime += dt; saveTime += dt * activeSpeed;
     if (hudTime > .5) { updateHud(); updatePreview(); hudTime = 0; }
     if (saveTime > 30) { save(true); saveTime = 0; }

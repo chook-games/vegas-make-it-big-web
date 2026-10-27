@@ -6,6 +6,10 @@ export interface TutorialState {
   lotSelected: boolean;
   lotOwned: boolean;
   theme: LotTheme | null;
+  pathConnected?: boolean;
+  arrivalTimer?: number;
+  financeViewed?: boolean;
+  reviewStep?: number;
 }
 // Starting cash: Welcome to The Strip/default.lua. Lot price: original Lot 1
 // purchase panel in the supplied Untitled7.jpg / Untitled8.jpg references.
@@ -17,9 +21,15 @@ export function beginTutorial(state: GameState): GameState {
   state.tutorial = { scenario: 'welcome', lotSelected: false, lotOwned: false, theme: null };
   return state;
 }
-export function tutorialStage(state: GameState): 'lot' | 'hotel' | 'paths' {
+export type TutorialStage = 'lot' | 'hotel' | 'paths' | 'guests' | 'finance' | 'review' | 'next';
+export function tutorialStage(state: GameState): TutorialStage {
   if (!state.tutorial?.lotOwned) return 'lot';
-  return state.buildings.some(b => b.type === 'smallhotel') ? 'paths' : 'hotel';
+  const hotel = state.buildings.find(b => b.type === 'smallhotel');
+  if (!hotel) return 'hotel';
+  if (!state.tutorial.pathConnected) return 'paths';
+  if (!hotel.visits) return 'guests';
+  if (!state.tutorial.financeViewed) return 'finance';
+  return (state.tutorial.reviewStep ?? 0) < 3 ? 'review' : 'next';
 }
 export function purchaseLot(state: GameState, theme: string): string | null {
   const tutorial = state.tutorial;
@@ -33,6 +43,7 @@ export function purchaseLot(state: GameState, theme: string): string | null {
 export function tutorialBuildError(state: GameState, item: CatalogItem): string | null {
   if (!state.tutorial) return null;
   if (!state.tutorial.lotOwned) return 'ID_WEB_BUY_LOT_FIRST';
+  if (item.id === 'path-1' && state.buildings.some(b => b.type === 'smallhotel')) return null;
   if (item.id !== 'smallhotel') return 'ID_WEB_BUILD_SMALL_HOTEL_FIRST';
   if (state.buildings.some(b => b.type === 'smallhotel')) return 'ID_WEB_PATHS_NEXT';
   return null;
@@ -48,4 +59,10 @@ export function validateTutorial(state: GameState) {
     state.buildings.length > 1 || state.buildings.some(b => b.type !== 'smallhotel')) {
     throw new Error('Invalid tutorial save data.');
   }
+  for (const value of [tutorial.pathConnected, tutorial.financeViewed]) {
+    if (value !== undefined && typeof value !== 'boolean') throw new Error('Invalid tutorial progress.');
+  }
+  if ((tutorial.arrivalTimer !== undefined && (!Number.isFinite(tutorial.arrivalTimer) || tutorial.arrivalTimer < 0)) ||
+    (tutorial.reviewStep !== undefined && (!Number.isInteger(tutorial.reviewStep) || tutorial.reviewStep < 0 || tutorial.reviewStep > 3)) ||
+    ((tutorial.financeViewed || tutorial.pathConnected || tutorial.reviewStep) && !state.buildings.length)) throw new Error('Invalid hotel progress.');
 }

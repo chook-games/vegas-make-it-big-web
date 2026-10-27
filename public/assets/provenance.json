@@ -1942,6 +1942,14 @@
       "sha256": "ce506c1f4616b9898c71bab05b7d0c0dbebb5039f1bb7f636bbf3ae9d91fb3bd"
     },
     {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SmallHotel.lua",
+      "sha256": "6f2346811bd5c330fd7697c1fcba2a1e356f30196ae0507b9ba6d6a6f9893c10"
+    },
+    {
+      "file": "GAMEDATA/Scripts/GENERAL/Goods.lua",
+      "sha256": "9949e803278e90cfcd813d083bef1158d2c9c790f71da3c52f34373e68c30df0"
+    },
+    {
       "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/souvenirshop_dc_thumb.tga",
       "sha256": "5c352e55f2c757b696d373f0f8e80e2c7e9b89b985b9548c718b11c61a1e0ada"
     },

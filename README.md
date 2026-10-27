@@ -17,9 +17,12 @@ initial Greek translation; the selection is saved in this browser. Greek coverag
 is partial and untranslated content falls back to English. Select **Sandbox** to
 play. **Campaign → Welcome to the Strip!** now starts the playable opening:
 objectives, Lot 1 selection/purchase, theme choice and Small Hotel construction.
-The next task, Build Path, is displayed but paving and later tutorial tasks are
-still being ported. Other campaigns remain previews. The exterior is a minimal
-new scene, not the decoded original scenario map.
+Continue with **Build Path**: use Standard Paving ($10 per cell) to connect the
+hotel entrance to a street edge. Click or drag to pave. Connected hotels admit
+guests, charge $25 per check-in and offer Finance, Information, Visitors and
+Statistics panels. Later tasks (Head Office, upgrades and the rest of the
+campaign) are still being ported. Other campaigns remain previews. The exterior
+is a minimal new scene, not the decoded original scenario map.
 
 Build a casino floor, attract visitors, manage expenses and save your layout.
 The example layout provides a quick way to try the simulation. The bottom build
@@ -72,6 +75,9 @@ The original executable, DLLs and player saves are not part of the distribution.
 - `src/main.ts` — interface and interaction.
 - `src/tutorial.ts` — tutorial ownership, purchase rules and persisted state.
 - `src/tutorial-ui.ts` — objectives, original tutorial messages and theme selection.
+- `src/paving.ts` — rotated hotel access cells, paved routes and paving validation.
+- `src/hotel-simulation.ts` — hotel arrivals, check-in, stays and departure.
+- `src/hotel-ui.ts` — hotel finance, information, visitor and statistics panels.
 - `tools/` — reproducible import, inspection and browser checks.
 - `public/assets/` — 164 catalog entries, 372 original GUI sprites, thumbnails,
   selected original UI/gameplay sounds and provenance hashes.

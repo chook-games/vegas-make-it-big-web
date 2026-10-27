@@ -32,9 +32,28 @@ never overwrites a save.
   be sold during this tutorial slice. Existing sandbox saves still load.
 - Original tutorial messages render embedded GUI icons. New Greek translations
   cover the opening messages, objectives, theme selection and lot actions.
-- After the hotel, Build Path is pending. Paving, original entrance plates, guests
-  entering the hotel and later tasks are not implemented. No scenario win or
-  campaign unlock is awarded for this opening slice.
+- Standard Paving now costs the original $10 per cell. Click-and-drag creates
+  four-connected strokes without charging for duplicate or invalid cells.
+- The importer captures hotel entrance (7,7), walkable/reserved cells and automatic
+  pavement cells from SmallHotel.lua. Rotated navigation uses this data: the
+  entrance forecourt and manually paved cells must form a continuous path to a
+  lot edge. The template reservation list is interpreted as walkable entrance
+  clearance for this minimal hotel model; this is not the full original engine's
+  cell classifier.
+- Connected hotels admit guests up to the source capacity of 20, charge the
+  original default motel price ($25 from Goods.lua) on check-in, and use the
+  90-second stay duration. Guests walk along paving and disappear while indoors.
+  Arrivals every four simulated seconds and customer decisions are simplified;
+  the original script instead explicitly spawns the first HardcoreGambler.
+- The first paid visit activates the original View Sales objective. Finance
+  advances to Information → Visitors → Statistics, with persistent progress.
+  The statistics tab reports construction-to-date totals; daily historical charts,
+  dynamic room pricing and reputation are not yet ported. Daily overhead is
+  shown separately from lifetime receipts to avoid a misleading profit total.
+- Paving, ownership, theme, receipts and tutorial panel progression survive
+  save/load. Guest instances restart as in existing prototype saves.
+- Subsequent camera guidance, Head Office and upgrade tasks remain pending.
+  No full scenario win or campaign unlock is awarded for this opening slice.
 - The 48×40 lot, roads and surrounding boxes are newly generated minimal geometry;
   the original CMF/CMB map, exact lot dimensions and city simulation remain unported.
 

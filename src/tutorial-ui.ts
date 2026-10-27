@@ -13,7 +13,7 @@ export class TutorialUI {
   private themeDialog: HTMLDialogElement;
   constructor(private getState: () => GameState, private buildHotel: () => void,
     private changed: () => void, private notify: (text: string) => void,
-    private getIcon: (file: string) => Promise<string>) {
+    private getIcon: (file: string) => Promise<string>, private inspectHotel: () => void) {
     this.root = document.createElement('section'); this.root.className = 'lot-control'; this.root.hidden = true;
     document.querySelector('.classic-ui')!.append(this.root);
     this.modal = this.dialog('tutorial-event');
@@ -31,7 +31,19 @@ export class TutorialUI {
   start() {
     this.close(); this.previousStage = ''; this.signature = '';
     this.render();
-    if (this.getState().tutorial) this.message('ID_SCENARIO_NWS_WELCOME_NAME', 'ID_SCENARIO_NWS_WELCOME_DESC');
+    if (this.getState().tutorial) {
+      const stage = tutorialStage(this.getState());
+      const prompts = {
+        lot: ['ID_SCENARIO_NWS_WELCOME_NAME', 'ID_SCENARIO_NWS_WELCOME_DESC'],
+        hotel: ['ID_SCENARIO_NWS_BUILDING_NAME', 'ID_SCENARIO_NWS_BUILDING_DESC'],
+        paths: ['ID_SCENARIO_NWS_PATHS_NAME', 'ID_SCENARIO_NWS_PATHS_DESC'],
+        guests: ['ID_WEB_FIRST_HOTEL_READY', 'ID_WEB_WAITING_FOR_GUESTS'],
+        finance: ['ID_SCENARIO_NWS_BUILDINGINFOA_NAME', 'ID_SCENARIO_NWS_BUILDINGINFOA_DESC'],
+        review: ['ID_SCENARIO_NWS_BUILDINGINFO_NAME', 'ID_SCENARIO_NWS_BUILDINGINFO_DESC'],
+        next: ['ID_WEB_FIRST_HOTEL_READY', 'ID_WEB_HOTEL_SLICE_END'],
+      };
+      this.message(...prompts[stage] as [string, string]);
+    }
   }
   message(title: string, text: string) {
     this.modal.innerHTML = '<h2></h2><div class="original-text"></div><footer><button id="event-accept">✓</button></footer>';
@@ -60,8 +72,8 @@ export class TutorialUI {
   objectives() {
     const state = this.getState(); if (!state.tutorial) return;
     const stage = tutorialStage(state);
-    const keys = ['ID_SCENARIO_NWS_OBJ_OBJECTIVE', 'ID_SCENARIO_NWS_OBJ_BUILD', 'ID_SCENARIO_NWS_OBJ_PATHS'];
-    const active = ['lot','hotel','paths'].indexOf(stage);
+    const keys = ['ID_SCENARIO_NWS_OBJ_OBJECTIVE', 'ID_SCENARIO_NWS_OBJ_BUILD', 'ID_SCENARIO_NWS_OBJ_PATHS', 'ID_SCENARIO_NWS_OBJ_SALES', 'ID_SCENARIO_NWS_OBJ_SALES2'];
+    const active = { lot:0, hotel:1, paths:2, guests:3, finance:3, review:4, next:5 }[stage];
     this.objective.innerHTML = `<h2>${t('ID_SCENARIO_NWS_WELCOME_NAME')}</h2><table class="objective-table"><thead><tr><th>${t('ID_OBJECTIVESINGLE_TITLE')}</th><th>${t('ID_WEB_PROGRESS')}</th><th>${t('ID_WEB_STATUS')}</th><th>${t('ID_OBJECTIVE_LINK')}</th></tr></thead><tbody>${keys.slice(0, active + 1).map((key,index) => `<tr><td>${t(key + '_NAME')}</td><td><meter min="0" max="1" value="${index < active ? 1 : 0}"></meter></td><td>${index < active ? '✓' : '×'}</td><td><button data-objective="${key}">i</button></td></tr>`).join('')}</tbody></table><footer><button id="objectives-close">✓</button></footer>`;
     this.objective.querySelectorAll<HTMLButtonElement>('[data-objective]').forEach(button => button.onclick = () => {
       this.message('ID_OBJECTIVE_TITLE_CAP', button.dataset.objective + '_DESC');
@@ -96,21 +108,29 @@ export class TutorialUI {
     this.root.hidden = !tutorial;
     if (!tutorial) { this.signature = ''; this.previousStage = ''; return; }
     const stage = tutorialStage(state);
-    if (this.previousStage && stage !== this.previousStage) {
+    const previous = this.previousStage; this.previousStage = stage;
+    if (previous && stage !== previous) {
       document.querySelector('.classic-ui')!.classList.remove('tutorial-building');
       if (stage === 'hotel') this.message('ID_SCENARIO_NWS_BUILDING_NAME', 'ID_SCENARIO_NWS_BUILDING_DESC');
-      else this.message('ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_TUTORIAL_SLICE_END');
+      else if (stage === 'paths') this.message('ID_SCENARIO_NWS_PATHS_NAME', 'ID_SCENARIO_NWS_PATHS_DESC');
+      else if (stage === 'finance') {
+        this.inspectHotel(); this.message('ID_SCENARIO_NWS_BUILDINGINFOA_NAME', 'ID_SCENARIO_NWS_BUILDINGINFOA_DESC');
+      } else if (stage === 'review') this.message('ID_SCENARIO_NWS_BUILDINGINFO_NAME', 'ID_SCENARIO_NWS_BUILDINGINFO_DESC');
+      else if (stage === 'next') this.message('ID_WEB_FIRST_HOTEL_READY', 'ID_WEB_HOTEL_SLICE_END');
     }
-    this.previousStage = stage;
     const signature = `${tutorial.lotSelected}:${tutorial.lotOwned}:${stage}:${tutorial.theme}`;
     if (signature === this.signature) return;
     this.signature = signature;
-    this.root.innerHTML = `<div class="lot-heading">${t('ID_WEB_LOT_ONE')}</div><div class="lot-content">${!tutorial.lotSelected ? `<p>${t('ID_SCENARIO_NWS_OBJ_OBJECTIVE_NAME')}</p><button id="select-lot">${t('ID_WEB_SELECT_LOT')}</button>` : !tutorial.lotOwned ? `<p>${t('ID_WEB_LOT_FOR_SALE')} ${cash(LOT_PRICE)}</p><button id="buy-lot">${t('ID_WEB_BUY_LOT')}</button>` : `<p>${t(tutorial.theme === 'Generic' ? 'ID_THEME_DICENCARDS_NAME' : 'ID_THEME_GREECE_NAME')}</p><p>${t(stage === 'hotel' ? 'ID_SCENARIO_NWS_OBJ_BUILD_NAME' : 'ID_SCENARIO_NWS_OBJ_PATHS_NAME')}</p><button id="lot-build" ${stage === 'paths' ? 'disabled' : ''}>${t('ID_WEB_BUILD_OBJECTS')}</button>`}<button id="lot-objectives">${t('ID_OBJECTIVE_TITLE')}</button></div>`;
+    const task = { lot:'ID_SCENARIO_NWS_OBJ_OBJECTIVE_NAME', hotel:'ID_SCENARIO_NWS_OBJ_BUILD_NAME', paths:'ID_SCENARIO_NWS_OBJ_PATHS_NAME',
+      guests:'ID_WEB_WAITING_FOR_GUESTS', finance:'ID_SCENARIO_NWS_OBJ_SALES_NAME', review:'ID_SCENARIO_NWS_OBJ_SALES2_NAME', next:'ID_WEB_FIRST_HOTEL_READY' }[stage];
+    this.root.innerHTML = `<div class="lot-heading">${t('ID_WEB_LOT_ONE')}</div><div class="lot-content">${!tutorial.lotSelected ? `<p>${t('ID_SCENARIO_NWS_OBJ_OBJECTIVE_NAME')}</p><button id="select-lot">${t('ID_WEB_SELECT_LOT')}</button>` : !tutorial.lotOwned ? `<p>${t('ID_WEB_LOT_FOR_SALE')} ${cash(LOT_PRICE)}</p><button id="buy-lot">${t('ID_WEB_BUY_LOT')}</button>` : `<p>${t(tutorial.theme === 'Generic' ? 'ID_THEME_DICENCARDS_NAME' : 'ID_THEME_GREECE_NAME')}</p><p>${t(task)}</p><button id="lot-build">${t('ID_WEB_BUILD_OBJECTS')}</button>${stage !== 'hotel' ? `<button id="lot-hotel">${t('ID_BUILDING_TYPE_SMALLHOTEL_NAME')}</button>` : ''}`}
+      <button id="lot-objectives">${t('ID_OBJECTIVE_TITLE')}</button></div>`;
     this.root.querySelector<HTMLButtonElement>('#select-lot')?.addEventListener('click', () => this.selectLot());
     this.root.querySelector<HTMLButtonElement>('#buy-lot')?.addEventListener('click', () => this.chooseTheme());
     this.root.querySelector<HTMLButtonElement>('#lot-build')?.addEventListener('click', () => {
       document.querySelector('.classic-ui')!.classList.add('tutorial-building'); this.buildHotel();
     });
     this.root.querySelector<HTMLButtonElement>('#lot-objectives')!.onclick = () => this.objectives();
+    this.root.querySelector<HTMLButtonElement>('#lot-hotel')?.addEventListener('click', () => this.inspectHotel());
   }
 }

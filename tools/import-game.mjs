@@ -166,6 +166,20 @@ async function walkSource(dir) {
       resale: scalar('_democost'), capacity: scalar('_capacity'), runningCost: scalar('_baserunningcost'),
       power: scalar('_basepowerconsumption'), water: scalar('_basewaterconsumption'),
       duration: scalar('_supplies\\.duration', 10), thumbnail: thumbPath ? `${id}.tga` : null, source: relative });
+    if (id === 'smallhotel') {
+      const item = catalog[catalog.length - 1];
+      for (const [key, field] of [['_entrancelist','entrances'], ['_walkablecelllist','walkable'], ['_nobuildlist','reserved'], ['_addpavementtexture','pavement']]) {
+        const list = text.match(new RegExp(`SourceTemplate\\[x\\]\\.${key}\\s*=\\s*\\{([^}]+)\\}`, 's'))?.[1];
+        item[field] = (list?.match(/\d+/g) ?? []).map(Number);
+      }
+      const goodsSource = 'GAMEDATA/Scripts/GENERAL/Goods.lua';
+      const goods = await readFile(path.join(root, goodsSource));
+      item.roomPrice = Number(goods.toString('latin1').match(/GoodsTemplate\[GOODS_MOTELROOMS\]\.cost\s*=\s*(\d+)/)?.[1]);
+      if (item.roomPrice !== 25 || item.entrances.length !== 2) throw new Error('Unexpected SmallHotel navigation or pricing.');
+      for (const [source, bytes] of [[relative, raw], [goodsSource, goods]]) {
+        provenance.push({ file: source, sha256: createHash('sha256').update(bytes).digest('hex') });
+      }
+    }
   }
 }
 await walkSource(path.join(root, buildingRoot));

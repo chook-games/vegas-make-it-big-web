@@ -40,7 +40,17 @@ const customEnglish: Record<string, string> = {
   ID_WEB_LOT_ONE: 'Lot 1', ID_WEB_SELECT_LOT: 'Select Lot 1', ID_WEB_BUY_LOT: 'Buy',
   ID_WEB_LOT_FOR_SALE: 'This lot is available to buy for', ID_WEB_BUILD_OBJECTS: 'Build Objects',
   ID_WEB_HOTEL_REQUIRED: 'This hotel is required for the tutorial.',
-  ID_WEB_TUTORIAL_SLICE_END: 'Your Small Hotel has been built. The next original objective is Build Path: connect the hotel to the outer edge of the lot.\n\nPaving, original entrance plates and the following tutorial tasks are still being ported. This is the end of the currently playable opening sequence, not completion of the original scenario. You can inspect the hotel, save progress or return to the main menu.',
+  ID_WEB_PAVING_BOUNDS: 'Paving must stay inside the lot.', ID_WEB_PAVING_OCCUPIED: 'This cell belongs to a building.',
+  ID_WEB_PAVING_EXISTS: 'This cell is already paved.', ID_WEB_WAITING_FOR_GUESTS: 'Waiting for the first hotel guest.',
+  ID_WEB_FIRST_HOTEL_READY: 'Your first hotel is open.',
+  ID_WEB_HOTEL_SLICE_END: 'Your hotel now has road access, guests and sales. You have viewed its finance, information, visitor and statistics panels.\n\nThe next original tutorial tasks (camera guidance, Head Office and upgrades) are still being ported. This does not complete the full scenario. You can keep running the hotel, add paving, save or return to the main menu.',
+  ID_WEB_POWER_USE: 'Power Use', ID_WEB_WATER_USE: 'Water Use', ID_WEB_ROAD_ACCESS: 'Road Access',
+  ID_WEB_CONNECTED: 'Connected', ID_WEB_NOT_CONNECTED: 'No paved route', ID_WEB_ROOM_RATE: 'Room Rate',
+  ID_WEB_DAILY_COSTS: 'Daily Costs', ID_WEB_CURRENT_GUESTS: 'Guests / Reserved Rooms', ID_WEB_GUEST_GROUP: 'Guest Type',
+  ID_WEB_HARDCORE_GAMBLER: 'Hard-core Gambler', ID_WEB_TOTAL_RECEIPTS: 'Total Receipts',
+  ID_WEB_HISTORY_NOTE: 'Statistics', ID_WEB_HISTORY_NOTE_TEXT: 'Totals since construction; daily historical charts are not yet ported.',
+  ID_WEB_TAB_INFO: 'Information', ID_WEB_TAB_FINANCE: 'Finance', ID_WEB_TAB_PEOPLE: 'Visitors', ID_WEB_TAB_HISTORY: 'Statistics',
+  ID_WEB_PAVING_HINT: 'Click or drag: $10 per cell. Connect the amber hotel entrance to any street edge. Esc cancels.',
 };
 let active: Locale = 'en';
 try { active = localStorage.getItem('vegas-language') === 'el' ? 'el' : 'en'; } catch { /* English remains the default. */ }

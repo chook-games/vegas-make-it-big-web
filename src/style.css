@@ -67,6 +67,17 @@ button:focus-visible { outline: 2px solid #fff2a8; outline-offset: 1px; }
 .theme-grid button { min-height: 90px; padding: 7px; background: #68657f; border: 2px outset #aca9bf; font-size: 11px; }
 .theme-grid button span { display: block; font-size: 34px; padding: 5px; }
 .theme-grid button.selected { background: #4c7e3e; border-color: #edebba; }
+.tutorial-mode .inspector { left: 0; bottom: 0; width: min(635px,85vw); padding: 6px 10px 10px; background: linear-gradient(#ad8473e8,#955a3ce8); border: 3px ridge #d4b69a; }
+.tutorial-mode:has(#inspector:not([hidden])) .lot-control { display: none; }
+.hotel-title { display: flex; justify-content: space-between; align-items: center; padding: 3px 6px; background: #583f38; font: bold 12px 'Courier New',monospace; }
+.hotel-title button { padding: 0 5px; background: #90694d; border: 1px solid #d8b69a; }
+.hotel-tabs { display: flex; gap: 4px; padding: 5px 0; }
+.hotel-tabs button { background: linear-gradient(#bd9b83,#88583e); border: 2px outset #d0b096; padding: 3px 6px; font-size: 10px; display: flex; gap: 4px; align-items: center; }
+.hotel-tabs button.active { border-color: #ead478; background: #8d6e3c; }
+.hotel-tabs img { width: 22px; height: 22px; object-fit: contain; }
+.hotel-data { display: grid; grid-template-columns: 1fr 1fr; background: #633f2e99; padding: 6px; gap: 4px 16px; }
+.hotel-data > div { display: flex; justify-content: space-between; align-items: center; gap: 8px; font: 11px 'Courier New',monospace; }
+.hotel-data b { text-align: right; color: #fff3b1; }
 .language-picker, .frontend-panel { text-shadow: 1px 1px #253426; }
 .classic-top-left, .classic-top-right, .classic-build, .classic-left-tools, .classic-actions, .inspector, .classic-objectives, .placement { background: linear-gradient(180deg, #777c7a, #444a4e 20%, #555b5d 80%, #292f33); border: 1px solid #999c9b; box-shadow: inset 1px 1px #c3c2b6, inset -1px -1px #242a30, 0 2px 5px #0007; color: #fff; }
 .classic-top-left { position: absolute; left: 0; top: 0; height: 43px; display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 0 0 3px 0; }

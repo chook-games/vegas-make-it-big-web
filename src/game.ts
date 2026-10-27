@@ -1,4 +1,8 @@
 import { tutorialBuildError, validateTutorial, type TutorialState } from './tutorial.ts';
+import { WIDTH, DEPTH, DAY_SECONDS, ENTRY } from './grid.ts';
+import { canPave, pave, hotelRoute, validatePaving } from './paving.ts';
+import { stepHotel } from './hotel-simulation.ts';
+export { WIDTH, DEPTH, DAY_SECONDS, ENTRY } from './grid.ts';
 
 export interface CatalogItem {
   id: string;
@@ -20,6 +24,11 @@ export interface CatalogItem {
   minor?: string;
   nameKey?: string;
   descriptionKey?: string;
+  entrances?: number[];
+  walkable?: number[];
+  reserved?: number[];
+  pavement?: number[];
+  roomPrice?: number;
 }
 export interface Building {
   uid: number;
@@ -58,11 +67,8 @@ export interface GameState {
   completed: boolean;
   open: boolean;
   tutorial?: TutorialState;
+  paving?: number[];
 }
-export const WIDTH = 48;
-export const DEPTH = 40;
-export const DAY_SECONDS = 120;
-export const ENTRY = { x: 24, z: 39 };
 export const SAVE_KEY = 'vegas-web-save-v1';
 
 export function createGame(): GameState {
@@ -114,6 +120,7 @@ export function accessCell(b: Building, item: CatalogItem, blocked: Set<number>)
 }
 export function canPlace(state: GameState, item: CatalogItem, x: number, z: number,
   rotation: number, catalog: CatalogItem[]): string | null {
+  if (item.id === 'path-1' && state.tutorial) return canPave(state, x, z, catalog);
   const tutorialError = tutorialBuildError(state, item);
   if (tutorialError) return tutorialError;
   if (!Number.isInteger(x) || !Number.isInteger(z)) return 'Choose a position on the floor.';
@@ -136,6 +143,7 @@ export function canPlace(state: GameState, item: CatalogItem, x: number, z: numb
 }
 export function place(state: GameState, item: CatalogItem, x: number, z: number,
   rotation: number, catalog: CatalogItem[]) {
+  if (item.id === 'path-1' && state.tutorial) return pave(state, x, z, catalog);
   const error = canPlace(state, item, x, z, rotation, catalog);
   if (error) return error;
   state.cash -= item.cost;
@@ -167,6 +175,7 @@ export class Simulation {
       s.cash -= cost;
       s.expenses += cost;
     }
+    if (s.tutorial) { stepHotel(s, this.catalog, dt); return; }
     const has = (type: string) => s.buildings.some(b => b.type === type);
     for (const b of s.buildings) {
       if (has('mechanic') || (b.type === 'slot' && has('cashier'))) b.health = Math.min(100, b.health + dt * 0.1);
@@ -260,6 +269,10 @@ export function restore(raw: string, catalog: CatalogItem[]): GameState {
   }
   const seen = new Set<number>();
   validateTutorial(s);
+  validatePaving(s, catalog);
+  if (s.tutorial?.pathConnected && !hotelRoute(s, catalog)) throw new Error('Invalid saved hotel connection.');
+  if (s.tutorial?.financeViewed && !s.buildings[0]?.visits) throw new Error('Invalid saved hotel sales progress.');
+  if (s.tutorial?.reviewStep && !s.tutorial.financeViewed) throw new Error('Invalid saved hotel information progress.');
   const check = createGame(); check.cash = Number.MAX_SAFE_INTEGER;
   for (const b of s.buildings) {
     const item = catalog.find(c => c.id === b.type);

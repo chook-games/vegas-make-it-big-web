@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { TGALoader } from 'three/addons/loaders/TGALoader.js';
-import { DEPTH, WIDTH, dimensions, type Building, type CatalogItem, type Guest } from './game';
+import { DEPTH, WIDTH, dimensions, type Building, type CatalogItem, type Guest, type GameState } from './game';
+import { cellFromKey, hotelRoute, hotelWalkway, rotateCell } from './paving';
 
 const palette: Record<string, number> = {
   slot: 0xb23852, poker: 0x5657a8, blackjack: 0x187f74, roulette: 0x187f74,
@@ -23,6 +24,8 @@ export class CasinoScene {
   private observer: ResizeObserver;
   private room = new THREE.Group();
   private exterior = new THREE.Group();
+  private pavingGroup = new THREE.Group();
+  private pavingSignature = '';
 
   constructor(public host: HTMLElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
@@ -52,7 +55,7 @@ export class CasinoScene {
     this.scene.add(sun, sun.target);
     this.makeRoom();
     this.makeExterior(); this.exterior.visible = false;
-    this.scene.add(this.room, this.exterior);
+    this.scene.add(this.room, this.exterior, this.pavingGroup);
     this.selection.visible = false;
     this.scene.add(this.ghost, this.selection);
     this.observer = new ResizeObserver(() => this.resize());
@@ -115,7 +118,28 @@ export class CasinoScene {
   }
   setExterior(enabled: boolean) {
     this.exterior.visible = enabled; this.room.visible = !enabled;
+    this.pavingGroup.visible = enabled;
     this.renderer.setClearColor(enabled ? 0x969a9c : 0x101a26);
+  }
+  syncPaving(state: GameState, catalog: CatalogItem[]) {
+    const hotel = state.buildings.find(b => b.type === 'smallhotel');
+    const connected = state.tutorial ? !!hotelRoute(state, catalog) : false;
+    const signature = `${!!state.tutorial}:${state.paving?.join(',')}:${hotel?.uid}:${hotel?.rotation}:${hotel?.x}:${hotel?.z}:${connected}`;
+    if (signature === this.pavingSignature) return;
+    this.pavingSignature = signature; this.clearGroup(this.pavingGroup);
+    if (!state.tutorial) return;
+    const cells = (state.paving ?? []).map(cellFromKey);
+    if (hotel) cells.push(...hotelWalkway(hotel, catalog.find(c => c.id === hotel.type)!));
+    const seen = new Set<string>();
+    for (const cell of cells) {
+      const key = `${cell.x}:${cell.z}`; if (seen.has(key)) continue; seen.add(key);
+      this.box(this.pavingGroup, .96, .06, .96, cell.x + .5, .01, cell.z + .5, 0xb5b8b0);
+    }
+    if (hotel) {
+      const item = catalog.find(c => c.id === hotel.type)!;
+      const entrance = rotateCell(hotel, item, item.entrances![0], item.entrances![1]);
+      this.box(this.pavingGroup, .84, .1, .84, entrance.x + .5, .08, entrance.z + .5, connected ? 0x46bd7b : 0xf0b95a, true);
+    }
   }
   private label(parent: THREE.Object3D, text: string, x: number, y: number, z: number, w: number, h: number, flat = false) {
     const canvas = document.createElement('canvas'); canvas.width = 1024; canvas.height = 128;
@@ -151,12 +175,13 @@ export class CasinoScene {
     const color = palette[item.id] ?? 0xb99254;
     this.box(group, w * .92, .12, d * .92, 0, .09, 0, 0x9a804d);
     if (item.id === 'smallhotel') {
-      this.box(group, w * .83, 5, d * .7, 0, 2.6, 0, 0xd5c49c);
-      this.box(group, w * .88, .35, d * .76, 0, 5.25, 0, 0x768998);
+      // Leave the source-template entrance court open toward local negative Z.
+      this.box(group, w * .83, 5, 4, 0, 2.6, 3, 0xd5c49c);
+      this.box(group, w * .88, .35, 4.4, 0, 5.25, 3, 0x768998);
       for (let x = -4; x <= 4; x += 2) for (let y = 1.4; y < 5; y += 1.4) {
-        this.box(group, .9, .8, .08, x, y, d * .355, 0x526f80);
+        this.box(group, .9, .8, .08, x, y, .95, 0x526f80);
       }
-      this.box(group, 1.8, 1.8, .12, 0, 1, d * .36, 0x3b424b);
+      this.box(group, 1.8, 1.8, .12, 0, 1, .92, 0x3b424b);
     } else if (item.id === 'plant') {
       this.box(group, .7, .6, .7, 0, .4, 0, 0xb49b70);
       this.box(group, .16, 1.5, .16, 0, 1.2, 0, 0x795a36);
@@ -226,6 +251,7 @@ export class CasinoScene {
         this.people.set(guest.id, mesh); this.scene.add(mesh);
       }
       mesh.position.set(guest.x, .05, guest.z);
+      mesh.visible = guest.activity !== 'staying';
       if (guest.path[0]) mesh.rotation.y = Math.atan2(guest.path[0].x + .5 - guest.x, guest.path[0].z + .5 - guest.z);
     }
   }
