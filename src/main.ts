@@ -84,10 +84,11 @@ async function start() {
     if (!images.has(key)) images.set(key, await world.sprite(file));
     return images.get(key)!;
   };
-  const hotelUI = new HotelUI($('inspector'), () => updateHud(), () => { selected = null; updateInspector(); }, getIcon);
+  const hotelUI = new HotelUI($('inspector'), () => updateHud(), () => { selected = null; updateInspector(); }, getIcon, message => toast(message));
   const developmentUI = new DevelopmentUI($('inspector'), () => { renderCatalog(); updateHud(); }, () => { selected = null; updateInspector(); }, message => toast(message), getIcon);
   const inspectHotel = (type = 'smallhotel') => {
     build = null; world.controls.enablePan = true; updatePreview();
+    if (type === 'smallhotel') hotelUI.reset();
     selected = state.buildings.find(b => b.type === type)?.uid ?? null; updateInspector();
   };
   const tutorialUI = new TutorialUI(() => state, () => {
@@ -95,6 +96,7 @@ async function start() {
     if (stage === 'hotel') { major = 0; minor = 'BUILDING_MINOR_GROUP_EXT_HOTELS'; }
     else if (stage === 'office') { major = 0; minor = 'BUILDING_MINOR_GROUP_EXT_OFFICES'; }
     else if (stage === 'shop' || stage === 'retail') { major = 2; minor = 'BUILDING_MINOR_GROUP_EXT_SHOPS'; }
+    else if (stage === 'mechanic') { major = 0; minor = 'BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF'; }
     else { major = 3; minor = 'BUILDING_MINOR_GROUP_EXT_PATHS'; }
     choose(null); renderGroups(); renderMinors(); renderCatalog();
   }, () => { renderCatalog(); updateHud(); }, message => toast(message), getIcon, inspectHotel);
@@ -207,7 +209,7 @@ async function start() {
   }
   function renderCatalog() {
     const visible = catalog.filter(c => c.major === major && (minor === '' || (c.minor ?? c.category) === minor) &&
-      (!state.tutorial || ['smallhotel','path-1','headoffice','souvenirshop'].includes(c.id)));
+      (!state.tutorial || ['smallhotel','path-1','headoffice','souvenirshop','mechanichut'].includes(c.id)));
     $('object-count').textContent = `${visible.length} objects`;
     const missing = visible.filter(item => item.thumbnail && !images.has(item.id) && !pendingImages.has(item.id));
     for (const item of missing) pendingImages.add(item.id);
@@ -240,7 +242,7 @@ async function start() {
     if (!b) return;
     const item = catalog.find(c => c.id === b.type)!;
     if (state.tutorial && b.type === 'smallhotel') { hotelUI.render(state, b, catalog); return; }
-    if (state.tutorial && ['headoffice','souvenirshop'].includes(b.type)) { developmentUI.render(state, b, catalog); return; }
+    if (state.tutorial && ['headoffice','souvenirshop','mechanichut'].includes(b.type)) { developmentUI.render(state, b, catalog); return; }
     $('inspector').innerHTML = `<div class="section-heading"><span class="eyebrow">${t('ID_WEB_SELECTED_OBJECT')}</span><button id="deselect" class="text-button" aria-label="${t('ID_GENERAL_CLOSE')}">×</button></div><h2>${t(item.nameKey, item.name)}</h2><div class="inspector-grid"><span>${t('ID_BUILDING_TYPE_HEALTH', 'Health')} <b>${Math.round(b.health)}%</b></span><span>${t('ID_BUILDING_TYPE_TOTALVISITS', 'Visits')} <b>${b.visits}</b></span><span>${t('ID_GENERAL_INCOME', 'Income')} <b>${money(b.income)}</b></span><span>${t('ID_GENERAL_RUNNINGCOSTS', 'Daily Costs')} <b>${money(item.runningCost + item.power + item.water)}</b></span></div><small class="muted">${t('ID_WEB_FOOTPRINT')}: ${item.width} × ${item.depth} · ${t('ID_BUILDING_TYPE_CAPACITY', 'Capacity')} ${item.capacity}</small><button id="sell" class="sell-button">${t('ID_BUILDING_TYPE_SELL', 'Sell')} · +${money(item.resale)}</button>`;
     $('sell').onclick = () => { sell(state, b.uid, catalog); selected = null; updateInspector(); toast(t('ID_WEB_OBJECT_SOLD')); };
     if (state.tutorial) { ($('sell') as HTMLButtonElement).disabled = true; $('sell').title = t('ID_WEB_HOTEL_REQUIRED'); }
@@ -361,6 +363,9 @@ async function start() {
   const clickSound = new Audio(`${import.meta.env.BASE_URL}assets/sound/ui-click.ogg`);
   const ambience = new Audio(`${import.meta.env.BASE_URL}assets/sound/casino-ambience.ogg`);
   const machineAmbience = new Audio(`${import.meta.env.BASE_URL}assets/sound/casino-machines.ogg`);
+  const mechanicAmbience = new Audio(`${import.meta.env.BASE_URL}assets/sound/mechanic-ambience.ogg`);
+  mechanicAmbience.loop = true;
+  let audioUnlocked = false;
   const resultSounds = {
     cashRegister: new Audio(`${import.meta.env.BASE_URL}assets/sound/cash-register.ogg`),
     winSmall: new Audio(`${import.meta.env.BASE_URL}assets/sound/win-small.ogg`),
@@ -382,6 +387,7 @@ async function start() {
   };
   document.addEventListener('pointerdown', event => {
     if ((event.target as HTMLElement).closest('button')) {
+      audioUnlocked = true;
       clickSound.currentTime = 0; void clickSound.play().catch(() => {});
       void ambience.play().catch(() => {});
       if (state.buildings.some(b => ['slot','poker','blackjack','roulette'].includes(b.type))) void machineAmbience.play().catch(() => {});
@@ -479,6 +485,13 @@ async function start() {
     }
     world.sync(state.buildings, state.guests, catalog, selected); world.render();
     world.syncPaving(state, catalog);
+    world.syncMechanic(state);
+    if (inGame && !document.hidden && audioUnlocked && state.mechanic) {
+      const hut = state.buildings.find(b => b.uid === state.mechanic!.home)!;
+      const distance = Math.hypot(world.controls.target.x - hut.x - 2, world.controls.target.z - hut.z - 1);
+      mechanicAmbience.volume = ambience.volume * .8 * Math.max(0, 1 - distance / 40);
+      if (mechanicAmbience.volume > 0 && mechanicAmbience.paused) void mechanicAmbience.play().catch(() => {});
+    } else mechanicAmbience.pause();
     hudTime += dt; saveTime += dt * activeSpeed;
     if (hudTime > .5) { updateHud(); updatePreview(); hudTime = 0; }
     if (saveTime > 30) { save(true); saveTime = 0; }

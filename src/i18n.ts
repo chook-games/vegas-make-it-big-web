@@ -59,7 +59,16 @@ const customEnglish: Record<string, string> = {
   ID_WEB_BUILD_SHOP_GUIDE: 'Retail Division is enabled. You can now build a Souvenir Shop. Select the Lot, open Construction → Retail → Shops, and place the shop. Remember to connect its entrance to a street with paving.',
   ID_WEB_SHOP_PATHS: 'Connect the Souvenir Shop entrance to a street edge with paving. It may share the existing paved network used by your hotel or Head Office.',
   ID_WEB_RETAIL_READY: 'Your retail business is open.',
-  ID_WEB_DEVELOPMENT_SLICE_END: 'Your Head Office is connected, Retail Division is enabled, and the Souvenir Shop has road access.\n\nThe next original objective is to build a Mechanic’s Hut. Staff dispatch, maintenance and the following tutorial tasks are still being ported. This does not complete the original scenario. You can continue running your businesses, add paving or save your progress.',
+  ID_WEB_NEED_MECHANIC: 'Build a Mechanics Hut to hire a mechanic.', ID_WEB_MECHANIC_BUSY: 'The mechanic is already assigned to a repair.',
+  ID_WEB_CANNOT_REPAIR: 'This building does not use a mechanic.', ID_WEB_NO_REPAIR_NEEDED: 'This building is already at full health.',
+  ID_WEB_CONNECT_REPAIR_BUILDINGS: 'Both the hut and target building need paved road access.',
+  ID_WEB_REPAIR_PATH_MISSING: 'Join the hut and building with a continuous paved route inside the lot. You can link their paths along the street-edge cells.',
+  ID_WEB_FINISH_SHOP_FIRST: 'Connect your Souvenir Shop before building the Mechanics Hut.',
+  ID_WEB_MECHANIC: 'Mechanic', ID_WEB_WAGE: 'Wage', ID_WEB_SKILL: 'Skill', ID_WEB_SPEED: 'Speed', ID_WEB_ATTENTION: 'Attention',
+  ID_WEB_MECHANIC_IDLE: 'Idle', ID_WEB_MECHANIC_OUTBOUND: 'Walking to repair', ID_WEB_MECHANIC_REPAIRING: 'Repairing', ID_WEB_MECHANIC_RETURNING: 'Returning to hut',
+  ID_WEB_MECHANIC_PATHS: 'A mechanic was hired automatically when you built the hut. Connect the hut to a street, and join its paving to the hotel’s path network inside the lot so the worker can reach the repair point.',
+  ID_WEB_REPAIR_DISPATCHED: 'The mechanic has been called.',
+  ID_WEB_MAINTENANCE_SLICE_END: 'The repair request has been accepted. Keep the simulation running to watch the mechanic walk to the hotel, repair it and return to the hut.\n\nThe original tutorial advances when you press Call Mechanic. The next task in this Steam scenario is to build a Cinema and an Electricians Hut. Those tasks are still being ported; the full scenario is not complete.',
 };
 let active: Locale = 'en';
 try { active = localStorage.getItem('vegas-language') === 'el' ? 'el' : 'en'; } catch { /* English remains the default. */ }

@@ -67,9 +67,34 @@ never overwrites a save.
   use sound. Source customer preferences/desires are not reproduced yet.
 - Camera acknowledgement, buildings, upgrades and road connection flags persist.
   Saves reject invalid prerequisite chains, duplicate upgrades and broken access.
-- The next original objective is Mechanic's Hut. Staff dispatch, maintenance and
-  the rest of the training remain pending. No full scenario win or campaign
-  unlock is awarded for this slice.
+- Mechanic's Hut costs $350, consumes $40 base + 30 power daily and automatically
+  hires one mechanic on construction, matching the source OnBuild/OnHire flow.
+- Source staff attention/skill/speed ranges, base wage ($80) and wage multiplier
+  (0.4) are imported from Staff/Generic/Mechanic.lua. Hire rolls/clamps stats and
+  rounds base + mean(stats) × multiplier to a whole-dollar daily wage. Exact native
+  engine rounding remains unverified. Wage is added to daily expenses.
+- Hotel/shop age wear and per-use wear use their source template values. A
+  zero-health business stops admitting customers. The hotel Information panel
+  and shop panel expose Call Mechanic; the hut shows the single worker's status,
+  stats and daily wage.
+- Staff movement currently stays on the lot. Hut and target need paved road
+  access AND a continuous paved connection between their access/repair cells.
+  Separate paths ending at different street-edge cells must be joined inside
+  the lot. Original world-road traversal by staff is not implemented.
+- Repair state is outbound → repairing → returning → idle. Health increases only
+  on site; no instant remote repair or per-job fee is applied. Movement uses
+  2 + speed/50 cells per second and repair uses 4 + skill/20 health per second.
+  These are new prototype formulas, not recovered native engine timings.
+- Staff identity, rolled stats, wage, position, target and remaining path persist
+  during active jobs. Save validation checks salary, target, route continuity and
+  progression. Ordinary visitors still restart when loading.
+- Original Mechanic.ogg hut ambience is used with prototype focus-distance
+  attenuation. Full original spatial sound mixing/animation remain unported.
+- As in the original tutorial script, Call Mechanic advances the objective when
+  the request is accepted, while the actual job continues. The next objective in
+  this Steam installation is Cinema + Electricians Hut (the UK manual describes
+  a Night Club in its overview). Those tasks and the rest of training remain
+  pending. No full scenario win or campaign unlock is awarded for this slice.
 - The 48×40 lot, roads and surrounding boxes are newly generated minimal geometry;
   the original CMF/CMB map, exact lot dimensions and city simulation remain unported.
 
@@ -103,7 +128,7 @@ theme registration, gambling definitions and representative source templates.
 
 `public/assets/game-data.json` includes the complete format counts and byte totals.
 The import also records 164 exterior/interior build templates, all 372 original
-GUI sprites and eleven selected original interface/casino/result/use sounds.
+GUI sprites and twelve selected original interface/casino/result/use sounds.
 `public/assets/provenance.json` records installation-relative source paths and
 SHA-256 hashes for every imported thumbnail, UI sprite, selected sound and
 building script.
@@ -153,8 +178,9 @@ resolver and this directory alias. Web URLs themselves must remain case-correct.
 - Security and cleaner buildings can be placed and incur original expenses,
   but their behaviors are not implemented yet.
 - The bar, restroom and sofa provide simplified service cycles.
-- A mechanic automatically repairs equipment; a cashier maintains slots.
-  This is a temporary approximation of the original staff system.
+- Sandbox still uses its early automatic mechanic/cashier maintenance approximation.
+  The exterior tutorial uses the actual path-based mechanic job state described
+  above; other staff roles are not yet implemented.
 - One web day is 120 seconds. Expenses are charged at its end. This differs
   from the original manual's start-of-day charging.
 - The first goal (50 arrivals + $1,000 net play/service income) is a new prototype
@@ -163,23 +189,23 @@ resolver and this directory alias. Web URLs themselves must remain case-correct.
 - Casino-interior and exterior object categories are selectable in sandbox.
   The tutorial now has a separate minimal exterior/lot-ownership workflow; it is
   not a full world-map/casino-interior implementation.
-- No original terrain levels, playable campaigns, opponents, progression, full
+- No original terrain levels, complete campaign scenarios, opponents, full progression,
   soundscape or original savegame compatibility yet.
 
 ## Next milestones
 
-1. Decode TM static meshes and DDT textures: validate triangle counts, coordinate
-   transforms, UVs, material names, alpha and lighting against original screenshots.
-   Start with slot, blackjack, roulette and cashier. Replace placeholder meshes.
-2. Port original per-cell navigation and entrances, guest classes/desires,
-   gambling outcome tables and house-edge logic. Separate simulation from rendering.
-3. Implement staff dispatch, cleaning, security, repairs, pricing, reputation and
-   influences. Import remaining strings and sound with a documented mapping.
-4. Decode maps and introduce exterior lots, themes, utilities, paths, hotels,
-   entertainment, casino interiors and building dependency/unlock trees.
-5. Implement original training and all ten campaign scenarios. Add scenario
-   validation and original-versus-port comparison fixtures.
-6. Optimize larger guest populations, add settings and wider browser/device testing.
+1. Continue the Steam tutorial with Cinema/Electrician's Hut, influence filters
+   and casino-interior construction, preserving original panels and actions.
+2. Extend staff dispatch to electricians/cashiers, cleaning and security. Add
+   missing original UI, sounds, pricing, reputation and influences.
+3. Port guest desires/classes, original gambling outcomes/house-edge rules and
+   historical finance charts. Expand navigation from the currently imported cells.
+4. Decode maps and introduce full exterior lots, themes, utilities, entertainment,
+   casino interiors and the remaining building dependency/unlock trees.
+5. Complete training and all ten campaign scenarios with comparison fixtures.
+6. Complete Greek localization, add more locales and test larger populations.
+7. Original TM/DDT model conversion is low priority: minimal geometry is accepted
+   while UI and gameplay fidelity take precedence.
 
 ## Engineering and verification
 

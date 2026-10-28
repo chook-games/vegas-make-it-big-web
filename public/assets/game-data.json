@@ -1107,6 +1107,13 @@
         4,
         0
       ],
+      "wear": 0,
+      "wearByUse": 0,
+      "repairPoint": [
+        4,
+        1
+      ],
+      "repairStaff": null,
       "upgrades": [
         {
           "id": 1,
@@ -1381,7 +1388,36 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "mechanichut.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MechanicHut.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MechanicHut.lua",
+      "entrances": [
+        3,
+        1
+      ],
+      "walkable": [],
+      "reserved": [
+        3,
+        1,
+        3,
+        0
+      ],
+      "pavement": [
+        3,
+        0
+      ],
+      "wear": 0,
+      "wearByUse": 0,
+      "repairPoint": [],
+      "repairStaff": null,
+      "mechanic": {
+        "attentionBase": 50,
+        "attentionRange": 50,
+        "skillBase": 30,
+        "skillRange": 30,
+        "speedBase": 10,
+        "speedRange": 70,
+        "wageBase": 80,
+        "wageMultiplier": 0.4
+      }
     },
     {
       "id": "mediumcasino",
@@ -2316,6 +2352,13 @@
         8,
         1
       ],
+      "wear": 0.04,
+      "wearByUse": 0.08,
+      "repairPoint": [
+        7,
+        7
+      ],
+      "repairStaff": "MECHANIC",
       "roomPrice": 25
     },
     {
@@ -2380,6 +2423,13 @@
         3,
         1
       ],
+      "wear": 0.06,
+      "wearByUse": 0.12,
+      "repairPoint": [
+        3,
+        3
+      ],
+      "repairStaff": "MECHANIC",
       "salePrice": 12,
       "dependency": {
         "building": "headoffice",
@@ -5244,6 +5294,10 @@
     {
       "id": "cash-register",
       "file": "sound/cash-register.ogg"
+    },
+    {
+      "id": "mechanic-ambience",
+      "file": "sound/mechanic-ambience.ogg"
     }
   ],
   "languages": [

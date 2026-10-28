@@ -22,8 +22,11 @@ hotel entrance to a street edge. Click or drag to pave. Connected hotels admit
 guests, charge $25 per check-in and offer Finance, Information, Visitors and
 Statistics panels. Close Statistics, review the camera guidance and select the
 Lot to continue to Head Office construction, road access, Retail Division and a
-Souvenir Shop. The shop must be connected before it serves customers. Maintenance,
-staff and the rest of the campaign are still being ported. Other campaigns remain previews. The exterior
+Souvenir Shop. The shop must be connected before it serves customers. Continue by
+building a **Mechanic's Hut ($350)**, joining its paving to the hotel and pressing
+**Call Mechanic** in the hotel's Information panel. The worker repairs on site
+and returns; active jobs survive save/load. The next Cinema/Electrician tasks and
+the rest of the campaign are still being ported. Other campaigns remain previews. The exterior
 is a minimal new scene, not the decoded original scenario map.
 
 Build a casino floor, attract visitors, manage expenses and save your layout.
@@ -81,6 +84,8 @@ The original executable, DLLs and player saves are not part of the distribution.
 - `src/hotel-simulation.ts` — hotel arrivals, check-in, stays and departure.
 - `src/hotel-ui.ts` — hotel finance, information, visitor and statistics panels.
 - `src/development.ts`, `src/development-ui.ts` — Head Office upgrades and retail unlocks.
+- `src/maintenance.ts`, `src/maintenance-ui.ts` — automatic mechanic hire, wages,
+  path-based repair jobs and maintenance controls.
 - `tools/` — reproducible import, inspection and browser checks.
 - `public/assets/` — 164 catalog entries, 372 original GUI sprites, thumbnails,
   selected original UI/gameplay sounds and provenance hashes.

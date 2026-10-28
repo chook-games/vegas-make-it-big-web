@@ -1822,6 +1822,18 @@
       "sha256": "baec84000df3389d64dfb819e5aa373378f4ee62199cbd192d5d3b3b79594e42"
     },
     {
+      "file": "GAMEDATA/Scripts/Objects/Staff/Generic/Mechanic.lua",
+      "sha256": "41104556063daa09ade5347f4caca009429647a4ad9f0e180b76cb52de691fee"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MechanicHut.lua",
+      "sha256": "871e6db2f5bd3e867ea258bc1f4dbea07ed29c45704f3d80d932c99282ec2822"
+    },
+    {
+      "file": "GAMEDATA/Scripts/GENERAL/Goods.lua",
+      "sha256": "9949e803278e90cfcd813d083bef1158d2c9c790f71da3c52f34373e68c30df0"
+    },
+    {
       "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/cas_med_dc_thumb.tga",
       "sha256": "0dd72cdd4b90a06585a52097d8262526568662e811e8cdb6ef0157f74f1a86d0"
     },
@@ -2220,6 +2232,10 @@
     {
       "file": "GAMEDATA/Sound/Effects/Building/CashRegister.ogg",
       "sha256": "8135e0b8b9c111a9735688b6ceee702e6cc6e7682b9931123bf31fd950ba8721"
+    },
+    {
+      "file": "GAMEDATA/Sound/Effects/Building/Mechanic.ogg",
+      "sha256": "23251b919a7c1436ae1f629ac7ffc5ac509afc80cff782c06d7b9716dbb25b08"
     }
   ]
 }

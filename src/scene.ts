@@ -26,6 +26,7 @@ export class CasinoScene {
   private exterior = new THREE.Group();
   private pavingGroup = new THREE.Group();
   private pavingSignature = '';
+  private mechanicMesh: THREE.Group | null = null;
 
   constructor(public host: HTMLElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
@@ -182,6 +183,10 @@ export class CasinoScene {
         this.box(group, .9, .8, .08, x, y, .95, 0x526f80);
       }
       this.box(group, 1.8, 1.8, .12, 0, 1, .92, 0x3b424b);
+    } else if (item.id === 'mechanichut') {
+      this.box(group, w * .9, 1.8, .9, 0, 1, .45, 0x637f91);
+      this.box(group, w * .98, .18, 1.1, 0, 1.95, .45, 0x9b9d87);
+      this.box(group, .75, 1.3, .06, .4, .7, -.03, 0x333f4a);
     } else if (item.id === 'headoffice' || item.id === 'souvenirshop') {
       const office = item.id === 'headoffice';
       this.box(group, w * .86, office ? 3.4 : 2.6, d * .55, 0, office ? 1.8 : 1.4, d * .2, office ? 0xb6b9ac : 0xd8b492);
@@ -291,6 +296,22 @@ export class CasinoScene {
     return null;
   }
   resetCamera() { this.camera.position.set(66, 64, 80); this.controls.target.set(24, 0, 20); }
+  syncMechanic(state: GameState) {
+    const worker = state.mechanic;
+    if (!worker) { if (this.mechanicMesh) this.disposeGroup(this.mechanicMesh); this.mechanicMesh = null; return; }
+    if (!this.mechanicMesh) {
+      this.mechanicMesh = new THREE.Group();
+      this.box(this.mechanicMesh, .5, .75, .36, 0, .75, 0, 0x5a9cb9);
+      this.box(this.mechanicMesh, .32, .3, .32, 0, 1.28, 0, 0xd4b292);
+      this.box(this.mechanicMesh, .42, .13, .42, 0, 1.48, 0, 0xe4b750);
+      this.box(this.mechanicMesh, .17, .42, .24, -.14, .23, 0, 0x344359);
+      this.box(this.mechanicMesh, .17, .42, .24, .14, .23, 0, 0x344359);
+      this.box(this.mechanicMesh, .24, .3, .4, .38, .6, 0, 0x7f8583);
+      this.scene.add(this.mechanicMesh);
+    }
+    this.mechanicMesh.position.set(worker.x, .05 + (worker.status === 'repairing' ? Math.sin(state.elapsed * 15) * .04 : 0), worker.z);
+    if (worker.path[0]) this.mechanicMesh.rotation.y = Math.atan2(worker.path[0].x + .5 - worker.x, worker.path[0].z + .5 - worker.z);
+  }
   setCombinedPan(pan: boolean) { this.controls.mouseButtons.RIGHT = pan ? THREE.MOUSE.PAN : THREE.MOUSE.ROTATE; }
   zoomCamera(scale: number) {
     const offset = this.camera.position.clone().sub(this.controls.target);

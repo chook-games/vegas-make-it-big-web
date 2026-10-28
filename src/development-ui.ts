@@ -2,6 +2,7 @@ import type { Building, CatalogItem, GameState } from './game';
 import { translate as t } from './i18n';
 import { buildingRoute } from './paving';
 import { enableRetail } from './development';
+import { repairMarkup, wireRepair, staffMarkup } from './maintenance-ui';
 
 const cash = (n: number) => '$' + n.toLocaleString('en-US');
 export class DevelopmentUI {
@@ -17,12 +18,13 @@ export class DevelopmentUI {
     const connected = !!buildingRoute(state, catalog, b);
     const retail = item.upgrades?.find(u => u.id === 2);
     const enabled = b.upgrades?.includes(2) ?? false;
-    const signature = `${b.uid}:${b.type}:${this.tab}:${enabled}:${connected}:${b.income}:${b.visits}:${state.cash}:${t('ID_WEB_LANGUAGE')}`;
+    const signature = `${b.uid}:${b.type}:${this.tab}:${enabled}:${connected}:${b.income}:${b.visits}:${b.health}:${state.cash}:${state.mechanic?.status}:${t('ID_WEB_LANGUAGE')}`;
     if (signature === this.signature) return; this.signature = signature;
     this.root.innerHTML = `<div class="hotel-title"><b>${t(item.nameKey, item.name)}</b><button id="development-close">×</button></div>
       <nav class="hotel-tabs"><button id="development-info">${t('ID_WEB_TAB_INFO')}</button>${retail ? `<button id="development-upgrades">${t('ID_WEB_UPGRADES')}</button>` : ''}</nav>
       <div class="hotel-data">${this.tab === 'upgrades' && retail ? `<div class="retail-upgrade"><b>${t(retail.nameKey)}</b><p>${t(retail.descriptionKey)}</p><p>${cash(retail.cost)} · ${cash(retail.runningCost)} ${t('ID_WEB_PER_DAY')}</p><button id="enable-retail" ${enabled || !connected || state.cash < retail.cost ? 'disabled' : ''}>${t(enabled ? 'ID_WEB_ENABLED' : 'ID_WEB_ENABLE_RETAIL')}</button></div>` :
-        `<div><span>${t('ID_WEB_ROAD_ACCESS')}</span><b>${t(connected ? 'ID_WEB_CONNECTED' : 'ID_WEB_NOT_CONNECTED')}</b></div><div><span>${t('ID_WEB_DAILY_COSTS')}</span><b>${cash(item.runningCost + item.power + item.water + (enabled ? retail!.runningCost : 0))}</b></div><div><span>${t('ID_FINANCE_INCOME')}</span><b>${cash(b.income)}</b></div><div><span>${t('ID_FINANCE_TOTALVISITS')}</span><b>${b.visits}</b></div>`}</div>`;
+         `<div><span>${t('ID_WEB_ROAD_ACCESS')}</span><b>${t(connected ? 'ID_WEB_CONNECTED' : 'ID_WEB_NOT_CONNECTED')}</b></div><div><span>${t('ID_WEB_DAILY_COSTS')}</span><b>${cash(item.runningCost + item.power + item.water + (enabled ? retail!.runningCost : 0) + (b.type === 'mechanichut' ? state.mechanic?.wage ?? 0 : 0))}</b></div><div><span>${t('ID_FINANCE_INCOME')}</span><b>${cash(b.income)}</b></div><div><span>${t('ID_INGAME_GENERAL_HEALTH')}</span><b>${Math.round(b.health)}%</b></div><div><span>${t('ID_FINANCE_TOTALVISITS')}</span><b>${b.visits}</b></div>`}</div>${b.type === 'mechanichut' ? staffMarkup(state) : repairMarkup(state, b, item)}`;
+    wireRepair(this.root, state, b, catalog, this.changed, this.notify, this.icon);
     this.root.querySelector<HTMLButtonElement>('#development-close')!.onclick = this.close;
     this.root.querySelector<HTMLButtonElement>('#development-info')!.onclick = () => { this.tab = 'info'; this.render(state, b, catalog); };
     this.root.querySelector<HTMLButtonElement>('#development-upgrades')?.addEventListener('click', () => { this.tab = 'upgrades'; this.render(state, b, catalog); });

@@ -166,11 +166,26 @@ async function walkSource(dir) {
       resale: scalar('_democost'), capacity: scalar('_capacity'), runningCost: scalar('_baserunningcost'),
       power: scalar('_basepowerconsumption'), water: scalar('_basewaterconsumption'),
       duration: scalar('_supplies\\.duration', 10), thumbnail: thumbPath ? `${id}.tga` : null, source: relative });
-    if (['smallhotel', 'headoffice', 'souvenirshop'].includes(id)) {
+    if (['smallhotel', 'headoffice', 'souvenirshop', 'mechanichut'].includes(id)) {
       const item = catalog[catalog.length - 1];
       for (const [key, field] of [['_entrancelist','entrances'], ['_walkablecelllist','walkable'], ['_nobuildlist','reserved'], ['_addpavementtexture','pavement']]) {
         const list = text.match(new RegExp(`SourceTemplate\\[x\\]\\.${key}\\s*=\\s*\\{([^}]+)\\}`, 's'))?.[1];
         item[field] = (list?.match(/\d+/g) ?? []).map(Number);
+      }
+      item.wear = Math.max(0, -scalar('_buildingdecay'));
+      item.wearByUse = Math.max(0, -scalar('_buildingdecaybyuse'));
+      item.repairPoint = (text.match(/SourceTemplate\[x\]\._repairpoint\s*=\s*\{([^}]+)\}/s)?.[1]?.match(/\d+/g) ?? []).map(Number);
+      item.repairStaff = text.match(/SourceTemplate\[x\]\._handyman\s*=\s*STAFFTYPE_([A-Z]+)/)?.[1] ?? null;
+      if (id === 'mechanichut') {
+        const staffSource = 'GAMEDATA/Scripts/Objects/Staff/Generic/Mechanic.lua';
+        const staffBytes = await readFile(path.join(root, staffSource));
+        const staffText = staffBytes.toString('latin1').replace(/--[^\r\n]*/g, '');
+        const stat = key => Number(staffText.match(new RegExp(`StaffTemplate\\[x\\]\\.${key}\\s*=\\s*([\\d.]+)`))?.[1]);
+        item.mechanic = { attentionBase:stat('_attentionbase'), attentionRange:stat('_attentionrange'),
+          skillBase:stat('_skillbase'), skillRange:stat('_skillrange'), speedBase:stat('_speedbase'), speedRange:stat('_speedrange'),
+          wageBase:stat('_wagebase'), wageMultiplier:stat('_wagemultipler') };
+        if (!Object.values(item.mechanic).every(Number.isFinite)) throw new Error('Unexpected mechanic staff template.');
+        provenance.push({ file:staffSource, sha256:createHash('sha256').update(staffBytes).digest('hex') });
       }
       const goodsSource = 'GAMEDATA/Scripts/GENERAL/Goods.lua';
       const goods = await readFile(path.join(root, goodsSource));
@@ -216,6 +231,7 @@ const sounds = [
   ['event-positive', 'GAMEDATA/Sound/Effects/UserInterface/Odd23.ogg'],
   ['event-negative', 'GAMEDATA/Sound/Effects/UserInterface/Odd24.ogg'],
   ['cash-register', 'GAMEDATA/Sound/Effects/Building/CashRegister.ogg'],
+  ['mechanic-ambience', 'GAMEDATA/Sound/Effects/Building/Mechanic.ogg'],
 ];
 const soundManifest = [];
 for (const [id, relative] of sounds) {

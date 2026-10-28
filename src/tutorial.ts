@@ -15,6 +15,9 @@ export interface TutorialState {
   officeConnected?: boolean;
   shopConnected?: boolean;
   shopArrivalTimer?: number;
+  mechanicConnected?: boolean;
+  repairRequested?: boolean;
+  repairCompleted?: boolean;
 }
 // Starting cash: Welcome to The Strip/default.lua. Lot price: original Lot 1
 // purchase panel in the supplied Untitled7.jpg / Untitled8.jpg references.
@@ -26,12 +29,12 @@ export function beginTutorial(state: GameState): GameState {
   state.tutorial = { scenario: 'welcome', lotSelected: false, lotOwned: false, theme: null };
   return state;
 }
-export type TutorialStage = 'lot' | 'hotel' | 'paths' | 'guests' | 'finance' | 'review' | 'camera' | 'office' | 'officePaths' | 'retail' | 'shop' | 'shopPaths' | 'next';
+export type TutorialStage = 'lot' | 'hotel' | 'paths' | 'guests' | 'finance' | 'review' | 'camera' | 'office' | 'officePaths' | 'retail' | 'shop' | 'shopPaths' | 'mechanic' | 'mechanicPaths' | 'repair' | 'next';
 export const OBJECTIVE_KEYS = ['ID_SCENARIO_NWS_OBJ_OBJECTIVE', 'ID_SCENARIO_NWS_OBJ_BUILD', 'ID_SCENARIO_NWS_OBJ_PATHS',
   'ID_SCENARIO_NWS_OBJ_SALES', 'ID_SCENARIO_NWS_OBJ_SALES2', 'ID_SCENARIO_NWS_OBJ_CAMERA', 'ID_SCENARIO_NWS_OBJ_OFFICE',
-  'ID_SCENARIO_NWS_OBJ_OFFICE2', 'ID_SCENARIO_NWS_OBJ_MECHANIC'];
+  'ID_SCENARIO_NWS_OBJ_OFFICE2', 'ID_SCENARIO_NWS_OBJ_MECHANIC', 'ID_SCENARIO_NWS_OBJ_MECHANIC2', 'ID_SCENARIO_NWS_OBJ_ELECTRICIAN'];
 export function objectiveIndex(stage: TutorialStage) {
-  return { lot:0, hotel:1, paths:2, guests:3, finance:3, review:4, camera:5, office:6, officePaths:6, retail:7, shop:7, shopPaths:7, next:8 }[stage];
+  return { lot:0, hotel:1, paths:2, guests:3, finance:3, review:4, camera:5, office:6, officePaths:6, retail:7, shop:7, shopPaths:7, mechanic:8, mechanicPaths:8, repair:9, next:10 }[stage];
 }
 export function tutorialTask(stage: TutorialStage) {
   return stage === 'guests' ? 'ID_WEB_WAITING_FOR_GUESTS' : OBJECTIVE_KEYS[objectiveIndex(stage)] + '_NAME';
@@ -50,7 +53,10 @@ export function tutorialStage(state: GameState): TutorialStage {
   if (!state.tutorial.officeConnected) return 'officePaths';
   if (!office.upgrades?.includes(2)) return 'retail';
   if (!state.buildings.some(b => b.type === 'souvenirshop')) return 'shop';
-  return state.tutorial.shopConnected ? 'next' : 'shopPaths';
+  if (!state.tutorial.shopConnected) return 'shopPaths';
+  if (!state.buildings.some(b => b.type === 'mechanichut')) return 'mechanic';
+  if (!state.tutorial.mechanicConnected) return 'mechanicPaths';
+  return state.tutorial.repairRequested ? 'next' : 'repair';
 }
 export function purchaseLot(state: GameState, theme: string): string | null {
   const tutorial = state.tutorial;
@@ -74,6 +80,10 @@ export function tutorialBuildError(state: GameState, item: CatalogItem): string 
     if (!state.tutorial.officeConnected || !office?.upgrades?.includes(2)) return 'ID_WEB_ENABLE_RETAIL_FIRST';
     return state.buildings.some(b => b.type === item.id) ? 'ID_WEB_BUILDING_EXISTS' : null;
   }
+  if (item.id === 'mechanichut') {
+    if (!state.tutorial.shopConnected) return 'ID_WEB_FINISH_SHOP_FIRST';
+    return state.buildings.some(b => b.type === item.id) ? 'ID_WEB_BUILDING_EXISTS' : null;
+  }
   if (item.id !== 'smallhotel') return 'ID_WEB_BUILD_SMALL_HOTEL_FIRST';
   if (state.buildings.some(b => b.type === 'smallhotel')) return 'ID_WEB_PATHS_NEXT';
   return null;
@@ -86,11 +96,11 @@ export function validateTutorial(state: GameState) {
     tutorial.lotOwned !== (tutorial.theme !== null) ||
     (tutorial.lotOwned && !tutorial.lotSelected) ||
     (!tutorial.lotOwned && state.buildings.length > 0) ||
-    state.buildings.length > 3 || new Set(state.buildings.map(b => b.type)).size !== state.buildings.length ||
-    state.buildings.some(b => !['smallhotel','headoffice','souvenirshop'].includes(b.type))) {
+    state.buildings.length > 4 || new Set(state.buildings.map(b => b.type)).size !== state.buildings.length ||
+    state.buildings.some(b => !['smallhotel','headoffice','souvenirshop','mechanichut'].includes(b.type))) {
     throw new Error('Invalid tutorial save data.');
   }
-  for (const value of [tutorial.pathConnected, tutorial.financeViewed, tutorial.statisticsClosed, tutorial.cameraReviewed, tutorial.officeConnected, tutorial.shopConnected]) {
+  for (const value of [tutorial.pathConnected, tutorial.financeViewed, tutorial.statisticsClosed, tutorial.cameraReviewed, tutorial.officeConnected, tutorial.shopConnected, tutorial.mechanicConnected, tutorial.repairRequested, tutorial.repairCompleted]) {
     if (value !== undefined && typeof value !== 'boolean') throw new Error('Invalid tutorial progress.');
   }
   if ((tutorial.arrivalTimer !== undefined && (!Number.isFinite(tutorial.arrivalTimer) || tutorial.arrivalTimer < 0)) ||
@@ -99,5 +109,8 @@ export function validateTutorial(state: GameState) {
     ((tutorial.financeViewed || tutorial.pathConnected || tutorial.reviewStep) && !state.buildings.length)) throw new Error('Invalid hotel progress.');
   if ((tutorial.statisticsClosed && tutorial.reviewStep !== 3) ||
     (tutorial.cameraReviewed && (!tutorial.statisticsClosed || !tutorial.financeViewed)) ||
-    (state.buildings.some(b => b.type === 'headoffice') && !tutorial.cameraReviewed)) throw new Error('Invalid development progress.');
+    (state.buildings.some(b => b.type === 'headoffice') && !tutorial.cameraReviewed) ||
+    (state.buildings.some(b => b.type === 'mechanichut') && !tutorial.shopConnected) ||
+    ((tutorial.mechanicConnected || tutorial.repairRequested || tutorial.repairCompleted) && !state.buildings.some(b => b.type === 'mechanichut')) ||
+    (tutorial.repairCompleted && !tutorial.repairRequested)) throw new Error('Invalid development progress.');
 }

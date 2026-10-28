@@ -57,13 +57,13 @@ test('retail needs road access, charges once, unlocks shop and adds running expe
   assert.equal(tutorialStage(s), 'shopPaths');
   assert.equal(sim.dailyCost(), 1810);
   for (let z = 25; z >= 0; z--) assert.equal(pave(s, 26, z, catalog), null);
-  sim.step(0); assert.equal(tutorialStage(s), 'next');
+  sim.step(0); assert.equal(tutorialStage(s), 'mechanic');
   for (let i = 0; i < 800; i++) sim.step(.05);
   const shop = s.buildings[2]; assert.ok(shop.visits > 0);
   assert.equal(shop.income, 12 * shop.visits);
   assert.ok(sim.events.some(event => event.type === 'sale' && event.amount === 12));
   const loaded = restore(serialize(s), catalog);
-  assert.equal(tutorialStage(loaded), 'next'); assert.deepEqual(loaded.buildings[1].upgrades, [2]);
+  assert.equal(tutorialStage(loaded), 'mechanic'); assert.deepEqual(loaded.buildings[1].upgrades, [2]);
   assert.equal(loaded.completed, false);
   assert.throws(() => restore(JSON.stringify({ ...s, buildings: s.buildings.map(b => b === office ? { ...b, upgrades: [] } : b) }), catalog));
   assert.throws(() => restore(JSON.stringify({ ...s, buildings: s.buildings.map(b => b === office ? { ...b, upgrades: [2,2] } : b) }), catalog));

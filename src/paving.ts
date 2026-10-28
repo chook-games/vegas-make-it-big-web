@@ -50,14 +50,18 @@ export function buildingRoute(state: GameState, catalog: CatalogItem[], b: Build
   const item = catalog.find(c => c.id === b.type)!;
   if (!item.entrances?.length) return null;
   const entrance = rotateCell(b, item, item.entrances[0], item.entrances[1]);
+  return routeOnPaving(state, catalog, entrance);
+}
+export function routeOnPaving(state: GameState, catalog: CatalogItem[], start: Cell, end?: Cell): Cell[] | null {
   const access = state.buildings.flatMap(building => hotelWalkway(building, catalog.find(c => c.id === building.type)!))
     .filter(cell => cell.x >= 0 && cell.x < WIDTH && cell.z >= 0 && cell.z < DEPTH);
   const allowed = new Set([...(state.paving ?? []), ...access.map(cellKey)]);
-  const queue: Cell[] = [entrance];
-  const previous = new Map<number, Cell | null>([[cellKey(entrance), null]]);
+  if (!allowed.has(cellKey(start))) return null;
+  const queue: Cell[] = [start];
+  const previous = new Map<number, Cell | null>([[cellKey(start), null]]);
   for (let i = 0; i < queue.length; i++) {
     const current = queue[i];
-    if (current.x === 0 || current.x === WIDTH - 1 || current.z === 0 || current.z === DEPTH - 1) {
+    if (end ? current.x === end.x && current.z === end.z : current.x === 0 || current.x === WIDTH - 1 || current.z === 0 || current.z === DEPTH - 1) {
       const result: Cell[] = []; let p: Cell | null = current;
       while (p) { result.unshift(p); p = previous.get(cellKey(p)) ?? null; }
       return result;

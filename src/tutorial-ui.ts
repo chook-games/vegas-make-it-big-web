@@ -46,7 +46,10 @@ export class TutorialUI {
         retail: ['ID_SCENARIO_NWS_TREESTRUCTURE2_NAME', 'ID_SCENARIO_NWS_TREESTRUCTURE2_DESC'],
         shop: ['ID_SCENARIO_NWS_TREESTRUCTURE2_NAME', 'ID_WEB_BUILD_SHOP_GUIDE'],
         shopPaths: ['ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_SHOP_PATHS'],
-        next: ['ID_WEB_RETAIL_READY', 'ID_WEB_DEVELOPMENT_SLICE_END'],
+        mechanic: ['ID_SCENARIO_NWS_MECHANIC_NAME', 'ID_SCENARIO_NWS_MECHANIC_DESC'],
+        mechanicPaths: ['ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_MECHANIC_PATHS'],
+        repair: ['ID_SCENARIO_NWS_MECHANIC2_NAME', 'ID_SCENARIO_NWS_MECHANIC2_DESC'],
+        next: ['ID_WEB_REPAIR_DISPATCHED', 'ID_WEB_MAINTENANCE_SLICE_END'],
       };
       this.message(...prompts[stage] as [string, string]);
     }
@@ -129,7 +132,10 @@ export class TutorialUI {
       else if (stage === 'retail') { this.inspectHotel('headoffice'); this.message('ID_SCENARIO_NWS_TREESTRUCTURE2_NAME', 'ID_SCENARIO_NWS_TREESTRUCTURE2_DESC'); }
       else if (stage === 'shop') this.message('ID_SCENARIO_NWS_TREESTRUCTURE2_NAME', 'ID_WEB_BUILD_SHOP_GUIDE');
       else if (stage === 'shopPaths') this.message('ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_SHOP_PATHS');
-      else if (stage === 'next') this.message('ID_WEB_RETAIL_READY', 'ID_WEB_DEVELOPMENT_SLICE_END');
+      else if (stage === 'mechanic') this.message('ID_SCENARIO_NWS_MECHANIC_NAME', 'ID_SCENARIO_NWS_MECHANIC_DESC');
+      else if (stage === 'mechanicPaths') this.message('ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_MECHANIC_PATHS');
+      else if (stage === 'repair') { this.inspectHotel(); this.message('ID_SCENARIO_NWS_MECHANIC2_NAME', 'ID_SCENARIO_NWS_MECHANIC2_DESC'); }
+      else if (stage === 'next') this.message('ID_WEB_REPAIR_DISPATCHED', 'ID_WEB_MAINTENANCE_SLICE_END');
     }
     const signature = `${tutorial.lotSelected}:${tutorial.lotOwned}:${stage}:${tutorial.theme}`;
     if (signature === this.signature) return;
@@ -139,6 +145,7 @@ export class TutorialUI {
       ${stage === 'camera' ? `<button id="camera-select-lot">${t('ID_WEB_SELECT_LOT')}</button>` : ''}
       ${state.buildings.some(b => b.type === 'headoffice') ? `<button id="lot-office">${t('ID_BUILDING_TYPE_HEADOFFICE_NAME')}</button>` : ''}
       ${state.buildings.some(b => b.type === 'souvenirshop') ? `<button id="lot-shop">${t('ID_BUILDING_TYPE_SOUVENIRSHOP_NAME')}</button>` : ''}
+      ${state.buildings.some(b => b.type === 'mechanichut') ? `<button id="lot-mechanic">${t('ID_BUILDING_TYPE_MECHANICHUT_NAME')}</button>` : ''}
       <button id="lot-objectives">${t('ID_OBJECTIVE_TITLE')}</button></div>`;
     this.root.querySelector<HTMLButtonElement>('#select-lot')?.addEventListener('click', () => this.selectLot());
     this.root.querySelector<HTMLButtonElement>('#buy-lot')?.addEventListener('click', () => this.chooseTheme());
@@ -150,5 +157,6 @@ export class TutorialUI {
     this.root.querySelector<HTMLButtonElement>('#camera-select-lot')?.addEventListener('click', () => this.selectLot());
     this.root.querySelector<HTMLButtonElement>('#lot-office')?.addEventListener('click', () => this.inspectHotel('headoffice'));
     this.root.querySelector<HTMLButtonElement>('#lot-shop')?.addEventListener('click', () => this.inspectHotel('souvenirshop'));
+    this.root.querySelector<HTMLButtonElement>('#lot-mechanic')?.addEventListener('click', () => this.inspectHotel('mechanichut'));
   }
 }

@@ -41,6 +41,7 @@ function stepBusiness(state: GameState, catalog: CatalogItem[], hotel: Building,
       const price = isHotel ? item.roomPrice ?? 25 : item.salePrice ?? 0;
       g.cash -= price; hotel.income += price; hotel.visits++; state.income += price;
       state.cash += price; g.activity = 'staying'; g.timer = item.duration; g.served++;
+      hotel.health = Math.max(0, hotel.health - (item.wearByUse ?? 0));
       if (!isHotel) onSale?.(price);
     } else {
       g.timer -= dt;

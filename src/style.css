@@ -82,6 +82,11 @@ button:focus-visible { outline: 2px solid #fff2a8; outline-offset: 1px; }
 .retail-upgrade p { margin: 6px 0; }
 .retail-upgrade button { padding: 6px 12px; background: linear-gradient(#8b9f70,#4d673e); color: #fff; border: 2px outset #c4c89d; }
 .retail-upgrade button:disabled, .catalog-item:disabled { opacity: .5; cursor: default; }
+.maintenance-actions { display: flex; align-items: center; gap: 10px; margin-top: 6px; padding: 5px; background: #583d3299; font: 11px 'Courier New',monospace; }
+.maintenance-actions button { display: flex; align-items: center; gap: 5px; padding: 4px 8px; border: 2px outset #d7bca2; background: linear-gradient(#af9277,#7a563e); color: white; }
+.maintenance-actions button:disabled { opacity: .5; cursor: default; }
+.maintenance-actions img { width: 22px; height: 22px; object-fit: contain; }
+.staff-data { margin-top: 5px; }
 .language-picker, .frontend-panel { text-shadow: 1px 1px #253426; }
 .classic-top-left, .classic-top-right, .classic-build, .classic-left-tools, .classic-actions, .inspector, .classic-objectives, .placement { background: linear-gradient(180deg, #777c7a, #444a4e 20%, #555b5d 80%, #292f33); border: 1px solid #999c9b; box-shadow: inset 1px 1px #c3c2b6, inset -1px -1px #242a30, 0 2px 5px #0007; color: #fff; }
 .classic-top-left { position: absolute; left: 0; top: 0; height: 43px; display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 0 0 3px 0; }
