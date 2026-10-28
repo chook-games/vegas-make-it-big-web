@@ -419,7 +419,62 @@
       "water": 0,
       "duration": 75,
       "thumbnail": "cinema.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Cinema.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Cinema.lua",
+      "entrances": [
+        4,
+        3,
+        5,
+        3,
+        6,
+        3,
+        7,
+        3
+      ],
+      "walkable": [],
+      "reserved": [
+        4,
+        0,
+        5,
+        0,
+        6,
+        0,
+        7,
+        0,
+        4,
+        1,
+        5,
+        1,
+        6,
+        1,
+        7,
+        1,
+        4,
+        2,
+        5,
+        2,
+        6,
+        2,
+        7,
+        2
+      ],
+      "pavement": [
+        7,
+        0,
+        4,
+        0,
+        5,
+        0,
+        6,
+        0
+      ],
+      "wear": 0.06,
+      "wearByUse": 0.09,
+      "repairPoint": [
+        5,
+        3
+      ],
+      "repairStaff": "ELECTRICIAN",
+      "salePrice": 8
     },
     {
       "id": "circus",
@@ -587,7 +642,38 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "electricianhut.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ElectricianHut.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ElectricianHut.lua",
+      "entrances": [
+        2,
+        1
+      ],
+      "walkable": [],
+      "reserved": [
+        2,
+        1,
+        2,
+        0
+      ],
+      "pavement": [
+        2,
+        0,
+        2,
+        1
+      ],
+      "wear": 0,
+      "wearByUse": 0,
+      "repairPoint": [],
+      "repairStaff": null,
+      "electrician": {
+        "attentionBase": 50,
+        "attentionRange": 50,
+        "skillBase": 30,
+        "skillRange": 30,
+        "speedBase": 10,
+        "speedRange": 70,
+        "wageBase": 80,
+        "wageMultiplier": 0.4
+      }
     },
     {
       "id": "entertainerssuite",

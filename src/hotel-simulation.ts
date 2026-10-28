@@ -6,7 +6,8 @@ export function stepHotel(state: GameState, catalog: CatalogItem[], dt: number, 
     const route = buildingRoute(state, catalog, building);
     if (route && building.type === 'headoffice') state.tutorial!.officeConnected = true;
     if (route && building.type === 'souvenirshop') state.tutorial!.shopConnected = true;
-    if (building.type === 'smallhotel' || building.type === 'souvenirshop') stepBusiness(state, catalog, building, dt, onSale);
+    if (route && building.type === 'cinema') state.tutorial!.cinemaConnected = true;
+    if (['smallhotel','souvenirshop','cinema'].includes(building.type)) stepBusiness(state, catalog, building, dt, onSale);
   }
 }
 function stepBusiness(state: GameState, catalog: CatalogItem[], hotel: Building, dt: number, onSale?: (amount: number) => void) {
@@ -15,9 +16,9 @@ function stepBusiness(state: GameState, catalog: CatalogItem[], hotel: Building,
   const tutorial = state.tutorial!;
   const isHotel = hotel.type === 'smallhotel';
   if (route && isHotel) tutorial.pathConnected = true;
-  const timer = isHotel ? 'arrivalTimer' : 'shopArrivalTimer';
+  const timer = isHotel ? 'arrivalTimer' : hotel.type === 'cinema' ? 'cinemaArrivalTimer' : 'shopArrivalTimer';
   tutorial[timer] = (tutorial[timer] ?? 0) + dt;
-  if (route && hotel.health > 0 && state.open && tutorial[timer] >= 4 &&
+  if (route && hotel.health > 0 && !hotel.broken && state.open && tutorial[timer] >= 4 &&
     state.guests.filter(g => g.target === hotel.uid && !g.leaving).length < item.capacity) {
     tutorial[timer] = 0;
     const entrance = route[route.length - 1]; state.totalVisitors++;
@@ -36,13 +37,14 @@ function stepBusiness(state: GameState, catalog: CatalogItem[], hotel: Building,
     }
     if (g.leaving) { g.activity = 'gone'; continue; }
     if (g.activity === 'walking') {
-      if (!route || !state.open || hotel.health <= 0) { g.activity = 'gone'; continue; }
+      if (!route || !state.open || hotel.health <= 0 || hotel.broken) { g.activity = 'gone'; continue; }
       // Original goods default price and service duration; simplified arrivals.
       const price = isHotel ? item.roomPrice ?? 25 : item.salePrice ?? 0;
       g.cash -= price; hotel.income += price; hotel.visits++; state.income += price;
       state.cash += price; g.activity = 'staying'; g.timer = item.duration; g.served++;
       hotel.health = Math.max(0, hotel.health - (item.wearByUse ?? 0));
-      if (!isHotel) onSale?.(price);
+      if (hotel.health === 0) hotel.broken = true;
+      if (hotel.type === 'souvenirshop') onSale?.(price);
     } else {
       g.timer -= dt;
       if (g.timer <= 0 && route) { g.leaving = true; g.activity = 'leaving'; g.path = [...route]; }

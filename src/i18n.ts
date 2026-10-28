@@ -60,7 +60,7 @@ const customEnglish: Record<string, string> = {
   ID_WEB_SHOP_PATHS: 'Connect the Souvenir Shop entrance to a street edge with paving. It may share the existing paved network used by your hotel or Head Office.',
   ID_WEB_RETAIL_READY: 'Your retail business is open.',
   ID_WEB_NEED_MECHANIC: 'Build a Mechanics Hut to hire a mechanic.', ID_WEB_MECHANIC_BUSY: 'The mechanic is already assigned to a repair.',
-  ID_WEB_CANNOT_REPAIR: 'This building does not use a mechanic.', ID_WEB_NO_REPAIR_NEEDED: 'This building is already at full health.',
+  ID_WEB_CANNOT_REPAIR: 'This building does not use maintenance staff.', ID_WEB_NO_REPAIR_NEEDED: 'This building is already at full health.',
   ID_WEB_CONNECT_REPAIR_BUILDINGS: 'Both the hut and target building need paved road access.',
   ID_WEB_REPAIR_PATH_MISSING: 'Join the hut and building with a continuous paved route inside the lot. You can link their paths along the street-edge cells.',
   ID_WEB_FINISH_SHOP_FIRST: 'Connect your Souvenir Shop before building the Mechanics Hut.',
@@ -68,7 +68,15 @@ const customEnglish: Record<string, string> = {
   ID_WEB_MECHANIC_IDLE: 'Idle', ID_WEB_MECHANIC_OUTBOUND: 'Walking to repair', ID_WEB_MECHANIC_REPAIRING: 'Repairing', ID_WEB_MECHANIC_RETURNING: 'Returning to hut',
   ID_WEB_MECHANIC_PATHS: 'A mechanic was hired automatically when you built the hut. Connect the hut to a street, and join its paving to the hotel’s path network inside the lot so the worker can reach the repair point.',
   ID_WEB_REPAIR_DISPATCHED: 'The mechanic has been called.',
-  ID_WEB_MAINTENANCE_SLICE_END: 'The repair request has been accepted. Keep the simulation running to watch the mechanic walk to the hotel, repair it and return to the hut.\n\nThe original tutorial advances when you press Call Mechanic. The next task in this Steam scenario is to build a Cinema and an Electricians Hut. Those tasks are still being ported; the full scenario is not complete.',
+  ID_WEB_NEED_ELECTRICIAN: 'Build an Electrician’s Hut to hire an electrician.', ID_WEB_ELECTRICIAN_BUSY: 'The electrician is already assigned to a repair.',
+  ID_WEB_ELECTRICIAN: 'Electrician', ID_WEB_CALL_MECHANIC_FIRST: 'Call the mechanic to the hotel before continuing.',
+  ID_WEB_CONNECT_CINEMA_FIRST: 'Construct the Cinema and connect its entrance to a street first.',
+  ID_WEB_CINEMA_PATHS: 'Your Cinema is built. Connect its entrance plates to a street using Standard Paving. Connected cinemas admit up to 22 customers and charge the original default ticket price of $8.',
+  ID_WEB_BUILD_ELECTRICIAN: 'The Cinema has paved access. Build an Electrician’s Hut from Infrastructure → Maintenance Staff. It costs $300 and hires one electrician automatically.',
+  ID_WEB_ELECTRICIAN_PATHS: 'Connect the electrician’s hut to a street and join its paved network to the Cinema. The electrician must be able to reach the Cinema’s repair point inside the lot.',
+  ID_WEB_ELECTRICAL_READY: 'Cinema and electrical maintenance are ready.',
+  ID_WEB_ELECTRICAL_SLICE_END: 'The Cinema and Electrician’s Hut both have road access. Cinema tickets generate income, and you can call the electrician from the Cinema Information panel when repairs are needed.\n\nThe next original objective is View Noise Filter. Influence filters and the later tutorial steps are still being ported. The full scenario is not complete.',
+  ID_WEB_TICKET_PRICE: 'Ticket Price', ID_WEB_BUSINESS_STATUS: 'Business Status', ID_WEB_BUSINESS_OPEN: 'Operating', ID_WEB_BUSINESS_CLOSED: 'Closed — repair required',
 };
 let active: Locale = 'en';
 try { active = localStorage.getItem('vegas-language') === 'el' ? 'el' : 'en'; } catch { /* English remains the default. */ }

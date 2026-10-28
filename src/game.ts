@@ -2,7 +2,7 @@ import { tutorialBuildError, validateTutorial, type TutorialState } from './tuto
 import { WIDTH, DEPTH, DAY_SECONDS, ENTRY } from './grid.ts';
 import { canPave, pave, hotelRoute, hotelWalkway, buildingRoute, cellKey, validatePaving } from './paving.ts';
 import { stepHotel } from './hotel-simulation.ts';
-import { hireMechanic, stepMaintenance, validateMechanic, type MechanicState } from './maintenance.ts';
+import { hireMechanic, hireElectrician, stepMaintenance, validateMechanic, validateElectrician, type MechanicState } from './maintenance.ts';
 export { WIDTH, DEPTH, DAY_SECONDS, ENTRY } from './grid.ts';
 
 export interface CatalogItem {
@@ -37,6 +37,7 @@ export interface CatalogItem {
   repairPoint?: number[];
   repairStaff?: string | null;
   mechanic?: { attentionBase:number; attentionRange:number; skillBase:number; skillRange:number; speedBase:number; speedRange:number; wageBase:number; wageMultiplier:number };
+  electrician?: CatalogItem['mechanic'];
   upgrades?: { id: number; nameKey: string; descriptionKey: string; cost: number; runningCost: number }[];
 }
 export interface Building {
@@ -49,6 +50,8 @@ export interface Building {
   income: number;
   visits: number;
   upgrades?: number[];
+  repairs?: number;
+  broken?: boolean;
 }
 export interface Guest {
   id: number;
@@ -79,6 +82,7 @@ export interface GameState {
   tutorial?: TutorialState;
   paving?: number[];
   mechanic?: MechanicState;
+  electrician?: MechanicState;
 }
 export const SAVE_KEY = 'vegas-web-save-v1';
 
@@ -164,6 +168,7 @@ export function place(state: GameState, item: CatalogItem, x: number, z: number,
   state.cash -= item.cost;
   state.buildings.push({ uid: state.nextId++, type: item.id, x, z, rotation, health: 100, income: 0, visits: 0 });
   if (state.tutorial && item.id === 'mechanichut') hireMechanic(state, catalog);
+  if (state.tutorial && item.id === 'electricianhut') hireElectrician(state, catalog);
   // Recalculate paths after any floorplan change.
   for (const guest of state.guests) { guest.path = []; if (guest.activity === 'walking') guest.timer = 0; }
   return null;
@@ -269,7 +274,7 @@ export class Simulation {
     if (!this.state.buildings.some(b => b.type === 'restroom')) g.happiness -= 2;
   }
   dailyCost() {
-    return (this.state.mechanic?.wage ?? 0) + this.state.buildings.reduce((sum, b) => {
+    return (this.state.mechanic?.wage ?? 0) + (this.state.electrician?.wage ?? 0) + this.state.buildings.reduce((sum, b) => {
       const item = this.item(b);
       const upgrades = item.upgrades?.filter(u => b.upgrades?.includes(u.id)).reduce((cost, u) => cost + u.runningCost, 0) ?? 0;
       return sum + item.runningCost + item.power + item.water + upgrades;
@@ -300,7 +305,7 @@ export function restore(raw: string, catalog: CatalogItem[]): GameState {
     if (s.tutorial && b.upgrades?.some(id => b.type !== 'headoffice' || id !== 2)) throw new Error('Invalid tutorial upgrade.');
   }
   if (s.tutorial) {
-    for (const [type, connected] of [['headoffice', s.tutorial.officeConnected], ['souvenirshop', s.tutorial.shopConnected], ['mechanichut', s.tutorial.mechanicConnected]] as const) {
+    for (const [type, connected] of [['headoffice', s.tutorial.officeConnected], ['souvenirshop', s.tutorial.shopConnected], ['mechanichut', s.tutorial.mechanicConnected], ['cinema', s.tutorial.cinemaConnected], ['electricianhut', s.tutorial.electricianConnected]] as const) {
       const b = s.buildings.find(b => b.type === type);
       if (connected && (!b || !buildingRoute(s, catalog, b))) throw new Error('Invalid saved road access.');
     }
@@ -314,10 +319,14 @@ export function restore(raw: string, catalog: CatalogItem[]): GameState {
     if (!item || !Number.isInteger(b.uid) || b.uid < 1 || b.uid >= s.nextId || seen.has(b.uid) ||
       !Number.isInteger(b.rotation) || b.rotation < 0 || b.rotation > 3 || !finite(b.health) ||
       b.health < 0 || b.health > 100 || !finite(b.income) || !Number.isInteger(b.visits) || b.visits < 0 ||
+      (b.repairs !== undefined && (!Number.isInteger(b.repairs) || b.repairs < 0)) ||
+      (b.broken !== undefined && typeof b.broken !== 'boolean') ||
       canPlace(check, item, b.x, b.z, b.rotation, catalog)) throw new Error('Invalid casino layout.');
     seen.add(b.uid); check.buildings.push(b);
+    if (b.health === 0) b.broken = true;
   }
   validateMechanic(s, catalog);
+  validateElectrician(s, catalog);
   // Visitors restart at the entrance; saves persist the economy and floorplan.
   s.guests = [];
   return s;

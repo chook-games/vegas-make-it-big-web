@@ -49,7 +49,11 @@ export class TutorialUI {
         mechanic: ['ID_SCENARIO_NWS_MECHANIC_NAME', 'ID_SCENARIO_NWS_MECHANIC_DESC'],
         mechanicPaths: ['ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_MECHANIC_PATHS'],
         repair: ['ID_SCENARIO_NWS_MECHANIC2_NAME', 'ID_SCENARIO_NWS_MECHANIC2_DESC'],
-        next: ['ID_WEB_REPAIR_DISPATCHED', 'ID_WEB_MAINTENANCE_SLICE_END'],
+        cinema: ['ID_SCENARIO_NWS_ELECTRICIAN_NAME', 'ID_SCENARIO_NWS_ELECTRICIAN_DESC'],
+        cinemaPaths: ['ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_CINEMA_PATHS'],
+        electrician: ['ID_SCENARIO_NWS_ELECTRICIAN_NAME', 'ID_WEB_BUILD_ELECTRICIAN'],
+        electricianPaths: ['ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_ELECTRICIAN_PATHS'],
+        next: ['ID_WEB_ELECTRICAL_READY', 'ID_WEB_ELECTRICAL_SLICE_END'],
       };
       this.message(...prompts[stage] as [string, string]);
     }
@@ -135,7 +139,11 @@ export class TutorialUI {
       else if (stage === 'mechanic') this.message('ID_SCENARIO_NWS_MECHANIC_NAME', 'ID_SCENARIO_NWS_MECHANIC_DESC');
       else if (stage === 'mechanicPaths') this.message('ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_MECHANIC_PATHS');
       else if (stage === 'repair') { this.inspectHotel(); this.message('ID_SCENARIO_NWS_MECHANIC2_NAME', 'ID_SCENARIO_NWS_MECHANIC2_DESC'); }
-      else if (stage === 'next') this.message('ID_WEB_REPAIR_DISPATCHED', 'ID_WEB_MAINTENANCE_SLICE_END');
+      else if (stage === 'cinema') this.message('ID_SCENARIO_NWS_ELECTRICIAN_NAME', 'ID_SCENARIO_NWS_ELECTRICIAN_DESC');
+      else if (stage === 'cinemaPaths') this.message('ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_CINEMA_PATHS');
+      else if (stage === 'electrician') this.message('ID_SCENARIO_NWS_ELECTRICIAN_NAME', 'ID_WEB_BUILD_ELECTRICIAN');
+      else if (stage === 'electricianPaths') this.message('ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_ELECTRICIAN_PATHS');
+      else if (stage === 'next') this.message('ID_WEB_ELECTRICAL_READY', 'ID_WEB_ELECTRICAL_SLICE_END');
     }
     const signature = `${tutorial.lotSelected}:${tutorial.lotOwned}:${stage}:${tutorial.theme}`;
     if (signature === this.signature) return;
@@ -146,6 +154,8 @@ export class TutorialUI {
       ${state.buildings.some(b => b.type === 'headoffice') ? `<button id="lot-office">${t('ID_BUILDING_TYPE_HEADOFFICE_NAME')}</button>` : ''}
       ${state.buildings.some(b => b.type === 'souvenirshop') ? `<button id="lot-shop">${t('ID_BUILDING_TYPE_SOUVENIRSHOP_NAME')}</button>` : ''}
       ${state.buildings.some(b => b.type === 'mechanichut') ? `<button id="lot-mechanic">${t('ID_BUILDING_TYPE_MECHANICHUT_NAME')}</button>` : ''}
+      ${state.buildings.some(b => b.type === 'cinema') ? `<button id="lot-cinema">${t('ID_BUILDING_TYPE_CINEMA_NAME')}</button>` : ''}
+      ${state.buildings.some(b => b.type === 'electricianhut') ? `<button id="lot-electrician">${t('ID_BUILDING_TYPE_ELECTRICIANHUT_NAME')}</button>` : ''}
       <button id="lot-objectives">${t('ID_OBJECTIVE_TITLE')}</button></div>`;
     this.root.querySelector<HTMLButtonElement>('#select-lot')?.addEventListener('click', () => this.selectLot());
     this.root.querySelector<HTMLButtonElement>('#buy-lot')?.addEventListener('click', () => this.chooseTheme());
@@ -158,5 +168,7 @@ export class TutorialUI {
     this.root.querySelector<HTMLButtonElement>('#lot-office')?.addEventListener('click', () => this.inspectHotel('headoffice'));
     this.root.querySelector<HTMLButtonElement>('#lot-shop')?.addEventListener('click', () => this.inspectHotel('souvenirshop'));
     this.root.querySelector<HTMLButtonElement>('#lot-mechanic')?.addEventListener('click', () => this.inspectHotel('mechanichut'));
+    this.root.querySelector<HTMLButtonElement>('#lot-cinema')?.addEventListener('click', () => this.inspectHotel('cinema'));
+    this.root.querySelector<HTMLButtonElement>('#lot-electrician')?.addEventListener('click', () => this.inspectHotel('electricianhut'));
   }
 }

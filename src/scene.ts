@@ -26,7 +26,7 @@ export class CasinoScene {
   private exterior = new THREE.Group();
   private pavingGroup = new THREE.Group();
   private pavingSignature = '';
-  private mechanicMesh: THREE.Group | null = null;
+  private staffMeshes = new Map<string, THREE.Group>();
 
   constructor(public host: HTMLElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
@@ -183,10 +183,15 @@ export class CasinoScene {
         this.box(group, .9, .8, .08, x, y, .95, 0x526f80);
       }
       this.box(group, 1.8, 1.8, .12, 0, 1, .92, 0x3b424b);
-    } else if (item.id === 'mechanichut') {
-      this.box(group, w * .9, 1.8, .9, 0, 1, .45, 0x637f91);
+    } else if (item.id === 'cinema') {
+      this.box(group, w * .86, 4.1, 4.6, 0, 2.15, 1.3, 0xa2a6b8);
+      this.box(group, w * .92, .25, 4.9, 0, 4.3, 1.3, 0x6c678e);
+      this.box(group, 6, .65, .3, 0, 2.8, -1.1, 0xd6a56e, true);
+      this.box(group, 3.3, 1.8, .1, -.5, 1, -1.08, 0x3c5264);
+    } else if (item.id === 'mechanichut' || item.id === 'electricianhut') {
+      this.box(group, w * .9, 1.8, .9, 0, 1, .45, item.id === 'mechanichut' ? 0x637f91 : 0xb39355);
       this.box(group, w * .98, .18, 1.1, 0, 1.95, .45, 0x9b9d87);
-      this.box(group, .75, 1.3, .06, .4, .7, -.03, 0x333f4a);
+      this.box(group, .75, 1.3, .06, item.id === 'mechanichut' ? .4 : 0, .7, -.03, 0x333f4a);
     } else if (item.id === 'headoffice' || item.id === 'souvenirshop') {
       const office = item.id === 'headoffice';
       this.box(group, w * .86, office ? 3.4 : 2.6, d * .55, 0, office ? 1.8 : 1.4, d * .2, office ? 0xb6b9ac : 0xd8b492);
@@ -297,20 +302,22 @@ export class CasinoScene {
   }
   resetCamera() { this.camera.position.set(66, 64, 80); this.controls.target.set(24, 0, 20); }
   syncMechanic(state: GameState) {
-    const worker = state.mechanic;
-    if (!worker) { if (this.mechanicMesh) this.disposeGroup(this.mechanicMesh); this.mechanicMesh = null; return; }
-    if (!this.mechanicMesh) {
-      this.mechanicMesh = new THREE.Group();
-      this.box(this.mechanicMesh, .5, .75, .36, 0, .75, 0, 0x5a9cb9);
-      this.box(this.mechanicMesh, .32, .3, .32, 0, 1.28, 0, 0xd4b292);
-      this.box(this.mechanicMesh, .42, .13, .42, 0, 1.48, 0, 0xe4b750);
-      this.box(this.mechanicMesh, .17, .42, .24, -.14, .23, 0, 0x344359);
-      this.box(this.mechanicMesh, .17, .42, .24, .14, .23, 0, 0x344359);
-      this.box(this.mechanicMesh, .24, .3, .4, .38, .6, 0, 0x7f8583);
-      this.scene.add(this.mechanicMesh);
+    for (const role of ['mechanic', 'electrician'] as const) {
+      const worker = state[role]; let mesh = this.staffMeshes.get(role);
+      if (!worker) { if (mesh) this.disposeGroup(mesh); this.staffMeshes.delete(role); continue; }
+      if (!mesh) {
+        mesh = new THREE.Group();
+        this.box(mesh, .5, .75, .36, 0, .75, 0, role === 'mechanic' ? 0x5a9cb9 : 0xe6a756);
+        this.box(mesh, .32, .3, .32, 0, 1.28, 0, 0xd4b292);
+        this.box(mesh, .42, .13, .42, 0, 1.48, 0, 0xe4b750);
+        this.box(mesh, .17, .42, .24, -.14, .23, 0, 0x344359);
+        this.box(mesh, .17, .42, .24, .14, .23, 0, 0x344359);
+        this.box(mesh, .24, .3, .4, .38, .6, 0, 0x7f8583);
+        this.scene.add(mesh); this.staffMeshes.set(role, mesh);
+      }
+      mesh.position.set(worker.x, .05 + (worker.status === 'repairing' ? Math.sin(state.elapsed * 15) * .04 : 0), worker.z);
+      if (worker.path[0]) mesh.rotation.y = Math.atan2(worker.path[0].x + .5 - worker.x, worker.path[0].z + .5 - worker.z);
     }
-    this.mechanicMesh.position.set(worker.x, .05 + (worker.status === 'repairing' ? Math.sin(state.elapsed * 15) * .04 : 0), worker.z);
-    if (worker.path[0]) this.mechanicMesh.rotation.y = Math.atan2(worker.path[0].x + .5 - worker.x, worker.path[0].z + .5 - worker.z);
   }
   setCombinedPan(pan: boolean) { this.controls.mouseButtons.RIGHT = pan ? THREE.MOUSE.PAN : THREE.MOUSE.ROTATE; }
   zoomCamera(scale: number) {

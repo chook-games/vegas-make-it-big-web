@@ -1642,6 +1642,14 @@
       "sha256": "dba4e09c96f0e6358dafa5de4839aeda678efc0800620ad2dd585f4e394c7f68"
     },
     {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Cinema.lua",
+      "sha256": "6c71cda5e69c03ace0428366bb81922529452a25e95ea7983b9a8ef166c72943"
+    },
+    {
+      "file": "GAMEDATA/Scripts/GENERAL/Goods.lua",
+      "sha256": "9949e803278e90cfcd813d083bef1158d2c9c790f71da3c52f34373e68c30df0"
+    },
+    {
       "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/circus_dc_thumb.tga",
       "sha256": "7f5e824950a1a93e10012af0af44b0b9bdd3dc85d59c6c932e5000ba1822ff2a"
     },
@@ -1672,6 +1680,18 @@
     {
       "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/elec_hut_thumb.tga",
       "sha256": "58ad803f8ff9194bc6dfd180c8251271519ded398f3da6f2a5c2a21589e38aa8"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Staff/Generic/Electrician.lua",
+      "sha256": "fcf636573350fb25677bf246eae00ac6f9ecc5fcbdceaa1c66faa73d70bc2cad"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ElectricianHut.lua",
+      "sha256": "9e0b52f5826820fea06b00f99caab33b77c0040e4cb1ddd03bdf24b31582c9ff"
+    },
+    {
+      "file": "GAMEDATA/Scripts/GENERAL/Goods.lua",
+      "sha256": "9949e803278e90cfcd813d083bef1158d2c9c790f71da3c52f34373e68c30df0"
     },
     {
       "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/entertainersuite_dc_thumb.tga",

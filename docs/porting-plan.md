@@ -91,10 +91,28 @@ never overwrites a save.
 - Original Mechanic.ogg hut ambience is used with prototype focus-distance
   attenuation. Full original spatial sound mixing/animation remain unported.
 - As in the original tutorial script, Call Mechanic advances the objective when
-  the request is accepted, while the actual job continues. The next objective in
-  this Steam installation is Cinema + Electricians Hut (the UK manual describes
-  a Night Club in its overview). Those tasks and the rest of training remain
-  pending. No full scenario win or campaign unlock is awarded for this slice.
+  the request is accepted, while the actual job continues. This Steam installation
+  then uses Cinema + Electricians Hut (the UK manual instead describes a Night Club).
+- Cinema construction ($5,000, 10×8 cells), four source entrance plates, repair
+  point (5,3), capacity 22, $8 ticket price and 75-second service time are imported.
+  Paved access is required before customers are admitted. Source age/use wear is
+  0.06 per second / 0.09 per visit.
+- Electrician's Hut costs $300 and $70 in daily base/utilities, plus its worker's
+  wage. It automatically hires one electrician using the source stats/wage
+  template. The source hut capacity field is 3; this implementation exposes only
+  the initial automatic worker, not additional hiring/firing slots.
+- Both staff roles share the new path-based movement/repair implementation, but
+  retain independent identity, wage, job, route and save state. A mechanic cannot
+  be dispatched to Cinema; its native handyman type is ELECTRICIAN. Cinema's
+  Information panel offers the original Call Electrician action/icon.
+- Zero-health businesses latch closed and reopen only on completed on-site
+  repair, even when a saved job is restored partway through fixing them.
+- The original Cinema has no configured use-sound, so ticket sales do not trigger
+  the souvenir shop's CashRegister effect. Existing original UI audio is retained.
+- Connecting Cinema and Electrician's Hut completes their source tutorial
+  objective; calling the electrician is available but is not an extra mandatory
+  objective. The next original goal is View Noise Filter. Influence filters and
+  subsequent training remain pending. No full scenario win/unlock is awarded.
 - The 48×40 lot, roads and surrounding boxes are newly generated minimal geometry;
   the original CMF/CMB map, exact lot dimensions and city simulation remain unported.
 
@@ -194,9 +212,9 @@ resolver and this directory alias. Web URLs themselves must remain case-correct.
 
 ## Next milestones
 
-1. Continue the Steam tutorial with Cinema/Electrician's Hut, influence filters
-   and casino-interior construction, preserving original panels and actions.
-2. Extend staff dispatch to electricians/cashiers, cleaning and security. Add
+1. Continue the Steam tutorial with influence filters and casino-interior
+   construction, preserving original panels and actions.
+2. Extend staff dispatch to cashiers, cleaning and security. Add
    missing original UI, sounds, pricing, reputation and influences.
 3. Port guest desires/classes, original gambling outcomes/house-edge rules and
    historical finance charts. Expand navigation from the currently imported cells.

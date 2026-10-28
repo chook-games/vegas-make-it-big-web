@@ -49,7 +49,7 @@ test('dispatch rejects disconnected networks and busy staff without charging rep
   for (let x = 7; x < 16; x++) pave(s,x,0,catalog);
   const before = s.cash; assert.equal(requestRepair(s,catalog,target.uid),null);
   assert.equal(s.cash,before); assert.equal(target.health,20,'Dispatch cannot repair remotely');
-  assert.equal(tutorialStage(s),'next','Original objective advances on pressing Call Mechanic');
+  assert.equal(tutorialStage(s),'cinema','Original objective advances on pressing Call Mechanic');
   assert.equal(requestRepair(s,catalog,target.uid),'ID_WEB_MECHANIC_BUSY');
   assert.equal(s.mechanic!.target,target.uid);
 });

@@ -25,8 +25,11 @@ Lot to continue to Head Office construction, road access, Retail Division and a
 Souvenir Shop. The shop must be connected before it serves customers. Continue by
 building a **Mechanic's Hut ($350)**, joining its paving to the hotel and pressing
 **Call Mechanic** in the hotel's Information panel. The worker repairs on site
-and returns; active jobs survive save/load. The next Cinema/Electrician tasks and
-the rest of the campaign are still being ported. Other campaigns remain previews. The exterior
+and returns; active jobs survive save/load. Then construct a **Cinema ($5,000)**,
+connect it and add an **Electrician's Hut ($300)**. Connected cinemas sell $8 tickets
+to up to 22 guests; Cinema repairs use the electrician, independently of mechanic
+jobs. Influence filters and the rest of the campaign are still being ported.
+Other campaigns remain previews. The exterior
 is a minimal new scene, not the decoded original scenario map.
 
 Build a casino floor, attract visitors, manage expenses and save your layout.

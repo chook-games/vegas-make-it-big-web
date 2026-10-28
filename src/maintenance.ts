@@ -15,19 +15,27 @@ export interface MechanicState {
   target: number | null;
   path: Cell[];
 }
-function homeCell(state: GameState, catalog: CatalogItem[]) {
-  const hut = state.buildings.find(b => b.type === 'mechanichut'); if (!hut) return null;
+export type StaffRole = 'mechanic' | 'electrician';
+const hutType = (role: StaffRole) => role === 'mechanic' ? 'mechanichut' : 'electricianhut';
+function homeCell(state: GameState, catalog: CatalogItem[], role: StaffRole = 'mechanic') {
+  const hut = state.buildings.find(b => b.type === hutType(role)); if (!hut) return null;
   const item = catalog.find(c => c.id === hut.type)!;
   return rotateCell(hut, item, item.entrances![0], item.entrances![1]);
 }
 export function hireMechanic(state: GameState, catalog: CatalogItem[], random = Math.random) {
-  const hut = state.buildings.find(b => b.type === 'mechanichut');
-  if (!hut || state.mechanic) return;
-  const data = catalog.find(c => c.id === hut.type)!.mechanic!;
+  hireWorker(state, catalog, 'mechanic', random);
+}
+export function hireElectrician(state: GameState, catalog: CatalogItem[], random = Math.random) {
+  hireWorker(state, catalog, 'electrician', random);
+}
+function hireWorker(state: GameState, catalog: CatalogItem[], role: StaffRole, random: () => number) {
+  const hut = state.buildings.find(b => b.type === hutType(role));
+  if (!hut || state[role]) return;
+  const data = catalog.find(c => c.id === hut.type)![role]!;
   const roll = (base: number, range: number) => Math.max(0, Math.min(100, base + random() * range));
   const attention = roll(data.attentionBase, data.attentionRange), skill = roll(data.skillBase, data.skillRange), speed = roll(data.speedBase, data.speedRange);
-  const home = homeCell(state, catalog)!;
-  state.mechanic = { uid:state.nextId++, home:hut.uid, x:home.x + .5, z:home.z + .5,
+  const home = homeCell(state, catalog, role)!;
+  state[role] = { uid:state.nextId++, home:hut.uid, x:home.x + .5, z:home.z + .5,
     attention, skill, speed, wage:Math.round(data.wageBase + (attention + skill + speed) / 3 * data.wageMultiplier),
     status:'idle', target:null, path:[] };
 }
@@ -36,11 +44,14 @@ function repairCell(building: Building, item: CatalogItem) {
   return rotateCell(building, item, point[0], point[1]);
 }
 export function requestRepair(state: GameState, catalog: CatalogItem[], uid: number): string | null {
-  const worker = state.mechanic, target = state.buildings.find(b => b.uid === uid);
-  if (!worker || !target) return 'ID_WEB_NEED_MECHANIC';
-  if (worker.status !== 'idle') return 'ID_WEB_MECHANIC_BUSY';
+  const target = state.buildings.find(b => b.uid === uid);
+  if (!target) return 'ID_WEB_CANNOT_REPAIR';
   const item = catalog.find(c => c.id === target.type)!;
-  if (item.repairStaff !== 'MECHANIC') return 'ID_WEB_CANNOT_REPAIR';
+  if (!['MECHANIC', 'ELECTRICIAN'].includes(item.repairStaff ?? '')) return 'ID_WEB_CANNOT_REPAIR';
+  const role: StaffRole = item.repairStaff === 'ELECTRICIAN' ? 'electrician' : 'mechanic';
+  const worker = state[role];
+  if (!worker) return role === 'mechanic' ? 'ID_WEB_NEED_MECHANIC' : 'ID_WEB_NEED_ELECTRICIAN';
+  if (worker.status !== 'idle') return role === 'mechanic' ? 'ID_WEB_MECHANIC_BUSY' : 'ID_WEB_ELECTRICIAN_BUSY';
   if (target.health >= 100) return 'ID_WEB_NO_REPAIR_NEEDED';
   const hut = state.buildings.find(b => b.uid === worker.home)!;
   if (!buildingRoute(state, catalog, hut) || !buildingRoute(state, catalog, target)) return 'ID_WEB_CONNECT_REPAIR_BUILDINGS';
@@ -57,10 +68,18 @@ export function stepMaintenance(state: GameState, catalog: CatalogItem[], dt: nu
   for (const b of state.buildings) {
     const item = catalog.find(c => c.id === b.type)!;
     b.health = Math.max(0, b.health - (item.wear ?? 0) * dt);
+    if (b.health === 0) b.broken = true;
   }
-  const worker = state.mechanic; if (!worker) return;
+  stepWorker(state, catalog, dt, 'mechanic');
+  stepWorker(state, catalog, dt, 'electrician');
+}
+function stepWorker(state: GameState, catalog: CatalogItem[], dt: number, role: StaffRole) {
+  const worker = state[role]; if (!worker) return;
   const hut = state.buildings.find(b => b.uid === worker.home)!;
-  if (buildingRoute(state, catalog, hut)) state.tutorial.mechanicConnected = true;
+  if (buildingRoute(state, catalog, hut)) {
+    if (role === 'mechanic') state.tutorial!.mechanicConnected = true;
+    else state.tutorial!.electricianConnected = true;
+  }
   if (worker.path.length) {
     const p = worker.path[0], dx = p.x + .5 - worker.x, dz = p.z + .5 - worker.z;
     const distance = Math.hypot(dx, dz), travel = dt * (2 + worker.speed / 50);
@@ -74,35 +93,45 @@ export function stepMaintenance(state: GameState, catalog: CatalogItem[], dt: nu
     // Original stats, new movement/repair formula until native engine timing is known.
     target.health = Math.min(100, target.health + dt * (4 + worker.skill / 20));
     if (target.health >= 100) {
-      if (target.type === 'smallhotel') state.tutorial.repairCompleted = true;
+      target.broken = false;
+      if (target.type === 'smallhotel') state.tutorial!.repairCompleted = true;
+      target.repairs = (target.repairs ?? 0) + 1;
       worker.status = 'returning';
-      worker.path = routeOnPaving(state, catalog, { x:Math.floor(worker.x), z:Math.floor(worker.z) }, homeCell(state, catalog)!) ?? [];
+      worker.path = routeOnPaving(state, catalog, { x:Math.floor(worker.x), z:Math.floor(worker.z) }, homeCell(state, catalog, role)!) ?? [];
     }
   } else if (worker.status === 'returning') { worker.status = 'idle'; worker.target = null; }
 }
 export function validateMechanic(state: GameState, catalog: CatalogItem[]) {
-  const worker = state.mechanic;
-  const hut = state.buildings.find(b => b.type === 'mechanichut');
+  validateWorker(state, catalog, 'mechanic');
+}
+export function validateElectrician(state: GameState, catalog: CatalogItem[]) {
+  validateWorker(state, catalog, 'electrician');
+}
+function validateWorker(state: GameState, catalog: CatalogItem[], role: StaffRole) {
+  const worker = state[role];
+  const hut = state.buildings.find(b => b.type === hutType(role));
+  if (!state.tutorial) { if (worker) throw new Error('Staff jobs require an exterior tutorial.'); return; }
   if (!worker) { if (hut) throw new Error('Missing mechanic state.'); return; }
   const finite = (value: number) => typeof value === 'number' && Number.isFinite(value);
   if (!state.tutorial || !hut || worker.home !== hut.uid || !Number.isInteger(worker.uid) || worker.uid < 1 || worker.uid >= state.nextId ||
-    state.buildings.some(b => b.uid === worker.uid) || ![worker.x,worker.z,worker.attention,worker.skill,worker.speed,worker.wage].every(finite) ||
+    state.buildings.some(b => b.uid === worker.uid) || state[role === 'mechanic' ? 'electrician' : 'mechanic']?.uid === worker.uid ||
+    ![worker.x,worker.z,worker.attention,worker.skill,worker.speed,worker.wage].every(finite) ||
     worker.x < 0 || worker.x >= WIDTH || worker.z < 0 || worker.z >= DEPTH ||
     [worker.attention,worker.skill,worker.speed].some(n => n < 0 || n > 100) || worker.wage < 0 ||
     !['idle','outbound','repairing','returning'].includes(worker.status) || !Array.isArray(worker.path) || worker.path.length > WIDTH * DEPTH ||
     worker.path.some(p => !Number.isInteger(p.x) || !Number.isInteger(p.z) || p.x < 0 || p.x >= WIDTH || p.z < 0 || p.z >= DEPTH)) throw new Error('Invalid mechanic save.');
-  const data = catalog.find(c => c.id === 'mechanichut')!.mechanic!;
+  const data = catalog.find(c => c.id === hutType(role))![role]!;
   if (worker.attention < data.attentionBase || worker.attention > data.attentionBase + data.attentionRange ||
     worker.skill < data.skillBase || worker.skill > data.skillBase + data.skillRange ||
     worker.speed < data.speedBase || worker.speed > data.speedBase + data.speedRange) throw new Error('Invalid mechanic stats.');
   if (worker.wage !== Math.round(data.wageBase + (worker.attention + worker.skill + worker.speed) / 3 * data.wageMultiplier)) throw new Error('Invalid mechanic wage.');
-  const home = homeCell(state, catalog)!;
+  const home = homeCell(state, catalog, role)!;
   if (worker.status === 'idle' && (worker.target !== null || worker.path.length || Math.hypot(worker.x - home.x - .5, worker.z - home.z - .5) > .01)) throw new Error('Invalid idle mechanic.');
-  if (state.tutorial.repairRequested && !state.tutorial.repairCompleted &&
+  if (role === 'mechanic' && state.tutorial.repairRequested && !state.tutorial.repairCompleted &&
     (worker.status === 'idle' || state.buildings.find(b => b.uid === worker.target)?.type !== 'smallhotel')) throw new Error('Invalid tutorial repair progress.');
   if (worker.status !== 'idle') {
     const target = state.buildings.find(b => b.uid === worker.target);
-    if (!target || catalog.find(c => c.id === target.type)!.repairStaff !== 'MECHANIC' ||
+    if (!target || catalog.find(c => c.id === target.type)!.repairStaff !== role.toUpperCase() ||
       !routeOnPaving(state, catalog, { x:Math.floor(worker.x), z:Math.floor(worker.z) }, repairCell(target, catalog.find(c => c.id === target.type)!))) throw new Error('Invalid repair target.');
     for (let i = 0; i < worker.path.length; i++) {
       const p = worker.path[i];
