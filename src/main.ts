@@ -1,9 +1,10 @@
 import './style.css';
 import { CasinoScene } from './scene';
 import { language, localizeDocument, setLanguage, translate as t } from './i18n';
-import { beginTutorial, tutorialStage } from './tutorial';
+import { beginTutorial, tutorialStage, tutorialBuildError, tutorialTask, objectiveIndex, OBJECTIVE_KEYS } from './tutorial';
 import { TutorialUI } from './tutorial-ui';
 import { HotelUI } from './hotel-ui';
+import { DevelopmentUI } from './development-ui';
 import { Simulation, createGame, canPlace, place, sell, restore, serialize, SAVE_KEY,
   DAY_SECONDS, type CatalogItem, type GameState } from './game';
 
@@ -84,13 +85,17 @@ async function start() {
     return images.get(key)!;
   };
   const hotelUI = new HotelUI($('inspector'), () => updateHud(), () => { selected = null; updateInspector(); }, getIcon);
-  const inspectHotel = () => {
+  const developmentUI = new DevelopmentUI($('inspector'), () => { renderCatalog(); updateHud(); }, () => { selected = null; updateInspector(); }, message => toast(message), getIcon);
+  const inspectHotel = (type = 'smallhotel') => {
     build = null; world.controls.enablePan = true; updatePreview();
-    selected = state.buildings.find(b => b.type === 'smallhotel')?.uid ?? null; updateInspector();
+    selected = state.buildings.find(b => b.type === type)?.uid ?? null; updateInspector();
   };
   const tutorialUI = new TutorialUI(() => state, () => {
-    const paths = !!state.buildings.find(b => b.type === 'smallhotel');
-    major = paths ? 3 : 0; minor = paths ? 'BUILDING_MINOR_GROUP_EXT_PATHS' : 'BUILDING_MINOR_GROUP_EXT_HOTELS';
+    const stage = tutorialStage(state);
+    if (stage === 'hotel') { major = 0; minor = 'BUILDING_MINOR_GROUP_EXT_HOTELS'; }
+    else if (stage === 'office') { major = 0; minor = 'BUILDING_MINOR_GROUP_EXT_OFFICES'; }
+    else if (stage === 'shop' || stage === 'retail') { major = 2; minor = 'BUILDING_MINOR_GROUP_EXT_SHOPS'; }
+    else { major = 3; minor = 'BUILDING_MINOR_GROUP_EXT_PATHS'; }
     choose(null); renderGroups(); renderMinors(); renderCatalog();
   }, () => { renderCatalog(); updateHud(); }, message => toast(message), getIcon, inspectHotel);
   document.querySelector('.classic-ui')!.classList.add('game-hidden');
@@ -185,6 +190,7 @@ async function start() {
   }
   function startGame(scenario: string | null, restored?: GameState) {
     hotelUI.reset();
+    developmentUI.reset();
     state = restored ?? (scenario === data.campaign[0] ? beginTutorial(createGame()) : createGame());
     sim = new Simulation(state, catalog); inGame = true; speed = 1;
     $('frontend').hidden = true; document.querySelector('.classic-ui')!.classList.remove('game-hidden');
@@ -201,7 +207,7 @@ async function start() {
   }
   function renderCatalog() {
     const visible = catalog.filter(c => c.major === major && (minor === '' || (c.minor ?? c.category) === minor) &&
-      (!state.tutorial || c.id === 'smallhotel' || c.id === 'path-1'));
+      (!state.tutorial || ['smallhotel','path-1','headoffice','souvenirshop'].includes(c.id)));
     $('object-count').textContent = `${visible.length} objects`;
     const missing = visible.filter(item => item.thumbnail && !images.has(item.id) && !pendingImages.has(item.id));
     for (const item of missing) pendingImages.add(item.id);
@@ -209,10 +215,12 @@ async function start() {
       try { images.set(item.id, await world.thumbnail(item)); } catch { /* keep objects usable without a thumbnail */ }
       // Record attempted IDs so failed assets cannot trigger a retry loop.
     })).then(() => renderCatalog());
-    $('catalog').innerHTML = visible.map(item => `
-      <button class="catalog-item ${build?.id === item.id ? 'selected' : ''}" data-item="${item.id}" title="${item.width} × ${item.depth} · ${t('ID_BUILDING_TYPE_CAPACITY', 'Capacity')} ${item.capacity}">
+    $('catalog').innerHTML = visible.map(item => {
+      const error = tutorialBuildError(state, item);
+      return `<button class="catalog-item ${build?.id === item.id ? 'selected' : ''}" data-item="${item.id}" ${error ? 'disabled' : ''} title="${error ? t(error) : `${item.width} × ${item.depth} · ${t('ID_BUILDING_TYPE_CAPACITY', 'Capacity')} ${item.capacity}`}">
       <div class="item-image">${images.has(item.id) ? `<img src="${images.get(item.id)}" alt="" />` : item.id === 'path-1' ? imageMarkup('t_path') : '<span>♠</span>'}</div>
-      <div><strong>${t(item.nameKey, item.name)}</strong><small>${item.width} × ${item.depth} cells</small><b>${money(item.cost)}</b></div><span class="item-add">+</span></button>`).join('');
+      <div><strong>${t(item.nameKey, item.name)}</strong><small>${item.width} × ${item.depth} cells</small><b>${money(item.cost)}</b></div><span class="item-add">+</span></button>`;
+    }).join('');
     $('catalog').querySelectorAll<HTMLButtonElement>('[data-item]').forEach(button => {
       button.onclick = () => choose(catalog.find(c => c.id === button.dataset.item)!);
     });
@@ -232,6 +240,7 @@ async function start() {
     if (!b) return;
     const item = catalog.find(c => c.id === b.type)!;
     if (state.tutorial && b.type === 'smallhotel') { hotelUI.render(state, b, catalog); return; }
+    if (state.tutorial && ['headoffice','souvenirshop'].includes(b.type)) { developmentUI.render(state, b, catalog); return; }
     $('inspector').innerHTML = `<div class="section-heading"><span class="eyebrow">${t('ID_WEB_SELECTED_OBJECT')}</span><button id="deselect" class="text-button" aria-label="${t('ID_GENERAL_CLOSE')}">×</button></div><h2>${t(item.nameKey, item.name)}</h2><div class="inspector-grid"><span>${t('ID_BUILDING_TYPE_HEALTH', 'Health')} <b>${Math.round(b.health)}%</b></span><span>${t('ID_BUILDING_TYPE_TOTALVISITS', 'Visits')} <b>${b.visits}</b></span><span>${t('ID_GENERAL_INCOME', 'Income')} <b>${money(b.income)}</b></span><span>${t('ID_GENERAL_RUNNINGCOSTS', 'Daily Costs')} <b>${money(item.runningCost + item.power + item.water)}</b></span></div><small class="muted">${t('ID_WEB_FOOTPRINT')}: ${item.width} × ${item.depth} · ${t('ID_BUILDING_TYPE_CAPACITY', 'Capacity')} ${item.capacity}</small><button id="sell" class="sell-button">${t('ID_BUILDING_TYPE_SELL', 'Sell')} · +${money(item.resale)}</button>`;
     $('sell').onclick = () => { sell(state, b.uid, catalog); selected = null; updateInspector(); toast(t('ID_WEB_OBJECT_SOLD')); };
     if (state.tutorial) { ($('sell') as HTMLButtonElement).disabled = true; $('sell').title = t('ID_WEB_HOTEL_REQUIRED'); }
@@ -249,10 +258,8 @@ async function start() {
     $('objective-title').textContent = state.completed ? t('ID_WEB_GOAL_COMPLETE') : t('ID_SCENARIO_NWS_WELCOME_NAME', 'Welcome to the Strip!');
     if (state.tutorial) {
       const stage = tutorialStage(state);
-      const keys = { lot:'ID_SCENARIO_NWS_OBJ_OBJECTIVE_NAME', hotel:'ID_SCENARIO_NWS_OBJ_BUILD_NAME', paths:'ID_SCENARIO_NWS_OBJ_PATHS_NAME',
-        guests:'ID_WEB_WAITING_FOR_GUESTS', finance:'ID_SCENARIO_NWS_OBJ_SALES_NAME', review:'ID_SCENARIO_NWS_OBJ_SALES2_NAME', next:'ID_WEB_FIRST_HOTEL_READY' };
-      $('objective-count').textContent = t(keys[stage]);
-      $('progress').style.width = `${['lot','hotel','paths','guests','finance','review','next'].indexOf(stage) / 7 * 100}%`;
+      $('objective-count').textContent = t(tutorialTask(stage));
+      $('progress').style.width = `${objectiveIndex(stage) / OBJECTIVE_KEYS.length * 100}%`;
     }
     $('toggle-open').textContent = state.open ? 'CASINO OPEN' : 'CASINO CLOSED';
     $('game-clock').textContent = `${String(Math.floor((state.elapsed % DAY_SECONDS) / DAY_SECONDS * 24)).padStart(2, '0')}:00`;
@@ -261,6 +268,7 @@ async function start() {
   }
   function changeState(next: GameState) {
     hotelUI.reset();
+    developmentUI.reset();
     state = next; sim = new Simulation(state, catalog); choose(null); world.sync(state.buildings, [], catalog, null); updateHud();
     world.setExterior(!!state.tutorial); tutorialUI.start();
   }
@@ -354,6 +362,7 @@ async function start() {
   const ambience = new Audio(`${import.meta.env.BASE_URL}assets/sound/casino-ambience.ogg`);
   const machineAmbience = new Audio(`${import.meta.env.BASE_URL}assets/sound/casino-machines.ogg`);
   const resultSounds = {
+    cashRegister: new Audio(`${import.meta.env.BASE_URL}assets/sound/cash-register.ogg`),
     winSmall: new Audio(`${import.meta.env.BASE_URL}assets/sound/win-small.ogg`),
     winMedium: new Audio(`${import.meta.env.BASE_URL}assets/sound/win-medium.ogg`),
     winBig: new Audio(`${import.meta.env.BASE_URL}assets/sound/win-big.ogg`),
@@ -361,6 +370,7 @@ async function start() {
     loseMedium: new Audio(`${import.meta.env.BASE_URL}assets/sound/lose-medium.ogg`),
   };
   ambience.loop = machineAmbience.loop = true; ambience.volume = .16; machineAmbience.volume = .12;
+  resultSounds.cashRegister.volume = .7;
   $('sfx-volume').oninput = (event) => {
     const value = Number((event.target as HTMLInputElement).value);
     clickSound.volume = value;
@@ -380,6 +390,9 @@ async function start() {
   let down = { x: 0, y: 0 };
   let painting: { x: number; z: number } | null = null;
   const canvas = world.renderer.domElement;
+  canvas.addEventListener('pointerdown', e => {
+    world.setCombinedPan(e.buttons === 3);
+  }, true);
   function paintTo(x: number, z: number) {
     if (!build || build.id !== 'path-1' || !state.tutorial || tutorialUI.paused) return;
     x = Math.max(-1, Math.min(48, x)); z = Math.max(-1, Math.min(40, z));
@@ -417,6 +430,7 @@ async function start() {
       updatePreview(); updateHud();
     } else {
       selected = world.pick(e); updateInspector();
+      if (selected !== null) world.focusBuilding(selected);
       if (state.tutorial && selected === null) {
         const point = world.point(e);
         if (point && point.x >= 0 && point.x < 48 && point.z >= 0 && point.z < 40) tutorialUI.selectLot();
@@ -426,6 +440,7 @@ async function start() {
   window.addEventListener('keydown', e => {
     if (!inGame || tutorialUI.paused || helpDialog.open || confirmDialog.open || (e.target as HTMLElement).matches('input, textarea, select')) return;
     if (e.code === 'Escape') choose(null);
+    if (e.code === 'PageUp' || e.code === 'PageDown') { e.preventDefault(); world.zoomCamera(e.code === 'PageUp' ? .9 : 1 / .9); }
     if ((e.code === 'Space' || e.code === 'KeyR') && build) { e.preventDefault(); rotation = (rotation + 1) % 4; updatePreview(); }
   });
   $('inventory').innerHTML = `<div class="inventory">${Object.entries(data.formats).map(([ext, info]) => `<span>${ext}</span><b>${info.count.toLocaleString()} files</b>`).join('')}</div>`;
@@ -457,7 +472,7 @@ async function start() {
     accumulator += dt * activeSpeed;
     while (accumulator >= .05) { sim.step(.05); accumulator -= .05; }
     for (const result of sim.events.splice(0)) {
-      const sound = result.type === 'win'
+      const sound = result.type === 'sale' ? resultSounds.cashRegister : result.type === 'win'
         ? result.amount >= 80 ? resultSounds.winBig : result.amount >= 25 ? resultSounds.winMedium : resultSounds.winSmall
         : result.amount >= 60 ? resultSounds.loseMedium : resultSounds.loseSmall;
       sound.currentTime = 0; void sound.play().catch(() => {});

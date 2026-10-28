@@ -78,6 +78,10 @@ button:focus-visible { outline: 2px solid #fff2a8; outline-offset: 1px; }
 .hotel-data { display: grid; grid-template-columns: 1fr 1fr; background: #633f2e99; padding: 6px; gap: 4px 16px; }
 .hotel-data > div { display: flex; justify-content: space-between; align-items: center; gap: 8px; font: 11px 'Courier New',monospace; }
 .hotel-data b { text-align: right; color: #fff3b1; }
+.retail-upgrade { grid-column: 1 / -1; display: block !important; padding: 5px; }
+.retail-upgrade p { margin: 6px 0; }
+.retail-upgrade button { padding: 6px 12px; background: linear-gradient(#8b9f70,#4d673e); color: #fff; border: 2px outset #c4c89d; }
+.retail-upgrade button:disabled, .catalog-item:disabled { opacity: .5; cursor: default; }
 .language-picker, .frontend-panel { text-shadow: 1px 1px #253426; }
 .classic-top-left, .classic-top-right, .classic-build, .classic-left-tools, .classic-actions, .inspector, .classic-objectives, .placement { background: linear-gradient(180deg, #777c7a, #444a4e 20%, #555b5d 80%, #292f33); border: 1px solid #999c9b; box-shadow: inset 1px 1px #c3c2b6, inset -1px -1px #242a30, 0 2px 5px #0007; color: #fff; }
 .classic-top-left { position: absolute; left: 0; top: 0; height: 43px; display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 0 0 3px 0; }

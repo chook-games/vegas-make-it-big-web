@@ -43,7 +43,6 @@ const customEnglish: Record<string, string> = {
   ID_WEB_PAVING_BOUNDS: 'Paving must stay inside the lot.', ID_WEB_PAVING_OCCUPIED: 'This cell belongs to a building.',
   ID_WEB_PAVING_EXISTS: 'This cell is already paved.', ID_WEB_WAITING_FOR_GUESTS: 'Waiting for the first hotel guest.',
   ID_WEB_FIRST_HOTEL_READY: 'Your first hotel is open.',
-  ID_WEB_HOTEL_SLICE_END: 'Your hotel now has road access, guests and sales. You have viewed its finance, information, visitor and statistics panels.\n\nThe next original tutorial tasks (camera guidance, Head Office and upgrades) are still being ported. This does not complete the full scenario. You can keep running the hotel, add paving, save or return to the main menu.',
   ID_WEB_POWER_USE: 'Power Use', ID_WEB_WATER_USE: 'Water Use', ID_WEB_ROAD_ACCESS: 'Road Access',
   ID_WEB_CONNECTED: 'Connected', ID_WEB_NOT_CONNECTED: 'No paved route', ID_WEB_ROOM_RATE: 'Room Rate',
   ID_WEB_DAILY_COSTS: 'Daily Costs', ID_WEB_CURRENT_GUESTS: 'Guests / Reserved Rooms', ID_WEB_GUEST_GROUP: 'Guest Type',
@@ -51,6 +50,16 @@ const customEnglish: Record<string, string> = {
   ID_WEB_HISTORY_NOTE: 'Statistics', ID_WEB_HISTORY_NOTE_TEXT: 'Totals since construction; daily historical charts are not yet ported.',
   ID_WEB_TAB_INFO: 'Information', ID_WEB_TAB_FINANCE: 'Finance', ID_WEB_TAB_PEOPLE: 'Visitors', ID_WEB_TAB_HISTORY: 'Statistics',
   ID_WEB_PAVING_HINT: 'Click or drag: $10 per cell. Connect the amber hotel entrance to any street edge. Esc cancels.',
+  ID_WEB_BUILD_OFFICE_FIRST: 'Build a Head Office first.', ID_WEB_CONNECT_OFFICE: 'Connect the Head Office to a street with paving.',
+  ID_WEB_RETAIL_ALREADY_ENABLED: 'Retail Division is already enabled.', ID_WEB_REVIEW_CAMERA_FIRST: 'Review the camera guidance, then select the Lot.',
+  ID_WEB_BUILDING_EXISTS: 'This tutorial building has already been constructed.', ID_WEB_ENABLE_RETAIL_FIRST: 'Requires a connected Head Office with Retail Division enabled.',
+  ID_WEB_BUILD_OVER_PAVING: 'Keep existing paved routes clear when placing buildings.',
+  ID_WEB_UPGRADES: 'Upgrades', ID_WEB_PER_DAY: 'per day', ID_WEB_ENABLED: 'Enabled', ID_WEB_ENABLE_RETAIL: 'Enable Retail Division',
+  ID_WEB_OFFICE_PATHS: 'Your Head Office has been constructed. Connect its amber entrance plate to a street edge or the existing paved network. Use Construction → Scenery → Paths.',
+  ID_WEB_BUILD_SHOP_GUIDE: 'Retail Division is enabled. You can now build a Souvenir Shop. Select the Lot, open Construction → Retail → Shops, and place the shop. Remember to connect its entrance to a street with paving.',
+  ID_WEB_SHOP_PATHS: 'Connect the Souvenir Shop entrance to a street edge with paving. It may share the existing paved network used by your hotel or Head Office.',
+  ID_WEB_RETAIL_READY: 'Your retail business is open.',
+  ID_WEB_DEVELOPMENT_SLICE_END: 'Your Head Office is connected, Retail Division is enabled, and the Souvenir Shop has road access.\n\nThe next original objective is to build a Mechanic’s Hut. Staff dispatch, maintenance and the following tutorial tasks are still being ported. This does not complete the original scenario. You can continue running your businesses, add paving or save your progress.',
 };
 let active: Locale = 'en';
 try { active = localStorage.getItem('vegas-language') === 'el' ? 'el' : 'en'; } catch { /* English remains the default. */ }

@@ -44,10 +44,15 @@ export function pave(state: GameState, x: number, z: number, catalog: CatalogIte
 export function hotelRoute(state: GameState, catalog: CatalogItem[]): Cell[] | null {
   const b = state.buildings.find(b => b.type === 'smallhotel');
   if (!b) return null;
+  return buildingRoute(state, catalog, b);
+}
+export function buildingRoute(state: GameState, catalog: CatalogItem[], b: Building): Cell[] | null {
   const item = catalog.find(c => c.id === b.type)!;
   if (!item.entrances?.length) return null;
   const entrance = rotateCell(b, item, item.entrances[0], item.entrances[1]);
-  const allowed = new Set([...(state.paving ?? []), ...hotelWalkway(b, item).map(cellKey)]);
+  const access = state.buildings.flatMap(building => hotelWalkway(building, catalog.find(c => c.id === building.type)!))
+    .filter(cell => cell.x >= 0 && cell.x < WIDTH && cell.z >= 0 && cell.z < DEPTH);
+  const allowed = new Set([...(state.paving ?? []), ...access.map(cellKey)]);
   const queue: Cell[] = [entrance];
   const previous = new Map<number, Cell | null>([[cellKey(entrance), null]]);
   for (let i = 0; i < queue.length; i++) {

@@ -52,8 +52,24 @@ never overwrites a save.
   shown separately from lifetime receipts to avoid a misleading profit total.
 - Paving, ownership, theme, receipts and tutorial panel progression survive
   save/load. Guest instances restart as in existing prototype saves.
-- Subsequent camera guidance, Head Office and upgrade tasks remain pending.
-  No full scenario win or campaign unlock is awarded for this opening slice.
+- Closing Statistics advances to the original camera guidance. Page Up/Down zoom,
+  right-drag orbits, two-button dragging pans, and clicking a building changes the
+  focus. As in the original script, selecting the Lot continues the tutorial;
+  no arbitrary camera movement threshold is required.
+- Head Office costs $1,000 and must have paved road access. Its original entrance
+  and reserved approach cells are imported, including cells outside its footprint.
+- Retail Division (upgrade 2) costs $750 and adds $450 per game day to the office's
+  $300 base/utility overhead. The shop's HeadOffice/upgrade-2 prerequisite is
+  enforced. Repeat activation cannot debit money again.
+- Souvenir Shop costs $3,200, has capacity 12, a 36-second service duration and a
+  default goods price of $12. It needs paved access; simplified arrivals use the
+  same navigation as the hotel. Check-ins trigger the original CashRegister.ogg
+  use sound. Source customer preferences/desires are not reproduced yet.
+- Camera acknowledgement, buildings, upgrades and road connection flags persist.
+  Saves reject invalid prerequisite chains, duplicate upgrades and broken access.
+- The next original objective is Mechanic's Hut. Staff dispatch, maintenance and
+  the rest of the training remain pending. No full scenario win or campaign
+  unlock is awarded for this slice.
 - The 48×40 lot, roads and surrounding boxes are newly generated minimal geometry;
   the original CMF/CMB map, exact lot dimensions and city simulation remain unported.
 
@@ -87,7 +103,7 @@ theme registration, gambling definitions and representative source templates.
 
 `public/assets/game-data.json` includes the complete format counts and byte totals.
 The import also records 164 exterior/interior build templates, all 372 original
-GUI sprites and ten selected original interface/casino/result sounds.
+GUI sprites and eleven selected original interface/casino/result/use sounds.
 `public/assets/provenance.json` records installation-relative source paths and
 SHA-256 hashes for every imported thumbnail, UI sprite, selected sound and
 building script.

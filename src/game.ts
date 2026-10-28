@@ -1,6 +1,6 @@
 import { tutorialBuildError, validateTutorial, type TutorialState } from './tutorial.ts';
 import { WIDTH, DEPTH, DAY_SECONDS, ENTRY } from './grid.ts';
-import { canPave, pave, hotelRoute, validatePaving } from './paving.ts';
+import { canPave, pave, hotelRoute, hotelWalkway, buildingRoute, cellKey, validatePaving } from './paving.ts';
 import { stepHotel } from './hotel-simulation.ts';
 export { WIDTH, DEPTH, DAY_SECONDS, ENTRY } from './grid.ts';
 
@@ -29,6 +29,9 @@ export interface CatalogItem {
   reserved?: number[];
   pavement?: number[];
   roomPrice?: number;
+  salePrice?: number;
+  dependency?: { building: string; upgrade: number };
+  upgrades?: { id: number; nameKey: string; descriptionKey: string; cost: number; runningCost: number }[];
 }
 export interface Building {
   uid: number;
@@ -39,6 +42,7 @@ export interface Building {
   health: number;
   income: number;
   visits: number;
+  upgrades?: number[];
 }
 export interface Guest {
   id: number;
@@ -128,8 +132,12 @@ export function canPlace(state: GameState, item: CatalogItem, x: number, z: numb
   const { w, d } = dimensions(item, rotation);
   if (x < 0 || z < 0 || x + w > WIDTH || z + d > DEPTH) return 'The object does not fit inside the casino.';
   const blocked = occupied(state.buildings, catalog);
+  for (const b of state.buildings) for (const cell of hotelWalkway(b, catalog.find(c => c.id === b.type)!)) {
+    if (cell.x >= 0 && cell.x < WIDTH && cell.z >= 0 && cell.z < DEPTH) blocked.add(cellKey(cell));
+  }
   for (let zz = z; zz < z + d; zz++) for (let xx = x; xx < x + w; xx++) {
     if (blocked.has(zz * WIDTH + xx)) return 'This space is already occupied.';
+    if (state.paving?.includes(zz * WIDTH + xx)) return 'ID_WEB_BUILD_OVER_PAVING';
     if (zz >= DEPTH - 2 && Math.abs(xx - ENTRY.x) < 2) return 'Keep the entrance clear.';
     if (state.guests.some(g => Math.floor(g.x) === xx && Math.floor(g.z) === zz)) return 'Wait for the visitor to pass.';
   }
@@ -155,7 +163,7 @@ export function place(state: GameState, item: CatalogItem, x: number, z: number,
 export function sell(state: GameState, uid: number, catalog: CatalogItem[]) {
   const b = state.buildings.find(b => b.uid === uid);
   if (!b) return;
-  if (state.tutorial && b.type === 'smallhotel') return;
+  if (state.tutorial) return;
   state.cash += catalog.find(c => c.id === b.type)!.resale;
   state.buildings = state.buildings.filter(b => b.uid !== uid);
   for (const g of state.guests) if (g.target === uid) { g.target = null; g.timer = 0; g.path = []; }
@@ -163,7 +171,7 @@ export function sell(state: GameState, uid: number, catalog: CatalogItem[]) {
 
 export class Simulation {
   private spawnTimer = 0;
-  readonly events: { type: 'win' | 'lose'; amount: number }[] = [];
+  readonly events: { type: 'win' | 'lose' | 'sale'; amount: number }[] = [];
   constructor(public state: GameState, public catalog: CatalogItem[], private random = Math.random) {}
 
   step(dt: number) {
@@ -175,7 +183,7 @@ export class Simulation {
       s.cash -= cost;
       s.expenses += cost;
     }
-    if (s.tutorial) { stepHotel(s, this.catalog, dt); return; }
+    if (s.tutorial) { stepHotel(s, this.catalog, dt, amount => this.events.push({ type: 'sale', amount })); return; }
     const has = (type: string) => s.buildings.some(b => b.type === type);
     for (const b of s.buildings) {
       if (has('mechanic') || (b.type === 'slot' && has('cashier'))) b.health = Math.min(100, b.health + dt * 0.1);
@@ -252,7 +260,8 @@ export class Simulation {
   dailyCost() {
     return this.state.buildings.reduce((sum, b) => {
       const item = this.item(b);
-      return sum + item.runningCost + item.power + item.water;
+      const upgrades = item.upgrades?.filter(u => b.upgrades?.includes(u.id)).reduce((cost, u) => cost + u.runningCost, 0) ?? 0;
+      return sum + item.runningCost + item.power + item.water + upgrades;
     }, 0);
   }
 }
@@ -273,6 +282,21 @@ export function restore(raw: string, catalog: CatalogItem[]): GameState {
   if (s.tutorial?.pathConnected && !hotelRoute(s, catalog)) throw new Error('Invalid saved hotel connection.');
   if (s.tutorial?.financeViewed && !s.buildings[0]?.visits) throw new Error('Invalid saved hotel sales progress.');
   if (s.tutorial?.reviewStep && !s.tutorial.financeViewed) throw new Error('Invalid saved hotel information progress.');
+  for (const b of s.buildings) {
+    const item = catalog.find(c => c.id === b.type);
+    if (b.upgrades !== undefined && (!Array.isArray(b.upgrades) || new Set(b.upgrades).size !== b.upgrades.length ||
+      b.upgrades.some(id => !Number.isInteger(id) || !item?.upgrades?.some(u => u.id === id)))) throw new Error('Invalid saved upgrades.');
+    if (s.tutorial && b.upgrades?.some(id => b.type !== 'headoffice' || id !== 2)) throw new Error('Invalid tutorial upgrade.');
+  }
+  if (s.tutorial) {
+    for (const [type, connected] of [['headoffice', s.tutorial.officeConnected], ['souvenirshop', s.tutorial.shopConnected]] as const) {
+      const b = s.buildings.find(b => b.type === type);
+      if (connected && (!b || !buildingRoute(s, catalog, b))) throw new Error('Invalid saved road access.');
+    }
+    const office = s.buildings.find(b => b.type === 'headoffice');
+    if ((office?.upgrades?.includes(2) || s.buildings.some(b => b.type === 'souvenirshop')) &&
+      (!s.tutorial.officeConnected || !office?.upgrades?.includes(2))) throw new Error('Invalid retail dependency.');
+  }
   const check = createGame(); check.cash = Number.MAX_SAFE_INTEGER;
   for (const b of s.buildings) {
     const item = catalog.find(c => c.id === b.type);

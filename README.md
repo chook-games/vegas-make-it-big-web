@@ -20,8 +20,10 @@ objectives, Lot 1 selection/purchase, theme choice and Small Hotel construction.
 Continue with **Build Path**: use Standard Paving ($10 per cell) to connect the
 hotel entrance to a street edge. Click or drag to pave. Connected hotels admit
 guests, charge $25 per check-in and offer Finance, Information, Visitors and
-Statistics panels. Later tasks (Head Office, upgrades and the rest of the
-campaign) are still being ported. Other campaigns remain previews. The exterior
+Statistics panels. Close Statistics, review the camera guidance and select the
+Lot to continue to Head Office construction, road access, Retail Division and a
+Souvenir Shop. The shop must be connected before it serves customers. Maintenance,
+staff and the rest of the campaign are still being ported. Other campaigns remain previews. The exterior
 is a minimal new scene, not the decoded original scenario map.
 
 Build a casino floor, attract visitors, manage expenses and save your layout.
@@ -78,6 +80,7 @@ The original executable, DLLs and player saves are not part of the distribution.
 - `src/paving.ts` — rotated hotel access cells, paved routes and paving validation.
 - `src/hotel-simulation.ts` — hotel arrivals, check-in, stays and departure.
 - `src/hotel-ui.ts` — hotel finance, information, visitor and statistics panels.
+- `src/development.ts`, `src/development-ui.ts` — Head Office upgrades and retail unlocks.
 - `tools/` — reproducible import, inspection and browser checks.
 - `public/assets/` — 164 catalog entries, 372 original GUI sprites, thumbnails,
   selected original UI/gameplay sounds and provenance hashes.

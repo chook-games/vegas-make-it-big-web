@@ -1091,7 +1091,45 @@
       "water": 50,
       "duration": 10,
       "thumbnail": "headoffice.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/HeadOffice.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/HeadOffice.lua",
+      "entrances": [
+        4,
+        2
+      ],
+      "walkable": [],
+      "reserved": [
+        4,
+        0,
+        4,
+        1
+      ],
+      "pavement": [
+        4,
+        0
+      ],
+      "upgrades": [
+        {
+          "id": 1,
+          "nameKey": "ID_UPGRADE_BUILDING_HEADOFFICE_AQUATICS_TITLE",
+          "descriptionKey": "ID_UPGRADE_BUILDING_HEADOFFICE_AQUATICS_DESC",
+          "cost": 1500,
+          "runningCost": 900
+        },
+        {
+          "id": 2,
+          "nameKey": "ID_UPGRADE_BUILDING_HEADOFFICE_RETAIL_TITLE",
+          "descriptionKey": "ID_UPGRADE_BUILDING_HEADOFFICE_RETAIL_DESC",
+          "cost": 750,
+          "runningCost": 450
+        },
+        {
+          "id": 3,
+          "nameKey": "ID_UPGRADE_BUILDING_HEADOFFICE_ENTERTAINMENT_TITLE",
+          "descriptionKey": "ID_UPGRADE_BUILDING_HEADOFFICE_ENTERTAINMENT_DESC",
+          "cost": 2500,
+          "runningCost": 1300
+        }
+      ]
     },
     {
       "id": "healthspa",
@@ -2299,7 +2337,54 @@
       "water": 0,
       "duration": 36,
       "thumbnail": "souvenirshop.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SouvenirShop.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SouvenirShop.lua",
+      "entrances": [
+        3,
+        3
+      ],
+      "walkable": [
+        1,
+        1,
+        2,
+        1,
+        4,
+        1,
+        5,
+        1,
+        1,
+        7,
+        2,
+        7,
+        3,
+        7,
+        4,
+        7,
+        5,
+        7
+      ],
+      "reserved": [
+        1,
+        2,
+        2,
+        2,
+        3,
+        2,
+        4,
+        2,
+        5,
+        2,
+        3,
+        1
+      ],
+      "pavement": [
+        3,
+        1
+      ],
+      "salePrice": 12,
+      "dependency": {
+        "building": "headoffice",
+        "upgrade": 2
+      }
     },
     {
       "id": "stageshow",
@@ -5155,6 +5240,10 @@
     {
       "id": "event-negative",
       "file": "sound/event-negative.ogg"
+    },
+    {
+      "id": "cash-register",
+      "file": "sound/cash-register.ogg"
     }
   ],
   "languages": [

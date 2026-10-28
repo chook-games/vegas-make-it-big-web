@@ -20,7 +20,7 @@ test('the complete template/UI/audio manifests import source fidelity data', () 
   const data = JSON.parse(readFileSync(new URL('../public/assets/game-data.json', import.meta.url), 'utf8'));
   assert.equal(data.catalog.length, 164);
   assert.equal(data.uiSprites.length, 372);
-  assert.equal(data.sounds.length, 10);
+  assert.equal(data.sounds.length, 11);
   assert.ok(data.catalog.some((entry: { major: number }) => entry.major === 0));
   assert.ok(data.catalog.some((entry: { major: number }) => entry.major === 7));
   assert.equal(data.campaign.length, 10);

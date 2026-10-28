@@ -1,0 +1,70 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { createGame, place, restore, serialize, Simulation, type CatalogItem } from '../src/game.ts';
+import { beginTutorial, purchaseLot, tutorialStage } from '../src/tutorial.ts';
+import { buildingRoute, pave } from '../src/paving.ts';
+import { enableRetail } from '../src/development.ts';
+
+const { catalog } = JSON.parse(readFileSync(new URL('../public/assets/game-data.json', import.meta.url), 'utf8')) as { catalog: CatalogItem[] };
+const item = (id: string) => catalog.find(c => c.id === id)!;
+function readyHotel() {
+  const s = beginTutorial(createGame()); s.tutorial!.lotSelected = true; purchaseLot(s, 'Generic');
+  assert.equal(place(s, item('smallhotel'), 10, 10, 0, catalog), null);
+  for (let z = 9; z >= 0; z--) assert.equal(pave(s, 16, z, catalog), null);
+  s.tutorial!.pathConnected = true; s.tutorial!.financeViewed = true; s.tutorial!.reviewStep = 3;
+  s.buildings[0].visits = 1; s.buildings[0].income = 25; s.income = 25; s.cash += 25;
+  return s;
+}
+test('source development values include Retail Division cost and upgrade dependency', () => {
+  assert.equal(item('headoffice').cost, 1000);
+  assert.deepEqual(item('headoffice').entrances, [4,2]);
+  const retail = item('headoffice').upgrades!.find(u => u.id === 2)!;
+  assert.equal(retail.cost, 750); assert.equal(retail.runningCost, 450);
+  assert.equal(item('souvenirshop').cost, 3200); assert.equal(item('souvenirshop').salePrice, 12);
+  assert.deepEqual(item('souvenirshop').dependency, { building: 'headoffice', upgrade: 2 });
+});
+test('statistics must be closed before camera guidance and office construction', () => {
+  const s = readyHotel();
+  assert.equal(tutorialStage(s), 'review');
+  assert.ok(place(s, item('headoffice'), 30, 10, 0, catalog));
+  s.tutorial!.statisticsClosed = true;
+  assert.equal(tutorialStage(s), 'camera');
+  s.tutorial!.cameraReviewed = true;
+  assert.equal(tutorialStage(s), 'office');
+  assert.equal(place(s, item('headoffice'), 30, 10, 0, catalog), null);
+  assert.equal(tutorialStage(s), 'officePaths');
+});
+test('retail needs road access, charges once, unlocks shop and adds running expenses', () => {
+  const s = readyHotel(); s.tutorial!.statisticsClosed = true; s.tutorial!.cameraReviewed = true;
+  assert.ok(place(s, item('souvenirshop'), 24, 26, 0, catalog));
+  assert.equal(place(s, item('headoffice'), 30, 10, 0, catalog), null);
+  const office = s.buildings[1]; const sim = new Simulation(s, catalog);
+  assert.ok(enableRetail(s, catalog, office.uid));
+  assert.equal(sim.dailyCost(), 960);
+  for (let z = 8; z >= 0; z--) assert.equal(pave(s, 33, z, catalog), null);
+  assert.ok(buildingRoute(s, catalog, office)); sim.step(0);
+  assert.equal(tutorialStage(s), 'retail');
+  const balance = s.cash; s.cash = 749;
+  assert.ok(enableRetail(s, catalog, office.uid)); assert.equal(s.cash, 749);
+  s.cash = balance;
+  assert.equal(enableRetail(s, catalog, office.uid), null);
+  assert.equal(s.cash, balance - 750);
+  assert.ok(enableRetail(s, catalog, office.uid)); assert.equal(s.cash, balance - 750);
+  assert.equal(sim.dailyCost(), 1410);
+  assert.equal(tutorialStage(s), 'shop');
+  assert.equal(place(s, item('souvenirshop'), 24, 26, 0, catalog), null);
+  assert.equal(tutorialStage(s), 'shopPaths');
+  assert.equal(sim.dailyCost(), 1810);
+  for (let z = 25; z >= 0; z--) assert.equal(pave(s, 26, z, catalog), null);
+  sim.step(0); assert.equal(tutorialStage(s), 'next');
+  for (let i = 0; i < 800; i++) sim.step(.05);
+  const shop = s.buildings[2]; assert.ok(shop.visits > 0);
+  assert.equal(shop.income, 12 * shop.visits);
+  assert.ok(sim.events.some(event => event.type === 'sale' && event.amount === 12));
+  const loaded = restore(serialize(s), catalog);
+  assert.equal(tutorialStage(loaded), 'next'); assert.deepEqual(loaded.buildings[1].upgrades, [2]);
+  assert.equal(loaded.completed, false);
+  assert.throws(() => restore(JSON.stringify({ ...s, buildings: s.buildings.map(b => b === office ? { ...b, upgrades: [] } : b) }), catalog));
+  assert.throws(() => restore(JSON.stringify({ ...s, buildings: s.buildings.map(b => b === office ? { ...b, upgrades: [2,2] } : b) }), catalog));
+});

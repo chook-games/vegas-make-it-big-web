@@ -34,7 +34,10 @@ export class HotelUI {
     this.root.innerHTML = `<div class="hotel-title"><b>${t(item.nameKey, item.name)}</b><button id="hotel-close" title="${t('ID_GENERAL_CLOSE')}">×</button></div>
       <nav class="hotel-tabs">${(['info','finance','people','history'] as HotelTab[]).map(tab => `<button data-hotel-tab="${tab}" class="${this.tab === tab ? 'active' : ''}">${t('ID_WEB_TAB_' + tab.toUpperCase())}</button>`).join('')}</nav>
       <div class="hotel-data">${rows[this.tab].map(([key,value]) => `<div><span>${t(key)}</span><b>${value}</b></div>`).join('')}</div>`;
-    this.root.querySelector<HTMLButtonElement>('#hotel-close')!.onclick = this.close;
+    this.root.querySelector<HTMLButtonElement>('#hotel-close')!.onclick = () => {
+      if (state.tutorial?.reviewStep === 3 && this.tab === 'history') state.tutorial.statisticsClosed = true;
+      this.close(); this.changed();
+    };
     this.root.querySelectorAll<HTMLButtonElement>('[data-hotel-tab]').forEach(button => button.onclick = () => {
       this.tab = button.dataset.hotelTab as HotelTab;
       if (state.tutorial && b.visits > 0) {

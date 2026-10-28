@@ -1766,6 +1766,14 @@
       "sha256": "312a9077dba05f93f2fe31a19e3f0cb908e048ebb5f61dea72bc44bc9688161d"
     },
     {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/HeadOffice.lua",
+      "sha256": "037824fc8a5e4eba028b59a99831a112d3457ee933ed0b36d0540091f3555189"
+    },
+    {
+      "file": "GAMEDATA/Scripts/GENERAL/Goods.lua",
+      "sha256": "9949e803278e90cfcd813d083bef1158d2c9c790f71da3c52f34373e68c30df0"
+    },
+    {
       "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/healthspa_dc_thumb.tga",
       "sha256": "85c675f952a4b8b00098d0c1ff43ef95c666d96cd71e1e96b6b6cd9f72b9f9e7"
     },
@@ -1952,6 +1960,14 @@
     {
       "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/souvenirshop_dc_thumb.tga",
       "sha256": "5c352e55f2c757b696d373f0f8e80e2c7e9b89b985b9548c718b11c61a1e0ada"
+    },
+    {
+      "file": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SouvenirShop.lua",
+      "sha256": "83748fdddc906b8c6e7cdad5247c0540249bd9a115fddd6974d8c29164e3a3c2"
+    },
+    {
+      "file": "GAMEDATA/Scripts/GENERAL/Goods.lua",
+      "sha256": "9949e803278e90cfcd813d083bef1158d2c9c790f71da3c52f34373e68c30df0"
     },
     {
       "file": "GAMEDATA/GAMEART/TGA Files/Thumbnails/stageshow_dc_thumb.tga",
@@ -2200,6 +2216,10 @@
     {
       "file": "GAMEDATA/Sound/Effects/UserInterface/Odd24.ogg",
       "sha256": "893ac83757600c8cd2e65723535b4baa31d594353b1634e27310178b00e657e5"
+    },
+    {
+      "file": "GAMEDATA/Sound/Effects/Building/CashRegister.ogg",
+      "sha256": "8135e0b8b9c111a9735688b6ceee702e6cc6e7682b9931123bf31fd950ba8721"
     }
   ]
 }

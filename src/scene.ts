@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { TGALoader } from 'three/addons/loaders/TGALoader.js';
 import { DEPTH, WIDTH, dimensions, type Building, type CatalogItem, type Guest, type GameState } from './game';
-import { cellFromKey, hotelRoute, hotelWalkway, rotateCell } from './paving';
+import { cellFromKey, buildingRoute, hotelWalkway, rotateCell } from './paving';
 
 const palette: Record<string, number> = {
   slot: 0xb23852, poker: 0x5657a8, blackjack: 0x187f74, roulette: 0x187f74,
@@ -122,23 +122,23 @@ export class CasinoScene {
     this.renderer.setClearColor(enabled ? 0x969a9c : 0x101a26);
   }
   syncPaving(state: GameState, catalog: CatalogItem[]) {
-    const hotel = state.buildings.find(b => b.type === 'smallhotel');
-    const connected = state.tutorial ? !!hotelRoute(state, catalog) : false;
-    const signature = `${!!state.tutorial}:${state.paving?.join(',')}:${hotel?.uid}:${hotel?.rotation}:${hotel?.x}:${hotel?.z}:${connected}`;
+    const connections = state.tutorial ? state.buildings.map(b => !!buildingRoute(state, catalog, b)) : [];
+    const signature = `${!!state.tutorial}:${state.paving?.join(',')}:${state.buildings.map(b => `${b.uid}:${b.x}:${b.z}:${b.rotation}`).join('|')}:${connections}`;
     if (signature === this.pavingSignature) return;
     this.pavingSignature = signature; this.clearGroup(this.pavingGroup);
     if (!state.tutorial) return;
     const cells = (state.paving ?? []).map(cellFromKey);
-    if (hotel) cells.push(...hotelWalkway(hotel, catalog.find(c => c.id === hotel.type)!));
+    for (const b of state.buildings) cells.push(...hotelWalkway(b, catalog.find(c => c.id === b.type)!));
     const seen = new Set<string>();
     for (const cell of cells) {
       const key = `${cell.x}:${cell.z}`; if (seen.has(key)) continue; seen.add(key);
       this.box(this.pavingGroup, .96, .06, .96, cell.x + .5, .01, cell.z + .5, 0xb5b8b0);
     }
-    if (hotel) {
-      const item = catalog.find(c => c.id === hotel.type)!;
-      const entrance = rotateCell(hotel, item, item.entrances![0], item.entrances![1]);
-      this.box(this.pavingGroup, .84, .1, .84, entrance.x + .5, .08, entrance.z + .5, connected ? 0x46bd7b : 0xf0b95a, true);
+    for (const [index, b] of state.buildings.entries()) {
+      const item = catalog.find(c => c.id === b.type)!;
+      if (!item.entrances?.length) continue;
+      const entrance = rotateCell(b, item, item.entrances[0], item.entrances[1]);
+      this.box(this.pavingGroup, .84, .1, .84, entrance.x + .5, .08, entrance.z + .5, connections[index] ? 0x46bd7b : 0xf0b95a, true);
     }
   }
   private label(parent: THREE.Object3D, text: string, x: number, y: number, z: number, w: number, h: number, flat = false) {
@@ -182,6 +182,11 @@ export class CasinoScene {
         this.box(group, .9, .8, .08, x, y, .95, 0x526f80);
       }
       this.box(group, 1.8, 1.8, .12, 0, 1, .92, 0x3b424b);
+    } else if (item.id === 'headoffice' || item.id === 'souvenirshop') {
+      const office = item.id === 'headoffice';
+      this.box(group, w * .86, office ? 3.4 : 2.6, d * .55, 0, office ? 1.8 : 1.4, d * .2, office ? 0xb6b9ac : 0xd8b492);
+      this.box(group, w * .92, .22, d * .62, 0, office ? 3.6 : 2.8, d * .2, office ? 0x627b7e : 0x8f697e);
+      this.box(group, 1.1, 1.8, .12, 0, 1, -d * .08, 0x354858);
     } else if (item.id === 'plant') {
       this.box(group, .7, .6, .7, 0, .4, 0, 0xb49b70);
       this.box(group, .16, 1.5, .16, 0, 1.2, 0, 0x795a36);
@@ -227,11 +232,15 @@ export class CasinoScene {
       this.disposeGroup(mesh); this.buildings.delete(id);
     }
     for (const b of buildings) {
+      const variant = `${b.type}:${b.x}:${b.z}:${b.rotation}:${b.upgrades}`;
+      const existing = this.buildings.get(b.uid);
+      if (existing && existing.userData.variant !== variant) { this.disposeGroup(existing); this.buildings.delete(b.uid); }
       if (!this.buildings.has(b.uid)) {
         const item = catalog.find(c => c.id === b.type)!;
         const mesh = this.makeBuilding(item); const { w, d } = dimensions(item, b.rotation);
         mesh.position.set(b.x + w / 2, 0, b.z + d / 2); mesh.rotation.y = -b.rotation * Math.PI / 2;
-        mesh.userData.uid = b.uid; this.buildings.set(b.uid, mesh); this.scene.add(mesh);
+        if (b.type === 'headoffice' && b.upgrades?.includes(2)) this.box(mesh, 1.5, 2, 2.2, 2.1, 1.1, 1, 0x8eae8b);
+        mesh.userData.uid = b.uid; mesh.userData.variant = variant; this.buildings.set(b.uid, mesh); this.scene.add(mesh);
       }
     }
     this.selection.visible = selected !== null && this.buildings.has(selected);
@@ -282,6 +291,17 @@ export class CasinoScene {
     return null;
   }
   resetCamera() { this.camera.position.set(66, 64, 80); this.controls.target.set(24, 0, 20); }
+  setCombinedPan(pan: boolean) { this.controls.mouseButtons.RIGHT = pan ? THREE.MOUSE.PAN : THREE.MOUSE.ROTATE; }
+  zoomCamera(scale: number) {
+    const offset = this.camera.position.clone().sub(this.controls.target);
+    offset.setLength(Math.max(this.controls.minDistance, Math.min(this.controls.maxDistance, offset.length() * scale)));
+    this.camera.position.copy(this.controls.target).add(offset); this.controls.update();
+  }
+  focusBuilding(uid: number) {
+    const mesh = this.buildings.get(uid); if (!mesh) return;
+    const offset = this.camera.position.clone().sub(this.controls.target);
+    this.controls.target.copy(mesh.position); this.camera.position.copy(mesh.position).add(offset); this.controls.update();
+  }
   render() { this.controls.update(); this.renderer.render(this.scene, this.camera); }
   private resize() {
     const w = this.host.clientWidth, h = this.host.clientHeight;

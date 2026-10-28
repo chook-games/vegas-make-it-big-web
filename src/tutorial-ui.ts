@@ -1,6 +1,6 @@
 import { translate as t } from './i18n';
 import type { GameState } from './game';
-import { LOT_PRICE, purchaseLot, tutorialStage, type LotTheme } from './tutorial';
+import { LOT_PRICE, purchaseLot, tutorialStage, objectiveIndex, OBJECTIVE_KEYS, tutorialTask, type LotTheme } from './tutorial';
 
 const cash = (value: number) => '$' + value.toLocaleString('en-US');
 export class TutorialUI {
@@ -13,7 +13,7 @@ export class TutorialUI {
   private themeDialog: HTMLDialogElement;
   constructor(private getState: () => GameState, private buildHotel: () => void,
     private changed: () => void, private notify: (text: string) => void,
-    private getIcon: (file: string) => Promise<string>, private inspectHotel: () => void) {
+    private getIcon: (file: string) => Promise<string>, private inspectHotel: (type?: string) => void) {
     this.root = document.createElement('section'); this.root.className = 'lot-control'; this.root.hidden = true;
     document.querySelector('.classic-ui')!.append(this.root);
     this.modal = this.dialog('tutorial-event');
@@ -40,7 +40,13 @@ export class TutorialUI {
         guests: ['ID_WEB_FIRST_HOTEL_READY', 'ID_WEB_WAITING_FOR_GUESTS'],
         finance: ['ID_SCENARIO_NWS_BUILDINGINFOA_NAME', 'ID_SCENARIO_NWS_BUILDINGINFOA_DESC'],
         review: ['ID_SCENARIO_NWS_BUILDINGINFO_NAME', 'ID_SCENARIO_NWS_BUILDINGINFO_DESC'],
-        next: ['ID_WEB_FIRST_HOTEL_READY', 'ID_WEB_HOTEL_SLICE_END'],
+        camera: ['ID_SCENARIO_NWS_CAMERA_NAME', 'ID_SCENARIO_NWS_CAMERA_DESC'],
+        office: ['ID_SCENARIO_NWS_TREESTRUCTURE_NAME', 'ID_SCENARIO_NWS_TREESTRUCTURE_DESC'],
+        officePaths: ['ID_SCENARIO_NWS_TREESTRUCTURE_NAME', 'ID_WEB_OFFICE_PATHS'],
+        retail: ['ID_SCENARIO_NWS_TREESTRUCTURE2_NAME', 'ID_SCENARIO_NWS_TREESTRUCTURE2_DESC'],
+        shop: ['ID_SCENARIO_NWS_TREESTRUCTURE2_NAME', 'ID_WEB_BUILD_SHOP_GUIDE'],
+        shopPaths: ['ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_SHOP_PATHS'],
+        next: ['ID_WEB_RETAIL_READY', 'ID_WEB_DEVELOPMENT_SLICE_END'],
       };
       this.message(...prompts[stage] as [string, string]);
     }
@@ -65,6 +71,7 @@ export class TutorialUI {
   selectLot() {
     const state = this.getState(); if (!state.tutorial) return;
     const first = !state.tutorial.lotSelected;
+    if (tutorialStage(state) === 'camera') state.tutorial.cameraReviewed = true;
     state.tutorial.lotSelected = true; this.render();
     if (first && !state.tutorial.lotOwned) this.message('ID_SCENARIO_NWS_LOTPURCHASE_NAME', 'ID_SCENARIO_NWS_LOTPURCHASE_DESC');
     this.changed();
@@ -72,8 +79,8 @@ export class TutorialUI {
   objectives() {
     const state = this.getState(); if (!state.tutorial) return;
     const stage = tutorialStage(state);
-    const keys = ['ID_SCENARIO_NWS_OBJ_OBJECTIVE', 'ID_SCENARIO_NWS_OBJ_BUILD', 'ID_SCENARIO_NWS_OBJ_PATHS', 'ID_SCENARIO_NWS_OBJ_SALES', 'ID_SCENARIO_NWS_OBJ_SALES2'];
-    const active = { lot:0, hotel:1, paths:2, guests:3, finance:3, review:4, next:5 }[stage];
+    const keys = OBJECTIVE_KEYS;
+    const active = objectiveIndex(stage);
     this.objective.innerHTML = `<h2>${t('ID_SCENARIO_NWS_WELCOME_NAME')}</h2><table class="objective-table"><thead><tr><th>${t('ID_OBJECTIVESINGLE_TITLE')}</th><th>${t('ID_WEB_PROGRESS')}</th><th>${t('ID_WEB_STATUS')}</th><th>${t('ID_OBJECTIVE_LINK')}</th></tr></thead><tbody>${keys.slice(0, active + 1).map((key,index) => `<tr><td>${t(key + '_NAME')}</td><td><meter min="0" max="1" value="${index < active ? 1 : 0}"></meter></td><td>${index < active ? '✓' : '×'}</td><td><button data-objective="${key}">i</button></td></tr>`).join('')}</tbody></table><footer><button id="objectives-close">✓</button></footer>`;
     this.objective.querySelectorAll<HTMLButtonElement>('[data-objective]').forEach(button => button.onclick = () => {
       this.message('ID_OBJECTIVE_TITLE_CAP', button.dataset.objective + '_DESC');
@@ -116,14 +123,22 @@ export class TutorialUI {
       else if (stage === 'finance') {
         this.inspectHotel(); this.message('ID_SCENARIO_NWS_BUILDINGINFOA_NAME', 'ID_SCENARIO_NWS_BUILDINGINFOA_DESC');
       } else if (stage === 'review') this.message('ID_SCENARIO_NWS_BUILDINGINFO_NAME', 'ID_SCENARIO_NWS_BUILDINGINFO_DESC');
-      else if (stage === 'next') this.message('ID_WEB_FIRST_HOTEL_READY', 'ID_WEB_HOTEL_SLICE_END');
+      else if (stage === 'camera') this.message('ID_SCENARIO_NWS_CAMERA_NAME', 'ID_SCENARIO_NWS_CAMERA_DESC');
+      else if (stage === 'office') this.message('ID_SCENARIO_NWS_TREESTRUCTURE_NAME', 'ID_SCENARIO_NWS_TREESTRUCTURE_DESC');
+      else if (stage === 'officePaths') this.message('ID_SCENARIO_NWS_TREESTRUCTURE_NAME', 'ID_WEB_OFFICE_PATHS');
+      else if (stage === 'retail') { this.inspectHotel('headoffice'); this.message('ID_SCENARIO_NWS_TREESTRUCTURE2_NAME', 'ID_SCENARIO_NWS_TREESTRUCTURE2_DESC'); }
+      else if (stage === 'shop') this.message('ID_SCENARIO_NWS_TREESTRUCTURE2_NAME', 'ID_WEB_BUILD_SHOP_GUIDE');
+      else if (stage === 'shopPaths') this.message('ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_SHOP_PATHS');
+      else if (stage === 'next') this.message('ID_WEB_RETAIL_READY', 'ID_WEB_DEVELOPMENT_SLICE_END');
     }
     const signature = `${tutorial.lotSelected}:${tutorial.lotOwned}:${stage}:${tutorial.theme}`;
     if (signature === this.signature) return;
     this.signature = signature;
-    const task = { lot:'ID_SCENARIO_NWS_OBJ_OBJECTIVE_NAME', hotel:'ID_SCENARIO_NWS_OBJ_BUILD_NAME', paths:'ID_SCENARIO_NWS_OBJ_PATHS_NAME',
-      guests:'ID_WEB_WAITING_FOR_GUESTS', finance:'ID_SCENARIO_NWS_OBJ_SALES_NAME', review:'ID_SCENARIO_NWS_OBJ_SALES2_NAME', next:'ID_WEB_FIRST_HOTEL_READY' }[stage];
+    const task = tutorialTask(stage);
     this.root.innerHTML = `<div class="lot-heading">${t('ID_WEB_LOT_ONE')}</div><div class="lot-content">${!tutorial.lotSelected ? `<p>${t('ID_SCENARIO_NWS_OBJ_OBJECTIVE_NAME')}</p><button id="select-lot">${t('ID_WEB_SELECT_LOT')}</button>` : !tutorial.lotOwned ? `<p>${t('ID_WEB_LOT_FOR_SALE')} ${cash(LOT_PRICE)}</p><button id="buy-lot">${t('ID_WEB_BUY_LOT')}</button>` : `<p>${t(tutorial.theme === 'Generic' ? 'ID_THEME_DICENCARDS_NAME' : 'ID_THEME_GREECE_NAME')}</p><p>${t(task)}</p><button id="lot-build">${t('ID_WEB_BUILD_OBJECTS')}</button>${stage !== 'hotel' ? `<button id="lot-hotel">${t('ID_BUILDING_TYPE_SMALLHOTEL_NAME')}</button>` : ''}`}
+      ${stage === 'camera' ? `<button id="camera-select-lot">${t('ID_WEB_SELECT_LOT')}</button>` : ''}
+      ${state.buildings.some(b => b.type === 'headoffice') ? `<button id="lot-office">${t('ID_BUILDING_TYPE_HEADOFFICE_NAME')}</button>` : ''}
+      ${state.buildings.some(b => b.type === 'souvenirshop') ? `<button id="lot-shop">${t('ID_BUILDING_TYPE_SOUVENIRSHOP_NAME')}</button>` : ''}
       <button id="lot-objectives">${t('ID_OBJECTIVE_TITLE')}</button></div>`;
     this.root.querySelector<HTMLButtonElement>('#select-lot')?.addEventListener('click', () => this.selectLot());
     this.root.querySelector<HTMLButtonElement>('#buy-lot')?.addEventListener('click', () => this.chooseTheme());
@@ -132,5 +147,8 @@ export class TutorialUI {
     });
     this.root.querySelector<HTMLButtonElement>('#lot-objectives')!.onclick = () => this.objectives();
     this.root.querySelector<HTMLButtonElement>('#lot-hotel')?.addEventListener('click', () => this.inspectHotel());
+    this.root.querySelector<HTMLButtonElement>('#camera-select-lot')?.addEventListener('click', () => this.selectLot());
+    this.root.querySelector<HTMLButtonElement>('#lot-office')?.addEventListener('click', () => this.inspectHotel('headoffice'));
+    this.root.querySelector<HTMLButtonElement>('#lot-shop')?.addEventListener('click', () => this.inspectHotel('souvenirshop'));
   }
 }
