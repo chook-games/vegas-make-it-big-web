@@ -13,7 +13,8 @@ export class TutorialUI {
   private themeDialog: HTMLDialogElement;
   constructor(private getState: () => GameState, private buildHotel: () => void,
     private changed: () => void, private notify: (text: string) => void,
-    private getIcon: (file: string) => Promise<string>, private inspectHotel: (type?: string) => void) {
+    private getIcon: (file: string) => Promise<string>, private inspectHotel: (type?: string) => void,
+    private openFilters: () => void) {
     this.root = document.createElement('section'); this.root.className = 'lot-control'; this.root.hidden = true;
     document.querySelector('.classic-ui')!.append(this.root);
     this.modal = this.dialog('tutorial-event');
@@ -53,7 +54,10 @@ export class TutorialUI {
         cinemaPaths: ['ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_CINEMA_PATHS'],
         electrician: ['ID_SCENARIO_NWS_ELECTRICIAN_NAME', 'ID_WEB_BUILD_ELECTRICIAN'],
         electricianPaths: ['ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_ELECTRICIAN_PATHS'],
-        next: ['ID_WEB_ELECTRICAL_READY', 'ID_WEB_ELECTRICAL_SLICE_END'],
+        filterNoise: ['ID_SCENARIO_NWS_FILTERS_NAME', 'ID_SCENARIO_NWS_FILTERS_DESC'],
+        filterSmell: ['ID_SCENARIO_NWS_FILTERS4_NAME', 'ID_SCENARIO_NWS_FILTERS4_DESC'],
+        filterBeauty: ['ID_SCENARIO_NWS_FILTERS4_NAME', 'ID_SCENARIO_NWS_FILTERS4_DESC'],
+        next: ['ID_WEB_FILTERS_READY', 'ID_WEB_FILTERS_SLICE_END'],
       };
       this.message(...prompts[stage] as [string, string]);
     }
@@ -143,9 +147,11 @@ export class TutorialUI {
       else if (stage === 'cinemaPaths') this.message('ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_CINEMA_PATHS');
       else if (stage === 'electrician') this.message('ID_SCENARIO_NWS_ELECTRICIAN_NAME', 'ID_WEB_BUILD_ELECTRICIAN');
       else if (stage === 'electricianPaths') this.message('ID_SCENARIO_NWS_PATHS_NAME', 'ID_WEB_ELECTRICIAN_PATHS');
-      else if (stage === 'next') this.message('ID_WEB_ELECTRICAL_READY', 'ID_WEB_ELECTRICAL_SLICE_END');
+      else if (stage === 'filterNoise') this.message('ID_SCENARIO_NWS_FILTERS_NAME', 'ID_SCENARIO_NWS_FILTERS_DESC');
+      else if (stage === 'filterSmell' || stage === 'filterBeauty') this.message('ID_SCENARIO_NWS_FILTERS4_NAME', 'ID_SCENARIO_NWS_FILTERS4_DESC');
+      else if (stage === 'next') this.message('ID_WEB_FILTERS_READY', 'ID_WEB_FILTERS_SLICE_END');
     }
-    const signature = `${tutorial.lotSelected}:${tutorial.lotOwned}:${stage}:${tutorial.theme}`;
+    const signature = `${tutorial.lotSelected}:${tutorial.lotOwned}:${stage}:${tutorial.theme}:${tutorial.filterNoise}:${tutorial.filterSmell}:${tutorial.filterBeauty}`;
     if (signature === this.signature) return;
     this.signature = signature;
     const task = tutorialTask(stage);
@@ -156,6 +162,7 @@ export class TutorialUI {
       ${state.buildings.some(b => b.type === 'mechanichut') ? `<button id="lot-mechanic">${t('ID_BUILDING_TYPE_MECHANICHUT_NAME')}</button>` : ''}
       ${state.buildings.some(b => b.type === 'cinema') ? `<button id="lot-cinema">${t('ID_BUILDING_TYPE_CINEMA_NAME')}</button>` : ''}
       ${state.buildings.some(b => b.type === 'electricianhut') ? `<button id="lot-electrician">${t('ID_BUILDING_TYPE_ELECTRICIANHUT_NAME')}</button>` : ''}
+      ${['filterNoise','filterSmell','filterBeauty'].includes(stage) ? `<button id="lot-filters">${t('ID_WEB_OPEN_FILTERS')}</button>` : ''}
       <button id="lot-objectives">${t('ID_OBJECTIVE_TITLE')}</button></div>`;
     this.root.querySelector<HTMLButtonElement>('#select-lot')?.addEventListener('click', () => this.selectLot());
     this.root.querySelector<HTMLButtonElement>('#buy-lot')?.addEventListener('click', () => this.chooseTheme());
@@ -170,5 +177,6 @@ export class TutorialUI {
     this.root.querySelector<HTMLButtonElement>('#lot-mechanic')?.addEventListener('click', () => this.inspectHotel('mechanichut'));
     this.root.querySelector<HTMLButtonElement>('#lot-cinema')?.addEventListener('click', () => this.inspectHotel('cinema'));
     this.root.querySelector<HTMLButtonElement>('#lot-electrician')?.addEventListener('click', () => this.inspectHotel('electricianhut'));
+    this.root.querySelector<HTMLButtonElement>('#lot-filters')?.addEventListener('click', () => this.openFilters());
   }
 }

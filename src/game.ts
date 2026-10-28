@@ -2,6 +2,7 @@ import { tutorialBuildError, validateTutorial, type TutorialState } from './tuto
 import { WIDTH, DEPTH, DAY_SECONDS, ENTRY } from './grid.ts';
 import { canPave, pave, hotelRoute, hotelWalkway, buildingRoute, cellKey, validatePaving } from './paving.ts';
 import { stepHotel } from './hotel-simulation.ts';
+import { validateInfluences } from './influence.ts';
 import { hireMechanic, hireElectrician, stepMaintenance, validateMechanic, validateElectrician, type MechanicState } from './maintenance.ts';
 export { WIDTH, DEPTH, DAY_SECONDS, ENTRY } from './grid.ts';
 
@@ -38,6 +39,7 @@ export interface CatalogItem {
   repairStaff?: string | null;
   mechanic?: { attentionBase:number; attentionRange:number; skillBase:number; skillRange:number; speedBase:number; speedRange:number; wageBase:number; wageMultiplier:number };
   electrician?: CatalogItem['mechanic'];
+  influences?: Partial<Record<'noise'|'smell'|'beauty'|'calming'|'rubbish', number[]>>;
   upgrades?: { id: number; nameKey: string; descriptionKey: string; cost: number; runningCost: number }[];
 }
 export interface Building {
@@ -327,6 +329,7 @@ export function restore(raw: string, catalog: CatalogItem[]): GameState {
   }
   validateMechanic(s, catalog);
   validateElectrician(s, catalog);
+  validateInfluences(catalog);
   // Visitors restart at the entrance; saves persist the economy and floorplan.
   s.guests = [];
   return s;

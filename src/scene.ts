@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { TGALoader } from 'three/addons/loaders/TGALoader.js';
 import { DEPTH, WIDTH, dimensions, type Building, type CatalogItem, type Guest, type GameState } from './game';
 import { cellFromKey, buildingRoute, hotelWalkway, rotateCell } from './paving';
+import { INFLUENCE_COLOURS, type InfluenceType } from './influence';
 
 const palette: Record<string, number> = {
   slot: 0xb23852, poker: 0x5657a8, blackjack: 0x187f74, roulette: 0x187f74,
@@ -27,6 +28,8 @@ export class CasinoScene {
   private pavingGroup = new THREE.Group();
   private pavingSignature = '';
   private staffMeshes = new Map<string, THREE.Group>();
+  private filterMesh: THREE.Mesh | null = null;
+  private filterSignature = '';
 
   constructor(public host: HTMLElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
@@ -141,6 +144,32 @@ export class CasinoScene {
       const entrance = rotateCell(b, item, item.entrances[0], item.entrances[1]);
       this.box(this.pavingGroup, .84, .1, .84, entrance.x + .5, .08, entrance.z + .5, connections[index] ? 0x46bd7b : 0xf0b95a, true);
     }
+  }
+  /** Original influence ramp over the whole lot; values are intensity 0..3. */
+  setFilter(type: InfluenceType | null, values: Uint8Array | null) {
+    const signature = type ? `${type}:${Array.from(values ?? []).join('')}` : '';
+    if (signature === this.filterSignature) return;
+    this.filterSignature = signature;
+    if (this.filterMesh) { this.disposeGroup(this.filterMesh); this.filterMesh = null; }
+    if (!type || !values) return;
+    const canvas = document.createElement('canvas'); canvas.width = WIDTH; canvas.height = DEPTH;
+    const ctx = canvas.getContext('2d')!;
+    const image = ctx.createImageData(WIDTH, DEPTH);
+    const ramp = INFLUENCE_COLOURS[type];
+    for (let i = 0; i < values.length; i++) {
+      const intensity = values[i]; if (!intensity) continue;
+      const [r, g, b, a] = ramp[Math.min(ramp.length - 1, intensity - 1)];
+      image.data[i * 4] = r; image.data[i * 4 + 1] = g; image.data[i * 4 + 2] = b; image.data[i * 4 + 3] = a;
+    }
+    ctx.putImageData(image, 0, 0);
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.magFilter = THREE.NearestFilter; texture.minFilter = THREE.NearestFilter;
+    texture.colorSpace = THREE.SRGBColorSpace;
+    this.filterMesh = new THREE.Mesh(new THREE.PlaneGeometry(WIDTH, DEPTH),
+      new THREE.MeshBasicMaterial({ map: texture, transparent: true, depthWrite: false }));
+    this.filterMesh.rotation.x = -Math.PI / 2;
+    this.filterMesh.position.set(WIDTH / 2, .16, DEPTH / 2);
+    this.scene.add(this.filterMesh);
   }
   private label(parent: THREE.Object3D, text: string, x: number, y: number, z: number, w: number, h: number, flat = false) {
     const canvas = document.createElement('canvas'); canvas.width = 1024; canvas.height = 128;

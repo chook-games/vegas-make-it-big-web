@@ -28,7 +28,9 @@ building a **Mechanic's Hut ($350)**, joining its paving to the hotel and pressi
 and returns; active jobs survive save/load. Then construct a **Cinema ($5,000)**,
 connect it and add an **Electrician's Hut ($300)**. Connected cinemas sell $8 tickets
 to up to 22 guests; Cinema repairs use the electrician, independently of mechanic
-jobs. Influence filters and the rest of the campaign are still being ported.
+jobs. Finally open the **Filters** panel and review **Noise**, **Smell** and
+**Beauty** influence overlays. Placing scenery (the next original objective) and
+the rest of the campaign are still being ported.
 Other campaigns remain previews. The exterior
 is a minimal new scene, not the decoded original scenario map.
 

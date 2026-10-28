@@ -210,3 +210,13 @@ dialog .primary { margin-top: 8px; }
   .classic-actions { bottom: auto; top: 48px; right: 5px; transform: scale(.85); transform-origin: top right; }
   #toast { bottom: 151px; max-width: 85%; text-align: center; }
 }
+#filter-dialog { width: min(440px,92vw); background: linear-gradient(115deg,#8f8caee8,#6b6888f0); border: 3px ridge #c2c0d4; }
+#filter-dialog h2 { background: #4e4b6b; border-color: #b3b0cb; }
+.filter-mode { display: flex; align-items: center; gap: 8px; padding: 6px 8px; background: #4d4a6380; border: 1px solid #a8a5bd; font-size: 11px; }
+.filter-mode button { padding: 4px 10px; background: #6e6b8a; border: 2px outset #b6b3cc; color: #fff; }
+.filter-mode button.active { background: #5a7f56; border-color: #e6e3b7; }
+.filter-types { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 9px; background: #423f56a8; }
+.filter-types button { display: flex; align-items: center; gap: 6px; padding: 5px 8px; background: linear-gradient(#84819b,#5a5773); border: 2px outset #b6b3cc; color: #fff; font-size: 11px; }
+.filter-types button.selected { background: #53793f; border-color: #e6e3a7; }
+.filter-types img { width: 24px; height: 24px; object-fit: contain; }
+.filter-legend { margin-top: 7px; padding: 6px 8px; background: #2f2d3fc9; border: 1px solid #8f8cab; font: 10px/1.4 'Courier New',monospace; }

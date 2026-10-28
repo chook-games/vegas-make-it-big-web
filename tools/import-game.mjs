@@ -56,6 +56,17 @@ for (const [file, label] of languageFiles) {
   languageManifest.push({ label, file, bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') });
 }
 provenance.push(...languageManifest.map(locale => ({ file: `GAMEDATA/Strings/${locale.file}`, sha256: locale.sha256 })));
+const influenceKeys = { NOISE: 'noise', SMELL: 'smell', BEAUTY: 'beauty', CALMING: 'calming', RUBBISH: 'rubbish' };
+function readInfluences(text) {
+  const result = {};
+  for (const [macro, key] of Object.entries(influenceKeys)) {
+    const values = text.match(new RegExp(`SourceTemplate\\[x\\]\\._Influences\\[INFLUENCE_${macro}\\]\\s*=\\s*\\{([^}]+)\\}`))?.[1]?.match(/\d+/g)?.map(Number);
+    if (!values || values.length < 2 || values.length % 2) continue;
+    if (values.some(value => value < 0 || value > 40)) throw new Error(`Unexpected ${key} influence value.`);
+    result[key] = values;
+  }
+  return result;
+}
 const catalog = [];
 for (const [id, name, script, thumbnail, category] of selected) {
   const source = sourceRoot + script;
@@ -71,7 +82,8 @@ for (const [id, name, script, thumbnail, category] of selected) {
   const minor = text.match(/SourceTemplate\[x\]\._minorgroup\s*=\s*([A-Z0-9_]+)/)?.[1] ?? category;
   const nameKey = text.match(/SourceTemplate\[x\]\._name\s*=\s*(ID_[A-Za-z0-9_]+)/)?.[1];
   const descriptionKey = text.match(/SourceTemplate\[x\]\._description\s*=\s*(ID_[A-Z0-9_]+)/)?.[1];
-  catalog.push({ id, name: englishStrings[nameKey] ?? name, nameKey, descriptionKey, category, context: 'interior', major: category === 'gaming' ? 4 : category === 'service' || category === 'staff' ? 5 : 6, minor, width: scalar('_w', 1), depth: scalar('_l', 1),
+  const influences = readInfluences(text);
+  catalog.push({ id, name: englishStrings[nameKey] ?? name, nameKey, descriptionKey, category, context: 'interior', major: category === 'gaming' ? 4 : category === 'service' || category === 'staff' ? 5 : 6, minor, width: scalar('_w', 1), depth: scalar('_l', 1), ...(Object.keys(influences).length ? { influences } : {}),
     cost: scalar('_buildcost'), resale: scalar('_democost'), capacity: scalar('_capacity', 1),
     runningCost: scalar('_baserunningcost'), power: scalar('_basepowerconsumption'),
     water: scalar('_basewaterconsumption'), duration: scalar('_supplies\\.duration', 10),
@@ -160,12 +172,14 @@ async function walkSource(dir) {
     const nameKey = text.match(/SourceTemplate\[x\]\._name\s*=\s*(ID_[A-Za-z0-9_]+)/)?.[1];
     const descriptionKey = text.match(/SourceTemplate\[x\]\._description\s*=\s*(ID_[A-Z0-9_]+)/)?.[1];
     const name = englishStrings[nameKey] ?? selectedTemplate?.[1] ?? basename.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' ');
+    const influences = readInfluences(text);
     catalog.push({ id, name, nameKey, descriptionKey,
       category: selectedTemplate?.[4] ?? minor, context: mapping[0], major: originalMajor, minor,
       width: scalar('_w', 1), depth: scalar('_l', 1), cost: scalar('_buildcost'),
       resale: scalar('_democost'), capacity: scalar('_capacity'), runningCost: scalar('_baserunningcost'),
       power: scalar('_basepowerconsumption'), water: scalar('_basewaterconsumption'),
-      duration: scalar('_supplies\\.duration', 10), thumbnail: thumbPath ? `${id}.tga` : null, source: relative });
+      duration: scalar('_supplies\\.duration', 10), thumbnail: thumbPath ? `${id}.tga` : null, source: relative,
+      ...(Object.keys(influences).length ? { influences } : {}) });
     if (['smallhotel', 'headoffice', 'souvenirshop', 'mechanichut', 'cinema', 'electricianhut'].includes(id)) {
       const item = catalog[catalog.length - 1];
       for (const [key, field] of [['_entrancelist','entrances'], ['_walkablecelllist','walkable'], ['_nobuildlist','reserved'], ['_addpavementtexture','pavement']]) {

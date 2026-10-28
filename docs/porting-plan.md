@@ -111,8 +111,22 @@ never overwrites a save.
   the souvenir shop's CashRegister effect. Existing original UI audio is retained.
 - Connecting Cinema and Electrician's Hut completes their source tutorial
   objective; calling the electrician is available but is not an extra mandatory
-  objective. The next original goal is View Noise Filter. Influence filters and
-  subsequent training remain pending. No full scenario win/unlock is awarded.
+  objective.
+- The Filters button now opens the In-game influence panel. Noise, Smell, Beauty
+  and Calming overlays use the source `_Influences` bands (cumulative square rings,
+  intensity 1–3) and the original InfluenceMaps colour ramps (alpha 80/150/255).
+  Only raw intensity is mapped; `_influenceeffectors` modify guest reactions and
+  are not used to blank the visualization.
+- Tutorial flow follows the source clicks: view Noise, then Smell, then Beauty.
+  All three flags require completed electrical work and are validated in order and
+  persisted. The panel is also available from Sandbox.
+- Current tutorial buildings only define noise/smell bands, so the Beauty view can
+  legitimately be empty; decoration sources arrive with the next scenery objective.
+  Overlap uses the maximum intensity. Ring distance is Chebyshev; the native
+  engine's influence propagation is not decompiled, so exact falloff is approximate.
+- The next original goal is to place a Tree with scenery tools. Scenery placement,
+  filters for staff/house-edge views and subsequent training remain pending.
+  No full scenario win/unlock is awarded.
 - The 48×40 lot, roads and surrounding boxes are newly generated minimal geometry;
   the original CMF/CMB map, exact lot dimensions and city simulation remain unported.
 
@@ -212,7 +226,7 @@ resolver and this directory alias. Web URLs themselves must remain case-correct.
 
 ## Next milestones
 
-1. Continue the Steam tutorial with influence filters and casino-interior
+1. Continue the Steam tutorial with tree/scenery placement and casino-interior
    construction, preserving original panels and actions.
 2. Extend staff dispatch to cashiers, cleaning and security. Add
    missing original UI, sounds, pricing, reputation and influences.

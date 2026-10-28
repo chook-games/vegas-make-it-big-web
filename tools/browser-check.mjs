@@ -236,7 +236,7 @@ try {
   await page.mouse.move(electricalEdge.x, electricalEdge.y); await page.mouse.down();
   await page.mouse.move(cinemaEdge.x, cinemaEdge.y, { steps:40 }); await page.mouse.up();
   await page.click('[data-speed="3"]'); await page.waitForSelector('#event-accept');
-  assert.match(await page.locator('#tutorial-event').textContent(), /Noise Filter/);
+  assert.match(await page.locator('#tutorial-event').textContent(), /Filters are a great way/);
   await page.click('#event-accept'); await page.click('#lot-cinema');
   await page.waitForFunction(() => Array.from(document.querySelectorAll('#inspector .hotel-data > div')).some(row =>
     row.querySelector('span')?.textContent === 'Total Visits Ever' && Number(row.querySelector('b')?.textContent) > 0), undefined, { timeout:30000 });
@@ -261,6 +261,27 @@ try {
   assert.equal(electricalDone.electrician.target, null);
   assert.equal(electricalDone.completed, false);
   await page.screenshot({ path: 'test-results/cinema-electrician.png' });
+  await page.click('#filter-button');
+  assert.equal(await page.locator('#filter-dialog').evaluate(el => el.open), true);
+  await page.click('[data-filter="noise"]');
+  await page.waitForSelector('#event-accept');
+  assert.match(await page.locator('#tutorial-event').textContent(), /Mechanics Hut produces a lot of noise/i);
+  await page.click('#event-accept');
+  await page.screenshot({ path: 'test-results/influence-noise.png' });
+  await page.click('[data-filter="smell"]');
+  await page.waitForSelector('#event-accept'); await page.click('#event-accept');
+  await page.click('[data-filter="beauty"]');
+  await page.waitForSelector('#event-accept');
+  assert.match(await page.locator('#tutorial-event').textContent(), /Noise, Smell and Beauty influence filters/);
+  await page.click('#event-accept');
+  await page.screenshot({ path: 'test-results/influence-filters.png' });
+  await page.click('#filter-close');
+  await page.click('#save');
+  const filtered = await page.evaluate(() => JSON.parse(localStorage.getItem('vegas-web-save-v1')));
+  assert.equal(filtered.tutorial.filterNoise, true);
+  assert.equal(filtered.tutorial.filterSmell, true);
+  assert.equal(filtered.tutorial.filterBeauty, true);
+  assert.equal(filtered.completed, false);
   await page.click('#return-menu');
   await page.click('#menu-campaign');
   await page.click('#campaign-cancel');
@@ -316,7 +337,7 @@ try {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
   assert.equal(overflow, false, 'Compact layout has no horizontal page overflow');
   assert.deepEqual(errors, [], 'No page exceptions or failed HTTP resources');
-  console.log('Browser checks passed: English/Greek, opening through Cinema/electrician, ticket sales, both staff dispatches/save-load/return, sandbox and compact layout.');
+  console.log('Browser checks passed: English/Greek, opening through Cinema/electrician, influence filters, ticket sales, both staff dispatches/save-load/return, sandbox and compact layout.');
 } finally {
   await browser?.close();
   server?.kill();

@@ -12,6 +12,14 @@
       "minor": "BUILDING_MINOR_GROUP_INT_SLOTS",
       "width": 1,
       "depth": 3,
+      "influences": {
+        "noise": [
+          2,
+          3,
+          1,
+          2
+        ]
+      },
       "cost": 120,
       "resale": 60,
       "capacity": 1,
@@ -54,6 +62,12 @@
       "minor": "BUILDING_MINOR_GROUP_INT_TABLES",
       "width": 8,
       "depth": 5,
+      "influences": {
+        "noise": [
+          1,
+          7
+        ]
+      },
       "cost": 700,
       "resale": 350,
       "capacity": 6,
@@ -75,6 +89,14 @@
       "minor": "BUILDING_MINOR_GROUP_INT_SLOTS",
       "width": 1,
       "depth": 3,
+      "influences": {
+        "noise": [
+          2,
+          1,
+          1,
+          2
+        ]
+      },
       "cost": 150,
       "resale": 75,
       "capacity": 1,
@@ -96,6 +118,14 @@
       "minor": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
       "width": 5,
       "depth": 5,
+      "influences": {
+        "noise": [
+          2,
+          5,
+          1,
+          2
+        ]
+      },
       "cost": 500,
       "resale": 250,
       "capacity": 10,
@@ -117,6 +147,16 @@
       "minor": "BUILDING_MINOR_GROUP_INT_FOOD_DRINK",
       "width": 11,
       "depth": 9,
+      "influences": {
+        "noise": [
+          3,
+          8,
+          2,
+          2,
+          1,
+          1
+        ]
+      },
       "cost": 1200,
       "resale": 600,
       "capacity": 9,
@@ -138,6 +178,16 @@
       "minor": "BUILDING_MINOR_GROUP_INT_RESTROOMS",
       "width": 8,
       "depth": 5,
+      "influences": {
+        "smell": [
+          3,
+          6,
+          2,
+          3,
+          1,
+          2
+        ]
+      },
       "cost": 250,
       "resale": 125,
       "capacity": 9,
@@ -159,6 +209,14 @@
       "minor": "BUILDING_MINOR_GROUP_INT_CASINOSTAFF_FACILITIES",
       "width": 5,
       "depth": 3,
+      "influences": {
+        "calming": [
+          2,
+          10,
+          1,
+          5
+        ]
+      },
       "cost": 500,
       "resale": 250,
       "capacity": 0,
@@ -180,6 +238,22 @@
       "minor": "BUILDING_MINOR_GROUP_INT_MAINTENANCESTAFF",
       "width": 5,
       "depth": 4,
+      "influences": {
+        "noise": [
+          2,
+          4,
+          1,
+          2
+        ],
+        "smell": [
+          3,
+          6,
+          2,
+          3,
+          1,
+          1
+        ]
+      },
       "cost": 300,
       "resale": 150,
       "capacity": 3,
@@ -201,6 +275,22 @@
       "minor": "BUILDING_MINOR_GROUP_INT_MAINTENANCESTAFF",
       "width": 5,
       "depth": 4,
+      "influences": {
+        "noise": [
+          3,
+          6,
+          2,
+          2,
+          1,
+          2
+        ],
+        "smell": [
+          2,
+          3,
+          1,
+          3
+        ]
+      },
       "cost": 300,
       "resale": 150,
       "capacity": 3,
@@ -222,6 +312,16 @@
       "minor": "BUILDING_MINOR_GROUP_INT_FLOWERS_PLANTS_FOUNTAINS",
       "width": 1,
       "depth": 1,
+      "influences": {
+        "beauty": [
+          1,
+          2
+        ],
+        "calming": [
+          1,
+          4
+        ]
+      },
       "cost": 120,
       "resale": 60,
       "capacity": 1,
@@ -272,7 +372,13 @@
       "water": 50,
       "duration": 30,
       "thumbnail": "alacarterestaurant.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ALaCarteRestaurant.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ALaCarteRestaurant.lua",
+      "influences": {
+        "beauty": [
+          1,
+          7
+        ]
+      }
     },
     {
       "id": "aquarium",
@@ -293,7 +399,17 @@
       "water": 300,
       "duration": 50,
       "thumbnail": "aquarium.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Aquarium.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Aquarium.lua",
+      "influences": {
+        "calming": [
+          3,
+          4,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "arcade",
@@ -314,7 +430,17 @@
       "water": 0,
       "duration": 20,
       "thumbnail": "arcade.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Arcade.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Arcade.lua",
+      "influences": {
+        "noise": [
+          3,
+          6,
+          2,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "arena",
@@ -335,7 +461,17 @@
       "water": 0,
       "duration": 80,
       "thumbnail": "arena.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Arena.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Arena.lua",
+      "influences": {
+        "noise": [
+          3,
+          13,
+          2,
+          5,
+          1,
+          4
+        ]
+      }
     },
     {
       "id": "artgallery",
@@ -356,7 +492,17 @@
       "water": 0,
       "duration": 80,
       "thumbnail": "artgallery.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ArtGallery.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ArtGallery.lua",
+      "influences": {
+        "calming": [
+          3,
+          4,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "beautyparlor",
@@ -398,7 +544,23 @@
       "water": 50,
       "duration": 10,
       "thumbnail": "carpark.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Carpark.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Carpark.lua",
+      "influences": {
+        "noise": [
+          3,
+          5,
+          2,
+          6,
+          1,
+          3
+        ],
+        "smell": [
+          2,
+          4,
+          1,
+          7
+        ]
+      }
     },
     {
       "id": "cinema",
@@ -495,7 +657,17 @@
       "water": 70,
       "duration": 60,
       "thumbnail": "circus.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Circus.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Circus.lua",
+      "influences": {
+        "noise": [
+          3,
+          10,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "cocktailbar",
@@ -537,7 +709,15 @@
       "water": 20,
       "duration": 8,
       "thumbnail": "coffeebar.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/CoffeeBar.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/CoffeeBar.lua",
+      "influences": {
+        "noise": [
+          2,
+          5,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "conventioncentre",
@@ -579,7 +759,13 @@
       "water": 35,
       "duration": 70,
       "thumbnail": "creche.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Creche.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Creche.lua",
+      "influences": {
+        "noise": [
+          1,
+          6
+        ]
+      }
     },
     {
       "id": "displaystage",
@@ -600,7 +786,23 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "displaystage.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/DisplayStage.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/DisplayStage.lua",
+      "influences": {
+        "noise": [
+          2,
+          4,
+          1,
+          3
+        ],
+        "beauty": [
+          3,
+          9,
+          2,
+          4,
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "dolphinpool",
@@ -621,7 +823,13 @@
       "water": 900,
       "duration": 40,
       "thumbnail": "dolphinpool.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/DolphinPool.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/DolphinPool.lua",
+      "influences": {
+        "noise": [
+          1,
+          10
+        ]
+      }
     },
     {
       "id": "electricianhut",
@@ -643,6 +851,16 @@
       "duration": 10,
       "thumbnail": "electricianhut.tga",
       "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ElectricianHut.lua",
+      "influences": {
+        "noise": [
+          3,
+          3,
+          2,
+          1,
+          1,
+          1
+        ]
+      },
       "entrances": [
         2,
         1
@@ -736,7 +954,17 @@
       "water": 0,
       "duration": 0,
       "thumbnail": "exteriorbin.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorBin.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorBin.lua",
+      "influences": {
+        "smell": [
+          3,
+          1,
+          2,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "exteriorfountain-1x1",
@@ -757,7 +985,23 @@
       "water": 20,
       "duration": 10,
       "thumbnail": "exteriorfountain-1x1.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorFountain_1x1.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorFountain_1x1.lua",
+      "influences": {
+        "beauty": [
+          2,
+          3,
+          1,
+          2
+        ],
+        "calming": [
+          3,
+          3,
+          2,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "exteriorfountain-2x2",
@@ -778,7 +1022,23 @@
       "water": 40,
       "duration": 10,
       "thumbnail": "exteriorfountain-2x2.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorFountain_2x2.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorFountain_2x2.lua",
+      "influences": {
+        "beauty": [
+          2,
+          5,
+          1,
+          2
+        ],
+        "calming": [
+          3,
+          3,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "exteriorfountain-3x3",
@@ -799,7 +1059,23 @@
       "water": 80,
       "duration": 10,
       "thumbnail": "exteriorfountain-3x3.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorFountain_3x3.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorFountain_3x3.lua",
+      "influences": {
+        "beauty": [
+          2,
+          7,
+          1,
+          2
+        ],
+        "calming": [
+          3,
+          5,
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "exteriorfountain-4x2",
@@ -820,7 +1096,23 @@
       "water": 65,
       "duration": 10,
       "thumbnail": "exteriorfountain-4x2.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorFountain_4x2.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorFountain_4x2.lua",
+      "influences": {
+        "beauty": [
+          2,
+          5,
+          1,
+          3
+        ],
+        "calming": [
+          3,
+          5,
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "exteriorlamp-1x1",
@@ -841,7 +1133,19 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "exteriorlamp-1x1.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_1x1.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_1x1.lua",
+      "influences": {
+        "beauty": [
+          1,
+          2
+        ],
+        "calming": [
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "exteriorlamp-cold",
@@ -862,7 +1166,19 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "exteriorlamp-cold.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_cold.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_cold.lua",
+      "influences": {
+        "beauty": [
+          2,
+          2,
+          1,
+          2
+        ],
+        "calming": [
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "exteriorlamp-green",
@@ -883,7 +1199,15 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "exteriorlamp-green.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_green.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_green.lua",
+      "influences": {
+        "beauty": [
+          2,
+          3,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "exteriorlamp-pink",
@@ -904,7 +1228,19 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "exteriorlamp-pink.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_pink.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_pink.lua",
+      "influences": {
+        "beauty": [
+          2,
+          1,
+          1,
+          2
+        ],
+        "calming": [
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "exteriorlamp-warm",
@@ -925,7 +1261,19 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "exteriorlamp-warm.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_warm.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorLamp_warm.lua",
+      "influences": {
+        "beauty": [
+          1,
+          3
+        ],
+        "calming": [
+          2,
+          1,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "exteriorlounger",
@@ -967,7 +1315,15 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "exteriorstatue-1x1.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_1x1.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_1x1.lua",
+      "influences": {
+        "beauty": [
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "exteriorstatue-2x2",
@@ -988,7 +1344,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "exteriorstatue-2x2.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_2x2.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_2x2.lua",
+      "influences": {
+        "beauty": [
+          3,
+          3,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "exteriorstatue-3x3",
@@ -1009,7 +1375,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "exteriorstatue-3x3.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_3x3.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_3x3.lua",
+      "influences": {
+        "beauty": [
+          3,
+          5,
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "exteriorstatue-5x2",
@@ -1030,7 +1406,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": null,
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_5x2.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_5x2.lua",
+      "influences": {
+        "beauty": [
+          3,
+          5,
+          2,
+          4,
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "exteriorstatue-6x2",
@@ -1051,7 +1437,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "exteriorstatue-6x2.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_6x2.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ExteriorStatue_6x2.lua",
+      "influences": {
+        "beauty": [
+          3,
+          6,
+          2,
+          4,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "fastfood",
@@ -1072,7 +1468,19 @@
       "water": 20,
       "duration": 10,
       "thumbnail": "fastfood.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/FastFood.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/FastFood.lua",
+      "influences": {
+        "noise": [
+          2,
+          4,
+          1,
+          4
+        ],
+        "smell": [
+          1,
+          7
+        ]
+      }
     },
     {
       "id": "femaletoilet",
@@ -1093,7 +1501,17 @@
       "water": 40,
       "duration": 16,
       "thumbnail": "femaletoilet.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/FemaleToilet.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/FemaleToilet.lua",
+      "influences": {
+        "smell": [
+          3,
+          3,
+          2,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "firstaidstation",
@@ -1114,7 +1532,17 @@
       "water": 15,
       "duration": 10,
       "thumbnail": "firstaidstation.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/FirstAidStation.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/FirstAidStation.lua",
+      "influences": {
+        "calming": [
+          3,
+          3,
+          2,
+          5,
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "gym",
@@ -1135,7 +1563,13 @@
       "water": 30,
       "duration": 50,
       "thumbnail": "gym.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Gym.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Gym.lua",
+      "influences": {
+        "noise": [
+          1,
+          6
+        ]
+      }
     },
     {
       "id": "hairsalon",
@@ -1178,6 +1612,14 @@
       "duration": 10,
       "thumbnail": "headoffice.tga",
       "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/HeadOffice.lua",
+      "influences": {
+        "noise": [
+          2,
+          2,
+          1,
+          4
+        ]
+      },
       "entrances": [
         4,
         2
@@ -1264,7 +1706,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "helipad.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Helipad.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Helipad.lua",
+      "influences": {
+        "noise": [
+          3,
+          9,
+          2,
+          4,
+          1,
+          4
+        ]
+      }
     },
     {
       "id": "janitorcloset",
@@ -1285,7 +1737,23 @@
       "water": 30,
       "duration": 10,
       "thumbnail": "janitorcloset.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/JanitorCloset.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/JanitorCloset.lua",
+      "influences": {
+        "noise": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "smell": [
+          3,
+          4,
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "jewelrystore",
@@ -1306,7 +1774,15 @@
       "water": 0,
       "duration": 50,
       "thumbnail": "jewelrystore.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/JewelryStore.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/JewelryStore.lua",
+      "influences": {
+        "beauty": [
+          2,
+          5,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "largecasino",
@@ -1327,7 +1803,17 @@
       "water": 30,
       "duration": 10,
       "thumbnail": "largecasino.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/LargeCasino.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/LargeCasino.lua",
+      "influences": {
+        "noise": [
+          3,
+          14,
+          2,
+          5,
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "largehotel",
@@ -1369,7 +1855,17 @@
       "water": 0,
       "duration": 80,
       "thumbnail": "livemusicvenue.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/LiveMusicVenue.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/LiveMusicVenue.lua",
+      "influences": {
+        "noise": [
+          3,
+          11,
+          2,
+          5,
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "magicshop",
@@ -1411,7 +1907,17 @@
       "water": 0,
       "duration": 70,
       "thumbnail": "magicshow.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MagicShow.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MagicShow.lua",
+      "influences": {
+        "noise": [
+          3,
+          7,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "maletoilet",
@@ -1432,7 +1938,17 @@
       "water": 40,
       "duration": 7,
       "thumbnail": "maletoilet.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MaleToilet.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MaleToilet.lua",
+      "influences": {
+        "smell": [
+          3,
+          5,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "mechanicdept",
@@ -1453,7 +1969,25 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "mechanicdept.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MechanicDept.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MechanicDept.lua",
+      "influences": {
+        "noise": [
+          3,
+          6,
+          2,
+          3,
+          1,
+          1
+        ],
+        "smell": [
+          3,
+          4,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "mechanichut",
@@ -1475,6 +2009,24 @@
       "duration": 10,
       "thumbnail": "mechanichut.tga",
       "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MechanicHut.lua",
+      "influences": {
+        "noise": [
+          3,
+          3,
+          2,
+          2,
+          1,
+          2
+        ],
+        "smell": [
+          3,
+          2,
+          2,
+          2,
+          1,
+          1
+        ]
+      },
       "entrances": [
         3,
         1
@@ -1524,7 +2076,17 @@
       "water": 20,
       "duration": 10,
       "thumbnail": "mediumcasino.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MediumCasino.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/MediumCasino.lua",
+      "influences": {
+        "noise": [
+          3,
+          9,
+          2,
+          4,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "mediumhotel",
@@ -1587,7 +2149,25 @@
       "water": 0,
       "duration": 60,
       "thumbnail": "museum.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Museum.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Museum.lua",
+      "influences": {
+        "beauty": [
+          3,
+          8,
+          2,
+          2,
+          1,
+          2
+        ],
+        "calming": [
+          3,
+          8,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "nightclub",
@@ -1608,7 +2188,17 @@
       "water": 0,
       "duration": 60,
       "thumbnail": "nightclub.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub.lua",
+      "influences": {
+        "noise": [
+          3,
+          8,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "nightclub1",
@@ -1629,7 +2219,17 @@
       "water": 0,
       "duration": 75,
       "thumbnail": "nightclub1.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub1.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub1.lua",
+      "influences": {
+        "noise": [
+          3,
+          10,
+          2,
+          4,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "nightclub2",
@@ -1650,7 +2250,17 @@
       "water": 0,
       "duration": 75,
       "thumbnail": "nightclub2.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub2.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub2.lua",
+      "influences": {
+        "noise": [
+          3,
+          8,
+          2,
+          3,
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "nightclub3",
@@ -1671,7 +2281,15 @@
       "water": 0,
       "duration": 80,
       "thumbnail": "nightclub3.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub3.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub3.lua",
+      "influences": {
+        "noise": [
+          2,
+          5,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "nightclub4",
@@ -1692,7 +2310,17 @@
       "water": 0,
       "duration": 80,
       "thumbnail": "nightclub4.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub4.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Nightclub4.lua",
+      "influences": {
+        "noise": [
+          3,
+          3,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "observationdeck",
@@ -1713,7 +2341,17 @@
       "water": 0,
       "duration": 60,
       "thumbnail": "observationdeck.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ObservationDeck.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ObservationDeck.lua",
+      "influences": {
+        "beauty": [
+          3,
+          4,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "palm2x2-0",
@@ -1734,7 +2372,21 @@
       "water": 28,
       "duration": 10,
       "thumbnail": "palm2x2-0.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_0.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_0.lua",
+      "influences": {
+        "beauty": [
+          2,
+          2,
+          1,
+          3
+        ],
+        "calming": [
+          2,
+          2,
+          1,
+          5
+        ]
+      }
     },
     {
       "id": "palm2x2-1",
@@ -1755,7 +2407,21 @@
       "water": 25,
       "duration": 10,
       "thumbnail": "palm2x2-1.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_1.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_1.lua",
+      "influences": {
+        "beauty": [
+          2,
+          2,
+          1,
+          2
+        ],
+        "calming": [
+          2,
+          2,
+          1,
+          4
+        ]
+      }
     },
     {
       "id": "palm2x2-2",
@@ -1776,7 +2442,21 @@
       "water": 23,
       "duration": 10,
       "thumbnail": "palm2x2-2.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_2.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_2.lua",
+      "influences": {
+        "beauty": [
+          2,
+          2,
+          1,
+          2
+        ],
+        "calming": [
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "palm2x2-3",
@@ -1797,7 +2477,17 @@
       "water": 20,
       "duration": 10,
       "thumbnail": "palm2x2-3.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_3.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_3.lua",
+      "influences": {
+        "beauty": [
+          1,
+          4
+        ],
+        "calming": [
+          1,
+          5
+        ]
+      }
     },
     {
       "id": "palm2x2-4",
@@ -1818,7 +2508,21 @@
       "water": 22,
       "duration": 10,
       "thumbnail": "palm2x2-4.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_4.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palm2x2_4.lua",
+      "influences": {
+        "beauty": [
+          2,
+          3,
+          1,
+          1
+        ],
+        "calming": [
+          2,
+          4,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "palmset",
@@ -1839,7 +2543,23 @@
       "water": 100,
       "duration": 10,
       "thumbnail": "palmset.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palmset.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Palmset.lua",
+      "influences": {
+        "beauty": [
+          3,
+          1,
+          2,
+          4,
+          1,
+          3
+        ],
+        "calming": [
+          2,
+          4,
+          1,
+          5
+        ]
+      }
     },
     {
       "id": "grass",
@@ -1986,7 +2706,13 @@
       "water": 12,
       "duration": 10,
       "thumbnail": null,
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotFlower1x1.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotFlower1x1.lua",
+      "influences": {
+        "beauty": [
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "potflower2x2",
@@ -2007,7 +2733,15 @@
       "water": 25,
       "duration": 10,
       "thumbnail": null,
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotFlower2x2.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotFlower2x2.lua",
+      "influences": {
+        "beauty": [
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "potflower3x3",
@@ -2028,7 +2762,17 @@
       "water": 50,
       "duration": 10,
       "thumbnail": null,
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotFlower3x3.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotFlower3x3.lua",
+      "influences": {
+        "beauty": [
+          3,
+          2,
+          2,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "pottree1x1",
@@ -2049,7 +2793,13 @@
       "water": 10,
       "duration": 10,
       "thumbnail": "pottree1x1.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotTree1x1.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotTree1x1.lua",
+      "influences": {
+        "beauty": [
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "pottree2x2",
@@ -2070,7 +2820,15 @@
       "water": 20,
       "duration": 10,
       "thumbnail": "pottree2x2.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotTree2x2.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotTree2x2.lua",
+      "influences": {
+        "beauty": [
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "pottree3x3",
@@ -2091,7 +2849,17 @@
       "water": 40,
       "duration": 10,
       "thumbnail": "pottree3x3.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotTree3x3.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PotTree3x3.lua",
+      "influences": {
+        "beauty": [
+          3,
+          2,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "powergenerator",
@@ -2112,7 +2880,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "powergenerator.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PowerGenerator.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PowerGenerator.lua",
+      "influences": {
+        "noise": [
+          3,
+          9,
+          2,
+          4,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "powersubstation",
@@ -2133,7 +2911,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "powersubstation.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PowerSubStation.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/PowerSubStation.lua",
+      "influences": {
+        "noise": [
+          3,
+          5,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "recyclingcenter",
@@ -2154,7 +2942,25 @@
       "water": 80,
       "duration": 10,
       "thumbnail": "recyclingcenter.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/RecyclingCenter.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/RecyclingCenter.lua",
+      "influences": {
+        "noise": [
+          3,
+          4,
+          2,
+          2,
+          1,
+          1
+        ],
+        "smell": [
+          3,
+          5,
+          2,
+          4,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "restaurant",
@@ -2175,7 +2981,13 @@
       "water": 45,
       "duration": 27,
       "thumbnail": "restaurant.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Restaurant.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Restaurant.lua",
+      "influences": {
+        "noise": [
+          1,
+          6
+        ]
+      }
     },
     {
       "id": "rollercoaster",
@@ -2196,7 +3008,17 @@
       "water": 0,
       "duration": 35,
       "thumbnail": "rollercoaster.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Rollercoaster.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Rollercoaster.lua",
+      "influences": {
+        "noise": [
+          3,
+          12,
+          2,
+          4,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "sharkpool",
@@ -2217,7 +3039,15 @@
       "water": 1200,
       "duration": 40,
       "thumbnail": "sharkpool.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SharkPool.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SharkPool.lua",
+      "influences": {
+        "noise": [
+          2,
+          3,
+          1,
+          7
+        ]
+      }
     },
     {
       "id": "showgirls",
@@ -2238,7 +3068,17 @@
       "water": 0,
       "duration": 60,
       "thumbnail": "showgirls.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Showgirls.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/Showgirls.lua",
+      "influences": {
+        "noise": [
+          3,
+          7,
+          2,
+          3,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "signlarge",
@@ -2322,7 +3162,17 @@
       "water": 10,
       "duration": 10,
       "thumbnail": "smallcasino.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SmallCasino.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SmallCasino.lua",
+      "influences": {
+        "noise": [
+          3,
+          6,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "smallhotel",
@@ -2467,6 +3317,12 @@
       "duration": 36,
       "thumbnail": "souvenirshop.tga",
       "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SouvenirShop.lua",
+      "influences": {
+        "noise": [
+          1,
+          7
+        ]
+      },
       "entrances": [
         3,
         3
@@ -2541,7 +3397,17 @@
       "water": 0,
       "duration": 80,
       "thumbnail": "stageshow.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/StageShow.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/StageShow.lua",
+      "influences": {
+        "noise": [
+          3,
+          7,
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "swimmingpool",
@@ -2562,7 +3428,17 @@
       "water": 450,
       "duration": 55,
       "thumbnail": "swimmingpool.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SwimmingPool.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/SwimmingPool.lua",
+      "influences": {
+        "calming": [
+          3,
+          6,
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "theatre",
@@ -2604,7 +3480,17 @@
       "water": 0,
       "duration": 25,
       "thumbnail": "themedride.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ThemedRide.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ThemedRide.lua",
+      "influences": {
+        "noise": [
+          3,
+          6,
+          2,
+          3,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "toplessrevue",
@@ -2625,7 +3511,17 @@
       "water": 0,
       "duration": 60,
       "thumbnail": "toplessrevue.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ToplessRevue.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/ToplessRevue.lua",
+      "influences": {
+        "noise": [
+          3,
+          9,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "travelagent",
@@ -2667,7 +3563,23 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "waterplant.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/WaterPlant.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/WaterPlant.lua",
+      "influences": {
+        "noise": [
+          2,
+          4,
+          1,
+          2
+        ],
+        "smell": [
+          3,
+          5,
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "wavepool",
@@ -2688,7 +3600,17 @@
       "water": 450,
       "duration": 35,
       "thumbnail": "wavepool.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/WavePool.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/WavePool.lua",
+      "influences": {
+        "noise": [
+          3,
+          5,
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "weddingchapel",
@@ -2709,7 +3631,25 @@
       "water": 40,
       "duration": 80,
       "thumbnail": "weddingchapel.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/WeddingChapel.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Exterior/WeddingChapel.lua",
+      "influences": {
+        "beauty": [
+          3,
+          7,
+          2,
+          2,
+          1,
+          2
+        ],
+        "calming": [
+          3,
+          7,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "womensclothing",
@@ -2814,7 +3754,15 @@
       "water": 0,
       "duration": 0,
       "thumbnail": "bin-1-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Bin_1_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Bin_1_INT.lua",
+      "influences": {
+        "smell": [
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "column-int",
@@ -2835,7 +3783,21 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "column-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Column_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Column_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "calming": [
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "flowerbed1x1-int",
@@ -2856,7 +3818,17 @@
       "water": 4,
       "duration": 10,
       "thumbnail": null,
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed1x1_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed1x1_INT.lua",
+      "influences": {
+        "beauty": [
+          1,
+          2
+        ],
+        "calming": [
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "flowerbed2x1-int",
@@ -2877,7 +3849,17 @@
       "water": 6,
       "duration": 10,
       "thumbnail": "flowerbed2x1-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed2x1_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed2x1_INT.lua",
+      "influences": {
+        "beauty": [
+          1,
+          3
+        ],
+        "calming": [
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "flowerbed2x2-int",
@@ -2898,7 +3880,21 @@
       "water": 16,
       "duration": 10,
       "thumbnail": null,
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed2x2_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed2x2_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          2,
+          1,
+          2
+        ],
+        "calming": [
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "flowerbed3x1-int",
@@ -2919,7 +3915,19 @@
       "water": 10,
       "duration": 10,
       "thumbnail": "flowerbed3x1-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed3x1_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed3x1_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          1,
+          1,
+          4
+        ],
+        "calming": [
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "flowerbed3x3-int",
@@ -2940,7 +3948,17 @@
       "water": 6,
       "duration": 10,
       "thumbnail": null,
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed3x3_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Flowerbed3x3_INT.lua",
+      "influences": {
+        "beauty": [
+          1,
+          3
+        ],
+        "calming": [
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "fount-1x1-int",
@@ -2961,7 +3979,23 @@
       "water": 20,
       "duration": 10,
       "thumbnail": "fount-1x1-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Fount_1x1_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Fount_1x1_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          3,
+          1,
+          2
+        ],
+        "calming": [
+          3,
+          3,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "fount-2x2-int",
@@ -2982,7 +4016,23 @@
       "water": 40,
       "duration": 10,
       "thumbnail": "fount-2x2-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Fount_2x2_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Fount_2x2_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          5,
+          1,
+          2
+        ],
+        "calming": [
+          3,
+          5,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "fount-2x4-int",
@@ -3003,7 +4053,23 @@
       "water": 65,
       "duration": 10,
       "thumbnail": "fount-2x4-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Fount_2x4_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Fount_2x4_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          6,
+          1,
+          2
+        ],
+        "calming": [
+          3,
+          6,
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "fount-3x3-int",
@@ -3024,7 +4090,23 @@
       "water": 80,
       "duration": 10,
       "thumbnail": "fount-3x3-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Fount_3x3_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Fount_3x3_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          8,
+          1,
+          2
+        ],
+        "calming": [
+          3,
+          7,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "5cardstud",
@@ -3108,7 +4190,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "carjackpotslotgroup.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/CarJackpotSlotGroup.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/CarJackpotSlotGroup.lua",
+      "influences": {
+        "noise": [
+          3,
+          8,
+          2,
+          3,
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "craps",
@@ -3129,7 +4221,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "craps.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/Craps.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/Craps.lua",
+      "influences": {
+        "noise": [
+          3,
+          6,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "keno",
@@ -3150,7 +4252,15 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "keno.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/Keno.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/Keno.lua",
+      "influences": {
+        "noise": [
+          2,
+          7,
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "letitride",
@@ -3213,7 +4323,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "progressiveslots.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/ProgressiveSlots.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/ProgressiveSlots.lua",
+      "influences": {
+        "noise": [
+          3,
+          6,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "sportsbookbetting",
@@ -3234,7 +4354,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "sportsbookbetting.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/SportsBookBetting.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/SportsBookBetting.lua",
+      "influences": {
+        "noise": [
+          3,
+          7,
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "texasholdem",
@@ -3276,7 +4406,15 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "videokeno.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/VideoKeno.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/VideoKeno.lua",
+      "influences": {
+        "noise": [
+          2,
+          1,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "wheeloffortune",
@@ -3297,7 +4435,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "wheeloffortune.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/WheelOfFortune.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Gambling/WheelOfFortune.lua",
+      "influences": {
+        "noise": [
+          3,
+          4,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "hospitalitysuitent",
@@ -3339,7 +4487,17 @@
       "water": 40,
       "duration": 12,
       "thumbnail": "interior-femaletoilet.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Interior FemaleToilet.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Interior FemaleToilet.lua",
+      "influences": {
+        "smell": [
+          3,
+          5,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "interior-maletoilet",
@@ -3360,7 +4518,17 @@
       "water": 40,
       "duration": 10,
       "thumbnail": "interior-maletoilet.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Interior MaleToilet.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Interior MaleToilet.lua",
+      "influences": {
+        "smell": [
+          3,
+          6,
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "interiorbuffet",
@@ -3381,7 +4549,13 @@
       "water": 30,
       "duration": 12,
       "thumbnail": "interiorbuffet.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/InteriorBuffet.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/InteriorBuffet.lua",
+      "influences": {
+        "noise": [
+          1,
+          6
+        ]
+      }
     },
     {
       "id": "kitchenint",
@@ -3402,7 +4576,21 @@
       "water": 100,
       "duration": 10,
       "thumbnail": "kitchenint.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/KitchenINT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/KitchenINT.lua",
+      "influences": {
+        "noise": [
+          2,
+          6,
+          1,
+          1
+        ],
+        "smell": [
+          2,
+          7,
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "lamp-1-int",
@@ -3423,7 +4611,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": null,
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_1_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_1_INT.lua",
+      "influences": {
+        "beauty": [
+          1,
+          2
+        ],
+        "calming": [
+          1,
+          5
+        ]
+      }
     },
     {
       "id": "lamp-cold-int",
@@ -3444,7 +4642,19 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "lamp-cold-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_cold_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_cold_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          1,
+          1,
+          2
+        ],
+        "calming": [
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "lamp-green-int",
@@ -3465,7 +4675,15 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "lamp-green-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_green_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_green_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          1,
+          1,
+          5
+        ]
+      }
     },
     {
       "id": "lamp-pink-int",
@@ -3486,7 +4704,19 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "lamp-pink-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_pink_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_pink_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          1,
+          1,
+          4
+        ],
+        "calming": [
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "lamp-warm-int",
@@ -3507,7 +4737,19 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "lamp-warm-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_warm_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Lamp_warm_INT.lua",
+      "influences": {
+        "beauty": [
+          1,
+          3
+        ],
+        "calming": [
+          2,
+          1,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "landscaping",
@@ -3528,7 +4770,13 @@
       "water": 40,
       "duration": 10,
       "thumbnail": "landscaping.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Landscaping.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Landscaping.lua",
+      "influences": {
+        "smell": [
+          1,
+          7
+        ]
+      }
     },
     {
       "id": "monitorstationint",
@@ -3549,7 +4797,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "monitorstationint.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/MonitorStationINT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/MonitorStationINT.lua",
+      "influences": {
+        "calming": [
+          3,
+          9,
+          2,
+          6,
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "pitbossint",
@@ -3591,7 +4849,13 @@
       "water": 5,
       "duration": 10,
       "thumbnail": null,
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotFlower1x1_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotFlower1x1_INT.lua",
+      "influences": {
+        "beauty": [
+          1,
+          3
+        ]
+      }
     },
     {
       "id": "potflower2x2-int",
@@ -3612,7 +4876,15 @@
       "water": 20,
       "duration": 10,
       "thumbnail": null,
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotFlower2x2_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotFlower2x2_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "potflower3x3-int",
@@ -3633,7 +4905,17 @@
       "water": 45,
       "duration": 10,
       "thumbnail": null,
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotFlower3x3_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotFlower3x3_INT.lua",
+      "influences": {
+        "beauty": [
+          3,
+          3,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "pottree2x2-int",
@@ -3654,7 +4936,21 @@
       "water": 20,
       "duration": 10,
       "thumbnail": "pottree2x2-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotTree2x2_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotTree2x2_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          2,
+          1,
+          2
+        ],
+        "calming": [
+          2,
+          4,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "pottree3x3-int",
@@ -3675,7 +4971,25 @@
       "water": 45,
       "duration": 10,
       "thumbnail": "pottree3x3-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotTree3x3_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/PotTree3x3_INT.lua",
+      "influences": {
+        "beauty": [
+          3,
+          2,
+          2,
+          2,
+          1,
+          2
+        ],
+        "calming": [
+          3,
+          4,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "statue-1x1-int",
@@ -3696,7 +5010,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "statue-1x1-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Statue_1x1_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Statue_1x1_INT.lua",
+      "influences": {
+        "beauty": [
+          3,
+          2,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "statue-2x2-int",
@@ -3717,7 +5041,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "statue-2x2-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Statue_2x2_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Statue_2x2_INT.lua",
+      "influences": {
+        "beauty": [
+          3,
+          4,
+          2,
+          2,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "statue-3x3-int",
@@ -3738,7 +5072,17 @@
       "water": 0,
       "duration": 10,
       "thumbnail": "statue-3x3-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Statue_3x3_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Statue_3x3_INT.lua",
+      "influences": {
+        "beauty": [
+          3,
+          5,
+          2,
+          3,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "tree-int",
@@ -3759,7 +5103,21 @@
       "water": 12,
       "duration": 10,
       "thumbnail": "tree-int.tga",
-      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Tree_INT.lua"
+      "source": "GAMEDATA/Scripts/Objects/Buildings/Source/Interior/Tree_INT.lua",
+      "influences": {
+        "beauty": [
+          2,
+          2,
+          1,
+          2
+        ],
+        "calming": [
+          2,
+          2,
+          1,
+          3
+        ]
+      }
     }
   ],
   "campaign": [

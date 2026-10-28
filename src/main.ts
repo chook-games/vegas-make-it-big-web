@@ -5,6 +5,8 @@ import { beginTutorial, tutorialStage, tutorialBuildError, tutorialTask, objecti
 import { TutorialUI } from './tutorial-ui';
 import { HotelUI } from './hotel-ui';
 import { DevelopmentUI } from './development-ui';
+import { FilterUI } from './filter-ui';
+import { influenceMap } from './influence';
 import { Simulation, createGame, canPlace, place, sell, restore, serialize, SAVE_KEY,
   DAY_SECONDS, type CatalogItem, type GameState } from './game';
 
@@ -91,6 +93,15 @@ async function start() {
     if (type === 'smallhotel') hotelUI.reset();
     selected = state.buildings.find(b => b.type === type)?.uid ?? null; updateInspector();
   };
+  const filterUI = new FilterUI(type => {
+    world.setFilter(type, type ? influenceMap(state, catalog, type) : null);
+    if (type && state.tutorial) {
+      if (type === 'noise') state.tutorial.filterNoise = true;
+      if (type === 'smell') state.tutorial.filterSmell = true;
+      if (type === 'beauty') state.tutorial.filterBeauty = true;
+      updateHud(); tutorialUI.render();
+    }
+  }, getIcon);
   const tutorialUI = new TutorialUI(() => state, () => {
     const stage = tutorialStage(state);
     if (stage === 'hotel') { major = 0; minor = 'BUILDING_MINOR_GROUP_EXT_HOTELS'; }
@@ -101,7 +112,7 @@ async function start() {
     else if (stage === 'electrician') { major = 0; minor = 'BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF'; }
     else { major = 3; minor = 'BUILDING_MINOR_GROUP_EXT_PATHS'; }
     choose(null); renderGroups(); renderMinors(); renderCatalog();
-  }, () => { renderCatalog(); updateHud(); }, message => toast(message), getIcon, inspectHotel);
+  }, () => { renderCatalog(); updateHud(); }, message => toast(message), getIcon, inspectHotel, () => filterUI.show());
   document.querySelector('.classic-ui')!.classList.add('game-hidden');
   $<HTMLSelectElement>('language-select').value = language();
   localizeDocument(app);
@@ -186,7 +197,7 @@ async function start() {
     });
   }
   function showMainMenu() {
-    tutorialUI.close();
+    tutorialUI.close(); filterUI.close();
     $('main-menu').hidden = false; $('campaign-menu').hidden = true; $('credits-panel').hidden = true;
     $('frontend').hidden = false; document.querySelector('.classic-ui')!.classList.add('game-hidden');
     inGame = false; speed = 0;
@@ -199,7 +210,8 @@ async function start() {
     sim = new Simulation(state, catalog); inGame = true; speed = 1;
     $('frontend').hidden = true; document.querySelector('.classic-ui')!.classList.remove('game-hidden');
     major = state.tutorial ? 0 : 4; minor = ''; choose(null); world.sync(state.buildings, state.guests, catalog, null);
-    world.setExterior(!!state.tutorial); tutorialUI.start();
+    world.setExterior(!!state.tutorial); world.setFilter(null, null); filterUI.current = null;
+    tutorialUI.start();
     document.querySelectorAll<HTMLButtonElement>('[data-speed]').forEach(button => button.classList.toggle('active', Number(button.dataset.speed) === speed));
     updateHud();
   }
@@ -269,12 +281,13 @@ async function start() {
     $('game-clock').textContent = `${String(Math.floor((state.elapsed % DAY_SECONDS) / DAY_SECONDS * 24)).padStart(2, '0')}:00`;
     updateInspector();
     tutorialUI.render();
+    if (filterUI.open && filterUI.current) world.setFilter(filterUI.current, influenceMap(state, catalog, filterUI.current));
   }
   function changeState(next: GameState) {
     hotelUI.reset();
     developmentUI.reset();
     state = next; sim = new Simulation(state, catalog); choose(null); world.sync(state.buildings, [], catalog, null); updateHud();
-    world.setExterior(!!state.tutorial); tutorialUI.start();
+    world.setExterior(!!state.tutorial); world.setFilter(null, null); filterUI.current = null; tutorialUI.start();
   }
   function save(automatic = false) {
     try { localStorage.setItem(SAVE_KEY, serialize(state)); if (!automatic) toast(t('ID_WEB_GAME_SAVED')); }
@@ -312,7 +325,7 @@ async function start() {
   $('menu-quit').onclick = () => toast(t('ID_WEB_CLOSE_TAB_TO_QUIT'));
   $('language-select').onchange = event => {
     setLanguage((event.target as HTMLSelectElement).value);
-    localizeDocument(app); renderCampaigns(); renderGroups(); renderMinors(); renderCatalog(); updateHud();
+    localizeDocument(app); renderCampaigns(); renderGroups(); renderMinors(); renderCatalog(); filterUI.render(); updateHud();
   };
   $('tutorial-accept').onclick = $('tutorial-close').onclick = () => $<HTMLDialogElement>('tutorial-dialog').close();
   $('return-menu').onclick = showMainMenu;
@@ -359,7 +372,7 @@ async function start() {
   $('wander').onclick = () => { wandering = !wandering; $('wander').classList.toggle('active', wandering); toast(wandering ? t('ID_WEB_WANDER_CAMERA') : t('ID_WEB_ORBIT_CAMERA')); };
   $('objective-button').onclick = () => state.tutorial ? tutorialUI.objectives() : toast(`${state.totalVisitors} / 50 ${t('ID_GENERAL_VISITORS', 'visitors')} · ${money(state.income)} / $1,000`);
   $('players-button').onclick = () => toast(`${state.guests.length} ${t('ID_GENERAL_VISITORS', 'visitors')} ${t('ID_WEB_IN_CASINO')}`);
-  $('filter-button').onclick = () => toast(t('ID_WEB_FILTERS_NOT_READY'));
+  $('filter-button').onclick = () => filterUI.show();
   $('world-button').onclick = () => toast(t('ID_WEB_WORLD_VIEW_NOT_READY'));
   $('hide-panel').onclick = () => { panelVisible = !panelVisible; document.querySelector('.classic-build')!.classList.toggle('collapsed', !panelVisible); };
   const clickSound = new Audio(`${import.meta.env.BASE_URL}assets/sound/ui-click.ogg`);
