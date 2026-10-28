@@ -40,9 +40,9 @@ export class CasinoScene {
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.setClearColor(0x101a26);
     host.append(this.renderer.domElement);
-    this.camera.position.set(66, 64, 80);
+    this.camera.position.set(58, 52, 80);
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    this.controls.target.set(WIDTH / 2, 0, DEPTH / 2);
+    this.controls.target.set(WIDTH / 2, 0, DEPTH / 2 - 1);
     this.controls.enableDamping = true;
     this.controls.minDistance = 15;
     this.controls.maxDistance = 110;
@@ -102,23 +102,66 @@ export class CasinoScene {
     this.label(this.room, 'ENTRANCE', 24.5, .08, 38.8, 4, .6, true);
   }
   private makeExterior() {
-    this.box(this.exterior, 160, .5, 150, 24, -.4, 20, 0xa49a83);
-    this.box(this.exterior, WIDTH, .1, DEPTH, 24, -.04, 20, 0xc1ad89);
-    for (const x of [-5, 53]) {
-      this.box(this.exterior, 6, .08, 150, x, -.05, 20, 0x545c62);
-      for (let z = -50; z < 90; z += 5) this.box(this.exterior, .13, .03, 2, x, .01, z, 0xd4cbb1);
+    // City block from the reference screenshots: gravel lot, palm perimeter,
+    // surrounding streets and neighbouring casino lots.
+    this.box(this.exterior, 260, .5, 230, 24, -.5, 20, 0xb3a894);
+    this.box(this.exterior, WIDTH, .1, DEPTH, 24, -.06, 20, 0x8b949b);
+    // Streets around the lot.
+    const asphalt = 0x5c6268;
+    this.box(this.exterior, WIDTH, .06, 9, 24, -.02, 3, asphalt);
+    this.box(this.exterior, WIDTH, .06, 8, 24, -.02, 36, asphalt);
+    this.box(this.exterior, 10, .06, DEPTH, 2, -.02, 20, asphalt);
+    this.box(this.exterior, 9, .06, DEPTH, 45, -.02, 20, asphalt);
+    const lane = (x: number, z: number, w: number, d: number) => this.box(this.exterior, w, .02, d, x, .03, z, 0xd9d5c2);
+    for (let x = -40; x < 92; x += 6) { lane(x, 3, 2.6, .16); lane(x, 36, 2.6, .16); }
+    for (let z = -30; z < 76; z += 6) { lane(2, z, .16, 2.6); lane(45, z, .16, 2.6); }
+    // Gravel lot with white boundary and pink trim (Lot 1).
+    this.box(this.exterior, 32, .08, 29, 24, -.01, 19.5, 0xd8c6a8);
+    this.box(this.exterior, 32.8, .03, .22, 24, .05, 4.8, 0xf1efe2);
+    this.box(this.exterior, 32.8, .03, .22, 24, .05, 34.2, 0xf1efe2);
+    this.box(this.exterior, .22, .03, 29.4, 7.8, .05, 19.5, 0xf1efe2);
+    this.box(this.exterior, .22, .03, 29.4, 40.2, .05, 19.5, 0xf1efe2);
+    this.box(this.exterior, 33.6, .02, .3, 24, .04, 4.3, 0xb58fbe);
+    this.box(this.exterior, 33.6, .02, .3, 24, .04, 34.7, 0xb58fbe);
+    this.box(this.exterior, .3, .02, 30.6, 7.3, .04, 19.5, 0xb58fbe);
+    this.box(this.exterior, .3, .02, 30.6, 40.7, .04, 19.5, 0xb58fbe);
+    // Palm rows on the lot perimeter.
+    for (let x = 9; x <= 39; x += 3) { this.palm(x, 3.4); this.palm(x, 35.6); }
+    for (let z = 7; z <= 33; z += 3) { this.palm(6.4, z); this.palm(41.6, z); }
+    // Green staff/casino area south of the road, as in the reference shots.
+    this.box(this.exterior, 46, .06, 20, 24, -.02, 52, 0x6f8a58);
+    for (let x = 14; x <= 36; x += 9) {
+      this.box(this.exterior, 5, .05, 5, x, .02, 47, 0x526b47);
+      const ring = new THREE.Mesh(new THREE.CylinderGeometry(1.1, 1.1, .4, 18), new THREE.MeshStandardMaterial({ color: 0x7d99a4 }));
+      ring.position.set(x, .25, 47); ring.receiveShadow = true; this.exterior.add(ring);
+      const water = new THREE.Mesh(new THREE.CylinderGeometry(.9, .9, .45, 18), new THREE.MeshStandardMaterial({ color: 0x7db6c9 }));
+      water.position.set(x, .3, 47); this.exterior.add(water);
+      this.box(this.exterior, 3, 1.8, 2.8, x + 4, .9, 55, 0xe4dfcd);
+      this.box(this.exterior, 3.5, .25, 3.3, x + 4, 2.3, 55, 0x7e9097);
     }
-    for (const z of [-5, 45]) {
-      this.box(this.exterior, 160, .08, 6, 24, -.04, z, 0x545c62);
-      for (let x = -50; x < 100; x += 5) this.box(this.exterior, 2, .03, .13, x, .01, z, 0xd4cbb1);
+    // Low neighbours across the north road and behind the east/west streets.
+    const blocks: [number, number, number, number, number, number][] = [
+      [-34, -30, 12, 9, 0x8f97a1, 0x62768a], [0, -32, 14, 8, 0xa39a8d, 0x7c6a86],
+      [26, -31, 12, 9, 0x909a91, 0x54728a], [50, -30, 12, 9, 0xa096a3, 0x7b5d7a],
+      [-34, 20, 10, 12, 0x9a948c, 0x6b7182],
+    ];
+    for (const [x, z, w, d, wall, roof] of blocks) {
+      this.box(this.exterior, w, 5 + (Math.abs(x + z) % 4), d, x, 2.5 + (Math.abs(x + z) % 4) / 2, z, wall);
+      this.box(this.exterior, w + 1, .5, d + 1, x, 5.4 + (Math.abs(x + z) % 4), z, roof);
     }
-    for (const x of [-24, 73]) for (const z of [-25, 12, 65]) {
-      this.box(this.exterior, 15, 9, 16, x, 4.4, z, 0x8b979d);
-      this.box(this.exterior, 16, .4, 17, x, 9, z, 0x536375);
+    // Distant skyline.
+    for (let i = 0; i < 18; i++) {
+      const x = -70 + i * 11, h = 12 + (i * 7) % 22;
+      this.box(this.exterior, 9, h, 10, x, h / 2, -42 - (i % 3) * 9, 0x8b929b);
     }
-    for (let x = 1; x < WIDTH; x += 3) {
-      this.box(this.exterior, .1, 1, .1, x, .5, 0, 0x999182);
-      this.box(this.exterior, .1, 1, .1, x, .5, DEPTH, 0x999182);
+  }
+  private palm(x: number, z: number) {
+    this.box(this.exterior, .6, .7, .6, x, .35, z, 0x6c5638);
+    this.box(this.exterior, .16, 4.6, .16, x, 2.6, z, 0x8a6a43);
+    for (let i = 0; i < 5; i++) {
+      const angle = i / 5 * Math.PI * 2;
+      const leaf = this.box(this.exterior, 1.5, .07, .45, x + Math.cos(angle) * .7, 4.8, z + Math.sin(angle) * .7, 0x3f8f55);
+      leaf.rotation.y = -angle;
     }
   }
   setExterior(enabled: boolean) {
@@ -365,7 +408,20 @@ export class CasinoScene {
     while (node) { if (node.userData.uid) return node.userData.uid; node = node.parent; }
     return null;
   }
-  resetCamera() { this.camera.position.set(66, 64, 80); this.controls.target.set(24, 0, 20); }
+  pickStaff(event: PointerEvent): 'mechanic' | 'electrician' | null {
+    this.point(event);
+    for (const role of ['mechanic', 'electrician'] as const) {
+      const mesh = this.staffMeshes.get(role);
+      if (mesh && this.ray.intersectObject(mesh, true).length) return role;
+    }
+    return null;
+  }
+  focusStaff(role: 'mechanic' | 'electrician') {
+    const mesh = this.staffMeshes.get(role); if (!mesh) return;
+    const offset = this.camera.position.clone().sub(this.controls.target);
+    this.controls.target.copy(mesh.position); this.camera.position.copy(mesh.position).add(offset); this.controls.update();
+  }
+  resetCamera() { this.camera.position.set(58, 52, 80); this.controls.target.set(24, 0, 20); }
   syncMechanic(state: GameState) {
     for (const role of ['mechanic', 'electrician'] as const) {
       const worker = state[role]; let mesh = this.staffMeshes.get(role);

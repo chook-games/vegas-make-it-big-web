@@ -31,6 +31,8 @@ const customEnglish: Record<string, string> = {
   ID_WEB_WORLD_VIEW_NOT_READY: 'The outside world view will arrive with the original map port.',
   ID_WEB_OBJECT_PLACED: 'placed', ID_WEB_WELCOME_TO_CASINO: 'Welcome! Choose an object to build or load the example layout.',
   ID_WEB_CLOSE_TAB_TO_QUIT: 'Close this browser tab to quit the game.',
+  ID_WEB_STAFF_SELECTED: 'Staff Member', ID_WEB_NONE: 'None', ID_WEB_ASSIGNED_TO: 'Assigned to', ID_WEB_LOCATE: 'Locate',
+  ID_WEB_REPUTATION: 'Reputation', ID_WEB_POWER_WATER: 'Power and water use',
   ID_WEB_EMPTY_CASINO: 'Welcome to your casino.', ID_WEB_EMPTY_CASINO_HINT: 'Choose an object from the construction toolbox.',
   ID_WEB_BUILD_SLOT: 'Build a Slot', ID_WEB_LOAD_EXAMPLE_LAYOUT: 'Load Example Layout',
   ID_WEB_NEW_GAME: 'New Game', ID_WEB_NEW_CASINO_CONFIRM: 'Start a new casino?',

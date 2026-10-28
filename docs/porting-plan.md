@@ -139,8 +139,24 @@ never overwrites a save.
   and the remaining training are not implemented. The scenario does not award a win.
 - The next original step is to construct and enter a Small Casino. That work is
   pending, along with later interior, staff and house-edge filters.
-- The 48×40 lot, roads and surrounding boxes are newly generated minimal geometry;
-  the original CMF/CMB map, exact lot dimensions and city simulation remain unported.
+- The exterior was rebuilt from the latest reference screenshots as a closer
+  approximation: a large gravel lot with white boundary/pink trim, palm rows on
+  all sides, surrounding streets with lane markings, a green fountain/service
+  area and neighbouring city blocks. It is still hand-built geometry. The
+  original CMF/CMB city map, exact lot scale, terrain and traffic remain
+  unported; decoding those files is required for a true map port.
+- A Lot summary panel now shows the original-style money, reputation, people,
+  object count and power/water figures. Values come from the live prototype
+  simulation, not the native engine's lot accounting.
+- Staff are selectable: clicking a mechanic/electrician in the 3D scene opens a
+  staff panel with role, status, wage, skill, speed, attention and current job.
+  This mirrors selecting people in the original, but native staff dispatch,
+  thoughts/preferences and animations are not reproduced.
+- Tutorial order was re-checked against the Steam ai.lua objective list and
+  matches steps 1-15 (Lot, Hotel, Paths, Sales, Sales details, Camera, Head
+  Office, Retail upgrade/shop, Mechanic Hut, Repair, Cinema/Electrician,
+  Noise/Smell/Beauty filters, Palm, State of Repair). The next objective is
+  Small Casino (step 16); it and all later steps are not yet implemented.
 
 Reviewed user references `Untitled1.jpg` through `Untitled10.jpg`: green frontend
 and tutorial dialogs, bronze world HUD, lavender lot panels, original objective

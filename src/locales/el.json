@@ -17,7 +17,7 @@
   "ID_WEB_OBJECT_SOLD": "Το αντικείμενο πουλήθηκε.",
   "ID_WEB_GOAL_COMPLETE": "Ο στόχος ολοκληρώθηκε!",
   "ID_GENERAL_DAILY_COST": "Ημερήσια έξοδα",
-  "ID_GENERAL_VISITORS": "επισκέπτες",
+  "ID_GENERAL_VISITORS": "Επισκέπτες",
   "ID_WEB_GAME_SAVED": "Το παιχνίδι αποθηκεύτηκε σε αυτόν τον browser.",
   "ID_WEB_SAVE_UNAVAILABLE": "Η αποθήκευση browser δεν είναι διαθέσιμη.",
   "ID_WEB_NO_SAVE": "Δεν βρέθηκε αποθηκευμένο παιχνίδι.",
@@ -298,5 +298,11 @@
   "ID_SCENARIO_NWS_OBJ_BUILDCASINO_NAME": "Κατασκεύασε μικρό καζίνο.",
   "ID_SCENARIO_NWS_OBJ_BUILDCASINO_DESC": "Το μικρό καζίνο βρίσκεται στην ομάδα Ψυχαγωγία → Καζίνο. Τοποθέτησέ το στο οικόπεδο. Η λειτουργία μεταφέρεται ακόμη.",
   "ID_BUILDING_TYPE_PALM0_NAME": "Γιγάντιος φοίνικας",
-  "ID_BUILDING_TYPE_TREESMALL_NAME": "Μικρό δέντρο"
+  "ID_BUILDING_TYPE_TREESMALL_NAME": "Μικρό δέντρο",
+  "ID_WEB_STAFF_SELECTED": "Μέλος προσωπικού",
+  "ID_WEB_NONE": "Κανένα",
+  "ID_WEB_ASSIGNED_TO": "Ανατεθειμένο σε",
+  "ID_WEB_LOCATE": "Εστίαση",
+  "ID_WEB_REPUTATION": "Φήμη",
+  "ID_WEB_POWER_WATER": "Κατανάλωση ρεύματος και νερού"
 }

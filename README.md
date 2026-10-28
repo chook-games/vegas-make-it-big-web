@@ -46,6 +46,7 @@ panel follows the original major-group → minor-tab → thumbnail workflow.
 | Shift + click | Place multiple copies |
 | Esc | Cancel construction / selection |
 | Click existing object | Inspect / sell |
+| Click a worker | Inspect staff member (status, wage, skills) |
 | Left drag | Pan camera |
 | Right drag | Rotate camera |
 | Mouse wheel | Zoom |

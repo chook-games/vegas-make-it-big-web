@@ -76,7 +76,7 @@ try {
   await page.click('#lot-build');
   await page.click('[data-item="path-1"]');
   const camera = new PerspectiveCamera(44, tutorialCanvas.width / tutorialCanvas.height, .1, 500);
-  camera.position.set(66, 64, 80); camera.lookAt(24, 0, 20); camera.updateMatrixWorld();
+  camera.position.set(58, 52, 80); camera.lookAt(24, 0, 19); camera.updateMatrixWorld();
   const hotel = tutorialSave.buildings[0];
   const pixel = (x,z) => {
     const v = new Vector3(x + .5, 0, z + .5).project(camera);
@@ -213,6 +213,12 @@ try {
   await page.click('#load'); await page.click('#event-accept'); await page.click('#save');
   const restoredMechanic = await page.evaluate(() => JSON.parse(localStorage.getItem('vegas-web-save-v1')));
   assert.deepEqual(restoredMechanic.mechanic, repaired.mechanic);
+  const workerPixel = pixel(Math.floor(restoredMechanic.mechanic.x), Math.floor(restoredMechanic.mechanic.z));
+  await page.mouse.click(workerPixel.x, workerPixel.y);
+  assert.match(await page.locator('#inspector').textContent(), /Mechanic/);
+  assert.match(await page.locator('#inspector').textContent(), /Idle/);
+  assert.ok(await page.locator('#staff-locate').isVisible());
+  await page.click('#staff-close');
   await page.click('#lot-build'); await page.click('[data-item="cinema"]');
   const cinemaPosition = pixel(10,3);
   await page.mouse.click(cinemaPosition.x, cinemaPosition.y); await page.click('#event-accept');
@@ -361,7 +367,7 @@ try {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
   assert.equal(overflow, false, 'Compact layout has no horizontal page overflow');
   assert.deepEqual(errors, [], 'No page exceptions or failed HTTP resources');
-  console.log('Browser checks passed: English/Greek, opening through Cinema/electrician, influence and State-of-Repair filters, Giant Palm, ticket sales, both staff dispatches/save-load/return, sandbox and compact layout.');
+  console.log('Browser checks passed: English/Greek, opening through Cinema/electrician, influence/State-of-Repair filters, Giant Palm, staff selection, ticket sales, both staff dispatches/save-load/return, sandbox and compact layout.');
 } finally {
   await browser?.close();
   server?.kill();

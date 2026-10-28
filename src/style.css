@@ -220,3 +220,16 @@ dialog .primary { margin-top: 8px; }
 .filter-types button.selected { background: #53793f; border-color: #e6e3a7; }
 .filter-types img { width: 24px; height: 24px; object-fit: contain; }
 .filter-legend { margin-top: 7px; padding: 6px 8px; background: #2f2d3fc9; border: 1px solid #8f8cab; font: 10px/1.4 'Courier New',monospace; }
+.lot-summary { position: absolute; left: 0; bottom: 0; width: 300px; z-index: 3; pointer-events: none; color: #fff; background: linear-gradient(#75718f,#4c4a63 65%,#403e55); border: 3px ridge #bbb8cc; box-shadow: 0 2px 10px #0009; font-family: 'Courier New',monospace; }
+.lot-summary-title { display: flex; align-items: center; gap: 6px; padding: 3px 8px; background: #3c3a52; border-bottom: 1px solid #a8a5bc; font-weight: bold; font-size: 11px; }
+.lot-summary-title span { width: 16px; height: 16px; display: grid; place-items: center; border: 1px solid #cfcdde; border-radius: 50%; font-size: 9px; color: #dcd9ea; }
+.lot-summary-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 4px; padding: 6px 7px 7px; }
+.lot-summary-grid > div { display: flex; align-items: center; gap: 4px; min-width: 0; padding: 3px 5px; background: #38364d88; border: 1px solid #6f6d8799; }
+.lot-summary-grid img { width: 20px; height: 20px; object-fit: contain; }
+.lot-summary-grid b { font-size: 11px; font-weight: bold; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lot-summary-grid > div:first-child b { color: #b6f0a7; }
+.lot-summary-grid .lot-meters { grid-column: 1 / -1; }
+.lot-summary-grid .lot-meters b { margin-right: 8px; }
+.tutorial-mode .lot-control { left: 305px; }
+@media (max-width: 900px) { .lot-summary { width: 226px; } .tutorial-mode .lot-control { left: 231px; width: calc(100vw - 240px); } }
+@media (max-width: 760px) { .lot-summary { display: none; } .tutorial-mode .lot-control { left: 0; width: calc(100vw - 12px); } }

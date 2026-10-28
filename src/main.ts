@@ -31,6 +31,7 @@ async function start() {
   let state = createGame();
   let sim = new Simulation(state, catalog);
   let speed = 1, selected: number | null = null, build: CatalogItem | null = null;
+  let staffSelection: 'mechanic' | 'electrician' | null = null;
   let rotation = 0, pointer = { x: 0, z: 0 }, hasPointer = false;
   const images = new Map<string, string>();
   const pendingImages = new Set<string>();
@@ -43,6 +44,16 @@ async function start() {
         <div class="classic-left-tools"><button id="filter-button" data-ui="i_filter" title="World Filters">F</button><button id="world-button" data-ui="i_world" title="World View">◉</button><button id="hide-panel" data-ui="i_hidebar" title="Hide Info Panel">⌄</button></div>
         <div class="classic-objectives"><b id="objective-title">Welcome to the Strip</b><span id="objective-count">0 / 50 visitors</span><div class="progress"><i id="progress"></i></div></div>
         <div id="empty-hint"><span>♠</span><h2 data-i18n="ID_WEB_EMPTY_CASINO">Welcome to your casino.</h2><p data-i18n="ID_WEB_EMPTY_CASINO_HINT">Select the build button and choose an object, just like in the original game.</p><button id="first-slot" class="primary" data-i18n="ID_WEB_BUILD_SLOT">BUILD A SLOT</button><button id="demo" class="text-button" data-i18n="ID_WEB_LOAD_EXAMPLE_LAYOUT">Load Example Layout</button></div>
+        <aside class="lot-summary" id="lot-summary" aria-label="Lot summary">
+          <div class="lot-summary-title"><span>i</span><b>Lot 1</b></div>
+          <div class="lot-summary-grid">
+            <div data-i18n-title="ID_FINANCE_INCOME"><span>$</span><b id="lot-summary-cash">$0</b></div>
+            <div data-i18n-title="ID_WEB_REPUTATION"><img data-menu-ui="i_star" alt="" /><b id="lot-summary-rating">0</b></div>
+            <div data-i18n-title="ID_GENERAL_VISITORS"><img data-menu-ui="i_people" alt="" /><b id="lot-summary-people">0</b></div>
+            <div data-i18n-title="ID_WEB_OBJECTS"><img data-menu-ui="i_build" alt="" /><b id="lot-summary-buildings">0</b></div>
+            <div class="lot-meters" data-i18n-title="ID_WEB_POWER_WATER"><img data-menu-ui="i_power" alt="" /><b id="lot-summary-power">0</b><img data-menu-ui="i_water" alt="" /><b id="lot-summary-water">0</b></div>
+          </div>
+        </aside>
         <section class="classic-build" aria-label="Construction Toolbox">
           <div class="build-topline"><div id="panel-title">Casino Interior — Build Objects <small id="object-count"></small></div><div class="build-head-actions"><button id="build-context" title="Switch between casino interior and outside lot building">LOT / CASINO</button><button id="cancel-build" data-ui="i_cross" title="Cancel Build">×</button></div></div>
           <div class="build-layout"><div class="major-groups" id="major-groups"></div><div class="minor-tabs" id="minor-tabs"></div><div class="catalog" id="catalog"></div><div class="build-controls"><button id="multi-build" data-ui="i_multibuild" title="Multiple Placement">⇉</button><button id="build-confirm" data-ui="i_build" title="Build Selected Object">✓</button></div></div>
@@ -89,7 +100,7 @@ async function start() {
   const hotelUI = new HotelUI($('inspector'), () => updateHud(), () => { selected = null; updateInspector(); }, getIcon, message => toast(message));
   const developmentUI = new DevelopmentUI($('inspector'), () => { renderCatalog(); updateHud(); }, () => { selected = null; updateInspector(); }, message => toast(message), getIcon);
   const inspectHotel = (type = 'smallhotel') => {
-    build = null; world.controls.enablePan = true; updatePreview();
+    build = null; staffSelection = null; world.controls.enablePan = true; updatePreview();
     if (type === 'smallhotel') hotelUI.reset();
     selected = state.buildings.find(b => b.type === type)?.uid ?? null; updateInspector();
   };
@@ -127,7 +138,7 @@ async function start() {
     clearTimeout(toastTimeout); toastTimeout = setTimeout(() => $('toast').classList.remove('show'), 3500);
   }
   function choose(item: CatalogItem | null) {
-    build = item; selected = null; rotation = 0;
+    build = item; selected = null; staffSelection = null; rotation = 0;
     world.controls.enablePan = item?.id !== 'path-1';
     renderCatalog(); updatePreview(); updateHud();
   }
@@ -210,6 +221,7 @@ async function start() {
   function startGame(scenario: string | null, restored?: GameState) {
     hotelUI.reset();
     developmentUI.reset();
+    staffSelection = null;
     state = restored ?? (scenario === data.campaign[0] ? beginTutorial(createGame()) : createGame());
     sim = new Simulation(state, catalog); inGame = true; speed = 1;
     $('frontend').hidden = true; document.querySelector('.classic-ui')!.classList.remove('game-hidden');
@@ -255,6 +267,30 @@ async function start() {
     }
   }
   function updateInspector() {
+    if (staffSelection) {
+      const worker = state[staffSelection];
+      if (!worker) { staffSelection = null; }
+      else {
+        const roleLabel = t(staffSelection === 'mechanic' ? 'ID_WEB_MECHANIC' : 'ID_WEB_ELECTRICIAN');
+        const target = state.buildings.find(b => b.uid === worker.target);
+        const targetName = target ? t(catalog.find(c => c.id === target.type)!.nameKey, catalog.find(c => c.id === target.type)!.name) : t('ID_WEB_NONE');
+        $('inspector').hidden = false;
+        $('inspector').innerHTML = `<div class="section-heading"><span class="eyebrow">${t('ID_WEB_STAFF_SELECTED')}</span><button id="staff-close" class="text-button" aria-label="${t('ID_GENERAL_CLOSE')}">×</button></div>
+          <h2>${roleLabel}</h2>
+          <div class="inspector-grid">
+            <span>${t('ID_WEB_STATUS')} <b>${t('ID_WEB_MECHANIC_' + worker.status.toUpperCase())}</b></span>
+            <span>${t('ID_WEB_WAGE')} <b>$${worker.wage} ${t('ID_WEB_PER_DAY')}</b></span>
+            <span>${t('ID_WEB_SKILL')} <b>${Math.round(worker.skill)}</b></span>
+            <span>${t('ID_WEB_SPEED')} <b>${Math.round(worker.speed)}</b></span>
+            <span>${t('ID_WEB_ATTENTION')} <b>${Math.round(worker.attention)}</b></span>
+            <span>${t('ID_WEB_ASSIGNED_TO')} <b>${targetName}</b></span>
+          </div>
+          <button id="staff-locate" class="sell-button">${t('ID_WEB_LOCATE')}</button>`;
+        $('staff-close').onclick = () => { staffSelection = null; updateInspector(); };
+        $('staff-locate').onclick = () => world.focusStaff(staffSelection!);
+        return;
+      }
+    }
     const b = state.buildings.find(b => b.uid === selected);
     $('inspector').hidden = !b;
     if (!b) return;
@@ -283,6 +319,15 @@ async function start() {
     }
     $('toggle-open').textContent = state.open ? 'CASINO OPEN' : 'CASINO CLOSED';
     $('game-clock').textContent = `${String(Math.floor((state.elapsed % DAY_SECONDS) / DAY_SECONDS * 24)).padStart(2, '0')}:00`;
+    const power = state.buildings.reduce((sum, b) => sum + (catalog.find(c => c.id === b.type)?.power ?? 0), 0);
+    const water = state.buildings.reduce((sum, b) => sum + (catalog.find(c => c.id === b.type)?.water ?? 0), 0);
+    const rating = state.guests.length ? state.guests.reduce((sum, g) => sum + g.happiness, 0) / state.guests.length : 0;
+    $('lot-summary-cash').textContent = money(state.income);
+    $('lot-summary-rating').textContent = String(Math.round(rating));
+    $('lot-summary-people').textContent = String(state.guests.length);
+    $('lot-summary-buildings').textContent = String(state.buildings.length);
+    $('lot-summary-power').textContent = String(power);
+    $('lot-summary-water').textContent = String(water);
     updateInspector();
     tutorialUI.render();
     if (filterUI.open && filterUI.current) world.setFilter(filterUI.current, filterValues(filterUI.current));
@@ -290,6 +335,7 @@ async function start() {
   function changeState(next: GameState) {
     hotelUI.reset();
     developmentUI.reset();
+    staffSelection = null;
     state = next; sim = new Simulation(state, catalog); choose(null); world.sync(state.buildings, [], catalog, null); updateHud();
     world.setExterior(!!state.tutorial); world.setFilter(null, null); filterUI.current = null; tutorialUI.start();
   }
@@ -454,6 +500,9 @@ async function start() {
       else { toast(`${t(build.nameKey, build.name)}: ${t('ID_WEB_OBJECT_PLACED')}.`); if (!(e.shiftKey || multiBuild || build.id === 'path-1')) choose(null); }
       updatePreview(); updateHud();
     } else {
+      const role = world.pickStaff(e);
+      if (role) { staffSelection = role; selected = null; updateInspector(); return; }
+      staffSelection = null;
       selected = world.pick(e); updateInspector();
       if (selected !== null) world.focusBuilding(selected);
       if (state.tutorial && selected === null) {
