@@ -29,8 +29,9 @@ and returns; active jobs survive save/load. Then construct a **Cinema ($5,000)**
 connect it and add an **Electrician's Hut ($300)**. Connected cinemas sell $8 tickets
 to up to 22 guests; Cinema repairs use the electrician, independently of mechanic
 jobs. Finally open the **Filters** panel and review **Noise**, **Smell** and
-**Beauty** influence overlays. Placing scenery (the next original objective) and
-the rest of the campaign are still being ported.
+**Beauty** influence overlays. Plant the Giant Palm ($340) in the scenery tab, then
+switch the Filters panel to **Objects → State of Repair** to review building health.
+Building the Small Casino and the rest of the campaign are still being ported.
 Other campaigns remain previews. The exterior
 is a minimal new scene, not the decoded original scenario map.
 

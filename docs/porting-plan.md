@@ -124,9 +124,21 @@ never overwrites a save.
   legitimately be empty; decoration sources arrive with the next scenery objective.
   Overlap uses the maximum intensity. Ring distance is Chebyshev; the native
   engine's influence propagation is not decompiled, so exact falloff is approximate.
-- The next original goal is to place a Tree with scenery tools. Scenery placement,
-  filters for staff/house-edge views and subsequent training remain pending.
-  No full scenario win/unlock is awarded.
+- The source objective says "Tree", but this Steam tutorial selects `Palm2x2_0`.
+  The Giant Palm is imported at $340 with Beauty {2,2,1,3} and Calming {2,2,1,5}.
+  It is offered from Scenery → Plants, Fountains; only one is allowed in the
+  tutorial and selling remains disabled. No paving access is required for 1×1
+  scenery, matching the source template (no entrance list).
+- A second filter mode, Objects, exposes State of Repair using the original
+  `VF_BlackToGold` ten-band ramp and thresholds 10..100. Because the placeholder
+  meshes are not the native buildings, the view currently recolours building
+  materials rather than using the original object shader. Only footprints are
+  affected; the ramp is approximate but driven by real health values.
+- Completing the palm objective advances to State of Repair, then to the pending
+  Small Casino objective. Casino-interior construction, staff/other filter views
+  and the remaining training are not implemented. The scenario does not award a win.
+- The next original step is to construct and enter a Small Casino. That work is
+  pending, along with later interior, staff and house-edge filters.
 - The 48×40 lot, roads and surrounding boxes are newly generated minimal geometry;
   the original CMF/CMB map, exact lot dimensions and city simulation remain unported.
 

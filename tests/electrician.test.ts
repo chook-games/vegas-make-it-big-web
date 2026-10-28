@@ -73,7 +73,7 @@ test('mechanics cannot service Cinema; two active staff jobs resume independentl
   assert.equal(requestRepair(full,catalog,target.uid),null);
   assert.equal(tutorialStage(full),'filterNoise');
   Object.assign(full.tutorial!,{filterNoise:true,filterSmell:true,filterBeauty:true});
-  assert.equal(tutorialStage(full),'next');
+  assert.equal(tutorialStage(full),'tree');
   const loaded = restore(serialize(full),catalog);
   assert.deepEqual(loaded.mechanic,full.mechanic); assert.deepEqual(loaded.electrician,full.electrician);
   const resumed = new Simulation(loaded,catalog); let sawElectricalRepair = false;

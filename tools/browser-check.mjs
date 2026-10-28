@@ -272,7 +272,7 @@ try {
   await page.waitForSelector('#event-accept'); await page.click('#event-accept');
   await page.click('[data-filter="beauty"]');
   await page.waitForSelector('#event-accept');
-  assert.match(await page.locator('#tutorial-event').textContent(), /Noise, Smell and Beauty influence filters/);
+  assert.match(await page.locator('#tutorial-event').textContent(), /green glow around the Tree/i);
   await page.click('#event-accept');
   await page.screenshot({ path: 'test-results/influence-filters.png' });
   await page.click('#filter-close');
@@ -282,6 +282,30 @@ try {
   assert.equal(filtered.tutorial.filterSmell, true);
   assert.equal(filtered.tutorial.filterBeauty, true);
   assert.equal(filtered.completed, false);
+  if (await page.locator('#development-close').isVisible()) await page.click('#development-close');
+  await page.click('#lot-build'); await page.click('[data-item="palm2x2-0"]');
+  const palmPosition = pixel(30,37);
+  await page.mouse.click(palmPosition.x, palmPosition.y);
+  await page.waitForSelector('#event-accept');
+  assert.match(await page.locator('#tutorial-event').textContent(), /State of Repair/);
+  await page.click('#event-accept');
+  await page.click('#save');
+  const planted = await page.evaluate(() => JSON.parse(localStorage.getItem('vegas-web-save-v1')));
+  assert.equal(planted.cash, filtered.cash - 340);
+  assert.equal(planted.buildings.filter(b => b.type === 'palm2x2-0').length, 1);
+  await page.click('#filter-button');
+  await page.click('#filter-mode-objects');
+  await page.click('[data-filter="repair"]');
+  await page.waitForSelector('#event-accept');
+  assert.match(await page.locator('#tutorial-event').textContent(), /planted a Giant Palm/);
+  await page.click('#event-accept');
+  await page.screenshot({ path: 'test-results/state-of-repair.png' });
+  await page.click('#filter-close');
+  await page.click('#save');
+  const repairedFilter = await page.evaluate(() => JSON.parse(localStorage.getItem('vegas-web-save-v1')));
+  assert.equal(repairedFilter.tutorial.repairFilter, true);
+  assert.equal(repairedFilter.completed, false);
+  assert.deepEqual(repairedFilter.buildings, planted.buildings);
   await page.click('#return-menu');
   await page.click('#menu-campaign');
   await page.click('#campaign-cancel');
@@ -337,7 +361,7 @@ try {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
   assert.equal(overflow, false, 'Compact layout has no horizontal page overflow');
   assert.deepEqual(errors, [], 'No page exceptions or failed HTTP resources');
-  console.log('Browser checks passed: English/Greek, opening through Cinema/electrician, influence filters, ticket sales, both staff dispatches/save-load/return, sandbox and compact layout.');
+  console.log('Browser checks passed: English/Greek, opening through Cinema/electrician, influence and State-of-Repair filters, Giant Palm, ticket sales, both staff dispatches/save-load/return, sandbox and compact layout.');
 } finally {
   await browser?.close();
   server?.kill();

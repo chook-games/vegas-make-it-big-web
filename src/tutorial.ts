@@ -24,6 +24,7 @@ export interface TutorialState {
   filterNoise?: boolean;
   filterSmell?: boolean;
   filterBeauty?: boolean;
+  repairFilter?: boolean;
 }
 // Starting cash: Welcome to The Strip/default.lua. Lot price: original Lot 1
 // purchase panel in the supplied Untitled7.jpg / Untitled8.jpg references.
@@ -35,16 +36,18 @@ export function beginTutorial(state: GameState): GameState {
   state.tutorial = { scenario: 'welcome', lotSelected: false, lotOwned: false, theme: null };
   return state;
 }
-export type TutorialStage = 'lot' | 'hotel' | 'paths' | 'guests' | 'finance' | 'review' | 'camera' | 'office' | 'officePaths' | 'retail' | 'shop' | 'shopPaths' | 'mechanic' | 'mechanicPaths' | 'repair' | 'cinema' | 'cinemaPaths' | 'electrician' | 'electricianPaths' | 'filterNoise' | 'filterSmell' | 'filterBeauty' | 'next';
+export type TutorialStage = 'lot' | 'hotel' | 'paths' | 'guests' | 'finance' | 'review' | 'camera' | 'office' | 'officePaths' | 'retail' | 'shop' | 'shopPaths' | 'mechanic' | 'mechanicPaths' | 'repair' | 'cinema' | 'cinemaPaths' | 'electrician' | 'electricianPaths' | 'filterNoise' | 'filterSmell' | 'filterBeauty' | 'tree' | 'repairFilter' | 'next';
 export const OBJECTIVE_KEYS = ['ID_SCENARIO_NWS_OBJ_OBJECTIVE', 'ID_SCENARIO_NWS_OBJ_BUILD', 'ID_SCENARIO_NWS_OBJ_PATHS',
   'ID_SCENARIO_NWS_OBJ_SALES', 'ID_SCENARIO_NWS_OBJ_SALES2', 'ID_SCENARIO_NWS_OBJ_CAMERA', 'ID_SCENARIO_NWS_OBJ_OFFICE',
   'ID_SCENARIO_NWS_OBJ_OFFICE2', 'ID_SCENARIO_NWS_OBJ_MECHANIC', 'ID_SCENARIO_NWS_OBJ_MECHANIC2', 'ID_SCENARIO_NWS_OBJ_ELECTRICIAN',
-  'ID_SCENARIO_NWS_OBJ_NOISE', 'ID_SCENARIO_NWS_OBJ_SMELL', 'ID_SCENARIO_NWS_OBJ_FILTERS'];
+  'ID_SCENARIO_NWS_OBJ_NOISE', 'ID_SCENARIO_NWS_OBJ_SMELL', 'ID_SCENARIO_NWS_OBJ_FILTERS', 'ID_SCENARIO_NWS_OBJ_FILTER2',
+  'ID_SCENARIO_NWS_OBJ_BUILDCASINO'];
 export function objectiveIndex(stage: TutorialStage) {
   return { lot:0, hotel:1, paths:2, guests:3, finance:3, review:4, camera:5, office:6, officePaths:6, retail:7, shop:7, shopPaths:7,
     mechanic:8, mechanicPaths:8, repair:9, cinema:10, cinemaPaths:10, electrician:10, electricianPaths:10,
-    filterNoise:11, filterSmell:12, filterBeauty:12, next:13 }[stage];
+    filterNoise:11, filterSmell:12, filterBeauty:12, tree:13, repairFilter:14, next:15 }[stage];
 }
+export const TREE_ITEM = 'palm2x2-0';
 export function tutorialTask(stage: TutorialStage) {
   return stage === 'guests' ? 'ID_WEB_WAITING_FOR_GUESTS' : OBJECTIVE_KEYS[objectiveIndex(stage)] + '_NAME';
 }
@@ -72,7 +75,9 @@ export function tutorialStage(state: GameState): TutorialStage {
   if (!state.tutorial.electricianConnected) return 'electricianPaths';
   if (!state.tutorial.filterNoise) return 'filterNoise';
   if (!state.tutorial.filterSmell) return 'filterSmell';
-  return state.tutorial.filterBeauty ? 'next' : 'filterBeauty';
+  if (!state.tutorial.filterBeauty) return 'filterBeauty';
+  if (!state.buildings.some(b => b.type === TREE_ITEM)) return 'tree';
+  return state.tutorial.repairFilter ? 'next' : 'repairFilter';
 }
 export function purchaseLot(state: GameState, theme: string): string | null {
   const tutorial = state.tutorial;
@@ -100,6 +105,10 @@ export function tutorialBuildError(state: GameState, item: CatalogItem): string 
     if (!state.tutorial.shopConnected) return 'ID_WEB_FINISH_SHOP_FIRST';
     return state.buildings.some(b => b.type === item.id) ? 'ID_WEB_BUILDING_EXISTS' : null;
   }
+  if (item.id === TREE_ITEM) {
+    if (!state.tutorial.filterBeauty) return 'ID_WEB_FINISH_FILTERS_FIRST';
+    return state.buildings.some(b => b.type === item.id) ? 'ID_WEB_BUILDING_EXISTS' : null;
+  }
   if (item.id === 'cinema' || item.id === 'electricianhut') {
     if (!state.tutorial.repairRequested) return 'ID_WEB_CALL_MECHANIC_FIRST';
     if (item.id === 'electricianhut' && !state.tutorial.cinemaConnected) return 'ID_WEB_CONNECT_CINEMA_FIRST';
@@ -117,15 +126,18 @@ export function validateTutorial(state: GameState) {
     tutorial.lotOwned !== (tutorial.theme !== null) ||
     (tutorial.lotOwned && !tutorial.lotSelected) ||
     (!tutorial.lotOwned && state.buildings.length > 0) ||
-    state.buildings.length > 6 || new Set(state.buildings.map(b => b.type)).size !== state.buildings.length ||
-    state.buildings.some(b => !['smallhotel','headoffice','souvenirshop','mechanichut','cinema','electricianhut'].includes(b.type))) {
+    state.buildings.length > 7 || new Set(state.buildings.map(b => b.type)).size !== state.buildings.length ||
+    state.buildings.some(b => !['smallhotel','headoffice','souvenirshop','mechanichut','cinema','electricianhut',TREE_ITEM].includes(b.type))) {
     throw new Error('Invalid tutorial save data.');
   }
-  for (const value of [tutorial.pathConnected, tutorial.financeViewed, tutorial.statisticsClosed, tutorial.cameraReviewed, tutorial.officeConnected, tutorial.shopConnected, tutorial.mechanicConnected, tutorial.repairRequested, tutorial.repairCompleted, tutorial.cinemaConnected, tutorial.electricianConnected, tutorial.filterNoise, tutorial.filterSmell, tutorial.filterBeauty]) {
+  for (const value of [tutorial.pathConnected, tutorial.financeViewed, tutorial.statisticsClosed, tutorial.cameraReviewed, tutorial.officeConnected, tutorial.shopConnected, tutorial.mechanicConnected, tutorial.repairRequested, tutorial.repairCompleted, tutorial.cinemaConnected, tutorial.electricianConnected, tutorial.filterNoise, tutorial.filterSmell, tutorial.filterBeauty, tutorial.repairFilter]) {
     if (value !== undefined && typeof value !== 'boolean') throw new Error('Invalid tutorial progress.');
   }
-  if ((tutorial.filterNoise || tutorial.filterSmell || tutorial.filterBeauty) && !tutorial.electricianConnected) throw new Error('Invalid filter progress.');
+  if ((tutorial.filterNoise || tutorial.filterSmell || tutorial.filterBeauty || tutorial.repairFilter) && !tutorial.electricianConnected) throw new Error('Invalid filter progress.');
   if ((tutorial.filterBeauty && !tutorial.filterSmell) || (tutorial.filterSmell && !tutorial.filterNoise)) throw new Error('Invalid filter order.');
+  if ((state.buildings.some(b => b.type === TREE_ITEM) && !tutorial.filterBeauty) ||
+    (tutorial.repairFilter && !state.buildings.some(b => b.type === TREE_ITEM))) throw new Error('Invalid scenery progress.');
+  if (tutorial.repairFilter && !tutorial.filterBeauty) throw new Error('Invalid repair filter order.');
   if ((tutorial.arrivalTimer !== undefined && (!Number.isFinite(tutorial.arrivalTimer) || tutorial.arrivalTimer < 0)) ||
     (tutorial.shopArrivalTimer !== undefined && (!Number.isFinite(tutorial.shopArrivalTimer) || tutorial.shopArrivalTimer < 0)) ||
     (tutorial.cinemaArrivalTimer !== undefined && (!Number.isFinite(tutorial.cinemaArrivalTimer) || tutorial.cinemaArrivalTimer < 0)) ||

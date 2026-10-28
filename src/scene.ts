@@ -3,7 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { TGALoader } from 'three/addons/loaders/TGALoader.js';
 import { DEPTH, WIDTH, dimensions, type Building, type CatalogItem, type Guest, type GameState } from './game';
 import { cellFromKey, buildingRoute, hotelWalkway, rotateCell } from './paving';
-import { INFLUENCE_COLOURS, type InfluenceType } from './influence';
+import { INFLUENCE_COLOURS, REPAIR_COLOURS, type InfluenceType } from './influence';
 
 const palette: Record<string, number> = {
   slot: 0xb23852, poker: 0x5657a8, blackjack: 0x187f74, roulette: 0x187f74,
@@ -30,6 +30,7 @@ export class CasinoScene {
   private staffMeshes = new Map<string, THREE.Group>();
   private filterMesh: THREE.Mesh | null = null;
   private filterSignature = '';
+  private repairTints = new Map<number, number>();
 
   constructor(public host: HTMLElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
@@ -145,13 +146,23 @@ export class CasinoScene {
       this.box(this.pavingGroup, .84, .1, .84, entrance.x + .5, .08, entrance.z + .5, connections[index] ? 0x46bd7b : 0xf0b95a, true);
     }
   }
-  /** Original influence ramp over the whole lot; values are intensity 0..3. */
-  setFilter(type: InfluenceType | null, values: Uint8Array | null) {
+  /** Original influence ramp over the lot, or native building tint for State of Repair. */
+  setFilter(type: InfluenceType | 'repair' | null, values: Uint8Array | null) {
     const signature = type ? `${type}:${Array.from(values ?? []).join('')}` : '';
     if (signature === this.filterSignature) return;
     this.filterSignature = signature;
     if (this.filterMesh) { this.disposeGroup(this.filterMesh); this.filterMesh = null; }
-    if (!type || !values) return;
+    this.repairTints.clear();
+    if (!type || !values) { this.applyRepairTints(); return; }
+    if (type === 'repair') {
+      for (const [uid, mesh] of this.buildings) {
+        const bucket = values[Math.floor(mesh.position.z) * WIDTH + Math.floor(mesh.position.x)];
+        if (!bucket) continue;
+        const [r, g, b] = REPAIR_COLOURS[Math.min(REPAIR_COLOURS.length - 1, bucket - 1)];
+        this.repairTints.set(uid, (r << 16) | (g << 8) | b);
+      }
+      this.applyRepairTints(); return;
+    }
     const canvas = document.createElement('canvas'); canvas.width = WIDTH; canvas.height = DEPTH;
     const ctx = canvas.getContext('2d')!;
     const image = ctx.createImageData(WIDTH, DEPTH);
@@ -170,6 +181,22 @@ export class CasinoScene {
     this.filterMesh.rotation.x = -Math.PI / 2;
     this.filterMesh.position.set(WIDTH / 2, .16, DEPTH / 2);
     this.scene.add(this.filterMesh);
+  }
+  private applyRepairTints() {
+    for (const [uid, mesh] of this.buildings) this.tintGroup(uid, mesh);
+  }
+  private tintGroup(uid: number, group: THREE.Object3D) {
+    const tint = this.repairTints.get(uid);
+    group.traverse(node => {
+      if (!(node instanceof THREE.Mesh)) return;
+      const materials = Array.isArray(node.material) ? node.material : [node.material];
+      for (const material of materials) {
+        const mat = material as THREE.Material & { color?: THREE.Color };
+        if (!mat.color) continue;
+        if (mat.userData.baseColor === undefined) mat.userData.baseColor = mat.color.getHex();
+        mat.color.setHex(tint ?? mat.userData.baseColor);
+      }
+    });
   }
   private label(parent: THREE.Object3D, text: string, x: number, y: number, z: number, w: number, h: number, flat = false) {
     const canvas = document.createElement('canvas'); canvas.width = 1024; canvas.height = 128;
@@ -217,6 +244,14 @@ export class CasinoScene {
       this.box(group, w * .92, .25, 4.9, 0, 4.3, 1.3, 0x6c678e);
       this.box(group, 6, .65, .3, 0, 2.8, -1.1, 0xd6a56e, true);
       this.box(group, 3.3, 1.8, .1, -.5, 1, -1.08, 0x3c5264);
+    } else if (item.id === 'palm2x2-0') {
+      this.box(group, .7, .8, .7, 0, .35, 0, 0x6c5638);
+      this.box(group, .18, 5.2, .18, 0, 2.9, 0, 0x8a6a43);
+      for (let i = 0; i < 6; i++) {
+        const angle = i / 6 * Math.PI * 2;
+        const leaf = this.box(group, 1.8, .08, .5, Math.cos(angle) * .8, 5.4, Math.sin(angle) * .8, 0x3f8f55);
+        leaf.rotation.y = -angle;
+      }
     } else if (item.id === 'mechanichut' || item.id === 'electricianhut') {
       this.box(group, w * .9, 1.8, .9, 0, 1, .45, item.id === 'mechanichut' ? 0x637f91 : 0xb39355);
       this.box(group, w * .98, .18, 1.1, 0, 1.95, .45, 0x9b9d87);
@@ -280,6 +315,7 @@ export class CasinoScene {
         mesh.position.set(b.x + w / 2, 0, b.z + d / 2); mesh.rotation.y = -b.rotation * Math.PI / 2;
         if (b.type === 'headoffice' && b.upgrades?.includes(2)) this.box(mesh, 1.5, 2, 2.2, 2.1, 1.1, 1, 0x8eae8b);
         mesh.userData.uid = b.uid; mesh.userData.variant = variant; this.buildings.set(b.uid, mesh); this.scene.add(mesh);
+        this.tintGroup(b.uid, mesh);
       }
     }
     this.selection.visible = selected !== null && this.buildings.has(selected);

@@ -1,12 +1,12 @@
 import './style.css';
 import { CasinoScene } from './scene';
 import { language, localizeDocument, setLanguage, translate as t } from './i18n';
-import { beginTutorial, tutorialStage, tutorialBuildError, tutorialTask, objectiveIndex, OBJECTIVE_KEYS } from './tutorial';
+import { beginTutorial, tutorialStage, tutorialBuildError, tutorialTask, objectiveIndex, OBJECTIVE_KEYS, TREE_ITEM } from './tutorial';
 import { TutorialUI } from './tutorial-ui';
 import { HotelUI } from './hotel-ui';
 import { DevelopmentUI } from './development-ui';
 import { FilterUI } from './filter-ui';
-import { influenceMap } from './influence';
+import { influenceMap, repairMap } from './influence';
 import { Simulation, createGame, canPlace, place, sell, restore, serialize, SAVE_KEY,
   DAY_SECONDS, type CatalogItem, type GameState } from './game';
 
@@ -93,12 +93,15 @@ async function start() {
     if (type === 'smallhotel') hotelUI.reset();
     selected = state.buildings.find(b => b.type === type)?.uid ?? null; updateInspector();
   };
+  const filterValues = (type: 'noise'|'smell'|'beauty'|'calming'|'repair' | null) =>
+    type === 'repair' ? repairMap(state, catalog) : type ? influenceMap(state, catalog, type) : null;
   const filterUI = new FilterUI(type => {
-    world.setFilter(type, type ? influenceMap(state, catalog, type) : null);
+    world.setFilter(type, filterValues(type));
     if (type && state.tutorial) {
       if (type === 'noise') state.tutorial.filterNoise = true;
       if (type === 'smell') state.tutorial.filterSmell = true;
       if (type === 'beauty') state.tutorial.filterBeauty = true;
+      if (type === 'repair') state.tutorial.repairFilter = true;
       updateHud(); tutorialUI.render();
     }
   }, getIcon);
@@ -110,6 +113,7 @@ async function start() {
     else if (stage === 'mechanic') { major = 0; minor = 'BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF'; }
     else if (stage === 'cinema') { major = 1; minor = 'BUILDING_MINOR_GROUP_EXT_ENTERTAINMENT'; }
     else if (stage === 'electrician') { major = 0; minor = 'BUILDING_MINOR_GROUP_EXT_MAINTENANCESTAFF'; }
+    else if (stage === 'tree') { major = 3; minor = 'BUILDING_MINOR_GROUP_EXT_PLANTS_FOUNTAINS'; }
     else { major = 3; minor = 'BUILDING_MINOR_GROUP_EXT_PATHS'; }
     choose(null); renderGroups(); renderMinors(); renderCatalog();
   }, () => { renderCatalog(); updateHud(); }, message => toast(message), getIcon, inspectHotel, () => filterUI.show());
@@ -223,7 +227,7 @@ async function start() {
   }
   function renderCatalog() {
     const visible = catalog.filter(c => c.major === major && (minor === '' || (c.minor ?? c.category) === minor) &&
-      (!state.tutorial || ['smallhotel','path-1','headoffice','souvenirshop','mechanichut','cinema','electricianhut'].includes(c.id)));
+      (!state.tutorial || ['smallhotel','path-1','headoffice','souvenirshop','mechanichut','cinema','electricianhut',TREE_ITEM].includes(c.id)));
     $('object-count').textContent = `${visible.length} objects`;
     const missing = visible.filter(item => item.thumbnail && !images.has(item.id) && !pendingImages.has(item.id));
     for (const item of missing) pendingImages.add(item.id);
@@ -281,7 +285,7 @@ async function start() {
     $('game-clock').textContent = `${String(Math.floor((state.elapsed % DAY_SECONDS) / DAY_SECONDS * 24)).padStart(2, '0')}:00`;
     updateInspector();
     tutorialUI.render();
-    if (filterUI.open && filterUI.current) world.setFilter(filterUI.current, influenceMap(state, catalog, filterUI.current));
+    if (filterUI.open && filterUI.current) world.setFilter(filterUI.current, filterValues(filterUI.current));
   }
   function changeState(next: GameState) {
     hotelUI.reset();
