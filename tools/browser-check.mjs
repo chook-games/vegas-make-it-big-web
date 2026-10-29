@@ -43,6 +43,10 @@ try {
   await page.click('#campaign-accept');
   await page.waitForSelector('#event-accept');
   await page.click('#event-accept');
+  const summaryBox = await page.locator('#lot-summary').boundingBox();
+  const controlBox = await page.locator('.lot-control').boundingBox();
+  assert.ok(summaryBox && controlBox, 'Lot HUD panels are visible');
+  assert.ok(summaryBox.y >= controlBox.y + controlBox.height - 1, 'Lot summary does not overlap the tutorial panel');
   await page.click('#objective-button');
   assert.match(await page.locator('#objectives-dialog').textContent(), /Buy your first Lot/);
   await page.click('[data-objective]');

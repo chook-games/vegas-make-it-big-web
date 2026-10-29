@@ -230,6 +230,7 @@ dialog .primary { margin-top: 8px; }
 .lot-summary-grid > div:first-child b { color: #b6f0a7; }
 .lot-summary-grid .lot-meters { grid-column: 1 / -1; }
 .lot-summary-grid .lot-meters b { margin-right: 8px; }
-.tutorial-mode .lot-control { left: 305px; }
-@media (max-width: 900px) { .lot-summary { width: 226px; } .tutorial-mode .lot-control { left: 231px; width: calc(100vw - 240px); } }
-@media (max-width: 760px) { .lot-summary { display: none; } .tutorial-mode .lot-control { left: 0; width: calc(100vw - 12px); } }
+.tutorial-mode .lot-control { left: 8px; bottom: 126px; transform: none; width: min(635px, calc(100vw - 16px)); }
+.tutorial-mode.tutorial-building .lot-summary { display: none; }
+@media (max-width: 900px) { .lot-summary { width: 226px; } .tutorial-mode .lot-control { bottom: 120px; } }
+@media (max-width: 760px) { .lot-summary { display: none; } .tutorial-mode .lot-control { left: 0; bottom: 0; width: calc(100vw - 12px); } }
