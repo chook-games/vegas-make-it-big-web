@@ -83,6 +83,41 @@ Open questions:
 - Manual PDF (not yet machine-read; PDF input unsupported by this model, text can
   be extracted with Python if needed).
 
+
+## DDT (textures) - DECODED
+
+Verified format:
+
+- Header = **312 bytes** (constant across all tested dimensions).
+- Header fields at the start: `u32 version=1`, `u32 unknown=0`, `u32 mips=9`,
+  `u32 formatId=4`, `u32 kind=2`, `u32 width`, `u32 height`.
+- Payload after byte 312 is a **DXT5** mip chain, row-major 4x4 blocks.
+- Decoding the first mip reproduces the original art exactly.
+
+Verified samples:
+
+| File | Size | Result |
+| --- | --- | --- |
+| COMMON/tables/SLOT_GRAPHICS.DDT | 512x512 | SLOTS paytable, clean |
+| FINAL-A/TABLESETC/BLACKJACK.DDT | 604x404 | Blackjack felt layout, clean |
+| FINAL-A/THEMED/AM/WALL_PLAIN_AM_INT_00.DDT | 256x256 | marble wall, clean |
+| crossfade/environ1.ddt | 64x128 | DAY/NIGHT signs, clean |
+| FINAL-A/DETAIL-COLOUR/DICE.ddt | 100x68 | red dice dots, clean |
+| Resources/particle.ddt | 132x132 | radial particle, clean |
+| FINAL+A/DETAILS-COLOUR/SHIO_BULB.ddt | 128x64 | light bulbs, clean |
+
+Tool: `python tools/re/ddt.py <file.ddt> [out.png]` (writes to `.re-out/` by
+default). `--scan <folder>` iterates a directory.
+
+Open items: confirm any non-DXT5 variants / unusual mip layouts (e.g. 68x68
+GUI textures), and generate a bulk-converted texture atlas for the port.
+
+## Next: TM meshes
+
+`*.tm` files have no known magic (`00 00 00 00 ...`). They contain embedded DDT
+paths for materials, so the next step is to parse vertex/index structures and
+material references, starting with `Common/tables/blackjack.tm` and
+`Common/tables/slot.tm`.
 ## Next experiments
 
 1. Locate references to name-table indices in the CMF binary and reconstruct
