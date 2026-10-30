@@ -118,6 +118,27 @@ GUI textures), and generate a bulk-converted texture atlas for the port.
 paths for materials, so the next step is to parse vertex/index structures and
 material references, starting with `Common/tables/blackjack.tm` and
 `Common/tables/slot.tm`.
+
+## TM (models) - structural decode in progress
+
+Verified on `Common/tables/slot.tm`, `blackjack.tm`, `cas_atm_int.tm`:
+
+- 96-byte header with a 4x4 matrix (identity with Z flipped).
+- Length-prefixed strings (u32 length including NUL): material DDT paths and node
+  names. Examples: `SceneRoot`, `TABLE`, `ATM`, `Handle`, `DIRBILLBOARDS00`.
+  slot.tm has 93 names / 43 DDT references; blackjack.tm 42 / 21; ATM 48 / 13.
+- Mesh data contains little-endian float arrays preceded by counts.
+  Verified block in `cas_atm_int.tm` at 13456: `u32 8, u32 8`, then 8 positions
+  (x,y,z) forming a flat octagon at y=2.0, then 8 normals `(0,1,0)`.
+- Other arrays are UV-like (slot.tm run of 216 floats at 44068, values 0..0.37)
+  and normal-like (13 floats at 45084).
+- Not all vertices are stored as plain float triples; multiple submeshes and
+  possibly compressed/indexed blocks exist. Full mesh extraction is still open.
+
+Tool: `python tools/re/tm_info.py <model.tm> ...` (writes `.re-out/tm-info.json`).
+
+Next: locate count headers for every submesh, determine index/UV layout, and
+export one model (ATM or blackjack table) to glTF for visual verification.
 ## Next experiments
 
 1. Locate references to name-table indices in the CMF binary and reconstruct
